@@ -1,0 +1,12 @@
+sudo: false
+
+language: node_js
+node_js:
+- '6'
+- '7'
+- '8'
+
+script:
+- npm test
+
+after_script: npm install coveralls@^2.11.9 && cat ./coverage/lcov.info | coveralls

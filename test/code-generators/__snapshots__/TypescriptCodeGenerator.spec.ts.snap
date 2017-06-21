@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypescriptCodeGenerator should generate the correct code for DefaultImport 1`] = `"import defaultAlias from 'defaultLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport 1`] = `"import externalAlias = require('externalModuleLib');"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 1`] = `
+"    public myMethod(): void {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 2`] = `
+"    public myAbstractMethod(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 3`] = `
+"    protected myProtectedMethod(): void {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 4`] = `
+"    protected myProtectedAbstractMethod(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 5`] = `
+"    private myPrivateMethod(): void {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 6`] = `
+"    private myPrivateAbstractMethod(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport 1`] = `"import { spec1, spec2 as alias2 } from 'namedLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport 2`] = `
+"import {
+    spec1,
+    spec10,
+    spec11,
+    spec12,
+    spec13,
+    spec14,
+    spec15,
+    spec2,
+    spec3,
+    spec4,
+    spec5,
+    spec6,
+    spec7,
+    spec8,
+    spec9,
+} from 'multiLineNamedLib';"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport 1`] = `"import * as namespaceAlias from 'namespaceLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for ParameterDeclaration 1`] = `"param"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for ParameterDeclaration 2`] = `"stringParam: string"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for PropertyDeclaration 1`] = `
+"    public pubProperty: string;
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for PropertyDeclaration 2`] = `
+"    protected protProperty: number;
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for PropertyDeclaration 3`] = `
+"    private prvProperty: boolean;
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for StringImport 1`] = `"import 'stringLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SymbolSpecifier 1`] = `"SymbolSpecifier"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SymbolSpecifier 2`] = `"SymbolSpecifier as WithAlias"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for VariableDeclaration 1`] = `"myVar: string"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for VariableDeclaration 2`] = `"myConst: string"`;

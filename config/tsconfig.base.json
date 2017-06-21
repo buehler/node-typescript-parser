@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "removeComments": false,
+        "outDir": "../build",
+        "rootDir": "../src",
+        "declaration": true,
+        "sourceMap": false,
+        "importHelpers": true,
+        "strictNullChecks": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ]
+    },
+    "include": [
+        "../src/**/*"
+    ],
+    "exclude": [
+        "../node_modules",
+        "../build"
+    ]
+}

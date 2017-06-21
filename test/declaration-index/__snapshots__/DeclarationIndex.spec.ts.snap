@@ -1,0 +1,740 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeclarationIndex buildIndex() should contain a declaration from a *.tsx file 1`] = `
+File {
+  "declarations": Array [
+    VariableDeclaration {
+      "end": 124,
+      "isConst": true,
+      "isExported": true,
+      "name": "myComponent",
+      "start": 33,
+      "type": undefined,
+    },
+  ],
+  "end": 125,
+  "exports": Array [],
+  "filePath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/declaration-index/myReactTemplate.tsx",
+  "imports": Array [
+    NamespaceImport {
+      "alias": "React",
+      "end": 31,
+      "libraryName": "react",
+      "start": 0,
+    },
+  ],
+  "resources": Array [],
+  "rootPath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/declaration-index",
+  "start": 0,
+  "usages": Array [
+    "myComponent",
+    "test",
+    "div",
+  ],
+}
+`;
+
+exports[`DeclarationIndex buildIndex() should contain a declaration name with multiple declarations 1`] = `
+Array [
+  DeclarationInfo {
+    "declaration": ClassDeclaration {
+      "end": 164,
+      "isExported": true,
+      "methods": Array [],
+      "name": "Class1",
+      "properties": Array [],
+      "start": 141,
+    },
+    "from": "/classes",
+  },
+  DeclarationInfo {
+    "declaration": ClassDeclaration {
+      "end": 23,
+      "isExported": true,
+      "methods": Array [],
+      "name": "Class1",
+      "properties": Array [],
+      "start": 0,
+    },
+    "from": "/another-classes",
+  },
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should contain certain parsedResources 1`] = `
+Array [
+  "/classes",
+  "/another-classes",
+  "/helper-functions",
+  "/myReactTemplate",
+  "/prototype-funcs",
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should contain declarations with names 1`] = `
+Array [
+  DeclarationInfo {
+    "declaration": FunctionDeclaration {
+      "end": 92,
+      "isExported": true,
+      "name": "isString",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 33,
+          "name": "str",
+          "start": 25,
+          "type": "any",
+        },
+      ],
+      "start": 0,
+      "type": "str is string",
+      "variables": Array [],
+    },
+    "from": "/helper-functions",
+  },
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should not crash on prototype methods (i.e. toString, hasOwnProperty) 1`] = `
+Array [
+  DeclarationInfo {
+    "declaration": FunctionDeclaration {
+      "end": 53,
+      "isExported": true,
+      "name": "toString",
+      "parameters": Array [],
+      "start": 0,
+      "type": "string",
+      "variables": Array [],
+    },
+    "from": "/prototype-funcs",
+  },
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should not crash on prototype methods (i.e. toString, hasOwnProperty) 2`] = `
+Array [
+  DeclarationInfo {
+    "declaration": FunctionDeclaration {
+      "end": 53,
+      "isExported": true,
+      "name": "toString",
+      "parameters": Array [],
+      "start": 0,
+      "type": "string",
+      "variables": Array [],
+    },
+    "from": "/prototype-funcs",
+  },
+]
+`;
+
+exports[`DeclarationIndex exports should export all elements correctly (export * from) 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 23,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 47,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 24,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 71,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 48,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 95,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 72,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 119,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 96,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 143,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 120,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 167,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 144,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 191,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 168,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 215,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 192,
+      },
+      "from": "/exports/export-all",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex exports should export elements that are already exported correclty 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 23,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/exports/export-from-export",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 47,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 24,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 71,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 48,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 95,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 72,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 119,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 96,
+      },
+      "from": "/exports/export-from-export",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 143,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 120,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 167,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 144,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 191,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 168,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 215,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 192,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex exports should export some elements as alias correctly (export {x as y} from) 1`] = `
+Object {
+  "Bar": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 119,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Bar",
+        "properties": Array [],
+        "start": 96,
+      },
+      "from": "/exports/export-alias",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 47,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 24,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 71,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 48,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 95,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 72,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 143,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 120,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 167,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 144,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 191,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 168,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 215,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 192,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Foo": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 23,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Foo",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/exports/export-alias",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex exports should export some elements correctly (export {} from) 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 23,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/exports/export-some",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 47,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 24,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 71,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 48,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 95,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 72,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 119,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 96,
+      },
+      "from": "/exports/export-some",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 143,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 120,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 167,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 144,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 191,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 168,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 215,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 192,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex exports should parse one single file correctly 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 23,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 47,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 24,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 71,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 48,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 95,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 72,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 119,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 96,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 143,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 120,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 167,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 144,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 191,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 168,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 215,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 192,
+      },
+      "from": "/exports/classes",
+    },
+  ],
+}
+`;
