@@ -19,12 +19,11 @@ before_script:
 after_success:
   - npm install coveralls@^2.11.9 && cat ./coverage/lcov.info | coveralls
 
-before_deploy:
+after_script:
   - npm install
   - npm run build
+  - npm run semantic-release
 
-deploy:
-  provider: script
-  script: npm run semantic-release
-  on:
-    branch: master
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
