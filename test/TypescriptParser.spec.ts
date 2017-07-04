@@ -109,11 +109,19 @@ describe('TypescriptParser', () => {
 
         it('should parse export assignment', () => {
             expect(parsed.exports[2]).toBeInstanceOf(AssignedExport);
+
+            delete (parsed.exports[2] as any).resource.filePath;
+            delete (parsed.exports[2] as any).resource.rootPath;
+
             expect(parsed.exports[2]).toMatchSnapshot();
         });
 
         it('should parse default export', () => {
             expect(parsed.declarations[0]).toBeInstanceOf(DefaultDeclaration);
+
+            delete (parsed.declarations[0] as any).resource.filePath;
+            delete (parsed.declarations[0] as any).resource.rootPath;
+
             expect(parsed.declarations[0]).toMatchSnapshot();
         });
 

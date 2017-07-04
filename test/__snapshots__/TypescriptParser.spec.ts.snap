@@ -643,10 +643,8 @@ DefaultDeclaration {
         "start": 92,
       },
     ],
-    "filePath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/typescript-parser/exportsOnly.ts",
     "imports": Array [],
     "resources": Array [],
-    "rootPath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace",
     "start": 0,
     "usages": Array [
       "Foo",
@@ -702,10 +700,8 @@ AssignedExport {
       },
       [Circular],
     ],
-    "filePath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/typescript-parser/exportsOnly.ts",
     "imports": Array [],
     "resources": Array [],
-    "rootPath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace",
     "start": 0,
     "usages": Array [
       "Foo",

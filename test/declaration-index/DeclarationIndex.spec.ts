@@ -74,8 +74,12 @@ describe('DeclarationIndex', () => {
         it('should contain a declaration from a *.tsx file', () => {
             const idx: any = declarationIndex;
             const resources = Object.assign(Object.create(null), idx.parsedResources);
-
-            expect(resources['/myReactTemplate']).toMatchSnapshot();
+            const resource = resources['/myReactTemplate'];
+            
+            delete resource.filePath;
+            delete resource.rootPath;
+            
+            expect(resource).toMatchSnapshot();
         });
 
     });

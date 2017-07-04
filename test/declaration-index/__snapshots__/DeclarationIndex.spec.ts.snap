@@ -14,7 +14,6 @@ File {
   ],
   "end": 125,
   "exports": Array [],
-  "filePath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/declaration-index/myReactTemplate.tsx",
   "imports": Array [
     NamespaceImport {
       "alias": "React",
@@ -24,7 +23,6 @@ File {
     },
   ],
   "resources": Array [],
-  "rootPath": "/Users/christoph/Documents/Development/node-typescript-parser/test/_workspace/declaration-index",
   "start": 0,
   "usages": Array [
     "myComponent",
