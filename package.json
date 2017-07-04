@@ -1,6 +1,6 @@
 {
   "name": "typescript-parser",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Parser for typescript (and javascript) files, that compiles those files and generates a human understandable AST.",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -11,7 +11,8 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "npm run lint && npm run clean && jest -c ./jest.json",
     "test:watch": "npm run clean && jest -c ./jest.json --watch",
-    "typedoc": "del-cli ./docs && typedoc --ignoreCompilerErrors --out ./docs --mode file --tsconfig ./config/tsconfig.build.json ./src/"
+    "typedoc": "del-cli ./docs && typedoc --ignoreCompilerErrors --out ./docs --mode file --tsconfig ./config/tsconfig.build.json ./src/",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,8 @@
     "tslint": "^5.4.3",
     "tslint-config-airbnb": "^5.2.0",
     "tsutils": "^2.4.0",
-    "typedoc": "^0.7.1"
+    "typedoc": "^0.7.1",
+    "semantic-release": "^6.3.6"
   },
   "dependencies": {
     "tslib": "^1.7.1",
