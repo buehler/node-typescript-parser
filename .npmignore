@@ -1,0 +1,20 @@
+# node
+logs
+*.log
+npm-debug.log*
+node_modules/
+
+# testing
+coverage/
+test/
+
+# typescript
+build/
+tsconfig.json
+config/
+tslint.json
+jest.json
+.travis.yml
+
+# docs
+docs/
