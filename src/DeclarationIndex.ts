@@ -34,10 +34,10 @@ function getNodeLibraryName(path: string): string {
  */
 type Resources = { [name: string]: Resource };
 
-export type DeltaIndex = {
-    deleted: string[];
-    updated: { [declaration: string]: DeclarationInfo[] };
-};
+// export type DeltaIndex = {
+//     deleted: string[];
+//     updated: { [declaration: string]: DeclarationInfo[] };
+// };
 
 /**
  * Interface for file changes. Contains lists of file uri's to the specific action.
@@ -165,7 +165,7 @@ export class DeclarationIndex {
      * 
      * @memberof DeclarationIndex
      */
-    public async reindexForChanges(changes: FileChanges): Promise<DeltaIndex> {
+    public async reindexForChanges(changes: FileChanges): Promise<void> {
         const rebuildResources: string[] = [];
         const removeResources: string[] = [];
         const rebuildFiles: string[] = [];
@@ -213,11 +213,10 @@ export class DeclarationIndex {
             this.parsedResources[key] = resources[key];
         }
         this._index = await this.createIndex(this.parsedResources);
-
-        return {
-            deleted: removeResources,
-            updated: await this.createIndex(resources),
-        };
+        // return {
+        //     deleted: removeResources,
+        //     updated: await this.createIndex(resources),
+        // };
     }
 
     /**
