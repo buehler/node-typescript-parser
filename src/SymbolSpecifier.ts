@@ -8,7 +8,7 @@ import { Clonable } from './clonable/Clonable';
  * @class SymbolSpecifier
  * @implements {Clonable}
  */
-export class SymbolSpecifier implements Clonable {
+export class SymbolSpecifier implements Clonable<SymbolSpecifier> {
     constructor(public specifier: string, public alias?: string) { }
 
     /**

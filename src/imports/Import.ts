@@ -8,7 +8,7 @@ import { Node } from '../Node';
  * @export
  * @interface Import
  */
-export interface Import extends Clonable, Node {
+export interface Import extends Clonable<Import>, Node {
     /**
      * Indicates if the given import is "new" or a parsed one.
      * 
