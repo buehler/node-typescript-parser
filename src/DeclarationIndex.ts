@@ -34,10 +34,15 @@ function getNodeLibraryName(path: string): string {
  */
 type Resources = { [name: string]: Resource };
 
-// export type DeltaIndex = {
-//     deleted: string[];
-//     updated: { [declaration: string]: DeclarationInfo[] };
-// };
+/**
+ * Delta between two indices. Is calculated when the declaration index is updated for
+ * certain files. Contains a string of deleted resources and a list of updated
+ * declarations.
+ */
+export type DeltaIndex = {
+    deleted: string[];
+    updated: { [declaration: string]: DeclarationInfo[] };
+};
 
 /**
  * Interface for file changes. Contains lists of file uri's to the specific action.
@@ -159,13 +164,14 @@ export class DeclarationIndex {
 
     /**
      * Is called when file events happen. Does reindex for the changed files and creates a new index.
+     * Returns the differences for the new index.
      * 
      * @param {FileEvent[]} changes
-     * @returns {Promise<void>}
+     * @returns {Promise<DeltaIndex>}
      * 
      * @memberof DeclarationIndex
      */
-    public async reindexForChanges(changes: FileChanges): Promise<void> {
+    public async reindexForChanges(changes: FileChanges): Promise<DeltaIndex> {
         const rebuildResources: string[] = [];
         const removeResources: string[] = [];
         const rebuildFiles: string[] = [];
@@ -213,10 +219,11 @@ export class DeclarationIndex {
             this.parsedResources[key] = resources[key];
         }
         this._index = await this.createIndex(this.parsedResources);
-        // return {
-        //     deleted: removeResources,
-        //     updated: await this.createIndex(resources),
-        // };
+
+        return {
+            deleted: removeResources,
+            updated: await this.createIndex(resources),
+        };
     }
 
     /**
