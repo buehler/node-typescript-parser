@@ -1,5 +1,7 @@
 # node typescript parser
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/TypeScript-Heroes/node-typescript-parser.svg)](https://greenkeeper.io/)
+
 This package is a TypeScript and ECMAScript parser. It uses the underlying typescript parser to generate
 a more or less human readable AST out of .js or .ts files.
 
