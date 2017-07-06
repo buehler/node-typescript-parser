@@ -75,12 +75,24 @@ describe('DeclarationIndex', () => {
             const idx: any = declarationIndex;
             const resources = Object.assign(Object.create(null), idx.parsedResources);
             const resource = resources['/myReactTemplate'];
-            
+
             delete resource.filePath;
             delete resource.rootPath;
-            
+
             expect(resource).toMatchSnapshot();
         });
+
+    });
+
+    describe('reindexForChanges()', () => {
+
+        it('should correctly add a new created file');
+
+        it('should correctly update a modified file');
+
+        it('should correctly remove a deleted file');
+
+        it('should create the correct delta index');
 
     });
 
@@ -130,7 +142,7 @@ describe('DeclarationIndex', () => {
 
             expect(declarationIndex.index).toMatchSnapshot();
         });
-        
+
         it('should export elements that are already exported correclty', async () => {
             await declarationIndex.buildIndex(
                 [
