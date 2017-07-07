@@ -36,7 +36,9 @@ function getNodeLibraryName(path: string): string {
 type Resources = { [name: string]: Resource };
 
 /**
- * TODO
+ * IndexDelta type, is calculated by the declaration index to give an overview, what has changed in the index.
+ * Returns a list of deleted declarations, newly added declarations (with the corresponding infos) and
+ * which declarations have been updated (with all declarations under that name).
  */
 export type IndexDelta = {
     added: { [declaration: string]: DeclarationInfo[] };
@@ -125,7 +127,8 @@ export class DeclarationIndex {
     constructor(private parser: TypescriptParser, private rootPath: string) { }
 
     /**
-     * TODO
+     * Calculates the differences between two indices. Calculates removed, added and updated declarations.
+     * The updated declarations are calculated and all declarations that the new index contains are inserted in the list.
      * 
      * @static
      * @param {{ [declaration: string]: DeclarationInfo[] }} oldIndex 
