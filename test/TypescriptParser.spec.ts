@@ -28,6 +28,16 @@ describe('TypescriptParser', () => {
         parser = new TypescriptParser();
     });
 
+    describe('Source parsing', () => {
+
+        it('should parse a source code string correctly', async () => {
+            const parsed = await parser.parseSource(`import {foo} from 'bar'; class Foobar {}; const bar = new Foobar();`);
+            
+            expect(parsed).toMatchSnapshot();
+        });
+
+    });
+
     describe('Import parsing', () => {
 
         const file = getWorkspaceFile('typescript-parser/importsOnly.ts');

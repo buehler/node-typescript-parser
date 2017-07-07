@@ -1,3 +1,4 @@
+import { difference, differenceWith, intersection, isEqual } from 'lodash';
 import { join, normalize, relative, resolve } from 'path';
 
 import { DeclarationInfo } from './declarations/DeclarationInfo';
@@ -34,10 +35,16 @@ function getNodeLibraryName(path: string): string {
  */
 type Resources = { [name: string]: Resource };
 
-// export type DeltaIndex = {
-//     deleted: string[];
-//     updated: { [declaration: string]: DeclarationInfo[] };
-// };
+/**
+ * IndexDelta type, is calculated by the declaration index to give an overview, what has changed in the index.
+ * Returns a list of deleted declarations, newly added declarations (with the corresponding infos) and
+ * which declarations have been updated (with all declarations under that name).
+ */
+export type IndexDelta = {
+    added: { [declaration: string]: DeclarationInfo[] };
+    updated: { [declaration: string]: DeclarationInfo[] };
+    deleted: string[];
+};
 
 /**
  * Interface for file changes. Contains lists of file uri's to the specific action.
@@ -120,6 +127,48 @@ export class DeclarationIndex {
     constructor(private parser: TypescriptParser, private rootPath: string) { }
 
     /**
+     * Calculates the differences between two indices. Calculates removed, added and updated declarations.
+     * The updated declarations are calculated and all declarations that the new index contains are inserted in the list.
+     * 
+     * @static
+     * @param {{ [declaration: string]: DeclarationInfo[] }} oldIndex 
+     * @param {{ [declaration: string]: DeclarationInfo[] }} newIndex 
+     * @returns {IndexDelta} 
+     * @memberof DeclarationIndex
+     */
+    public static calculateIndexDelta(
+        oldIndex: { [declaration: string]: DeclarationInfo[] },
+        newIndex: { [declaration: string]: DeclarationInfo[] },
+    ): IndexDelta {
+        const oldKeys = Object.keys(oldIndex);
+        const newKeys = Object.keys(newIndex);
+
+        return {
+            added: difference(newKeys, oldKeys).reduce(
+                (obj, currentKey) => {
+                    obj[currentKey] = newIndex[currentKey];
+                    return obj;
+                },
+                {} as { [declaration: string]: DeclarationInfo[] },
+            ),
+            updated: intersection(oldKeys, newKeys).reduce(
+                (obj, currentKey) => {
+                    const old = oldIndex[currentKey];
+                    const neu = newIndex[currentKey];
+
+                    if (differenceWith(neu, old, isEqual).length > 0 || differenceWith(old, neu, isEqual).length > 0) {
+                        obj[currentKey] = neu;
+                    }
+
+                    return obj;
+                },
+                {} as { [declaration: string]: DeclarationInfo[] },
+            ),
+            deleted: difference(oldKeys, newKeys),
+        };
+    }
+
+    /**
      * Resets the whole index. Does delete everything. Period.
      * Is useful for unit testing or similar things.
      * 
@@ -159,13 +208,14 @@ export class DeclarationIndex {
 
     /**
      * Is called when file events happen. Does reindex for the changed files and creates a new index.
+     * Returns the differences for the new index.
      * 
      * @param {FileEvent[]} changes
-     * @returns {Promise<void>}
+     * @returns {Promise<IndexDelta>}
      * 
      * @memberof DeclarationIndex
      */
-    public async reindexForChanges(changes: FileChanges): Promise<void> {
+    public async reindexForChanges(changes: FileChanges): Promise<IndexDelta> {
         const rebuildResources: string[] = [];
         const removeResources: string[] = [];
         const rebuildFiles: string[] = [];
@@ -212,11 +262,10 @@ export class DeclarationIndex {
         for (const key of Object.keys(resources)) {
             this.parsedResources[key] = resources[key];
         }
+        const old = this._index || {};
         this._index = await this.createIndex(this.parsedResources);
-        // return {
-        //     deleted: removeResources,
-        //     updated: await this.createIndex(resources),
-        // };
+
+        return DeclarationIndex.calculateIndexDelta(old, this._index);
     }
 
     /**

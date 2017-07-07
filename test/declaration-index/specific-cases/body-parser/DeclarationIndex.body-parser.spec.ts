@@ -3,7 +3,7 @@ import { join, resolve } from 'path';
 import { DeclarationIndex } from '../../../../src/DeclarationIndex';
 import { TypescriptParser } from '../../../../src/TypescriptParser';
 
-describe('DeclarationIndex - specific case "body-parser"', () => {
+describe.skip('DeclarationIndex - specific case "body-parser"', () => {
 
     const rootPath = resolve(
         __dirname, '..', '..', '..', '_workspace', 'declaration-index', 'specific-cases', 'body-parser',
