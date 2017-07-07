@@ -127,6 +127,134 @@ Array [
 ]
 `;
 
+exports[`DeclarationIndex calculateIndexDelta() should calculate a newly added declaration 1`] = `
+Object {
+  "added": Object {
+    "Foobar": Array [
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 0,
+        },
+        "from": "./foobar",
+      },
+    ],
+  },
+  "deleted": Array [],
+  "updated": Object {},
+}
+`;
+
+exports[`DeclarationIndex calculateIndexDelta() should calculate a removed declaration 1`] = `
+Object {
+  "added": Object {},
+  "deleted": Array [
+    "Foobar",
+  ],
+  "updated": Object {},
+}
+`;
+
+exports[`DeclarationIndex calculateIndexDelta() should calculate an updated key (added 1 declaration) 1`] = `
+Object {
+  "added": Object {},
+  "deleted": Array [],
+  "updated": Object {
+    "Foobar": Array [
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 0,
+        },
+        "from": "./foobar",
+      },
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 10,
+        },
+        "from": "./foobar2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`DeclarationIndex calculateIndexDelta() should calculate an updated key (changed 1 declaration 1`] = `
+Object {
+  "added": Object {},
+  "deleted": Array [],
+  "updated": Object {
+    "Foobar": Array [
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 0,
+        },
+        "from": "./foobar",
+      },
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 15,
+        },
+        "from": "./foobar2",
+      },
+    ],
+  },
+}
+`;
+
+exports[`DeclarationIndex calculateIndexDelta() should calculate an updated key (removed 1 declaration) 1`] = `
+Object {
+  "added": Object {},
+  "deleted": Array [],
+  "updated": Object {
+    "Foobar": Array [
+      Object {
+        "declaration": ClassDeclaration {
+          "end": 100,
+          "isExported": true,
+          "methods": Array [],
+          "name": "Foobar",
+          "properties": Array [],
+          "start": 0,
+        },
+        "from": "./foobar",
+      },
+    ],
+  },
+}
+`;
+
+exports[`DeclarationIndex calculateIndexDelta() should calculate correctly when nothing happend 1`] = `
+Object {
+  "added": Object {},
+  "deleted": Array [],
+  "updated": Object {},
+}
+`;
+
 exports[`DeclarationIndex exports should export all elements correctly (export * from) 1`] = `
 Object {
   "Class1": Array [
@@ -732,6 +860,611 @@ Object {
         "start": 192,
       },
       "from": "/exports/classes",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex reindexForChanges() should correctly add a new created file 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 164,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 141,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 188,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 165,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 212,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 189,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 236,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 213,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 260,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 237,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 284,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 261,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 308,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 285,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 332,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 309,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 356,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 333,
+      },
+      "from": "/classes",
+    },
+  ],
+  "FancierLibraryClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 139,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 137,
+            "isAbstract": false,
+            "name": "doSomethingAwesome",
+            "parameters": Array [],
+            "start": 100,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "FancierLibraryClass",
+        "properties": Array [],
+        "start": 61,
+      },
+      "from": "/classes",
+    },
+  ],
+  "MyClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 59,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 57,
+            "isAbstract": false,
+            "name": "doSomething",
+            "parameters": Array [],
+            "start": 27,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "MyClass",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/classes",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex reindexForChanges() should correctly add a new created file 2`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 164,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 141,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 188,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 165,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 212,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 189,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 236,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 213,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 260,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 237,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 284,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 261,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 308,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 285,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 332,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 309,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 356,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 333,
+      },
+      "from": "/classes",
+    },
+  ],
+  "FancierLibraryClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 139,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 137,
+            "isAbstract": false,
+            "name": "doSomethingAwesome",
+            "parameters": Array [],
+            "start": 100,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "FancierLibraryClass",
+        "properties": Array [],
+        "start": 61,
+      },
+      "from": "/classes",
+    },
+  ],
+  "MyClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 59,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 57,
+            "isAbstract": false,
+            "name": "doSomething",
+            "parameters": Array [],
+            "start": 27,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "MyClass",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/classes",
+    },
+  ],
+  "isNumber": Array [
+    DeclarationInfo {
+      "declaration": FunctionDeclaration {
+        "end": 186,
+        "isExported": true,
+        "name": "isNumber",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 127,
+            "name": "str",
+            "start": 119,
+            "type": "any",
+          },
+        ],
+        "start": 94,
+        "type": "str is number",
+        "variables": Array [],
+      },
+      "from": "/helper-functions",
+    },
+  ],
+  "isString": Array [
+    DeclarationInfo {
+      "declaration": FunctionDeclaration {
+        "end": 92,
+        "isExported": true,
+        "name": "isString",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 33,
+            "name": "str",
+            "start": 25,
+            "type": "any",
+          },
+        ],
+        "start": 0,
+        "type": "str is string",
+        "variables": Array [],
+      },
+      "from": "/helper-functions",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex reindexForChanges() should correctly update a modified file 1`] = `
+Object {
+  "Class1": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 164,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class1",
+        "properties": Array [],
+        "start": 141,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class2": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 188,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class2",
+        "properties": Array [],
+        "start": 165,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class3": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 212,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class3",
+        "properties": Array [],
+        "start": 189,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class4": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 236,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class4",
+        "properties": Array [],
+        "start": 213,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class5": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 260,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class5",
+        "properties": Array [],
+        "start": 237,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class6": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 284,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class6",
+        "properties": Array [],
+        "start": 261,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class7": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 308,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class7",
+        "properties": Array [],
+        "start": 285,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class8": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 332,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class8",
+        "properties": Array [],
+        "start": 309,
+      },
+      "from": "/classes",
+    },
+  ],
+  "Class9": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 356,
+        "isExported": true,
+        "methods": Array [],
+        "name": "Class9",
+        "properties": Array [],
+        "start": 333,
+      },
+      "from": "/classes",
+    },
+  ],
+  "FancierLibraryClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 139,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 137,
+            "isAbstract": false,
+            "name": "doSomethingAwesome",
+            "parameters": Array [],
+            "start": 100,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "FancierLibraryClass",
+        "properties": Array [],
+        "start": 61,
+      },
+      "from": "/classes",
+    },
+  ],
+  "MyClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 59,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 57,
+            "isAbstract": false,
+            "name": "doSomething",
+            "parameters": Array [],
+            "start": 27,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "MyClass",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/classes",
+    },
+  ],
+}
+`;
+
+exports[`DeclarationIndex reindexForChanges() should correctly update a modified file 2`] = `
+Object {
+  "FancierLibraryClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 379,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 329,
+            "isAbstract": false,
+            "name": "doSomethingAwesome",
+            "parameters": Array [],
+            "start": 292,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "FancierLibraryClass",
+        "properties": Array [],
+        "start": 205,
+      },
+      "from": "/classes",
+    },
+  ],
+  "MyClass": Array [
+    DeclarationInfo {
+      "declaration": ClassDeclaration {
+        "end": 155,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 105,
+            "isAbstract": false,
+            "name": "doSomething",
+            "parameters": Array [],
+            "start": 75,
+            "type": "void",
+            "variables": Array [],
+            "visibility": 2,
+          },
+        ],
+        "name": "MyClass",
+        "properties": Array [],
+        "start": 0,
+      },
+      "from": "/classes",
     },
   ],
 }

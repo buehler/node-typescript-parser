@@ -1,6 +1,8 @@
+import mockFs = require('mock-fs');
 import { join, resolve } from 'path';
 
 import { DeclarationIndex } from '../../src/DeclarationIndex';
+import { ClassDeclaration } from '../../src/declarations';
 import { TypescriptParser } from '../../src/TypescriptParser';
 
 describe('DeclarationIndex', () => {
@@ -86,13 +88,152 @@ describe('DeclarationIndex', () => {
 
     describe('reindexForChanges()', () => {
 
-        it('should correctly add a new created file');
+        afterEach(() => {
+            mockFs.restore();
+        });
 
-        it('should correctly update a modified file');
+        it('should correctly add a new created file', async () => {
+            await declarationIndex.buildIndex(
+                [
+                    join(rootPath, 'classes.ts'),
+                ],
+            );
+
+            expect(declarationIndex.index).toMatchSnapshot();
+
+            await declarationIndex.reindexForChanges({
+                created: [join(rootPath, 'helper-functions.ts')],
+                updated: [],
+                deleted: [],
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+        });
+
+        it('should correctly update a modified file', async () => {
+
+            await declarationIndex.buildIndex(
+                [
+                    join(rootPath, 'classes.ts'),
+                ],
+            );
+
+            expect(declarationIndex.index).toMatchSnapshot();
+
+            mockFs({
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
+
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }`,
+            });
+
+            await declarationIndex.reindexForChanges({
+                created: [],
+                updated: [join(rootPath, 'classes.ts')],
+                deleted: [],
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+        });
 
         it('should correctly remove a deleted file');
 
         it('should create the correct delta index');
+
+        it('should correctly add a file that is exported');
+
+        it('should correctly add an empty file');
+
+        it('should correctly update a file that is exported');
+
+        it('should correctly remove an exported file');
+
+        it('should correctly add an empty file, that is later updated');
+
+    });
+
+    describe('calculateIndexDelta()', () => {
+
+        it('should calculate a newly added declaration', () => {
+            const oldIndex = {};
+            const newIndex = {
+                Foobar: [{ declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' }],
+            };
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
+
+        it('should calculate a removed declaration', () => {
+            const oldIndex = {
+                Foobar: [{ declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' }],
+            };
+            const newIndex = {};
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
+
+        it('should calculate correctly when nothing happend', () => {
+            const oldIndex = {
+                Foobar: [{ declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' }],
+            };
+            const newIndex = {
+                Foobar: [{ declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' }],
+            };
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
+
+        it('should calculate an updated key (removed 1 declaration)', () => {
+            const oldIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                    { declaration: new ClassDeclaration('Foobar', true, 10, 100), from: './foobar2' },
+                ],
+            };
+            const newIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                ],
+            };
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
+
+        it('should calculate an updated key (added 1 declaration)', () => {
+            const oldIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                ],
+            };
+            const newIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                    { declaration: new ClassDeclaration('Foobar', true, 10, 100), from: './foobar2' },
+                ],
+            };
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
+
+        it('should calculate an updated key (changed 1 declaration', () => {
+            const oldIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                    { declaration: new ClassDeclaration('Foobar', true, 10, 100), from: './foobar2' },
+                ],
+            };
+            const newIndex = {
+                Foobar: [
+                    { declaration: new ClassDeclaration('Foobar', true, 0, 100), from: './foobar' },
+                    { declaration: new ClassDeclaration('Foobar', true, 15, 100), from: './foobar2' },
+                ],
+            };
+
+            expect(DeclarationIndex.calculateIndexDelta(oldIndex, newIndex)).toMatchSnapshot();
+        });
 
     });
 
