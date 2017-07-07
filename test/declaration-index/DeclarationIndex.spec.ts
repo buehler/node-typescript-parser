@@ -198,13 +198,119 @@ describe('DeclarationIndex', () => {
             expect(declarationIndex.index).toMatchSnapshot();
         });
 
-        it('should correctly add an empty file');
+        it('should correctly add an empty file', async () => {
+            mockFs({
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
 
-        it('should correctly update a file that is exported');
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }`,
+            });
 
-        it('should correctly remove an exported file');
+            await declarationIndex.buildIndex(
+                [
+                    join(rootPath, 'classes.ts'),
+                ],
+            );
 
-        it('should correctly add an empty file, that is later updated');
+            mockFs({
+                [join(rootPath, 'foobar.ts')]: ``,
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
+
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }`,
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+
+            await declarationIndex.reindexForChanges({
+                created: [join(rootPath, 'foobar.ts')],
+                updated: [join(rootPath, 'classes.ts')],
+                deleted: [],
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+        });
+
+        it('should correctly update a file that is exported', async () => {
+            mockFs({
+                [join(rootPath, 'foobar.ts')]: `export class Foobar{}`,
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
+
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }`,
+            });
+
+            await declarationIndex.buildIndex(
+                [
+                    join(rootPath, 'classes.ts'),
+                    join(rootPath, 'foobar.ts'),
+                ],
+            );
+
+            mockFs({
+                [join(rootPath, 'foobar.ts')]: `export class Foobar{} export class Barbaz{}`,
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
+
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }
+                                                
+                                                export * from './foobar'`,
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+
+            await declarationIndex.reindexForChanges({
+                created: [],
+                updated: [join(rootPath, 'classes.ts'), join(rootPath, 'foobar.ts')],
+                deleted: [],
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+        });
+
+        it('should correctly remove an exported file', async () => {
+            mockFs({
+                [join(rootPath, 'foobar.ts')]: `export class Foobar{}`,
+                [join(rootPath, 'classes.ts')]: `export class MyClass {
+                                                    public doSomething(): void { }
+                                                }
+
+                                                export class FancierLibraryClass {
+                                                    public doSomethingAwesome(): void { }
+                                                }
+                                                
+                                                export * from './foobar'`,
+            });
+
+            await declarationIndex.buildIndex(
+                [
+                    join(rootPath, 'classes.ts'),
+                    join(rootPath, 'foobar.ts'),
+                ],
+            );
+
+            expect(declarationIndex.index).toMatchSnapshot();
+
+            await declarationIndex.reindexForChanges({
+                created: [],
+                updated: [join(rootPath, 'classes.ts')],
+                deleted: [join(rootPath, 'foobar.ts')],
+            });
+
+            expect(declarationIndex.index).toMatchSnapshot();
+        });
 
     });
 
