@@ -890,3 +890,49 @@ StringImport {
   "start": 0,
 }
 `;
+
+exports[`TypescriptParser Source parsing should parse a source code string correctly 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "end": 40,
+      "isExported": false,
+      "methods": Array [],
+      "name": "Foobar",
+      "properties": Array [],
+      "start": 25,
+    },
+    VariableDeclaration {
+      "end": 67,
+      "isConst": true,
+      "isExported": false,
+      "name": "bar",
+      "start": 42,
+      "type": undefined,
+    },
+  ],
+  "end": 67,
+  "exports": Array [],
+  "filePath": "inline.ts",
+  "imports": Array [
+    NamedImport {
+      "end": 24,
+      "libraryName": "bar",
+      "specifiers": Array [
+        SymbolSpecifier {
+          "alias": undefined,
+          "specifier": "foo",
+        },
+      ],
+      "start": 0,
+    },
+  ],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [
+    "bar",
+    "Foobar",
+  ],
+}
+`;

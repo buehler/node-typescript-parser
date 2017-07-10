@@ -1,10 +1,12 @@
 import { TypescriptCodeGenerator } from '../../src/code-generators/TypescriptCodeGenerator';
 import { TypescriptGenerationOptions } from '../../src/code-generators/TypescriptGenerationOptions';
+import { ClassDeclaration } from '../../src/declarations';
 import { DeclarationVisibility } from '../../src/declarations/DeclarationVisibility';
 import { MethodDeclaration } from '../../src/declarations/MethodDeclaration';
 import { ParameterDeclaration } from '../../src/declarations/ParameterDeclaration';
 import { PropertyDeclaration } from '../../src/declarations/PropertyDeclaration';
 import { VariableDeclaration } from '../../src/declarations/VariableDeclaration';
+import { NotGeneratableYetError } from '../../src/errors/NotGeneratableYetError';
 import { DefaultImport } from '../../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../../src/imports/ExternalModuleImport';
 import { NamedImport } from '../../src/imports/NamedImport';
@@ -81,4 +83,10 @@ describe('TypescriptCodeGenerator', () => {
         });
 
     }
+
+    it('should throw on non generatable element', () => {
+        const generator = new TypescriptCodeGenerator(defaultOptions);
+
+        expect(() => generator.generate(new ClassDeclaration('foo', true))).toThrow(NotGeneratableYetError);
+    });
 });
