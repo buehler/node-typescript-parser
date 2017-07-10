@@ -30,11 +30,15 @@
     "url": "https://github.com/TypeScript-Heroes/node-typescript-parser/issues"
   },
   "homepage": "https://github.com/TypeScript-Heroes/node-typescript-parser#readme",
+  "release": {
+    "generateNotes": "github-post-release"
+  },
   "devDependencies": {
     "@types/jest": "^20.0.1",
     "@types/mock-fs": "^3.6.30",
     "@types/node": "^8.0.1",
     "del-cli": "^1.0.0",
+    "github-post-release": "^1.7.1",
     "jest": "^20.0.4",
     "mock-fs": "^4.4.1",
     "semantic-release": "^6.3.6",
