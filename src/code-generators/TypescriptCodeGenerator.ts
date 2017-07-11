@@ -38,7 +38,7 @@ export type Generators = { [name: string]: (generatable: Generatable, options: T
 /**
  * Hash with all possible (yet implemented) generators.
  */
-export const generators: Generators = {
+export const GENERATORS: Generators = {
     [SymbolSpecifier.name]: generateSymbolSpecifier,
     [MethodDeclaration.name]: generateMethodDeclaration,
     [ParameterDeclaration.name]: generateParameterDeclaration,
@@ -69,8 +69,8 @@ export class TypescriptCodeGenerator {
      * @memberof TypescriptCodeGenerator
      */
     public generate(declaration: Generatable): string {
-        if (generators[declaration.constructor.name]) {
-            return generators[declaration.constructor.name](declaration, this.options);
+        if (GENERATORS[declaration.constructor.name]) {
+            return GENERATORS[declaration.constructor.name](declaration, this.options);
         }
         throw new NotGeneratableYetError(declaration);
     }
