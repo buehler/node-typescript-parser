@@ -30,9 +30,15 @@ import { TypescriptGenerationOptions } from './TypescriptGenerationOptions';
  */
 export type Generatable = Declaration | Import | Export | SymbolSpecifier;
 
-type Generators = { [name: string]: (generatable: Generatable, options: TypescriptGenerationOptions) => string };
+/**
+ * Type for generators.
+ */
+export type Generators = { [name: string]: (generatable: Generatable, options: TypescriptGenerationOptions) => string };
 
-const generators: Generators = {
+/**
+ * Hash with all possible (yet implemented) generators.
+ */
+export const generators: Generators = {
     [SymbolSpecifier.name]: generateSymbolSpecifier,
     [MethodDeclaration.name]: generateMethodDeclaration,
     [ParameterDeclaration.name]: generateParameterDeclaration,
