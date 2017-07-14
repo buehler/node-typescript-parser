@@ -32,7 +32,7 @@ describe('TypescriptParser', () => {
 
         it('should parse a source code string correctly', async () => {
             const parsed = await parser.parseSource(`import {foo} from 'bar'; class Foobar {}; const bar = new Foobar();`);
-            
+
             expect(parsed).toMatchSnapshot();
         });
 
@@ -542,6 +542,24 @@ describe('TypescriptParser', () => {
             expect(usages).toContain('GenericType');
         });
 
+    });
+
+    describe('TSX Usage parsing', () => {
+        const file = getWorkspaceFile('typescript-parser/usagesOnly.tsx');
+        let parsed: Resource;
+
+        beforeEach(async () => {
+            parsed = await parser.parseFile(file, rootPath);
+        });
+
+        it('should parse a tsx element usage', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('myComponent');
+            expect(usages).toContain('div');
+            expect(usages).toContain('complexComp');
+            expect(usages).toContain('SingleComp');
+        });
     });
 
 });
