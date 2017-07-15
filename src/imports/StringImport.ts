@@ -9,7 +9,7 @@ import { Import } from './Import';
  */
 export class StringImport implements Import {
     public get isNew(): boolean {
-        return this.start !== undefined && this.end !== undefined;
+        return this.start === undefined || this.end === undefined;
     }
 
     constructor(public libraryName: string, public start?: number, public end?: number) { }
