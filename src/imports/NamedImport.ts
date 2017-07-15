@@ -14,7 +14,7 @@ export class NamedImport implements Import {
     public specifiers: SymbolSpecifier[] = [];
 
     public get isNew(): boolean {
-        return this.start !== undefined && this.end !== undefined;
+        return this.start === undefined || this.end === undefined;
     }
 
     constructor(public libraryName: string, public start?: number, public end?: number) { }

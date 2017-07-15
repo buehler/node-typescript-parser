@@ -9,7 +9,7 @@ import { AliasedImport } from './Import';
  */
 export class NamespaceImport implements AliasedImport {
     public get isNew(): boolean {
-        return this.start !== undefined && this.end !== undefined;
+        return this.start === undefined || this.end === undefined;
     }
 
     constructor(public libraryName: string, public alias: string, public start?: number, public end?: number) { }
