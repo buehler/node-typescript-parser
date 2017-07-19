@@ -560,6 +560,31 @@ describe('TypescriptParser', () => {
             expect(usages).toContain('complexComp');
             expect(usages).toContain('SingleComp');
         });
+
+        it('should parse functions inside {}', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('myFunc');
+        });
+        
+        it('should parse component functions inside {}', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('MyFunc');
+        });
+
+        it('should parse a component inside a map', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('AnotherComp');
+            expect(usages).toContain('foobarVariable');
+        });
+
+        it('should parse a function inside a map', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('valFunc');
+        });
     });
 
 });
