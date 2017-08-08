@@ -49,8 +49,9 @@ export function generateNamedImport(
     const space = spaceBraces ? ' ' : '';
     const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
     const lib = imp.libraryName;
+    const importSpecifiers = `${space}${specifiers}${space}`.trim();
 
-    const importString = `import {${space}${specifiers}${space}} from ${stringQuoteStyle}${lib}${stringQuoteStyle}${eol}`;
+    const importString = `import {${importSpecifiers || ' '}} from ${stringQuoteStyle}${lib}${stringQuoteStyle}${eol}`;
     if (importString.length > multiLineWrapThreshold) {
         const spacings = Array(tabSize + 1).join(' ');
         return multiLineImport(
