@@ -52,7 +52,7 @@ export class TypescriptParser {
      * @memberof TsResourceParser
      */
     public async parseSource(source: string): Promise<File> {
-        return await this.parseTypescript(createSourceFile('inline.ts', source, ScriptTarget.ES2015, true), '/');
+        return await this.parseTypescript(createSourceFile('inline.tsx', source, ScriptTarget.ES2015, true), '/');
     }
 
     /**
