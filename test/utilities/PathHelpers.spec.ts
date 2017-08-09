@@ -1,4 +1,5 @@
 import * as os from 'os';
+
 import { normalizeFilename, normalizePathUri } from '../../src/utilities/PathHelpers';
 
 describe('PathHelpers', () => {
