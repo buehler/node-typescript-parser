@@ -12,7 +12,7 @@ import { Namespace } from './resources/Namespace';
 import { Resource } from './resources/Resource';
 import { isExportableDeclaration } from './type-guards/TypescriptHeroGuards';
 import { TypescriptParser } from './TypescriptParser';
-import { normalizePathUri } from './utilities/PathHelpers';
+import { normalizeFilename, normalizePathUri } from './utilities/PathHelpers';
 
 /**
  * Returns the name of the node folder. Is used as the library name for indexing.
@@ -25,8 +25,7 @@ function getNodeLibraryName(path: string): string {
     const dirs = path.split(/\/|\\/);
     const nodeIndex = dirs.indexOf('node_modules');
 
-    return dirs.slice(nodeIndex + 1).join('/')
-        .replace(/([.]d)?([.]tsx?)?/g, '')
+    return normalizeFilename(dirs.slice(nodeIndex + 1).join('/'))
         .replace(new RegExp(`/(index|${dirs[nodeIndex + 1]}|${dirs[dirs.length - 2]})$`), '');
 }
 
@@ -222,7 +221,7 @@ export class DeclarationIndex {
 
         for (const change of changes.deleted) {
             const filePath = normalizePathUri(change);
-            const resource = '/' + relative(this.rootPath, filePath).replace(/[.]tsx?/g, '');
+            const resource = '/' + normalizeFilename(relative(this.rootPath, filePath));
 
             if (removeResources.indexOf(resource) < 0) {
                 removeResources.push(resource);
@@ -237,7 +236,7 @@ export class DeclarationIndex {
 
         for (const change of (changes.created || []).concat(changes.updated)) {
             const filePath = normalizePathUri(change);
-            const resource = '/' + relative(this.rootPath, filePath).replace(/[.]tsx?/g, '');
+            const resource = '/' + normalizeFilename(relative(this.rootPath, filePath));
 
             if (rebuildResources.indexOf(resource) < 0) {
                 rebuildResources.push(resource);
@@ -427,7 +426,7 @@ export class DeclarationIndex {
                 if (sourceLib.indexOf('node_modules') > -1) {
                     sourceLib = getNodeLibraryName(sourceLib);
                 } else {
-                    sourceLib = '/' + relative(this.rootPath, sourceLib).replace(/([.]d)?[.]tsx?/g, '');
+                    sourceLib = '/' + normalizeFilename(relative(this.rootPath, sourceLib));
                 }
 
                 if (!parsedResources[sourceLib]) {

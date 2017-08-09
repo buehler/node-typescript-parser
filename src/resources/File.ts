@@ -4,6 +4,7 @@ import { Declaration } from '../declarations/Declaration';
 import { Export } from '../exports/Export';
 import { Import } from '../imports/Import';
 import { Node } from '../Node';
+import { normalizeFilename } from '../utilities/PathHelpers';
 import { Module } from './Module';
 import { Namespace } from './Namespace';
 import { Resource } from './Resource';
@@ -24,7 +25,7 @@ export class File implements Resource, Node {
     public usages: string[] = [];
 
     public get identifier(): string {
-        return '/' + relative(this.rootPath, this.filePath).replace(/([.]d)?[.]tsx?/g, '');
+        return '/' + normalizeFilename(relative(this.rootPath, this.filePath));
     }
 
     public get nonLocalUsages(): string[] {
@@ -33,8 +34,8 @@ export class File implements Resource, Node {
                 !this.declarations.some(o => o.name === usage) &&
                 !this.resources.some(o => (o instanceof Module || o instanceof Namespace) && o.name === usage))
             .concat(
-                this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
-            );
+            this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
+        );
     }
 
     /**
@@ -59,5 +60,5 @@ export class File implements Resource, Node {
         return ['node_modules', 'typings'].every(o => this.filePath.indexOf(o) === -1);
     }
 
-    constructor(public filePath: string, private rootPath: string, public start: number, public end: number) {}
+    constructor(public filePath: string, private rootPath: string, public start: number, public end: number) { }
 }
