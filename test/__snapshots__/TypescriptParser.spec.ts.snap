@@ -891,6 +891,359 @@ StringImport {
 }
 `;
 
+exports[`TypescriptParser JSX parsing should parse a simple javascript react file correctly with "parseFile" 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "end": 306,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 304,
+          "isAbstract": false,
+          "name": "render",
+          "parameters": Array [],
+          "start": 80,
+          "type": undefined,
+          "variables": Array [],
+          "visibility": undefined,
+        },
+      ],
+      "name": "ES6Class",
+      "properties": Array [],
+      "start": 52,
+    },
+    DefaultDeclaration {
+      "end": undefined,
+      "isExported": true,
+      "name": "ES6Class",
+      "resource": [Circular],
+      "start": undefined,
+    },
+  ],
+  "end": 333,
+  "exports": Array [],
+  "imports": Array [
+    DefaultImport {
+      "alias": "React",
+      "end": 26,
+      "libraryName": "react",
+      "start": 0,
+    },
+    DefaultImport {
+      "alias": "$",
+      "end": 50,
+      "libraryName": "jquery",
+      "start": 27,
+    },
+  ],
+  "resources": Array [],
+  "start": 0,
+  "usages": Array [
+    "div",
+    "Foobar",
+    "AnotherBar",
+    "blub",
+    "p",
+    "sortFunc",
+    "ES6Class",
+  ],
+}
+`;
+
+exports[`TypescriptParser JSX parsing should parse a simple javascript react file correctly with "parseFiles" 1`] = `
+Array [
+  File {
+    "declarations": Array [
+      ClassDeclaration {
+        "end": 306,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 304,
+            "isAbstract": false,
+            "name": "render",
+            "parameters": Array [],
+            "start": 80,
+            "type": undefined,
+            "variables": Array [],
+            "visibility": undefined,
+          },
+        ],
+        "name": "ES6Class",
+        "properties": Array [],
+        "start": 52,
+      },
+      DefaultDeclaration {
+        "end": undefined,
+        "isExported": true,
+        "name": "ES6Class",
+        "resource": [Circular],
+        "start": undefined,
+      },
+    ],
+    "end": 333,
+    "exports": Array [],
+    "imports": Array [
+      DefaultImport {
+        "alias": "React",
+        "end": 26,
+        "libraryName": "react",
+        "start": 0,
+      },
+      DefaultImport {
+        "alias": "$",
+        "end": 50,
+        "libraryName": "jquery",
+        "start": 27,
+      },
+    ],
+    "resources": Array [],
+    "start": 0,
+    "usages": Array [
+      "div",
+      "Foobar",
+      "AnotherBar",
+      "blub",
+      "p",
+      "sortFunc",
+      "ES6Class",
+    ],
+  },
+]
+`;
+
+exports[`TypescriptParser JSX parsing should parse a simple javascript react file correctly with "parseSource" 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "end": 306,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 304,
+          "isAbstract": false,
+          "name": "render",
+          "parameters": Array [],
+          "start": 80,
+          "type": undefined,
+          "variables": Array [],
+          "visibility": undefined,
+        },
+      ],
+      "name": "ES6Class",
+      "properties": Array [],
+      "start": 52,
+    },
+    DefaultDeclaration {
+      "end": undefined,
+      "isExported": true,
+      "name": "ES6Class",
+      "resource": [Circular],
+      "start": undefined,
+    },
+  ],
+  "end": 333,
+  "exports": Array [],
+  "filePath": "inline.tsx",
+  "imports": Array [
+    DefaultImport {
+      "alias": "React",
+      "end": 26,
+      "libraryName": "react",
+      "start": 0,
+    },
+    DefaultImport {
+      "alias": "$",
+      "end": 50,
+      "libraryName": "jquery",
+      "start": 27,
+    },
+  ],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [
+    "div",
+    "Foobar",
+    "AnotherBar",
+    "blub",
+    "p",
+    "sortFunc",
+    "ES6Class",
+  ],
+}
+`;
+
+exports[`TypescriptParser JavaScript parsing should parse a simple javascript file correctly with "parseFile" 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "ctor": ConstructorDeclaration {
+        "end": 70,
+        "name": "ES6Class",
+        "parameters": Array [],
+        "start": 53,
+        "variables": Array [],
+      },
+      "end": 95,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 93,
+          "isAbstract": false,
+          "name": "doSomething",
+          "parameters": Array [],
+          "start": 76,
+          "type": undefined,
+          "variables": Array [],
+          "visibility": undefined,
+        },
+      ],
+      "name": "ES6Class",
+      "properties": Array [],
+      "start": 25,
+    },
+    DefaultDeclaration {
+      "end": undefined,
+      "isExported": true,
+      "name": "ES6Class",
+      "resource": [Circular],
+      "start": undefined,
+    },
+  ],
+  "end": 122,
+  "exports": Array [],
+  "imports": Array [
+    DefaultImport {
+      "alias": "$",
+      "end": 23,
+      "libraryName": "jquery",
+      "start": 0,
+    },
+  ],
+  "resources": Array [],
+  "start": 0,
+  "usages": Array [
+    "ES6Class",
+  ],
+}
+`;
+
+exports[`TypescriptParser JavaScript parsing should parse a simple javascript file correctly with "parseFiles" 1`] = `
+Array [
+  File {
+    "declarations": Array [
+      ClassDeclaration {
+        "ctor": ConstructorDeclaration {
+          "end": 70,
+          "name": "ES6Class",
+          "parameters": Array [],
+          "start": 53,
+          "variables": Array [],
+        },
+        "end": 95,
+        "isExported": true,
+        "methods": Array [
+          MethodDeclaration {
+            "end": 93,
+            "isAbstract": false,
+            "name": "doSomething",
+            "parameters": Array [],
+            "start": 76,
+            "type": undefined,
+            "variables": Array [],
+            "visibility": undefined,
+          },
+        ],
+        "name": "ES6Class",
+        "properties": Array [],
+        "start": 25,
+      },
+      DefaultDeclaration {
+        "end": undefined,
+        "isExported": true,
+        "name": "ES6Class",
+        "resource": [Circular],
+        "start": undefined,
+      },
+    ],
+    "end": 122,
+    "exports": Array [],
+    "imports": Array [
+      DefaultImport {
+        "alias": "$",
+        "end": 23,
+        "libraryName": "jquery",
+        "start": 0,
+      },
+    ],
+    "resources": Array [],
+    "start": 0,
+    "usages": Array [
+      "ES6Class",
+    ],
+  },
+]
+`;
+
+exports[`TypescriptParser JavaScript parsing should parse a simple javascript file correctly with "parseSource" 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "ctor": ConstructorDeclaration {
+        "end": 70,
+        "name": "ES6Class",
+        "parameters": Array [],
+        "start": 53,
+        "variables": Array [],
+      },
+      "end": 95,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 93,
+          "isAbstract": false,
+          "name": "doSomething",
+          "parameters": Array [],
+          "start": 76,
+          "type": undefined,
+          "variables": Array [],
+          "visibility": undefined,
+        },
+      ],
+      "name": "ES6Class",
+      "properties": Array [],
+      "start": 25,
+    },
+    DefaultDeclaration {
+      "end": undefined,
+      "isExported": true,
+      "name": "ES6Class",
+      "resource": [Circular],
+      "start": undefined,
+    },
+  ],
+  "end": 122,
+  "exports": Array [],
+  "filePath": "inline.tsx",
+  "imports": Array [
+    DefaultImport {
+      "alias": "$",
+      "end": 23,
+      "libraryName": "jquery",
+      "start": 0,
+    },
+  ],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [
+    "ES6Class",
+  ],
+}
+`;
+
 exports[`TypescriptParser Source parsing should parse a source code string correctly 1`] = `
 File {
   "declarations": Array [
