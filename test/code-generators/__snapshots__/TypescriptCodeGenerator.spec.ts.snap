@@ -68,6 +68,8 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 } from 'multiLineNamedLib';"
 `;
 
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport 3`] = `"import { } from 'emptyImport';"`;
+
 exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport 1`] = `"import * as namespaceAlias from 'namespaceLib';"`;
 
 exports[`TypescriptCodeGenerator should generate the correct code for ParameterDeclaration 1`] = `"param"`;

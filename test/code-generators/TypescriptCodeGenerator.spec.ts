@@ -72,6 +72,7 @@ describe('TypescriptCodeGenerator', () => {
         new NamespaceImport('namespaceLib', 'namespaceAlias'),
         namedImport,
         multiLineNamedImport,
+        new NamedImport('emptyImport'),
     ];
 
     for (const generatable of generatables) {
