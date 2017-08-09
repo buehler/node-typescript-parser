@@ -664,4 +664,62 @@ describe('TypescriptParser', () => {
 
     });
 
+    describe('JavaScript parsing', () => {
+
+        const file = getWorkspaceFile('typescript-parser/javascript.js');
+
+        it('should parse a simple javascript file correctly with "parseFile"', async () => {
+            const parsed = await parser.parseFile(file, rootPath);
+            delete parsed.filePath;
+            delete (parsed as any).rootPath;
+
+            expect(parsed).toMatchSnapshot();
+        });
+        
+        it('should parse a simple javascript file correctly with "parseFiles"', async () => {
+            const parsed = await parser.parseFiles([file], rootPath);
+            delete parsed[0].filePath;
+            delete (parsed[0] as any).rootPath;
+
+            expect(parsed).toMatchSnapshot();
+        });
+        
+        it('should parse a simple javascript file correctly with "parseSource"', async () => {
+            const content = readFileSync(file).toString();
+            const parsed = await parser.parseSource(content);
+
+            expect(parsed).toMatchSnapshot();
+        });
+
+    });
+
+    describe('JSX parsing', () => {
+
+        const file = getWorkspaceFile('typescript-parser/jsx.jsx');
+
+        it('should parse a simple javascript react file correctly with "parseFile"', async () => {
+            const parsed = await parser.parseFile(file, rootPath);
+            delete parsed.filePath;
+            delete (parsed as any).rootPath;
+
+            expect(parsed).toMatchSnapshot();
+        });
+        
+        it('should parse a simple javascript react file correctly with "parseFiles"', async () => {
+            const parsed = await parser.parseFiles([file], rootPath);
+            delete parsed[0].filePath;
+            delete (parsed[0] as any).rootPath;
+
+            expect(parsed).toMatchSnapshot();
+        });
+        
+        it('should parse a simple javascript react file correctly with "parseSource"', async () => {
+            const content = readFileSync(file).toString();
+            const parsed = await parser.parseSource(content);
+
+            expect(parsed).toMatchSnapshot();
+        });
+
+    });
+
 });
