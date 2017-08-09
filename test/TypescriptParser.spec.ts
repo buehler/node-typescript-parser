@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 import { ClassDeclaration } from '../src/declarations/ClassDeclaration';
 import { DeclarationVisibility } from '../src/declarations/DeclarationVisibility';
 import { DefaultDeclaration } from '../src/declarations/DefaultDeclaration';
@@ -566,7 +568,7 @@ describe('TypescriptParser', () => {
 
             expect(usages).toContain('myFunc');
         });
-        
+
         it('should parse component functions inside {}', () => {
             const usages = parsed.usages;
 
@@ -585,6 +587,81 @@ describe('TypescriptParser', () => {
 
             expect(usages).toContain('valFunc');
         });
+
+        it('should parseSource correctly', async () => {
+            const parsedSource = await parser.parseSource(readFileSync(file).toString());
+
+            expect(parsedSource.usages).toMatchSnapshot();
+        });
+    });
+
+    describe('TSX: Specific cases', () => {
+
+        const testFiles = [
+            {
+                filename: '1.tsx',
+                requiredUsages: [
+                    'sortBy',
+                    'Divider',
+                    'Checkbox',
+                ],
+            },
+            {
+                filename: '2.tsx',
+                requiredUsages: [
+                    'ActionDelete',
+                    'Divider',
+                    'cloneDeep',
+                ],
+            },
+            {
+                filename: '3.tsx',
+                requiredUsages: [
+                    'ImageEdit',
+                    'IconButton',
+                    'TableHeaderColumn',
+                ],
+            },
+        ];
+
+        for (const testFile of testFiles) {
+
+            it('should parse the correct usages with "parseFile"', async () => {
+                const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
+                const parsed = await parser.parseFile(file, rootPath);
+
+                for (const usage of testFile.requiredUsages) {
+                    expect(parsed.usages).toContain(usage);
+                }
+
+                expect(parsed.usages).toMatchSnapshot();
+            });
+
+            it('should parse the correct usages with "parseFiles"', async () => {
+                const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
+                const parsed = (await parser.parseFiles([file], rootPath))[0];
+
+                for (const usage of testFile.requiredUsages) {
+                    expect(parsed.usages).toContain(usage);
+                }
+
+                expect(parsed.usages).toMatchSnapshot();
+            });
+
+            it('should parse the correct usages with "parseSource"', async () => {
+                const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
+                const fileSource = readFileSync(file).toString();
+                const parsed = await parser.parseSource(fileSource);
+
+                for (const usage of testFile.requiredUsages) {
+                    expect(parsed.usages).toContain(usage);
+                }
+
+                expect(parsed.usages).toMatchSnapshot();
+            });
+
+        }
+
     });
 
 });
