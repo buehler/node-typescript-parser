@@ -281,8 +281,8 @@ export class DeclarationIndex {
         Object
             .keys(this.parsedResources)
             .forEach((key) => {
-                const resource = this.parsedResources[key] as File;
-                if (this.doesExportResource(resource, resourceToCheck)) {
+                const resource = this.parsedResources[key];
+                if (resource instanceof File && this.doesExportResource(resource, resourceToCheck)) {
                     resources.push(resource.filePath);
                 }
             });
