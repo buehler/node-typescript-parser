@@ -38,7 +38,7 @@
     "jest": "^20.0.4",
     "mock-fs": "^4.4.1",
     "semantic-release": "^7.0.1",
-    "ts-jest": "^20.0.7",
+    "ts-jest": "^21.0.0",
     "tslint": "^5.5.0",
     "tslint-config-airbnb": "^5.2.1",
     "tsutils": "^2.7.1",
