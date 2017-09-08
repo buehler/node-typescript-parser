@@ -35,7 +35,7 @@
     "@types/mock-fs": "^3.6.30",
     "@types/node": "^8.0.13",
     "del-cli": "^1.1.0",
-    "jest": "^20.0.4",
+    "jest": "^21.0.0",
     "mock-fs": "^4.4.1",
     "semantic-release": "^7.0.1",
     "ts-jest": "^21.0.0",
