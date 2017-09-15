@@ -66,6 +66,8 @@ Array [
   "/helper-functions",
   "/myReactTemplate",
   "/prototype-funcs",
+  "/index",
+  "/_index",
 ]
 `;
 
@@ -123,6 +125,38 @@ Array [
       "variables": Array [],
     },
     "from": "/prototype-funcs",
+  },
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should properly index non-barrel files ending in \`index\` 1`] = `
+Array [
+  DeclarationInfo {
+    "declaration": VariableDeclaration {
+      "end": 24,
+      "isConst": false,
+      "isExported": true,
+      "name": "barrelExport",
+      "start": 0,
+      "type": undefined,
+    },
+    "from": "/",
+  },
+]
+`;
+
+exports[`DeclarationIndex buildIndex() should properly index non-barrel files ending in \`index\` 2`] = `
+Array [
+  DeclarationInfo {
+    "declaration": VariableDeclaration {
+      "end": 18,
+      "isConst": false,
+      "isExported": true,
+      "name": "_index",
+      "start": 0,
+      "type": undefined,
+    },
+    "from": "/_index",
   },
 ]
 `;
