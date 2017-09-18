@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeclarationIndex - specific case "reindex-with-global-module" should parse the declarations 1`] = `
+Array [
+  DeclarationInfo {
+    "declaration": ModuleDeclaration {
+      "end": 206,
+      "name": "someModule",
+      "start": 74,
+    },
+    "from": "some-module",
+  },
+]
+`;
+
+exports[`DeclarationIndex - specific case "reindex-with-global-module" should parse the declarations 2`] = `
+Array [
+  DeclarationInfo {
+    "declaration": InterfaceDeclaration {
+      "end": 70,
+      "isExported": true,
+      "methods": Array [],
+      "name": "SomeInterface",
+      "properties": Array [],
+      "start": 36,
+    },
+    "from": "some-module",
+  },
+]
+`;
+
+exports[`DeclarationIndex - specific case "reindex-with-global-module" should parse the declarations 3`] = `
+Array [
+  DeclarationInfo {
+    "declaration": ClassDeclaration {
+      "end": 61,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 59,
+          "isAbstract": false,
+          "name": "doSomething",
+          "parameters": Array [],
+          "start": 29,
+          "type": "void",
+          "variables": Array [],
+          "visibility": 2,
+        },
+      ],
+      "name": "MyClass",
+      "properties": Array [],
+      "start": 1,
+    },
+    "from": "/classes",
+  },
+]
+`;
