@@ -383,7 +383,7 @@ export class DeclarationIndex {
                 if (!index[declaration.name]) {
                     index[declaration.name] = [];
                 }
-                const from = key.replace(/[/]?index$/, '') || '/';
+                const from = key.replace(/\/index$/, '') || '/';
                 if (!index[declaration.name].some(
                     o => o.declaration.constructor === declaration.constructor && o.from === from,
                 )) {

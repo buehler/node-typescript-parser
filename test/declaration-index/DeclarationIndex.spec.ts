@@ -40,6 +40,8 @@ describe('DeclarationIndex', () => {
             join(rootPath, 'helper-functions.ts'),
             join(rootPath, 'myReactTemplate.tsx'),
             join(rootPath, 'prototype-funcs.ts'),
+            join(rootPath, 'index.ts'),
+            join(rootPath, '_index.ts'),
         ];
 
         beforeEach(async () => {
@@ -82,6 +84,14 @@ describe('DeclarationIndex', () => {
             delete resource.rootPath;
 
             expect(resource).toMatchSnapshot();
+        });
+
+        it('should properly index non-barrel files ending in `index`', () => {
+            const barrelExport = declarationIndex.index!['barrelExport'];
+            expect(barrelExport).toMatchSnapshot();
+
+            const _index = declarationIndex.index!['_index'];
+            expect(_index).toMatchSnapshot();
         });
 
     });
@@ -183,7 +193,7 @@ describe('DeclarationIndex', () => {
                                                 export class FancierLibraryClass {
                                                     public doSomethingAwesome(): void { }
                                                 }
-                                                
+
                                                 export * from './foobar'`,
             });
 
@@ -265,7 +275,7 @@ describe('DeclarationIndex', () => {
                                                 export class FancierLibraryClass {
                                                     public doSomethingAwesome(): void { }
                                                 }
-                                                
+
                                                 export * from './foobar'`,
             });
 
@@ -290,7 +300,7 @@ describe('DeclarationIndex', () => {
                                                 export class FancierLibraryClass {
                                                     public doSomethingAwesome(): void { }
                                                 }
-                                                
+
                                                 export * from './foobar'`,
             });
 
