@@ -675,7 +675,7 @@ describe('TypescriptParser', () => {
 
             expect(parsed).toMatchSnapshot();
         });
-        
+
         it('should parse a simple javascript file correctly with "parseFiles"', async () => {
             const parsed = await parser.parseFiles([file], rootPath);
             delete parsed[0].filePath;
@@ -683,7 +683,7 @@ describe('TypescriptParser', () => {
 
             expect(parsed).toMatchSnapshot();
         });
-        
+
         it('should parse a simple javascript file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
             const parsed = await parser.parseSource(content);
@@ -704,7 +704,7 @@ describe('TypescriptParser', () => {
 
             expect(parsed).toMatchSnapshot();
         });
-        
+
         it('should parse a simple javascript react file correctly with "parseFiles"', async () => {
             const parsed = await parser.parseFiles([file], rootPath);
             delete parsed[0].filePath;
@@ -712,12 +712,25 @@ describe('TypescriptParser', () => {
 
             expect(parsed).toMatchSnapshot();
         });
-        
+
         it('should parse a simple javascript react file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
             const parsed = await parser.parseSource(content);
 
             expect(parsed).toMatchSnapshot();
+        });
+
+    });
+
+    describe('Specific sources', () => {
+
+        it.only('should parse generics in functions in classes correctly', async () => {
+            const parsed = await parser.parseSource(`export class TestClass {
+                public test() {
+                    let a = <T>() => { let b = null; };
+                }
+            }`);
+            console.log(parsed);
         });
 
     });
