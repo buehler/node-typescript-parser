@@ -724,7 +724,7 @@ describe('TypescriptParser', () => {
 
     describe('Specific sources', () => {
 
-        it.only('should parse generics in functions in classes correctly', async () => {
+        it('should parse generics in functions in classes correctly', async () => {
             const parsed = await parser.parseSource(`export class TestClass {
                 public test() {
                     let a = <T>() => { let b = null; };
