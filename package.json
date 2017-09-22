@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/TypeScript-Heroes/node-typescript-parser#readme",
   "devDependencies": {
-    "@types/jest": "^20.0.2",
+    "@types/jest": "^21.1.0",
     "@types/mock-fs": "^3.6.30",
     "@types/node": "^8.0.13",
     "del-cli": "^1.1.0",
