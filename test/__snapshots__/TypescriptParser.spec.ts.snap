@@ -1290,6 +1290,55 @@ File {
 }
 `;
 
+exports[`TypescriptParser Specific sources should parse generics in functions in classes correctly 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "end": 144,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 144,
+          "isAbstract": false,
+          "name": "test",
+          "parameters": Array [],
+          "start": 41,
+          "type": undefined,
+          "variables": Array [
+            VariableDeclaration {
+              "end": 144,
+              "isConst": false,
+              "isExported": false,
+              "name": "a",
+              "start": 77,
+              "type": undefined,
+            },
+          ],
+          "visibility": 2,
+        },
+      ],
+      "name": "TestClass",
+      "properties": Array [],
+      "start": 0,
+    },
+  ],
+  "end": 144,
+  "exports": Array [],
+  "filePath": "inline.tsx",
+  "imports": Array [],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [
+    "a",
+    "T",
+    "let",
+    undefined,
+    "",
+  ],
+}
+`;
+
 exports[`TypescriptParser TSX Usage parsing should parseSource correctly 1`] = `
 Array [
   "myComponent",

@@ -93,6 +93,10 @@ describe('TypescriptParser', () => {
             expect(parsed.usages).toHaveLength(0);
         });
 
+        it('should parse a mixed default / named import');
+
+        it('should parse a named import with a default statement');
+
     });
 
     describe('Export parsing', () => {
@@ -730,7 +734,7 @@ describe('TypescriptParser', () => {
                     let a = <T>() => { let b = null; };
                 }
             }`);
-            console.log(parsed);
+            expect(parsed).toMatchSnapshot();
         });
 
     });
