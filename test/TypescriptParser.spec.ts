@@ -11,11 +11,11 @@ import { VariableDeclaration } from '../src/declarations/VariableDeclaration';
 import { AllExport } from '../src/exports/AllExport';
 import { AssignedExport } from '../src/exports/AssignedExport';
 import { NamedExport } from '../src/exports/NamedExport';
-import { DefaultImport } from '../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../src/imports/ExternalModuleImport';
 import { NamedImport } from '../src/imports/NamedImport';
 import { NamespaceImport } from '../src/imports/NamespaceImport';
 import { StringImport } from '../src/imports/StringImport';
+import { File } from '../src/resources';
 import { Module } from '../src/resources/Module';
 import { Namespace } from '../src/resources/Namespace';
 import { Resource } from '../src/resources/Resource';
@@ -50,7 +50,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse imports', () => {
-            expect(parsed.imports).toHaveLength(7);
+            expect(parsed.imports).toHaveLength(9);
             expect(parsed.imports).toMatchSnapshot();
         });
 
@@ -85,7 +85,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a default import', () => {
-            expect(parsed.imports[6]).toBeInstanceOf(DefaultImport);
+            expect(parsed.imports[6]).toBeInstanceOf(NamedImport);
             expect(parsed.imports[6]).toMatchSnapshot();
         });
 
@@ -93,9 +93,21 @@ describe('TypescriptParser', () => {
             expect(parsed.usages).toHaveLength(0);
         });
 
-        it('should parse a mixed default / named import');
+        it('should parse a named import with a default statement', () => {
+            expect(parsed.imports[7]).toBeInstanceOf(NamedImport);
+            expect(parsed.imports[7]).toMatchSnapshot();
+        });
 
-        it('should parse a named import with a default statement');
+        it('should parse a mixed default / named import', () => {
+            expect(parsed.imports[8]).toBeInstanceOf(NamedImport);
+            expect(parsed.imports[8]).toMatchSnapshot();
+        });
+
+        it('should not parse a wrong default statement', async () => {
+            const wrong = await parser.parseSource(`import { default } from 'myLib';`);
+            expect(wrong).toBeInstanceOf(File);
+            expect(wrong).toMatchSnapshot();
+        });
 
     });
 
