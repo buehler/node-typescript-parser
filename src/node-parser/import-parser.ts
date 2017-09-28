@@ -8,7 +8,6 @@ import {
     StringLiteral,
 } from 'typescript';
 
-import { DefaultImport } from '../imports/DefaultImport';
 import { ExternalModuleImport } from '../imports/ExternalModuleImport';
 import { NamedImport } from '../imports/NamedImport';
 import { NamespaceImport } from '../imports/NamespaceImport';
