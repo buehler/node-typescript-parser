@@ -17,7 +17,7 @@ import { normalizeFilename, normalizePathUri } from './utilities/PathHelpers';
 /**
  * Returns the name of the node folder. Is used as the library name for indexing.
  * (e.g. ./node_modules/webpack returns webpack)
- * 
+ *
  * @param {string} path
  * @returns {string}
  */
@@ -47,7 +47,7 @@ export type IndexDelta = {
 
 /**
  * Interface for file changes. Contains lists of file uri's to the specific action.
- * 
+ *
  * @export
  * @interface FileChanges
  */
@@ -60,7 +60,7 @@ export interface FileChanges {
 /**
  * Global index of declarations. Contains declarations and origins.
  * Provides reverse index for search and declaration info for imports.
- * 
+ *
  * @export
  * @class DeclarationIndex
  */
@@ -79,7 +79,7 @@ export class DeclarationIndex {
 
     /**
      * Declaration index. Reverse index from a name to many declarations assotiated to the name.
-     * 
+     *
      * @private
      * @type {({ [declaration: string]: DeclarationInfo[] } | undefined)}
      * @memberof DeclarationIndex
@@ -88,7 +88,7 @@ export class DeclarationIndex {
 
     /**
      * Indicator if the first index was loaded and calculated or not.
-     * 
+     *
      * @readonly
      * @type {boolean}
      * @memberof DeclarationIndex
@@ -99,7 +99,7 @@ export class DeclarationIndex {
 
     /**
      * Reverse index of the declarations.
-     * 
+     *
      * @readonly
      * @type {({ [declaration: string]: DeclarationInfo[] } | undefined)}
      * @memberof DeclarationIndex
@@ -110,8 +110,8 @@ export class DeclarationIndex {
 
     /**
      * List of all declaration information. Contains the typescript declaration and the
-     * "from" information (from where the symbol is imported). 
-     * 
+     * "from" information (from where the symbol is imported).
+     *
      * @readonly
      * @type {DeclarationInfo[]}
      * @memberof DeclarationIndex
@@ -128,11 +128,11 @@ export class DeclarationIndex {
     /**
      * Calculates the differences between two indices. Calculates removed, added and updated declarations.
      * The updated declarations are calculated and all declarations that the new index contains are inserted in the list.
-     * 
+     *
      * @static
-     * @param {{ [declaration: string]: DeclarationInfo[] }} oldIndex 
-     * @param {{ [declaration: string]: DeclarationInfo[] }} newIndex 
-     * @returns {IndexDelta} 
+     * @param {{ [declaration: string]: DeclarationInfo[] }} oldIndex
+     * @param {{ [declaration: string]: DeclarationInfo[] }} newIndex
+     * @returns {IndexDelta}
      * @memberof DeclarationIndex
      */
     public static calculateIndexDelta(
@@ -170,7 +170,7 @@ export class DeclarationIndex {
     /**
      * Resets the whole index. Does delete everything. Period.
      * Is useful for unit testing or similar things.
-     * 
+     *
      * @memberof DeclarationIndex
      */
     public reset(): void {
@@ -181,10 +181,10 @@ export class DeclarationIndex {
     /**
      * Tells the index to build a new index.
      * Can be canceled with a cancellationToken.
-     * 
+     *
      * @param {string[]} filePathes
      * @returns {Promise<void>}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     public async buildIndex(filePathes: string[]): Promise<void> {
@@ -208,10 +208,10 @@ export class DeclarationIndex {
     /**
      * Is called when file events happen. Does reindex for the changed files and creates a new index.
      * Returns the differences for the new index.
-     * 
+     *
      * @param {FileEvent[]} changes
      * @returns {Promise<IndexDelta>}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     public async reindexForChanges(changes: FileChanges): Promise<IndexDelta> {
@@ -269,11 +269,11 @@ export class DeclarationIndex {
 
     /**
      * Returns a list of files that export a certain resource (declaration).
-     * 
+     *
      * @private
      * @param {string} resourceToCheck
      * @returns {string[]}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private getExportedResources(resourceToCheck: string): string[] {
@@ -292,12 +292,12 @@ export class DeclarationIndex {
     /**
      * Checks if a file does export another resource.
      * (i.e. export ... from ...)
-     * 
+     *
      * @private
      * @param {File} resource The file that is checked
      * @param {string} resourcePath The resource that is searched for
      * @returns {boolean}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private doesExportResource(resource: File, resourcePath: string): boolean {
@@ -323,7 +323,7 @@ export class DeclarationIndex {
      * @private
      * @param {File[]} [files=[]]
      * @returns {Promise<Resources>}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private async parseResources(files: File[] = []): Promise<Resources> {
@@ -356,11 +356,11 @@ export class DeclarationIndex {
     /**
      * Creates a reverse index out of the give resources.
      * Can be cancelled with the token.
-     * 
+     *
      * @private
      * @param {Resources} resources
      * @returns {Promise<ResourceIndex>}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private async createIndex(resources: Resources): Promise<{ [declaration: string]: DeclarationInfo[] }> {
@@ -397,13 +397,13 @@ export class DeclarationIndex {
     /**
      * Process all exports of a the parsed resources. Does move the declarations accordingly to their
      * export nature.
-     * 
+     *
      * @private
      * @param {Resources} parsedResources
      * @param {Resource} resource
      * @param {Resource[]} [processedResources=[]]
      * @returns {void}
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private processResourceExports(
@@ -460,11 +460,11 @@ export class DeclarationIndex {
     /**
      * Processes an all export, does move the declarations accordingly.
      * (i.e. export * from './myFile')
-     * 
+     *
      * @private
      * @param {Resource} exportingLib
      * @param {Resource} exportedLib
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private processAllFromExport(exportingLib: Resource, exportedLib: Resource): void {
@@ -475,12 +475,12 @@ export class DeclarationIndex {
     /**
      * Processes a named export, does move the declarations accordingly.
      * (i.e. export {MyClass} from './myFile')
-     * 
+     *
      * @private
      * @param {NamedExport} tsExport
      * @param {Resource} exportingLib
      * @param {Resource} exportedLib
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private processNamedFromExport(
@@ -505,11 +505,11 @@ export class DeclarationIndex {
     /**
      * Processes an assigned export, does move the declarations accordingly.
      * (i.e. export = namespaceName)
-     * 
+     *
      * @private
      * @param {AssignedExport} tsExport
      * @param {Resource} exportingLib
-     * 
+     *
      * @memberof DeclarationIndex
      */
     private processAssignedExport(
