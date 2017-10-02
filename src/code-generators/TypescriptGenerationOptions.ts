@@ -8,10 +8,10 @@ export interface TypescriptGenerationOptions {
     /**
      * Which quote type should be used (' or ").
      *
-     * @type {('\'' | '"')}
+     * @type {string}
      * @memberof TypescriptGenerationOptions
      */
-    stringQuoteStyle: '\'' | '"';
+    stringQuoteStyle: string;
 
     /**
      * Defines end of line character (semicolon or nothing).

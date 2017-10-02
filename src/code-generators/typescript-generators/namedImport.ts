@@ -4,16 +4,18 @@ import { stringTemplate } from '../../utilities/StringTemplate';
 import { TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 import { generateSymbolSpecifier } from './symbolSpecifier';
 
-const multiLineImport = stringTemplate`import {
+const importTemplate = stringTemplate`import ${0} from ${1}`;
+
+const multiLineImport = stringTemplate`import ${3}{
 ${0}${1}
 } from ${2}`;
 
 /**
  * Sort function for symbol specifiers. Does sort after the specifiers name (to lowercase).
- * 
- * @param {SymbolSpecifier} i1 
- * @param {SymbolSpecifier} i2 
- * @returns {number} 
+ *
+ * @param {SymbolSpecifier} i1
+ * @param {SymbolSpecifier} i2
+ * @returns {number}
  */
 function specifierSort(i1: SymbolSpecifier, i2: SymbolSpecifier): number {
     const strA = i1.specifier.toLowerCase();
@@ -29,11 +31,11 @@ function specifierSort(i1: SymbolSpecifier, i2: SymbolSpecifier): number {
 
 /**
  * Generates typescript code for a named import.
- * 
+ *
  * @export
- * @param {NamedImport} imp 
- * @param {TypescriptGenerationOptions} { stringQuoteStyle, eol } 
- * @returns {string} 
+ * @param {NamedImport} imp
+ * @param {TypescriptGenerationOptions} { stringQuoteStyle, eol }
+ * @returns {string}
  */
 export function generateNamedImport(
     imp: NamedImport,
@@ -47,22 +49,43 @@ export function generateNamedImport(
     }: TypescriptGenerationOptions,
 ): string {
     const space = spaceBraces ? ' ' : '';
+    const lib = `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
+
     const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
-    const lib = imp.libraryName;
-    
     let importSpecifiers = `${space}${specifiers}${space}`;
     if (importSpecifiers.trim().length === 0) {
         importSpecifiers = ' ';
     }
 
-    const importString = `import {${importSpecifiers}} from ${stringQuoteStyle}${lib}${stringQuoteStyle}${eol}`;
+    const importString = importTemplate(
+        getImportSpecifiers(imp, spaceBraces),
+        lib,
+    );
+
     if (importString.length > multiLineWrapThreshold) {
         const spacings = Array(tabSize + 1).join(' ');
         return multiLineImport(
             imp.specifiers.sort(specifierSort).map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n'),
             multiLineTrailingComma ? ',' : '',
             `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+            imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
         );
     }
     return importString;
+}
+
+function getImportSpecifiers(namedImport: NamedImport, spaceBraces: boolean): string {
+    if (namedImport.defaultAlias && namedImport.specifiers.length <= 0) {
+        return namedImport.defaultAlias;
+    }
+    const space = spaceBraces ? ' ' : '';
+    const specifiers = namedImport.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
+    let importSpecifiers = `${space}${specifiers}${space}`;
+    if (importSpecifiers.trim().length === 0) {
+        importSpecifiers = ' ';
+    }
+    if (namedImport.defaultAlias && namedImport.specifiers.length > 0) {
+        return `${namedImport.defaultAlias}, {${importSpecifiers}}`;
+    }
+    return `{${importSpecifiers}}`;
 }

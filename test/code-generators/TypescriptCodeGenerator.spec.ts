@@ -7,7 +7,6 @@ import { ParameterDeclaration } from '../../src/declarations/ParameterDeclaratio
 import { PropertyDeclaration } from '../../src/declarations/PropertyDeclaration';
 import { VariableDeclaration } from '../../src/declarations/VariableDeclaration';
 import { NotGeneratableYetError } from '../../src/errors/NotGeneratableYetError';
-import { DefaultImport } from '../../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../../src/imports/ExternalModuleImport';
 import { NamedImport } from '../../src/imports/NamedImport';
 import { NamespaceImport } from '../../src/imports/NamespaceImport';
@@ -66,7 +65,6 @@ describe('TypescriptCodeGenerator', () => {
         new PropertyDeclaration('prvProperty', DeclarationVisibility.Private, 'boolean'),
         new VariableDeclaration('myVar', false, false, 'string'),
         new VariableDeclaration('myConst', true, false, 'string'),
-        new DefaultImport('defaultLib', 'defaultAlias'),
         new ExternalModuleImport('externalModuleLib', 'externalAlias'),
         new StringImport('stringLib'),
         new NamespaceImport('namespaceLib', 'namespaceAlias'),
