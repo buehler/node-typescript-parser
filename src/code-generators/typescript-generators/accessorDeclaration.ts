@@ -18,13 +18,19 @@ export function generateAccessorDeclaration(
     let definitionLine: string;
     if (accessor instanceof SetterDeclaration) {
         definitionLine = `${tabs}${accessor.visibility !== undefined ? getVisibilityText(accessor.visibility) + ' ' : ''}` +
-            `set ${accessor.name}(value${accessor.type ? `: ${accessor.type}` : ''}) {`;
+            `${accessor.isAbstract ? 'abstract ' : ''}` +
+            `set ${accessor.name}(value${accessor.type ? `: ${accessor.type}` : ''})`;
     } else {
         definitionLine = `${tabs}${accessor.visibility !== undefined ? getVisibilityText(accessor.visibility) + ' ' : ''}` +
-            `get ${accessor.name}()${accessor.type ? `: ${accessor.type}` : ''} {`;
+            `${accessor.isAbstract ? 'abstract ' : ''}` +
+            `get ${accessor.name}()${accessor.type ? `: ${accessor.type}` : ''}`;
     }
 
-    return `${definitionLine}
+    if (accessor.isAbstract) {
+        return `${definitionLine};`;
+    }
+
+    return `${definitionLine} {
 ${tabs}${tabs}throw new Error('Not implemented yet.');
 ${tabs}}\n`;
 }

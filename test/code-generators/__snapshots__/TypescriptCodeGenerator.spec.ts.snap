@@ -2,6 +2,54 @@
 
 exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport 1`] = `"import externalAlias = require('externalModuleLib');"`;
 
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 1`] = `
+"    public get pubGetter(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 2`] = `
+"    protected get protGetter(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 3`] = `
+"    private get privGetter(): string {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 4`] = `
+"    public get pubNoTypeGetter() {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 5`] = `
+"    protected get protNoTypeGetter() {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 6`] = `
+"    private get privNoTypeGetter() {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 7`] = `"    public abstract get pubAbsGetter(): number;"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 8`] = `"    protected abstract get protAbsGetter(): number;"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for GetterDeclaration 9`] = `"    private abstract get privAbsGetter(): number;"`;
+
 exports[`TypescriptCodeGenerator should generate the correct code for MethodDeclaration 1`] = `
 "    public myMethod(): void {
         throw new Error('Not implemented yet.');
@@ -112,6 +160,54 @@ exports[`TypescriptCodeGenerator should generate the correct code for PropertyDe
 "    private prvProperty: boolean;
 "
 `;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 1`] = `
+"    public set pubSetter(value: string) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 2`] = `
+"    protected set protSetter(value: string) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 3`] = `
+"    private set privSetter(value: string) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 4`] = `
+"    public set pubNoTypeSetter(value) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 5`] = `
+"    protected set protNoTypeSetter(value) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 6`] = `
+"    private set privNoTypeSetter(value) {
+        throw new Error('Not implemented yet.');
+    }
+"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 7`] = `"    public abstract set pubAbsSetter(value: number);"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 8`] = `"    protected abstract set protAbsSetter(value: number);"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for SetterDeclaration 9`] = `"    private abstract set privAbsSetter(value: number);"`;
 
 exports[`TypescriptCodeGenerator should generate the correct code for StringImport 1`] = `"import 'stringLib';"`;
 

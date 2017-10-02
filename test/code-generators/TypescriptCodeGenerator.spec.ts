@@ -1,3 +1,4 @@
+import { GetterDeclaration, SetterDeclaration } from '../../src/declarations/AccessorDeclaration';
 import { TypescriptCodeGenerator } from '../../src/code-generators/TypescriptCodeGenerator';
 import { TypescriptGenerationOptions } from '../../src/code-generators/TypescriptGenerationOptions';
 import { ClassDeclaration } from '../../src/declarations';
@@ -83,6 +84,24 @@ describe('TypescriptCodeGenerator', () => {
         defaultImport,
         defaultWithNamed,
         defaultWithNamedMultiline,
+        new GetterDeclaration('pubGetter', DeclarationVisibility.Public, 'string', false),
+        new GetterDeclaration('protGetter', DeclarationVisibility.Protected, 'string', false),
+        new GetterDeclaration('privGetter', DeclarationVisibility.Private, 'string', false),
+        new GetterDeclaration('pubNoTypeGetter', DeclarationVisibility.Public, undefined, false),
+        new GetterDeclaration('protNoTypeGetter', DeclarationVisibility.Protected, undefined, false),
+        new GetterDeclaration('privNoTypeGetter', DeclarationVisibility.Private, undefined, false),
+        new GetterDeclaration('pubAbsGetter', DeclarationVisibility.Public, 'number', true),
+        new GetterDeclaration('protAbsGetter', DeclarationVisibility.Protected, 'number', true),
+        new GetterDeclaration('privAbsGetter', DeclarationVisibility.Private, 'number', true),
+        new SetterDeclaration('pubSetter', DeclarationVisibility.Public, 'string', false),
+        new SetterDeclaration('protSetter', DeclarationVisibility.Protected, 'string', false),
+        new SetterDeclaration('privSetter', DeclarationVisibility.Private, 'string', false),
+        new SetterDeclaration('pubNoTypeSetter', DeclarationVisibility.Public, undefined, false),
+        new SetterDeclaration('protNoTypeSetter', DeclarationVisibility.Protected, undefined, false),
+        new SetterDeclaration('privNoTypeSetter', DeclarationVisibility.Private, undefined, false),
+        new SetterDeclaration('pubAbsSetter', DeclarationVisibility.Public, 'number', true),
+        new SetterDeclaration('protAbsSetter', DeclarationVisibility.Protected, 'number', true),
+        new SetterDeclaration('privAbsSetter', DeclarationVisibility.Private, 'number', true),
     ];
 
     for (const generatable of generatables) {
