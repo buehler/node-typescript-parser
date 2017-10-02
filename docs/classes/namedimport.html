@@ -71,6 +71,7 @@
 					<div class="lead">
 						<p>Basic typescript import (ES6 style). Does contain multiple symbols of a file and converts
 							itself to a multiline import if the threshold is reached.
+							Can also contain a default import part.
 						(i.e. import {Foobar} from ...).</p>
 					</div>
 					<dl class="tsd-comment-tags">
@@ -112,6 +113,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="namedimport.html#defaultalias" class="tsd-kind-icon">default<wbr>Alias</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="namedimport.html#end" class="tsd-kind-icon">end</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="namedimport.html#libraryname" class="tsd-kind-icon">library<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="namedimport.html#specifiers" class="tsd-kind-icon">specifiers</a></li>
@@ -145,7 +147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L18">imports/NamedImport.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L20">imports/NamedImport.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -168,13 +170,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="defaultalias" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default<wbr>Alias</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Alias<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L16">imports/NamedImport.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="end" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
 					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/import.html">Import</a>.<a href="../interfaces/import.html#end">end</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L20">imports/NamedImport.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L22">imports/NamedImport.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,7 +197,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/import.html">Import</a>.<a href="../interfaces/import.html#libraryname">libraryName</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L20">imports/NamedImport.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L22">imports/NamedImport.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">specifiers<span class="tsd-signature-symbol">:</span> <a href="symbolspecifier.html" class="tsd-signature-type">SymbolSpecifier</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L14">imports/NamedImport.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L15">imports/NamedImport.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +218,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/import.html">Import</a>.<a href="../interfaces/import.html#start">start</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L20">imports/NamedImport.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L22">imports/NamedImport.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L16">imports/NamedImport.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L18">imports/NamedImport.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -244,7 +256,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/import.html">Import</a>.<a href="../interfaces/import.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/3fcea16/src/imports/NamedImport.ts#L29">imports/NamedImport.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/1623a6f/src/imports/NamedImport.ts#L31">imports/NamedImport.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,6 +292,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="namedimport.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="namedimport.html#defaultalias" class="tsd-kind-icon">default<wbr>Alias</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="namedimport.html#end" class="tsd-kind-icon">end</a>

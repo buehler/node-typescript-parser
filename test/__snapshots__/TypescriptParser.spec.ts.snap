@@ -729,18 +729,60 @@ NamedExport {
 }
 `;
 
+exports[`TypescriptParser Import parsing should not parse a wrong default statement 1`] = `
+File {
+  "declarations": Array [],
+  "end": 32,
+  "exports": Array [],
+  "filePath": "inline.tsx",
+  "imports": Array [
+    NamedImport {
+      "end": 32,
+      "libraryName": "myLib",
+      "specifiers": Array [
+        SymbolSpecifier {
+          "alias": undefined,
+          "specifier": "default",
+        },
+      ],
+      "start": 0,
+    },
+  ],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [],
+}
+`;
+
 exports[`TypescriptParser Import parsing should parse a default import 1`] = `
-DefaultImport {
-  "alias": "Foobar",
-  "end": 328,
+NamedImport {
+  "defaultAlias": "Foobar",
+  "end": 332,
   "libraryName": "aFile",
-  "start": 301,
+  "specifiers": Array [],
+  "start": 305,
+}
+`;
+
+exports[`TypescriptParser Import parsing should parse a mixed default / named import 1`] = `
+NamedImport {
+  "defaultAlias": "DefaultAlias",
+  "end": 455,
+  "libraryName": "namedImport",
+  "specifiers": Array [
+    SymbolSpecifier {
+      "alias": undefined,
+      "specifier": "Specifier1",
+    },
+  ],
+  "start": 400,
 }
 `;
 
 exports[`TypescriptParser Import parsing should parse a multiline import 1`] = `
 NamedImport {
-  "end": 300,
+  "end": 304,
   "libraryName": "multiLineImport",
   "specifiers": Array [
     SymbolSpecifier {
@@ -752,16 +794,31 @@ NamedImport {
       "specifier": "Spec2",
     },
   ],
-  "start": 235,
+  "start": 239,
+}
+`;
+
+exports[`TypescriptParser Import parsing should parse a named import with a default statement 1`] = `
+NamedImport {
+  "defaultAlias": "DefaultAlias",
+  "end": 399,
+  "libraryName": "namedImport",
+  "specifiers": Array [
+    SymbolSpecifier {
+      "alias": undefined,
+      "specifier": "Specifier1",
+    },
+  ],
+  "start": 333,
 }
 `;
 
 exports[`TypescriptParser Import parsing should parse external module import 1`] = `
 ExternalModuleImport {
   "alias": "external",
-  "end": 234,
+  "end": 238,
   "libraryName": "externalModule",
-  "start": 190,
+  "start": 194,
 }
 `;
 
@@ -773,7 +830,7 @@ Array [
     "start": 0,
   },
   NamedImport {
-    "end": 86,
+    "end": 88,
     "libraryName": "namedImport",
     "specifiers": Array [
       SymbolSpecifier {
@@ -792,7 +849,7 @@ Array [
     "start": 23,
   },
   NamedImport {
-    "end": 143,
+    "end": 147,
     "libraryName": "namedAliasedImport",
     "specifiers": Array [
       SymbolSpecifier {
@@ -800,22 +857,22 @@ Array [
         "specifier": "Specifier1",
       },
     ],
-    "start": 87,
+    "start": 89,
   },
   NamespaceImport {
     "alias": "namespaceImport",
-    "end": 189,
+    "end": 193,
     "libraryName": "namespace",
-    "start": 144,
+    "start": 148,
   },
   ExternalModuleImport {
     "alias": "external",
-    "end": 234,
+    "end": 238,
     "libraryName": "externalModule",
-    "start": 190,
+    "start": 194,
   },
   NamedImport {
-    "end": 300,
+    "end": 304,
     "libraryName": "multiLineImport",
     "specifiers": Array [
       SymbolSpecifier {
@@ -827,20 +884,45 @@ Array [
         "specifier": "Spec2",
       },
     ],
-    "start": 235,
+    "start": 239,
   },
-  DefaultImport {
-    "alias": "Foobar",
-    "end": 328,
+  NamedImport {
+    "defaultAlias": "Foobar",
+    "end": 332,
     "libraryName": "aFile",
-    "start": 301,
+    "specifiers": Array [],
+    "start": 305,
+  },
+  NamedImport {
+    "defaultAlias": "DefaultAlias",
+    "end": 399,
+    "libraryName": "namedImport",
+    "specifiers": Array [
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "Specifier1",
+      },
+    ],
+    "start": 333,
+  },
+  NamedImport {
+    "defaultAlias": "DefaultAlias",
+    "end": 455,
+    "libraryName": "namedImport",
+    "specifiers": Array [
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "Specifier1",
+      },
+    ],
+    "start": 400,
   },
 ]
 `;
 
 exports[`TypescriptParser Import parsing should parse named import 1`] = `
 NamedImport {
-  "end": 86,
+  "end": 88,
   "libraryName": "namedImport",
   "specifiers": Array [
     SymbolSpecifier {
@@ -862,7 +944,7 @@ NamedImport {
 
 exports[`TypescriptParser Import parsing should parse named import with aliased specifier 1`] = `
 NamedImport {
-  "end": 143,
+  "end": 147,
   "libraryName": "namedAliasedImport",
   "specifiers": Array [
     SymbolSpecifier {
@@ -870,16 +952,16 @@ NamedImport {
       "specifier": "Specifier1",
     },
   ],
-  "start": 87,
+  "start": 89,
 }
 `;
 
 exports[`TypescriptParser Import parsing should parse namespace import 1`] = `
 NamespaceImport {
   "alias": "namespaceImport",
-  "end": 189,
+  "end": 193,
   "libraryName": "namespace",
-  "start": 144,
+  "start": 148,
 }
 `;
 
@@ -924,16 +1006,18 @@ File {
   "end": 333,
   "exports": Array [],
   "imports": Array [
-    DefaultImport {
-      "alias": "React",
+    NamedImport {
+      "defaultAlias": "React",
       "end": 26,
       "libraryName": "react",
+      "specifiers": Array [],
       "start": 0,
     },
-    DefaultImport {
-      "alias": "$",
+    NamedImport {
+      "defaultAlias": "$",
       "end": 50,
       "libraryName": "jquery",
+      "specifiers": Array [],
       "start": 27,
     },
   ],
@@ -985,16 +1069,18 @@ Array [
     "end": 333,
     "exports": Array [],
     "imports": Array [
-      DefaultImport {
-        "alias": "React",
+      NamedImport {
+        "defaultAlias": "React",
         "end": 26,
         "libraryName": "react",
+        "specifiers": Array [],
         "start": 0,
       },
-      DefaultImport {
-        "alias": "$",
+      NamedImport {
+        "defaultAlias": "$",
         "end": 50,
         "libraryName": "jquery",
+        "specifiers": Array [],
         "start": 27,
       },
     ],
@@ -1047,16 +1133,18 @@ File {
   "exports": Array [],
   "filePath": "inline.tsx",
   "imports": Array [
-    DefaultImport {
-      "alias": "React",
+    NamedImport {
+      "defaultAlias": "React",
       "end": 26,
       "libraryName": "react",
+      "specifiers": Array [],
       "start": 0,
     },
-    DefaultImport {
-      "alias": "$",
+    NamedImport {
+      "defaultAlias": "$",
       "end": 50,
       "libraryName": "jquery",
+      "specifiers": Array [],
       "start": 27,
     },
   ],
@@ -1115,10 +1203,11 @@ File {
   "end": 122,
   "exports": Array [],
   "imports": Array [
-    DefaultImport {
-      "alias": "$",
+    NamedImport {
+      "defaultAlias": "$",
       "end": 23,
       "libraryName": "jquery",
+      "specifiers": Array [],
       "start": 0,
     },
   ],
@@ -1171,10 +1260,11 @@ Array [
     "end": 122,
     "exports": Array [],
     "imports": Array [
-      DefaultImport {
-        "alias": "$",
+      NamedImport {
+        "defaultAlias": "$",
         "end": 23,
         "libraryName": "jquery",
+        "specifiers": Array [],
         "start": 0,
       },
     ],
@@ -1228,10 +1318,11 @@ File {
   "exports": Array [],
   "filePath": "inline.tsx",
   "imports": Array [
-    DefaultImport {
-      "alias": "$",
+    NamedImport {
+      "defaultAlias": "$",
       "end": 23,
       "libraryName": "jquery",
+      "specifiers": Array [],
       "start": 0,
     },
   ],
@@ -1286,6 +1377,55 @@ File {
   "usages": Array [
     "bar",
     "Foobar",
+  ],
+}
+`;
+
+exports[`TypescriptParser Specific sources should parse generics in functions in classes correctly 1`] = `
+File {
+  "declarations": Array [
+    ClassDeclaration {
+      "end": 144,
+      "isExported": true,
+      "methods": Array [
+        MethodDeclaration {
+          "end": 144,
+          "isAbstract": false,
+          "name": "test",
+          "parameters": Array [],
+          "start": 41,
+          "type": undefined,
+          "variables": Array [
+            VariableDeclaration {
+              "end": 144,
+              "isConst": false,
+              "isExported": false,
+              "name": "a",
+              "start": 77,
+              "type": undefined,
+            },
+          ],
+          "visibility": 2,
+        },
+      ],
+      "name": "TestClass",
+      "properties": Array [],
+      "start": 0,
+    },
+  ],
+  "end": 144,
+  "exports": Array [],
+  "filePath": "inline.tsx",
+  "imports": Array [],
+  "resources": Array [],
+  "rootPath": "/",
+  "start": 0,
+  "usages": Array [
+    "a",
+    "T",
+    "let",
+    undefined,
+    "",
   ],
 }
 `;

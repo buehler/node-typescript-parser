@@ -7,7 +7,6 @@ import { ParameterDeclaration } from '../../src/declarations/ParameterDeclaratio
 import { PropertyDeclaration } from '../../src/declarations/PropertyDeclaration';
 import { VariableDeclaration } from '../../src/declarations/VariableDeclaration';
 import { NotGeneratableYetError } from '../../src/errors/NotGeneratableYetError';
-import { DefaultImport } from '../../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../../src/imports/ExternalModuleImport';
 import { NamedImport } from '../../src/imports/NamedImport';
 import { NamespaceImport } from '../../src/imports/NamespaceImport';
@@ -15,13 +14,12 @@ import { StringImport } from '../../src/imports/StringImport';
 import { SymbolSpecifier } from '../../src/SymbolSpecifier';
 
 const namedImport = new NamedImport('namedLib');
-const multiLineNamedImport = new NamedImport('multiLineNamedLib');
-
 namedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2', 'alias2'),
 ];
 
+const multiLineNamedImport = new NamedImport('multiLineNamedLib');
 multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2'),
@@ -40,6 +38,16 @@ multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec15'),
 ];
 
+const defaultImport = new NamedImport('defaultImport');
+defaultImport.defaultAlias = 'Default';
+
+const defaultWithNamed = new NamedImport('defaultWithNamedImport');
+defaultWithNamed.defaultAlias = 'Default';
+defaultWithNamed.specifiers = namedImport.specifiers;
+
+const defaultWithNamedMultiline = new NamedImport('defaultWithNamedMultilineImport');
+defaultWithNamedMultiline.defaultAlias = 'Default';
+defaultWithNamedMultiline.specifiers = multiLineNamedImport.specifiers;
 
 describe('TypescriptCodeGenerator', () => {
     const defaultOptions: TypescriptGenerationOptions = {
@@ -66,13 +74,15 @@ describe('TypescriptCodeGenerator', () => {
         new PropertyDeclaration('prvProperty', DeclarationVisibility.Private, 'boolean'),
         new VariableDeclaration('myVar', false, false, 'string'),
         new VariableDeclaration('myConst', true, false, 'string'),
-        new DefaultImport('defaultLib', 'defaultAlias'),
         new ExternalModuleImport('externalModuleLib', 'externalAlias'),
         new StringImport('stringLib'),
         new NamespaceImport('namespaceLib', 'namespaceAlias'),
         namedImport,
         multiLineNamedImport,
         new NamedImport('emptyImport'),
+        defaultImport,
+        defaultWithNamed,
+        defaultWithNamedMultiline,
     ];
 
     for (const generatable of generatables) {
