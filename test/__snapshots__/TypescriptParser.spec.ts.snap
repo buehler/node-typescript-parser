@@ -74,6 +74,43 @@ ClassDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse abstract property accessors 1`] = `
+Array [
+  GetterDeclaration {
+    "end": 977,
+    "isAbstract": true,
+    "name": "getOnly",
+    "start": 939,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 1022,
+    "isAbstract": true,
+    "name": "setOnly",
+    "start": 982,
+    "type": undefined,
+    "visibility": 2,
+  },
+  GetterDeclaration {
+    "end": 1067,
+    "isAbstract": true,
+    "name": "getAndSet",
+    "start": 1027,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 1117,
+    "isAbstract": true,
+    "name": "getAndSet",
+    "start": 1072,
+    "type": undefined,
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Classes should parse an abstract class 1`] = `
 ClassDeclaration {
   "accessors": Array [],
@@ -156,6 +193,43 @@ ClassDeclaration {
   ],
   "start": 304,
 }
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse property accessors 1`] = `
+Array [
+  GetterDeclaration {
+    "end": 731,
+    "isAbstract": false,
+    "name": "getOnly",
+    "start": 670,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 775,
+    "isAbstract": false,
+    "name": "setOnly",
+    "start": 737,
+    "type": undefined,
+    "visibility": 2,
+  },
+  GetterDeclaration {
+    "end": 838,
+    "isAbstract": false,
+    "name": "getAndSet",
+    "start": 781,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 888,
+    "isAbstract": false,
+    "name": "getAndSet",
+    "start": 844,
+    "type": undefined,
+    "visibility": 2,
+  },
+]
 `;
 
 exports[`TypescriptParser Declaration parsing Enums should parse an enum correctly 1`] = `

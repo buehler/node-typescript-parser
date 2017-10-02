@@ -30,3 +30,27 @@ export class ExportedClass {
 
 class Generic<T> { }
 class MultiGeneric<TIn, TOut, TError> { }
+
+class PropertyAccessors {
+    public get getOnly(): string {
+        return 'foobar';
+    }
+
+    public set setOnly(value: any) {
+    }
+
+    public get getAndSet(): string {
+        return '';
+    }
+
+    public set getAndSet(value: string) {
+
+    }
+}
+
+abstract class AbstractPropertyAccessors {
+    public abstract get getOnly(): string;
+    public abstract set setOnly(value: any);
+    public abstract get getAndSet(): string;
+    public abstract set getAndSet(value: string);
+}

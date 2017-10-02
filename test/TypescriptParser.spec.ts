@@ -362,7 +362,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(5);
+                expect(parsed.declarations).toHaveLength(7);
             });
 
             it('should parse an abstract class', () => {
@@ -417,6 +417,18 @@ describe('TypescriptParser', () => {
                 expect(parsedClass.typeParameters).toContain('TIn');
                 expect(parsedClass.typeParameters).toContain('TOut');
                 expect(parsedClass.typeParameters).toContain('TError');
+            });
+
+            it('should parse property accessors', () => {
+                const parsedClass = parsed.declarations[5] as ClassDeclaration;
+
+                expect(parsedClass.accessors).toMatchSnapshot();
+            });
+
+            it('should parse abstract property accessors', () => {
+                const parsedClass = parsed.declarations[6] as ClassDeclaration;
+
+                expect(parsedClass.accessors).toMatchSnapshot();
             });
 
         });
