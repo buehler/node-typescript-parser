@@ -9,6 +9,7 @@ import {
     SyntaxKind,
 } from 'typescript';
 
+import { GetterDeclaration, SetterDeclaration } from '../declarations/AccessorDeclaration';
 import { ClassDeclaration as TshClass } from '../declarations/ClassDeclaration';
 import { ConstructorDeclaration as TshConstructor } from '../declarations/ConstructorDeclaration';
 import { DefaultDeclaration as TshDefault } from '../declarations/DefaultDeclaration';
@@ -23,6 +24,8 @@ import {
     isMethodDeclaration,
     isObjectBindingPattern,
     isPropertyDeclaration,
+    isGetAccessorDeclaration,
+    isSetAccessorDeclaration,
 } from '../type-guards/TypescriptGuards';
 import { parseFunctionParts, parseMethodParams } from './function-parser';
 import { parseIdentifier } from './identifier-parser';
@@ -36,7 +39,7 @@ import {
 
 /**
  * Parses the identifiers of a class (usages).
- * 
+ *
  * @export
  * @param {Resource} tsResource
  * @param {Node} node
@@ -57,7 +60,7 @@ export function parseClassIdentifiers(tsResource: Resource, node: Node): void {
 /**
  * Parse information about a constructor. Contains parameters and used modifiers
  * (i.e. constructor(private name: string)).
- * 
+ *
  * @export
  * @param {TshClass} parent
  * @param {TshConstructor} ctor
@@ -107,7 +110,7 @@ export function parseCtorParams(
 
 /**
  * Parses a class node into its declaration. Calculates the properties, constructors and methods of the class.
- * 
+ *
  * @export
  * @param {Resource} tsResource
  * @param {ClassDeclaration} node
@@ -152,6 +155,32 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     );
                 }
                 return;
+            }
+
+            if (isGetAccessorDeclaration(o)) {
+                classDeclaration.accessors.push(
+                    new GetterDeclaration(
+                        (o.name as Identifier).text,
+                        getNodeVisibility(o),
+                        getNodeType(o.type),
+                        o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        o.getStart(),
+                        o.getEnd(),
+                    ),
+                );
+            }
+
+            if (isSetAccessorDeclaration(o)) {
+                classDeclaration.accessors.push(
+                    new SetterDeclaration(
+                        (o.name as Identifier).text,
+                        getNodeVisibility(o),
+                        getNodeType(o.type),
+                        o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        o.getStart(),
+                        o.getEnd(),
+                    ),
+                );
             }
 
             if (isConstructorDeclaration(o)) {
