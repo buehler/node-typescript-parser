@@ -14,13 +14,12 @@ import { StringImport } from '../../src/imports/StringImport';
 import { SymbolSpecifier } from '../../src/SymbolSpecifier';
 
 const namedImport = new NamedImport('namedLib');
-const multiLineNamedImport = new NamedImport('multiLineNamedLib');
-
 namedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2', 'alias2'),
 ];
 
+const multiLineNamedImport = new NamedImport('multiLineNamedLib');
 multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2'),
@@ -39,6 +38,16 @@ multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec15'),
 ];
 
+const defaultImport = new NamedImport('defaultImport');
+defaultImport.defaultAlias = 'Default';
+
+const defaultWithNamed = new NamedImport('defaultWithNamedImport');
+defaultWithNamed.defaultAlias = 'Default';
+defaultWithNamed.specifiers = namedImport.specifiers;
+
+const defaultWithNamedMultiline = new NamedImport('defaultWithNamedMultilineImport');
+defaultWithNamedMultiline.defaultAlias = 'Default';
+defaultWithNamedMultiline.specifiers = multiLineNamedImport.specifiers;
 
 describe('TypescriptCodeGenerator', () => {
     const defaultOptions: TypescriptGenerationOptions = {
@@ -71,6 +80,9 @@ describe('TypescriptCodeGenerator', () => {
         namedImport,
         multiLineNamedImport,
         new NamedImport('emptyImport'),
+        defaultImport,
+        defaultWithNamed,
+        defaultWithNamedMultiline,
     ];
 
     for (const generatable of generatables) {
