@@ -1,3 +1,4 @@
+import { GetterDeclaration, SetterDeclaration } from '../declarations/AccessorDeclaration';
 import { Declaration } from '../declarations/Declaration';
 import { MethodDeclaration } from '../declarations/MethodDeclaration';
 import { ParameterDeclaration } from '../declarations/ParameterDeclaration';
@@ -11,6 +12,7 @@ import { NamedImport } from '../imports/NamedImport';
 import { NamespaceImport } from '../imports/NamespaceImport';
 import { StringImport } from '../imports/StringImport';
 import { SymbolSpecifier } from '../SymbolSpecifier';
+import { generateAccessorDeclaration } from './typescript-generators/accessorDeclaration';
 import { generateExternalModuleImport } from './typescript-generators/externalModuleImport';
 import { generateMethodDeclaration } from './typescript-generators/methodDeclaration';
 import { generateNamedImport } from './typescript-generators/namedImport';
@@ -46,6 +48,8 @@ export const GENERATORS: Generators = {
     [NamedImport.name]: generateNamedImport,
     [NamespaceImport.name]: generateNamespaceImport,
     [StringImport.name]: generateStringImport,
+    [SetterDeclaration.name]: generateAccessorDeclaration,
+    [GetterDeclaration.name]: generateAccessorDeclaration,
 };
 
 /**
