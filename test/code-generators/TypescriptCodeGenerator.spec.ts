@@ -1,7 +1,7 @@
-import { GetterDeclaration, SetterDeclaration } from '../../src/declarations/AccessorDeclaration';
 import { TypescriptCodeGenerator } from '../../src/code-generators/TypescriptCodeGenerator';
 import { TypescriptGenerationOptions } from '../../src/code-generators/TypescriptGenerationOptions';
 import { ClassDeclaration } from '../../src/declarations';
+import { GetterDeclaration, SetterDeclaration } from '../../src/declarations/AccessorDeclaration';
 import { DeclarationVisibility } from '../../src/declarations/DeclarationVisibility';
 import { MethodDeclaration } from '../../src/declarations/MethodDeclaration';
 import { ParameterDeclaration } from '../../src/declarations/ParameterDeclaration';
@@ -59,7 +59,27 @@ describe('TypescriptCodeGenerator', () => {
         stringQuoteStyle: `'`,
         tabSize: 4,
     };
+    const impOptions: TypescriptGenerationOptions = {
+        eol: ';',
+        multiLineTrailingComma: true,
+        multiLineWrapThreshold: 125,
+        spaceBraces: true,
+        stringQuoteStyle: `"`,
+        tabSize: 2,
+    };
+    const imports = [
+        new ExternalModuleImport('externalModuleLib', 'externalAlias'),
+        new StringImport('stringLib'),
+        new NamespaceImport('namespaceLib', 'namespaceAlias'),
+        namedImport,
+        multiLineNamedImport,
+        new NamedImport('emptyImport'),
+        defaultImport,
+        defaultWithNamed,
+        defaultWithNamedMultiline,
+    ];
     const generatables = [
+        ...imports,
         new SymbolSpecifier('SymbolSpecifier'),
         new SymbolSpecifier('SymbolSpecifier', 'WithAlias'),
         new MethodDeclaration('myMethod', false, DeclarationVisibility.Public, 'void'),
@@ -75,15 +95,6 @@ describe('TypescriptCodeGenerator', () => {
         new PropertyDeclaration('prvProperty', DeclarationVisibility.Private, 'boolean'),
         new VariableDeclaration('myVar', false, false, 'string'),
         new VariableDeclaration('myConst', true, false, 'string'),
-        new ExternalModuleImport('externalModuleLib', 'externalAlias'),
-        new StringImport('stringLib'),
-        new NamespaceImport('namespaceLib', 'namespaceAlias'),
-        namedImport,
-        multiLineNamedImport,
-        new NamedImport('emptyImport'),
-        defaultImport,
-        defaultWithNamed,
-        defaultWithNamedMultiline,
         new GetterDeclaration('pubGetter', DeclarationVisibility.Public, 'string', false),
         new GetterDeclaration('protGetter', DeclarationVisibility.Protected, 'string', false),
         new GetterDeclaration('privGetter', DeclarationVisibility.Private, 'string', false),
@@ -110,6 +121,22 @@ describe('TypescriptCodeGenerator', () => {
             const generator = new TypescriptCodeGenerator(defaultOptions);
 
             expect(generator.generate(generatable)).toMatchSnapshot();
+        });
+
+    }
+
+    for (const imp of imports) {
+
+        it(`should generate the correct code for ${imp.constructor.name} with single quote`, () => {
+            const generator = new TypescriptCodeGenerator(defaultOptions);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
         });
 
     }
