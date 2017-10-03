@@ -2,6 +2,7 @@
 
 exports[`TypescriptParser Declaration parsing Classes should parse a non exported class 1`] = `
 ClassDeclaration {
+  "accessors": Array [],
   "ctor": ConstructorDeclaration {
     "end": 171,
     "name": "NonExportedClass",
@@ -73,8 +74,46 @@ ClassDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse abstract property accessors 1`] = `
+Array [
+  GetterDeclaration {
+    "end": 977,
+    "isAbstract": true,
+    "name": "getOnly",
+    "start": 939,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 1022,
+    "isAbstract": true,
+    "name": "setOnly",
+    "start": 982,
+    "type": undefined,
+    "visibility": 2,
+  },
+  GetterDeclaration {
+    "end": 1067,
+    "isAbstract": true,
+    "name": "getAndSet",
+    "start": 1027,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 1117,
+    "isAbstract": true,
+    "name": "getAndSet",
+    "start": 1072,
+    "type": undefined,
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Classes should parse an abstract class 1`] = `
 ClassDeclaration {
+  "accessors": Array [],
   "end": 102,
   "isExported": false,
   "methods": Array [
@@ -107,6 +146,24 @@ ClassDeclaration {
 
 exports[`TypescriptParser Declaration parsing Classes should parse an exported class 1`] = `
 ClassDeclaration {
+  "accessors": Array [
+    GetterDeclaration {
+      "end": 492,
+      "isAbstract": false,
+      "name": "property",
+      "start": 424,
+      "type": "string",
+      "visibility": 2,
+    },
+    SetterDeclaration {
+      "end": 572,
+      "isAbstract": false,
+      "name": "property",
+      "start": 498,
+      "type": undefined,
+      "visibility": 2,
+    },
+  ],
   "end": 574,
   "isExported": true,
   "methods": Array [],
@@ -136,6 +193,43 @@ ClassDeclaration {
   ],
   "start": 304,
 }
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse property accessors 1`] = `
+Array [
+  GetterDeclaration {
+    "end": 731,
+    "isAbstract": false,
+    "name": "getOnly",
+    "start": 670,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 775,
+    "isAbstract": false,
+    "name": "setOnly",
+    "start": 737,
+    "type": undefined,
+    "visibility": 2,
+  },
+  GetterDeclaration {
+    "end": 838,
+    "isAbstract": false,
+    "name": "getAndSet",
+    "start": 781,
+    "type": "string",
+    "visibility": 2,
+  },
+  SetterDeclaration {
+    "end": 888,
+    "isAbstract": false,
+    "name": "getAndSet",
+    "start": 844,
+    "type": undefined,
+    "visibility": 2,
+  },
+]
 `;
 
 exports[`TypescriptParser Declaration parsing Enums should parse an enum correctly 1`] = `
@@ -471,6 +565,7 @@ exports[`TypescriptParser Declaration parsing Modules should parse a namespace 1
 Namespace {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "end": 121,
       "isExported": false,
       "methods": Array [],
@@ -977,6 +1072,7 @@ exports[`TypescriptParser JSX parsing should parse a simple javascript react fil
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "end": 306,
       "isExported": true,
       "methods": Array [
@@ -1040,6 +1136,7 @@ Array [
   File {
     "declarations": Array [
       ClassDeclaration {
+        "accessors": Array [],
         "end": 306,
         "isExported": true,
         "methods": Array [
@@ -1103,6 +1200,7 @@ exports[`TypescriptParser JSX parsing should parse a simple javascript react fil
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "end": 306,
       "isExported": true,
       "methods": Array [
@@ -1167,6 +1265,7 @@ exports[`TypescriptParser JavaScript parsing should parse a simple javascript fi
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "ctor": ConstructorDeclaration {
         "end": 70,
         "name": "ES6Class",
@@ -1224,6 +1323,7 @@ Array [
   File {
     "declarations": Array [
       ClassDeclaration {
+        "accessors": Array [],
         "ctor": ConstructorDeclaration {
           "end": 70,
           "name": "ES6Class",
@@ -1281,6 +1381,7 @@ exports[`TypescriptParser JavaScript parsing should parse a simple javascript fi
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "ctor": ConstructorDeclaration {
         "end": 70,
         "name": "ES6Class",
@@ -1339,6 +1440,7 @@ exports[`TypescriptParser Source parsing should parse a source code string corre
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "end": 40,
       "isExported": false,
       "methods": Array [],
@@ -1385,6 +1487,7 @@ exports[`TypescriptParser Specific sources should parse generics in functions in
 File {
   "declarations": Array [
     ClassDeclaration {
+      "accessors": Array [],
       "end": 144,
       "isExported": true,
       "methods": Array [

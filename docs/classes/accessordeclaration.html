@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PropertyDeclaration | typescript-parser</title>
+	<title>AccessorDeclaration | typescript-parser</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="propertydeclaration.html">PropertyDeclaration</a>
+					<a href="accessordeclaration.html">AccessorDeclaration</a>
 				</li>
 			</ul>
-			<h1>Class PropertyDeclaration</h1>
+			<h1>Class AccessorDeclaration</h1>
 		</div>
 	</div>
 </header>
@@ -69,19 +69,24 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Property declaration that contains its visibility.</p>
+						<p>Property accessor declaration. This element represents the base and will be used in setters and getters.</p>
 					</div>
 					<dl class="tsd-comment-tags">
 						<dt>export</dt>
 						<dd></dd>
+						<dt>abstract</dt>
+						<dd></dd>
 						<dt>class</dt>
-						<dd><p>PropertyDeclaration</p>
+						<dd><p>AccessorDeclaration</p>
 						</dd>
 						<dt>implements</dt>
 						<dd><p>{ScopedDeclaration}</p>
 						</dd>
 						<dt>implements</dt>
 						<dd><p>{TypedDeclaration}</p>
+						</dd>
+						<dt>implements</dt>
+						<dd><p>{AbstractDeclaration}</p>
 						</dd>
 					</dl>
 				</div>
@@ -90,7 +95,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PropertyDeclaration</span>
+						<span class="target">AccessorDeclaration</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="getterdeclaration.html" class="tsd-signature-type">GetterDeclaration</a>
+							</li>
+							<li>
+								<a href="setterdeclaration.html" class="tsd-signature-type">SetterDeclaration</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -99,6 +112,7 @@
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/scopeddeclaration.html" class="tsd-signature-type">ScopedDeclaration</a></li>
 					<li><a href="../interfaces/typeddeclaration.html" class="tsd-signature-type">TypedDeclaration</a></li>
+					<li><a href="../interfaces/abstractdeclaration.html" class="tsd-signature-type">AbstractDeclaration</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -108,17 +122,18 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="propertydeclaration.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="accessordeclaration.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="propertydeclaration.html#end" class="tsd-kind-icon">end</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="propertydeclaration.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="propertydeclaration.html#start" class="tsd-kind-icon">start</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="propertydeclaration.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="propertydeclaration.html#visibility" class="tsd-kind-icon">visibility</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#end" class="tsd-kind-icon">end</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#isabstract" class="tsd-kind-icon">is<wbr>Abstract</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="accessordeclaration.html#visibility" class="tsd-kind-icon">visibility</a></li>
 							</ul>
 						</section>
 					</div>
@@ -130,13 +145,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Property<wbr>Declaration<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, visibility<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DeclarationVisibility.Private</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DeclarationVisibility.Protected</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DeclarationVisibility.Public</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="propertydeclaration.html" class="tsd-signature-type">PropertyDeclaration</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Accessor<wbr>Declaration<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, visibility<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DeclarationVisibility.Private</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DeclarationVisibility.Protected</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DeclarationVisibility.Public</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, isAbstract<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accessordeclaration.html" class="tsd-signature-type">AccessorDeclaration</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L12">declarations/PropertyDeclaration.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L14">declarations/AccessorDeclaration.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -151,13 +166,16 @@
 									<h5>type: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 								</li>
 								<li>
+									<h5>isAbstract: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> end: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="propertydeclaration.html" class="tsd-signature-type">PropertyDeclaration</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="accessordeclaration.html" class="tsd-signature-type">AccessorDeclaration</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -169,9 +187,20 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
 					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/typeddeclaration.html">TypedDeclaration</a>.<a href="../interfaces/typeddeclaration.html#end">end</a></p>
+						<p>Implementation of <a href="../interfaces/abstractdeclaration.html">AbstractDeclaration</a>.<a href="../interfaces/abstractdeclaration.html#end">end</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L18">declarations/PropertyDeclaration.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L21">declarations/AccessorDeclaration.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="isabstract" class="tsd-anchor"></a>
+					<h3>is<wbr>Abstract</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Abstract<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/abstractdeclaration.html">AbstractDeclaration</a>.<a href="../interfaces/abstractdeclaration.html#isabstract">isAbstract</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L19">declarations/AccessorDeclaration.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,9 +209,9 @@
 					<h3>name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/typeddeclaration.html">TypedDeclaration</a>.<a href="../interfaces/typeddeclaration.html#name">name</a></p>
+						<p>Implementation of <a href="../interfaces/abstractdeclaration.html">AbstractDeclaration</a>.<a href="../interfaces/abstractdeclaration.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L14">declarations/PropertyDeclaration.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L16">declarations/AccessorDeclaration.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,9 +220,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> start</h3>
 					<div class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/typeddeclaration.html">TypedDeclaration</a>.<a href="../interfaces/typeddeclaration.html#start">start</a></p>
+						<p>Implementation of <a href="../interfaces/abstractdeclaration.html">AbstractDeclaration</a>.<a href="../interfaces/abstractdeclaration.html#start">start</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L17">declarations/PropertyDeclaration.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L20">declarations/AccessorDeclaration.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +233,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/typeddeclaration.html">TypedDeclaration</a>.<a href="../interfaces/typeddeclaration.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L16">declarations/PropertyDeclaration.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L18">declarations/AccessorDeclaration.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +244,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/scopeddeclaration.html">ScopedDeclaration</a>.<a href="../interfaces/scopeddeclaration.html#visibility">visibility</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/PropertyDeclaration.ts#L15">declarations/PropertyDeclaration.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/TypeScript-Heroes/node-typescript-parser/blob/cfa7526/src/declarations/AccessorDeclaration.ts#L17">declarations/AccessorDeclaration.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,25 +263,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="propertydeclaration.html" class="tsd-kind-icon">Property<wbr>Declaration</a>
+						<a href="accessordeclaration.html" class="tsd-kind-icon">Accessor<wbr>Declaration</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="propertydeclaration.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="accessordeclaration.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="propertydeclaration.html#end" class="tsd-kind-icon">end</a>
+								<a href="accessordeclaration.html#end" class="tsd-kind-icon">end</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="propertydeclaration.html#name" class="tsd-kind-icon">name</a>
+								<a href="accessordeclaration.html#isabstract" class="tsd-kind-icon">is<wbr>Abstract</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="propertydeclaration.html#start" class="tsd-kind-icon">start</a>
+								<a href="accessordeclaration.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="propertydeclaration.html#type" class="tsd-kind-icon">type</a>
+								<a href="accessordeclaration.html#start" class="tsd-kind-icon">start</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="propertydeclaration.html#visibility" class="tsd-kind-icon">visibility</a>
+								<a href="accessordeclaration.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="accessordeclaration.html#visibility" class="tsd-kind-icon">visibility</a>
 							</li>
 						</ul>
 					</li>

@@ -1,3 +1,4 @@
+export * from './AccessorDeclaration';
 export * from './ClassDeclaration';
 export * from './ConstructorDeclaration';
 export * from './Declaration';

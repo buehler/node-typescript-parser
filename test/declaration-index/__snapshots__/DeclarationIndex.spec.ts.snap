@@ -36,6 +36,7 @@ exports[`DeclarationIndex buildIndex() should contain a declaration name with mu
 Array [
   DeclarationInfo {
     "declaration": ClassDeclaration {
+      "accessors": Array [],
       "end": 164,
       "isExported": true,
       "methods": Array [],
@@ -47,6 +48,7 @@ Array [
   },
   DeclarationInfo {
     "declaration": ClassDeclaration {
+      "accessors": Array [],
       "end": 23,
       "isExported": true,
       "methods": Array [],
@@ -167,6 +169,7 @@ Object {
     "Foobar": Array [
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -201,6 +204,7 @@ Object {
     "Foobar": Array [
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -212,6 +216,7 @@ Object {
       },
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -234,6 +239,7 @@ Object {
     "Foobar": Array [
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -245,6 +251,7 @@ Object {
       },
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -267,6 +274,7 @@ Object {
     "Foobar": Array [
       Object {
         "declaration": ClassDeclaration {
+          "accessors": Array [],
           "end": 100,
           "isExported": true,
           "methods": Array [],
@@ -294,6 +302,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 23,
         "isExported": true,
         "methods": Array [],
@@ -307,6 +316,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 47,
         "isExported": true,
         "methods": Array [],
@@ -320,6 +330,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 71,
         "isExported": true,
         "methods": Array [],
@@ -333,6 +344,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 95,
         "isExported": true,
         "methods": Array [],
@@ -346,6 +358,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 119,
         "isExported": true,
         "methods": Array [],
@@ -359,6 +372,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 143,
         "isExported": true,
         "methods": Array [],
@@ -372,6 +386,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 167,
         "isExported": true,
         "methods": Array [],
@@ -385,6 +400,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 191,
         "isExported": true,
         "methods": Array [],
@@ -398,6 +414,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 215,
         "isExported": true,
         "methods": Array [],
@@ -416,6 +433,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 23,
         "isExported": true,
         "methods": Array [],
@@ -429,6 +447,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 47,
         "isExported": true,
         "methods": Array [],
@@ -442,6 +461,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 71,
         "isExported": true,
         "methods": Array [],
@@ -455,6 +475,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 95,
         "isExported": true,
         "methods": Array [],
@@ -468,6 +489,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 119,
         "isExported": true,
         "methods": Array [],
@@ -481,6 +503,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 143,
         "isExported": true,
         "methods": Array [],
@@ -494,6 +517,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 167,
         "isExported": true,
         "methods": Array [],
@@ -507,6 +531,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 191,
         "isExported": true,
         "methods": Array [],
@@ -520,6 +545,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 215,
         "isExported": true,
         "methods": Array [],
@@ -538,6 +564,7 @@ Object {
   "Bar": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 119,
         "isExported": true,
         "methods": Array [],
@@ -551,6 +578,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 47,
         "isExported": true,
         "methods": Array [],
@@ -564,6 +592,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 71,
         "isExported": true,
         "methods": Array [],
@@ -577,6 +606,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 95,
         "isExported": true,
         "methods": Array [],
@@ -590,6 +620,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 143,
         "isExported": true,
         "methods": Array [],
@@ -603,6 +634,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 167,
         "isExported": true,
         "methods": Array [],
@@ -616,6 +648,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 191,
         "isExported": true,
         "methods": Array [],
@@ -629,6 +662,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 215,
         "isExported": true,
         "methods": Array [],
@@ -642,6 +676,7 @@ Object {
   "Foo": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 23,
         "isExported": true,
         "methods": Array [],
@@ -660,6 +695,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 23,
         "isExported": true,
         "methods": Array [],
@@ -673,6 +709,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 47,
         "isExported": true,
         "methods": Array [],
@@ -686,6 +723,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 71,
         "isExported": true,
         "methods": Array [],
@@ -699,6 +737,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 95,
         "isExported": true,
         "methods": Array [],
@@ -712,6 +751,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 119,
         "isExported": true,
         "methods": Array [],
@@ -725,6 +765,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 143,
         "isExported": true,
         "methods": Array [],
@@ -738,6 +779,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 167,
         "isExported": true,
         "methods": Array [],
@@ -751,6 +793,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 191,
         "isExported": true,
         "methods": Array [],
@@ -764,6 +807,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 215,
         "isExported": true,
         "methods": Array [],
@@ -782,6 +826,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 23,
         "isExported": true,
         "methods": Array [],
@@ -795,6 +840,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 47,
         "isExported": true,
         "methods": Array [],
@@ -808,6 +854,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 71,
         "isExported": true,
         "methods": Array [],
@@ -821,6 +868,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 95,
         "isExported": true,
         "methods": Array [],
@@ -834,6 +882,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 119,
         "isExported": true,
         "methods": Array [],
@@ -847,6 +896,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 143,
         "isExported": true,
         "methods": Array [],
@@ -860,6 +910,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 167,
         "isExported": true,
         "methods": Array [],
@@ -873,6 +924,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 191,
         "isExported": true,
         "methods": Array [],
@@ -886,6 +938,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 215,
         "isExported": true,
         "methods": Array [],
@@ -904,6 +957,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -928,6 +982,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -957,6 +1012,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -981,6 +1037,7 @@ Object {
   "Foobar": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 21,
         "isExported": true,
         "methods": Array [],
@@ -994,6 +1051,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1023,6 +1081,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 164,
         "isExported": true,
         "methods": Array [],
@@ -1036,6 +1095,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 188,
         "isExported": true,
         "methods": Array [],
@@ -1049,6 +1109,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 212,
         "isExported": true,
         "methods": Array [],
@@ -1062,6 +1123,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 236,
         "isExported": true,
         "methods": Array [],
@@ -1075,6 +1137,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 260,
         "isExported": true,
         "methods": Array [],
@@ -1088,6 +1151,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 284,
         "isExported": true,
         "methods": Array [],
@@ -1101,6 +1165,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 308,
         "isExported": true,
         "methods": Array [],
@@ -1114,6 +1179,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 332,
         "isExported": true,
         "methods": Array [],
@@ -1127,6 +1193,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 356,
         "isExported": true,
         "methods": Array [],
@@ -1140,6 +1207,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 139,
         "isExported": true,
         "methods": Array [
@@ -1164,6 +1232,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 59,
         "isExported": true,
         "methods": Array [
@@ -1193,6 +1262,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 164,
         "isExported": true,
         "methods": Array [],
@@ -1206,6 +1276,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 188,
         "isExported": true,
         "methods": Array [],
@@ -1219,6 +1290,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 212,
         "isExported": true,
         "methods": Array [],
@@ -1232,6 +1304,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 236,
         "isExported": true,
         "methods": Array [],
@@ -1245,6 +1318,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 260,
         "isExported": true,
         "methods": Array [],
@@ -1258,6 +1332,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 284,
         "isExported": true,
         "methods": Array [],
@@ -1271,6 +1346,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 308,
         "isExported": true,
         "methods": Array [],
@@ -1284,6 +1360,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 332,
         "isExported": true,
         "methods": Array [],
@@ -1297,6 +1374,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 356,
         "isExported": true,
         "methods": Array [],
@@ -1310,6 +1388,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 139,
         "isExported": true,
         "methods": Array [
@@ -1334,6 +1413,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 59,
         "isExported": true,
         "methods": Array [
@@ -1405,6 +1485,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1429,6 +1510,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1458,6 +1540,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1482,6 +1565,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1511,6 +1595,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 164,
         "isExported": true,
         "methods": Array [],
@@ -1524,6 +1609,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 188,
         "isExported": true,
         "methods": Array [],
@@ -1537,6 +1623,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 212,
         "isExported": true,
         "methods": Array [],
@@ -1550,6 +1637,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 236,
         "isExported": true,
         "methods": Array [],
@@ -1563,6 +1651,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 260,
         "isExported": true,
         "methods": Array [],
@@ -1576,6 +1665,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 284,
         "isExported": true,
         "methods": Array [],
@@ -1589,6 +1679,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 308,
         "isExported": true,
         "methods": Array [],
@@ -1602,6 +1693,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 332,
         "isExported": true,
         "methods": Array [],
@@ -1615,6 +1707,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 356,
         "isExported": true,
         "methods": Array [],
@@ -1628,6 +1721,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 139,
         "isExported": true,
         "methods": Array [
@@ -1652,6 +1746,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 59,
         "isExported": true,
         "methods": Array [
@@ -1683,6 +1778,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1707,6 +1803,7 @@ Object {
   "Foobar": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 21,
         "isExported": true,
         "methods": Array [],
@@ -1720,6 +1817,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1749,6 +1847,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1773,6 +1872,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1802,6 +1902,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1826,6 +1927,7 @@ Object {
   "Foobar": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 21,
         "isExported": true,
         "methods": Array [],
@@ -1839,6 +1941,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1868,6 +1971,7 @@ Object {
   "Barbaz": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 43,
         "isExported": true,
         "methods": Array [],
@@ -1881,6 +1985,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -1905,6 +2010,7 @@ Object {
   "Foobar": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 21,
         "isExported": true,
         "methods": Array [],
@@ -1918,6 +2024,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
@@ -1947,6 +2054,7 @@ Object {
   "Class1": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 164,
         "isExported": true,
         "methods": Array [],
@@ -1960,6 +2068,7 @@ Object {
   "Class2": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 188,
         "isExported": true,
         "methods": Array [],
@@ -1973,6 +2082,7 @@ Object {
   "Class3": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 212,
         "isExported": true,
         "methods": Array [],
@@ -1986,6 +2096,7 @@ Object {
   "Class4": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 236,
         "isExported": true,
         "methods": Array [],
@@ -1999,6 +2110,7 @@ Object {
   "Class5": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 260,
         "isExported": true,
         "methods": Array [],
@@ -2012,6 +2124,7 @@ Object {
   "Class6": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 284,
         "isExported": true,
         "methods": Array [],
@@ -2025,6 +2138,7 @@ Object {
   "Class7": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 308,
         "isExported": true,
         "methods": Array [],
@@ -2038,6 +2152,7 @@ Object {
   "Class8": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 332,
         "isExported": true,
         "methods": Array [],
@@ -2051,6 +2166,7 @@ Object {
   "Class9": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 356,
         "isExported": true,
         "methods": Array [],
@@ -2064,6 +2180,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 139,
         "isExported": true,
         "methods": Array [
@@ -2088,6 +2205,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 59,
         "isExported": true,
         "methods": Array [
@@ -2117,6 +2235,7 @@ Object {
   "FancierLibraryClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 379,
         "isExported": true,
         "methods": Array [
@@ -2141,6 +2260,7 @@ Object {
   "MyClass": Array [
     DeclarationInfo {
       "declaration": ClassDeclaration {
+        "accessors": Array [],
         "end": 155,
         "isExported": true,
         "methods": Array [
