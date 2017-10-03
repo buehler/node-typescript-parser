@@ -4,6 +4,7 @@ import {
     ExportDeclaration,
     ExternalModuleReference,
     FunctionDeclaration,
+    GetAccessorDeclaration,
     Identifier,
     ImportDeclaration,
     ImportEqualsDeclaration,
@@ -16,13 +17,14 @@ import {
     ObjectBindingPattern,
     PropertyDeclaration,
     PropertySignature,
+    SetAccessorDeclaration,
     StringLiteral,
     SyntaxKind,
 } from 'typescript';
 
 /**
- * Determines if the given node is an ImportDeclaration. 
- * 
+ * Determines if the given node is an ImportDeclaration.
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ImportDeclaration}
@@ -33,7 +35,7 @@ export function isImportDeclaration(node?: Node): node is ImportDeclaration {
 
 /**
  * Determines if the given node is an ImportEqualsDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ImportEqualsDeclaration}
@@ -44,7 +46,7 @@ export function isImportEqualsDeclaration(node?: Node): node is ImportEqualsDecl
 
 /**
  * Determines if the given node is a NamespaceImport.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is NamespaceImport}
@@ -55,7 +57,7 @@ export function isNamespaceImport(node?: Node): node is NamespaceImport {
 
 /**
  * Determines if the given node are NamedImports.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is NamedImports}
@@ -66,7 +68,7 @@ export function isNamedImports(node?: Node): node is NamedImports {
 
 /**
  * Determines if the given node are NamedExports.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is NamedExports}
@@ -77,7 +79,7 @@ export function isNamedExports(node?: Node): node is NamedExports {
 
 /**
  * Determines if the given node is a StringLiteral.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is StringLiteral}
@@ -88,7 +90,7 @@ export function isStringLiteral(node?: Node): node is StringLiteral {
 
 /**
  * Determines if the given node is an Identifier.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is Identifier}
@@ -99,7 +101,7 @@ export function isIdentifier(node?: Node): node is Identifier {
 
 /**
  * Determines if the given node is an ExternalModuleReference.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ExternalModuleReference}
@@ -110,7 +112,7 @@ export function isExternalModuleReference(node?: Node): node is ExternalModuleRe
 
 /**
  * Determines if the given node is an ExportDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ExportDeclaration}
@@ -121,7 +123,7 @@ export function isExportDeclaration(node?: Node): node is ExportDeclaration {
 
 /**
  * Determines if the given node is an ObjectBindingPattern (i.e. let {x, y} = foo).
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ObjectBindingPattern}
@@ -132,7 +134,7 @@ export function isObjectBindingPattern(node?: Node): node is ObjectBindingPatter
 
 /**
  * Determines if the given node is an ArrayBindingPattern (i.e. let [x, y] = foo).
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ArrayBindingPattern}
@@ -143,7 +145,7 @@ export function isArrayBindingPattern(node?: Node): node is ArrayBindingPattern 
 
 /**
  * Determines if the given node is a FunctionDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is FunctionDeclaration}
@@ -154,7 +156,7 @@ export function isFunctionDeclaration(node?: Node): node is FunctionDeclaration 
 
 /**
  * Determines if the given node is a MethodSignature.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is MethodSignature}
@@ -165,7 +167,7 @@ export function isMethodSignature(node?: Node): node is MethodSignature {
 
 /**
  * Determines if the given node is a PropertySignature.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is PropertySignature}
@@ -176,7 +178,7 @@ export function isPropertySignature(node?: Node): node is PropertySignature {
 
 /**
  * Determines if the given node is a MethodDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is MethodDeclaration}
@@ -187,7 +189,7 @@ export function isMethodDeclaration(node?: Node): node is MethodDeclaration {
 
 /**
  * Determines if the given node is a PropertyDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is PropertyDeclaration}
@@ -198,11 +200,33 @@ export function isPropertyDeclaration(node?: Node): node is PropertyDeclaration 
 
 /**
  * Determines if the given node is a ConstructorDeclaration.
- * 
+ *
  * @export
  * @param {Node} [node]
  * @returns {node is ConstructorDeclaration}
  */
 export function isConstructorDeclaration(node?: Node): node is ConstructorDeclaration {
     return node !== undefined && node.kind === SyntaxKind.Constructor;
+}
+
+/**
+ * Determines if the given node is a isGetAccessorDeclaration.
+ *
+ * @export
+ * @param {Node} [node]
+ * @returns {node is isGetAccessorDeclaration}
+ */
+export function isGetAccessorDeclaration(node?: Node): node is GetAccessorDeclaration {
+    return node !== undefined && node.kind === SyntaxKind.GetAccessor;
+}
+
+/**
+ * Determines if the given node is a SetAccessorDeclaration.
+ *
+ * @export
+ * @param {Node} [node]
+ * @returns {node is SetAccessorDeclaration}
+ */
+export function isSetAccessorDeclaration(node?: Node): node is SetAccessorDeclaration {
+    return node !== undefined && node.kind === SyntaxKind.SetAccessor;
 }

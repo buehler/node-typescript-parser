@@ -5,11 +5,11 @@ import { generateParameterDeclaration } from './parameterDeclaration';
 
 /**
  * Generates typescript code for a method declaration.
- * 
+ *
  * @export
- * @param {MethodDeclaration} method 
- * @param {TypescriptGenerationOptions} { tabSize } 
- * @returns {string} 
+ * @param {MethodDeclaration} method
+ * @param {TypescriptGenerationOptions} { tabSize }
+ * @returns {string}
  */
 export function generateMethodDeclaration(method: MethodDeclaration, { tabSize }: TypescriptGenerationOptions): string {
     const intend = Array(tabSize + 1).join(' ');

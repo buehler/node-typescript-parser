@@ -33,6 +33,7 @@ exports[`DeclarationIndex - specific case "reindex-with-global-module" should pa
 Array [
   DeclarationInfo {
     "declaration": ClassDeclaration {
+      "accessors": Array [],
       "end": 61,
       "isExported": true,
       "methods": Array [

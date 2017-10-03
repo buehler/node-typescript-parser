@@ -10,7 +10,7 @@
     "develop": "npm run clean && tsc -p .",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "test": "npm run lint && npm run clean && jest -c ./jest.json",
-    "test:watch": "npm run clean && jest -c ./jest.json --watch",
+    "test:watch": "npm run clean && jest -c ./jest.json --watch --no-coverage",
     "typedoc": "del-cli ./docs && typedoc --ignoreCompilerErrors --out ./docs --mode file --tsconfig ./config/tsconfig.build.json ./src/",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -31,17 +31,17 @@
   },
   "homepage": "https://github.com/TypeScript-Heroes/node-typescript-parser#readme",
   "devDependencies": {
-    "@types/jest": "^20.0.2",
+    "@types/jest": "^21.1.0",
     "@types/mock-fs": "^3.6.30",
-    "@types/node": "^8.0.13",
+    "@types/node": "^8.0.31",
     "del-cli": "^1.1.0",
-    "jest": "^21.0.0",
+    "jest": "^21.2.0",
     "mock-fs": "^4.4.1",
-    "semantic-release": "^8.0.0",
+    "semantic-release": "^8.0.4",
     "ts-jest": "^21.0.0",
     "tslint": "^5.5.0",
     "tslint-config-airbnb": "^5.2.1",
-    "tsutils": "^2.7.1",
+    "tsutils": "^2.9.0",
     "typedoc": "^0.8.0"
   },
   "dependencies": {

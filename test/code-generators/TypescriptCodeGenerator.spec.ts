@@ -1,13 +1,13 @@
 import { TypescriptCodeGenerator } from '../../src/code-generators/TypescriptCodeGenerator';
 import { TypescriptGenerationOptions } from '../../src/code-generators/TypescriptGenerationOptions';
 import { ClassDeclaration } from '../../src/declarations';
+import { GetterDeclaration, SetterDeclaration } from '../../src/declarations/AccessorDeclaration';
 import { DeclarationVisibility } from '../../src/declarations/DeclarationVisibility';
 import { MethodDeclaration } from '../../src/declarations/MethodDeclaration';
 import { ParameterDeclaration } from '../../src/declarations/ParameterDeclaration';
 import { PropertyDeclaration } from '../../src/declarations/PropertyDeclaration';
 import { VariableDeclaration } from '../../src/declarations/VariableDeclaration';
 import { NotGeneratableYetError } from '../../src/errors/NotGeneratableYetError';
-import { DefaultImport } from '../../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../../src/imports/ExternalModuleImport';
 import { NamedImport } from '../../src/imports/NamedImport';
 import { NamespaceImport } from '../../src/imports/NamespaceImport';
@@ -15,13 +15,12 @@ import { StringImport } from '../../src/imports/StringImport';
 import { SymbolSpecifier } from '../../src/SymbolSpecifier';
 
 const namedImport = new NamedImport('namedLib');
-const multiLineNamedImport = new NamedImport('multiLineNamedLib');
-
 namedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2', 'alias2'),
 ];
 
+const multiLineNamedImport = new NamedImport('multiLineNamedLib');
 multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec1'),
     new SymbolSpecifier('spec2'),
@@ -40,6 +39,16 @@ multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec15'),
 ];
 
+const defaultImport = new NamedImport('defaultImport');
+defaultImport.defaultAlias = 'Default';
+
+const defaultWithNamed = new NamedImport('defaultWithNamedImport');
+defaultWithNamed.defaultAlias = 'Default';
+defaultWithNamed.specifiers = namedImport.specifiers;
+
+const defaultWithNamedMultiline = new NamedImport('defaultWithNamedMultilineImport');
+defaultWithNamedMultiline.defaultAlias = 'Default';
+defaultWithNamedMultiline.specifiers = multiLineNamedImport.specifiers;
 
 describe('TypescriptCodeGenerator', () => {
     const defaultOptions: TypescriptGenerationOptions = {
@@ -50,7 +59,27 @@ describe('TypescriptCodeGenerator', () => {
         stringQuoteStyle: `'`,
         tabSize: 4,
     };
+    const impOptions: TypescriptGenerationOptions = {
+        eol: ';',
+        multiLineTrailingComma: true,
+        multiLineWrapThreshold: 125,
+        spaceBraces: true,
+        stringQuoteStyle: `"`,
+        tabSize: 2,
+    };
+    const imports = [
+        new ExternalModuleImport('externalModuleLib', 'externalAlias'),
+        new StringImport('stringLib'),
+        new NamespaceImport('namespaceLib', 'namespaceAlias'),
+        namedImport,
+        multiLineNamedImport,
+        new NamedImport('emptyImport'),
+        defaultImport,
+        defaultWithNamed,
+        defaultWithNamedMultiline,
+    ];
     const generatables = [
+        ...imports,
         new SymbolSpecifier('SymbolSpecifier'),
         new SymbolSpecifier('SymbolSpecifier', 'WithAlias'),
         new MethodDeclaration('myMethod', false, DeclarationVisibility.Public, 'void'),
@@ -66,13 +95,24 @@ describe('TypescriptCodeGenerator', () => {
         new PropertyDeclaration('prvProperty', DeclarationVisibility.Private, 'boolean'),
         new VariableDeclaration('myVar', false, false, 'string'),
         new VariableDeclaration('myConst', true, false, 'string'),
-        new DefaultImport('defaultLib', 'defaultAlias'),
-        new ExternalModuleImport('externalModuleLib', 'externalAlias'),
-        new StringImport('stringLib'),
-        new NamespaceImport('namespaceLib', 'namespaceAlias'),
-        namedImport,
-        multiLineNamedImport,
-        new NamedImport('emptyImport'),
+        new GetterDeclaration('pubGetter', DeclarationVisibility.Public, 'string', false),
+        new GetterDeclaration('protGetter', DeclarationVisibility.Protected, 'string', false),
+        new GetterDeclaration('privGetter', DeclarationVisibility.Private, 'string', false),
+        new GetterDeclaration('pubNoTypeGetter', DeclarationVisibility.Public, undefined, false),
+        new GetterDeclaration('protNoTypeGetter', DeclarationVisibility.Protected, undefined, false),
+        new GetterDeclaration('privNoTypeGetter', DeclarationVisibility.Private, undefined, false),
+        new GetterDeclaration('pubAbsGetter', DeclarationVisibility.Public, 'number', true),
+        new GetterDeclaration('protAbsGetter', DeclarationVisibility.Protected, 'number', true),
+        new GetterDeclaration('privAbsGetter', DeclarationVisibility.Private, 'number', true),
+        new SetterDeclaration('pubSetter', DeclarationVisibility.Public, 'string', false),
+        new SetterDeclaration('protSetter', DeclarationVisibility.Protected, 'string', false),
+        new SetterDeclaration('privSetter', DeclarationVisibility.Private, 'string', false),
+        new SetterDeclaration('pubNoTypeSetter', DeclarationVisibility.Public, undefined, false),
+        new SetterDeclaration('protNoTypeSetter', DeclarationVisibility.Protected, undefined, false),
+        new SetterDeclaration('privNoTypeSetter', DeclarationVisibility.Private, undefined, false),
+        new SetterDeclaration('pubAbsSetter', DeclarationVisibility.Public, 'number', true),
+        new SetterDeclaration('protAbsSetter', DeclarationVisibility.Protected, 'number', true),
+        new SetterDeclaration('privAbsSetter', DeclarationVisibility.Private, 'number', true),
     ];
 
     for (const generatable of generatables) {
@@ -81,6 +121,22 @@ describe('TypescriptCodeGenerator', () => {
             const generator = new TypescriptCodeGenerator(defaultOptions);
 
             expect(generator.generate(generatable)).toMatchSnapshot();
+        });
+
+    }
+
+    for (const imp of imports) {
+
+        it(`should generate the correct code for ${imp.constructor.name} with single quote`, () => {
+            const generator = new TypescriptCodeGenerator(defaultOptions);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
         });
 
     }

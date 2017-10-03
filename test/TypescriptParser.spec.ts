@@ -11,11 +11,11 @@ import { VariableDeclaration } from '../src/declarations/VariableDeclaration';
 import { AllExport } from '../src/exports/AllExport';
 import { AssignedExport } from '../src/exports/AssignedExport';
 import { NamedExport } from '../src/exports/NamedExport';
-import { DefaultImport } from '../src/imports/DefaultImport';
 import { ExternalModuleImport } from '../src/imports/ExternalModuleImport';
 import { NamedImport } from '../src/imports/NamedImport';
 import { NamespaceImport } from '../src/imports/NamespaceImport';
 import { StringImport } from '../src/imports/StringImport';
+import { File } from '../src/resources';
 import { Module } from '../src/resources/Module';
 import { Namespace } from '../src/resources/Namespace';
 import { Resource } from '../src/resources/Resource';
@@ -50,7 +50,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse imports', () => {
-            expect(parsed.imports).toHaveLength(7);
+            expect(parsed.imports).toHaveLength(9);
             expect(parsed.imports).toMatchSnapshot();
         });
 
@@ -85,12 +85,28 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a default import', () => {
-            expect(parsed.imports[6]).toBeInstanceOf(DefaultImport);
+            expect(parsed.imports[6]).toBeInstanceOf(NamedImport);
             expect(parsed.imports[6]).toMatchSnapshot();
         });
 
         it('should not add any imports to the usages', () => {
             expect(parsed.usages).toHaveLength(0);
+        });
+
+        it('should parse a named import with a default statement', () => {
+            expect(parsed.imports[7]).toBeInstanceOf(NamedImport);
+            expect(parsed.imports[7]).toMatchSnapshot();
+        });
+
+        it('should parse a mixed default / named import', () => {
+            expect(parsed.imports[8]).toBeInstanceOf(NamedImport);
+            expect(parsed.imports[8]).toMatchSnapshot();
+        });
+
+        it('should not parse a wrong default statement', async () => {
+            const wrong = await parser.parseSource(`import { default } from 'myLib';`);
+            expect(wrong).toBeInstanceOf(File);
+            expect(wrong).toMatchSnapshot();
         });
 
     });
@@ -346,7 +362,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(5);
+                expect(parsed.declarations).toHaveLength(7);
             });
 
             it('should parse an abstract class', () => {
@@ -401,6 +417,18 @@ describe('TypescriptParser', () => {
                 expect(parsedClass.typeParameters).toContain('TIn');
                 expect(parsedClass.typeParameters).toContain('TOut');
                 expect(parsedClass.typeParameters).toContain('TError');
+            });
+
+            it('should parse property accessors', () => {
+                const parsedClass = parsed.declarations[5] as ClassDeclaration;
+
+                expect(parsedClass.accessors).toMatchSnapshot();
+            });
+
+            it('should parse abstract property accessors', () => {
+                const parsedClass = parsed.declarations[6] as ClassDeclaration;
+
+                expect(parsedClass.accessors).toMatchSnapshot();
             });
 
         });
@@ -730,7 +758,7 @@ describe('TypescriptParser', () => {
                     let a = <T>() => { let b = null; };
                 }
             }`);
-            console.log(parsed);
+            expect(parsed).toMatchSnapshot();
         });
 
     });

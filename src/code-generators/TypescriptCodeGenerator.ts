@@ -1,3 +1,4 @@
+import { GetterDeclaration, SetterDeclaration } from '../declarations/AccessorDeclaration';
 import { Declaration } from '../declarations/Declaration';
 import { MethodDeclaration } from '../declarations/MethodDeclaration';
 import { ParameterDeclaration } from '../declarations/ParameterDeclaration';
@@ -5,14 +6,13 @@ import { PropertyDeclaration } from '../declarations/PropertyDeclaration';
 import { VariableDeclaration } from '../declarations/VariableDeclaration';
 import { NotGeneratableYetError } from '../errors/NotGeneratableYetError';
 import { Export } from '../exports/Export';
-import { DefaultImport } from '../imports/DefaultImport';
 import { ExternalModuleImport } from '../imports/ExternalModuleImport';
 import { Import } from '../imports/Import';
 import { NamedImport } from '../imports/NamedImport';
 import { NamespaceImport } from '../imports/NamespaceImport';
 import { StringImport } from '../imports/StringImport';
 import { SymbolSpecifier } from '../SymbolSpecifier';
-import { generateDefaultImport } from './typescript-generators/defaultImport';
+import { generateAccessorDeclaration } from './typescript-generators/accessorDeclaration';
 import { generateExternalModuleImport } from './typescript-generators/externalModuleImport';
 import { generateMethodDeclaration } from './typescript-generators/methodDeclaration';
 import { generateNamedImport } from './typescript-generators/namedImport';
@@ -44,16 +44,17 @@ export const GENERATORS: Generators = {
     [ParameterDeclaration.name]: generateParameterDeclaration,
     [PropertyDeclaration.name]: generatePropertyDeclaration,
     [VariableDeclaration.name]: generateVariableDelcaration,
-    [DefaultImport.name]: generateDefaultImport,
     [ExternalModuleImport.name]: generateExternalModuleImport,
     [NamedImport.name]: generateNamedImport,
     [NamespaceImport.name]: generateNamespaceImport,
     [StringImport.name]: generateStringImport,
+    [SetterDeclaration.name]: generateAccessorDeclaration,
+    [GetterDeclaration.name]: generateAccessorDeclaration,
 };
 
 /**
  * Generator for typescript code elements. Takes a generatable object and tries to generate typescript code.
- * 
+ *
  * @export
  * @class TypescriptCodeGenerator
  */
@@ -62,8 +63,8 @@ export class TypescriptCodeGenerator {
 
     /**
      * Generator function. Calls the specific element generator. If no generator is found, an exception is thrown.
-     * 
-     * @param {Generatable} declaration 
+     *
+     * @param {Generatable} declaration
      * @returns {string}
      * @throws {NotGeneratableYetError}
      * @memberof TypescriptCodeGenerator

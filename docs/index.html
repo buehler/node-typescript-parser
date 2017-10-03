@@ -70,7 +70,8 @@
 				<p><a href="https://travis-ci.org/TypeScript-Heroes/node-typescript-parser"><img src="https://travis-ci.org/TypeScript-Heroes/node-typescript-parser.svg" alt="Build Status"></a>
 					<a href="https://www.npmjs.com/package/typescript-parser"><img src="https://img.shields.io/npm/v/typescript-parser.svg?maxAge=3600" alt="npm"></a>
 					<a href="https://coveralls.io/github/TypeScript-Heroes/node-typescript-parser"><img src="https://img.shields.io/coveralls/TypeScript-Heroes/node-typescript-parser.svg?maxAge=3600" alt="Coverage status"></a>
-				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+					<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a>
+				<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/TypeScript-Heroes/node-typescript-parser.svg" alt="Greenkeeper badge"></a></p>
 				<h2 id="how-to-use">How to use</h2>
 				<p>After you install the package via:</p>
 				<p><a href="https://nodei.co/npm/typescript-parser/"><img src="https://nodei.co/npm/typescript-parser.png?downloads=true&amp;stars=true" alt="NPM"></a></p>
@@ -110,6 +111,9 @@
 						<a href="enums/declarationvisibility.html" class="tsd-kind-icon">Declaration<wbr>Visibility</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/accessordeclaration.html" class="tsd-kind-icon">Accessor<wbr>Declaration</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/allexport.html" class="tsd-kind-icon">All<wbr>Export</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -131,9 +135,6 @@
 						<a href="classes/defaultdeclaration.html" class="tsd-kind-icon">Default<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/defaultimport.html" class="tsd-kind-icon">Default<wbr>Import</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="classes/enumdeclaration.html" class="tsd-kind-icon">Enum<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-class">
@@ -144,6 +145,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/functiondeclaration.html" class="tsd-kind-icon">Function<wbr>Declaration</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/getterdeclaration.html" class="tsd-kind-icon">Getter<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/interfacedeclaration.html" class="tsd-kind-icon">Interface<wbr>Declaration</a>
@@ -177,6 +181,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/propertydeclaration.html" class="tsd-kind-icon">Property<wbr>Declaration</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/setterdeclaration.html" class="tsd-kind-icon">Setter<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/stringimport.html" class="tsd-kind-icon">String<wbr>Import</a>
@@ -247,14 +254,26 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#generatable" class="tsd-kind-icon">Generatable</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-is-not-exported">
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#generators" class="tsd-kind-icon">Generators</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#indexdelta" class="tsd-kind-icon">Index<wbr>Delta</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-is-not-exported">
 						<a href="globals.html#resources" class="tsd-kind-icon">Resources</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#code" class="tsd-kind-icon">code</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#importtemplate" class="tsd-kind-icon">import<wbr>Template</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#multilineimport" class="tsd-kind-icon">multi<wbr>Line<wbr>Import</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#parser" class="tsd-kind-icon">parser</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#usageallowediflast" class="tsd-kind-icon">usage<wbr>Allowed<wbr>IfLast</a>
@@ -272,7 +291,7 @@
 						<a href="globals.html#allowedifpropertyaccessfirst" class="tsd-kind-icon">allowed<wbr>IfProperty<wbr>Access<wbr>First</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#generatedefaultimport" class="tsd-kind-icon">generate<wbr>Default<wbr>Import</a>
+						<a href="globals.html#generateaccessordeclaration" class="tsd-kind-icon">generate<wbr>Accessor<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#generateexternalmoduleimport" class="tsd-kind-icon">generate<wbr>External<wbr>Module<wbr>Import</a>
@@ -303,6 +322,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#getdefaultresourceidentifier" class="tsd-kind-icon">get<wbr>Default<wbr>Resource<wbr>Identifier</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#getimportspecifiers" class="tsd-kind-icon">get<wbr>Import<wbr>Specifiers</a>
 					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#getnodelibraryname" class="tsd-kind-icon">get<wbr>Node<wbr>Library<wbr>Name</a>
@@ -339,6 +361,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isfunctiondeclaration" class="tsd-kind-icon">is<wbr>Function<wbr>Declaration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isgetaccessordeclaration" class="tsd-kind-icon">is<wbr>Get<wbr>Accessor<wbr>Declaration</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#isidentifier" class="tsd-kind-icon">is<wbr>Identifier</a>
@@ -380,10 +405,19 @@
 						<a href="globals.html#ispropertysignature" class="tsd-kind-icon">is<wbr>Property<wbr>Signature</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#issetaccessordeclaration" class="tsd-kind-icon">is<wbr>Set<wbr>Accessor<wbr>Declaration</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#isstringliteral" class="tsd-kind-icon">is<wbr>String<wbr>Literal</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#normalizefilename" class="tsd-kind-icon">normalize<wbr>Filename</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#normalizepathuri" class="tsd-kind-icon">normalize<wbr>Path<wbr>Uri</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#parse" class="tsd-kind-icon">parse</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parseclass" class="tsd-kind-icon">parse<wbr>Class</a>
@@ -433,8 +467,8 @@
 					<li class=" tsd-kind-function">
 						<a href="globals.html#stringtemplate" class="tsd-kind-icon">string<wbr>Template</a>
 					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="globals.html#generators" class="tsd-kind-icon">generators</a>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#generators" class="tsd-kind-icon">GENERATORS</a>
 					</li>
 				</ul>
 			</nav>
