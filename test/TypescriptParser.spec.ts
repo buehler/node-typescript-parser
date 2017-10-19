@@ -21,6 +21,7 @@ import { Namespace } from '../src/resources/Namespace';
 import { Resource } from '../src/resources/Resource';
 import { TypescriptParser } from '../src/TypescriptParser';
 import { getWorkspaceFile, rootPath } from './testUtilities';
+import { ScriptKind } from 'typescript';
 
 describe('TypescriptParser', () => {
 
@@ -439,7 +440,7 @@ describe('TypescriptParser', () => {
             let parsed: Resource;
 
             beforeEach(async () => {
-                parsed = await parser.parseFile(file, rootPath);
+                parsed = await parser.parseFile(file, rootPath, ScriptKind.TS);
             });
 
             it('should parse a file', () => {
@@ -466,7 +467,7 @@ describe('TypescriptParser', () => {
         let parsed: Resource;
 
         beforeEach(async () => {
-            parsed = await parser.parseFile(file, rootPath);
+            parsed = await parser.parseFile(file, rootPath, ScriptKind.TS);
         });
 
         it('should parse decorator usages', () => {
@@ -579,7 +580,7 @@ describe('TypescriptParser', () => {
         let parsed: Resource;
 
         beforeEach(async () => {
-            parsed = await parser.parseFile(file, rootPath);
+            parsed = await parser.parseFile(file, rootPath, ScriptKind.TSX);
         });
 
         it('should parse a tsx element usage', () => {
@@ -617,7 +618,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parseSource correctly', async () => {
-            const parsedSource = await parser.parseSource(readFileSync(file).toString());
+            const parsedSource = await parser.parseSource(readFileSync(file).toString(), ScriptKind.TSX);
 
             expect(parsedSource.usages).toMatchSnapshot();
         });
@@ -656,7 +657,7 @@ describe('TypescriptParser', () => {
 
             it('should parse the correct usages with "parseFile"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
-                const parsed = await parser.parseFile(file, rootPath);
+                const parsed = await parser.parseFile(file, rootPath, ScriptKind.TSX);
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -667,7 +668,7 @@ describe('TypescriptParser', () => {
 
             it('should parse the correct usages with "parseFiles"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
-                const parsed = (await parser.parseFiles([file], rootPath))[0];
+                const parsed = (await parser.parseFiles([file], rootPath, ScriptKind.TSX))[0];
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -679,7 +680,7 @@ describe('TypescriptParser', () => {
             it('should parse the correct usages with "parseSource"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
                 const fileSource = readFileSync(file).toString();
-                const parsed = await parser.parseSource(fileSource);
+                const parsed = await parser.parseSource(fileSource, ScriptKind.TSX);
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -697,7 +698,7 @@ describe('TypescriptParser', () => {
         const file = getWorkspaceFile('typescript-parser/javascript.js');
 
         it('should parse a simple javascript file correctly with "parseFile"', async () => {
-            const parsed = await parser.parseFile(file, rootPath);
+            const parsed = await parser.parseFile(file, rootPath, ScriptKind.JS);
             delete parsed.filePath;
             delete (parsed as any).rootPath;
 
@@ -705,7 +706,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a simple javascript file correctly with "parseFiles"', async () => {
-            const parsed = await parser.parseFiles([file], rootPath);
+            const parsed = await parser.parseFiles([file], rootPath, ScriptKind.JS);
             delete parsed[0].filePath;
             delete (parsed[0] as any).rootPath;
 
@@ -714,7 +715,7 @@ describe('TypescriptParser', () => {
 
         it('should parse a simple javascript file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
-            const parsed = await parser.parseSource(content);
+            const parsed = await parser.parseSource(content, ScriptKind.JS);
 
             expect(parsed).toMatchSnapshot();
         });
@@ -726,7 +727,7 @@ describe('TypescriptParser', () => {
         const file = getWorkspaceFile('typescript-parser/jsx.jsx');
 
         it('should parse a simple javascript react file correctly with "parseFile"', async () => {
-            const parsed = await parser.parseFile(file, rootPath);
+            const parsed = await parser.parseFile(file, rootPath, ScriptKind.JSX);
             delete parsed.filePath;
             delete (parsed as any).rootPath;
 
@@ -734,7 +735,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a simple javascript react file correctly with "parseFiles"', async () => {
-            const parsed = await parser.parseFiles([file], rootPath);
+            const parsed = await parser.parseFiles([file], rootPath, ScriptKind.JSX);
             delete parsed[0].filePath;
             delete (parsed[0] as any).rootPath;
 
@@ -743,7 +744,7 @@ describe('TypescriptParser', () => {
 
         it('should parse a simple javascript react file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
-            const parsed = await parser.parseSource(content);
+            const parsed = await parser.parseSource(content, ScriptKind.JSX);
 
             expect(parsed).toMatchSnapshot();
         });
@@ -757,7 +758,7 @@ describe('TypescriptParser', () => {
                 public test() {
                     let a = <T>() => { let b = null; };
                 }
-            }`);
+            }`, ScriptKind.TS);
             expect(parsed).toMatchSnapshot();
         });
 
