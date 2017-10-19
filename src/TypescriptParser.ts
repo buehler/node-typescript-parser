@@ -72,8 +72,8 @@ export class TypescriptParser {
      *
      * @memberof TsResourceParser
      */
-    public async parseFile(filePath: string, rootPath: string, scriptKind: ScriptKind = ScriptKind.TS): Promise<File> {
-        const parse = await this.parseFiles([filePath], rootPath, scriptKind);
+    public async parseFile(filePath: string, rootPath: string): Promise<File> {
+        const parse = await this.parseFiles([filePath], rootPath);
         return parse[0];
     }
 
@@ -88,10 +88,28 @@ export class TypescriptParser {
      */
     public async parseFiles(
         filePathes: string[],
-        rootPath: string,
-        scriptKind: ScriptKind = ScriptKind.TS): Promise<File[]> {
+        rootPath: string): Promise<File[]> {
         return filePathes
             .map((o) => {
+                let scriptKind: ScriptKind = ScriptKind.TS;
+                const fileType: string = o.split('.').length ? <string>o.split('.').pop() : 'unknown';
+                switch (fileType.toLowerCase()) {
+                    case 'js':
+                        scriptKind = ScriptKind.JS;
+                        break;
+                    case 'jsx':
+                        scriptKind = ScriptKind.JSX;
+                        break;
+                    case 'ts':
+                        scriptKind = ScriptKind.TS;
+                        break;
+                    case 'tsx':
+                        scriptKind = ScriptKind.TSX;
+                        break;
+                    case 'unknown':
+                        scriptKind = ScriptKind.Unknown;
+                        break;
+                }
                 return createSourceFile(o,
                                         readFileSync(o).toString(),
                                         ScriptTarget.ES2015,

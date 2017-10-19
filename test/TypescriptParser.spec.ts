@@ -440,7 +440,7 @@ describe('TypescriptParser', () => {
             let parsed: Resource;
 
             beforeEach(async () => {
-                parsed = await parser.parseFile(file, rootPath, ScriptKind.TS);
+                parsed = await parser.parseFile(file, rootPath);
             });
 
             it('should parse a file', () => {
@@ -467,7 +467,7 @@ describe('TypescriptParser', () => {
         let parsed: Resource;
 
         beforeEach(async () => {
-            parsed = await parser.parseFile(file, rootPath, ScriptKind.TS);
+            parsed = await parser.parseFile(file, rootPath);
         });
 
         it('should parse decorator usages', () => {
@@ -580,7 +580,7 @@ describe('TypescriptParser', () => {
         let parsed: Resource;
 
         beforeEach(async () => {
-            parsed = await parser.parseFile(file, rootPath, ScriptKind.TSX);
+            parsed = await parser.parseFile(file, rootPath);
         });
 
         it('should parse a tsx element usage', () => {
@@ -657,7 +657,7 @@ describe('TypescriptParser', () => {
 
             it('should parse the correct usages with "parseFile"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
-                const parsed = await parser.parseFile(file, rootPath, ScriptKind.TSX);
+                const parsed = await parser.parseFile(file, rootPath);
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -668,7 +668,7 @@ describe('TypescriptParser', () => {
 
             it('should parse the correct usages with "parseFiles"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
-                const parsed = (await parser.parseFiles([file], rootPath, ScriptKind.TSX))[0];
+                const parsed = (await parser.parseFiles([file], rootPath))[0];
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -698,7 +698,7 @@ describe('TypescriptParser', () => {
         const file = getWorkspaceFile('typescript-parser/javascript.js');
 
         it('should parse a simple javascript file correctly with "parseFile"', async () => {
-            const parsed = await parser.parseFile(file, rootPath, ScriptKind.JS);
+            const parsed = await parser.parseFile(file, rootPath);
             delete parsed.filePath;
             delete (parsed as any).rootPath;
 
@@ -706,7 +706,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a simple javascript file correctly with "parseFiles"', async () => {
-            const parsed = await parser.parseFiles([file], rootPath, ScriptKind.JS);
+            const parsed = await parser.parseFiles([file], rootPath);
             delete parsed[0].filePath;
             delete (parsed[0] as any).rootPath;
 
@@ -727,7 +727,7 @@ describe('TypescriptParser', () => {
         const file = getWorkspaceFile('typescript-parser/jsx.jsx');
 
         it('should parse a simple javascript react file correctly with "parseFile"', async () => {
-            const parsed = await parser.parseFile(file, rootPath, ScriptKind.JSX);
+            const parsed = await parser.parseFile(file, rootPath);
             delete parsed.filePath;
             delete (parsed as any).rootPath;
 
@@ -735,7 +735,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse a simple javascript react file correctly with "parseFiles"', async () => {
-            const parsed = await parser.parseFiles([file], rootPath, ScriptKind.JSX);
+            const parsed = await parser.parseFiles([file], rootPath);
             delete parsed[0].filePath;
             delete (parsed[0] as any).rootPath;
 
