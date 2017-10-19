@@ -46,29 +46,30 @@ export class TypescriptParser {
     /**
      * Parses the given source into an anonymous File resource.
      * Mainly used to parse source code of a document.
-     *
+     * 
      * @param {string} source
      * @returns {Promise<File>}
-     *
+     * 
      * @memberof TsResourceParser
      */
     public async parseSource(source: string, scriptKind: ScriptKind = ScriptKind.TS): Promise<File> {
         return await this.parseTypescript(
-          createSourceFile('inline.tsx',
-            source,
-            ScriptTarget.ES2015,
-            true,
-            scriptKind),
+          createSourceFile(
+              'inline.tsx',
+              source,
+              ScriptTarget.ES2015,
+              true,
+              scriptKind),
           '/');
     }
 
     /**
      * Parses a single file into a parsed file.
-     *
+     * 
      * @param {string} filePath
      * @param {string} rootPath
      * @returns {Promise<File>}
-     *
+     * 
      * @memberof TsResourceParser
      */
     public async parseFile(filePath: string, rootPath: string): Promise<File> {
@@ -78,33 +79,37 @@ export class TypescriptParser {
 
     /**
      * Parses multiple files into parsed files.
-     *
+     * 
      * @param {string[]} filePathes
      * @param {string} rootPath
      * @returns {Promise<File[]>}
-     *
+     * 
      * @memberof TsResourceParser
      */
-    public async parseFiles(filePathes: string[], rootPath: string, scriptKind: ScriptKind = ScriptKind.TS): Promise<File[]> {
+    public async parseFiles(
+        filePathes: string[],
+        rootPath: string,
+        scriptKind: ScriptKind = ScriptKind.TS): Promise<File[]> {
         return filePathes
-            .map(o => createSourceFile(o,
-              readFileSync(o).toString(),
-              ScriptTarget.ES2015,
-              true,
-              scriptKind)
-            )
+            .map((o) => {
+                return createSourceFile(o,
+                                        readFileSync(o).toString(),
+                                        ScriptTarget.ES2015,
+                                        true,
+                                        scriptKind);
+            })
             .map(o => this.parseTypescript(o, rootPath));
     }
 
     /**
      * Parses the typescript source into the file instance. Calls .parse afterwards to
      * get the declarations and other information about the source.
-     *
+     * 
      * @private
      * @param {SourceFile} source
      * @param {string} rootPath
      * @returns {TsFile}
-     *
+     * 
      * @memberof TsResourceParser
      */
     private parseTypescript(source: SourceFile, rootPath: string): File {
@@ -120,11 +125,11 @@ export class TypescriptParser {
      * Recursive function that runs through the AST of a source and parses the nodes.
      * Creates the class / function / etc declarations and instanciates a new module / namespace
      * resource if needed.
-     *
+     * 
      * @private
      * @param {Resource} resource
      * @param {Node} node
-     *
+     * 
      * @memberof TsResourceParser
      */
     private parse(resource: Resource, node: Node): void {
