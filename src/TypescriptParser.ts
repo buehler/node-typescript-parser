@@ -20,6 +20,7 @@ import {
     VariableStatement,
 } from 'typescript';
 
+import { parse } from 'path';
 import { parseClass } from './node-parser/class-parser';
 import { parseEnum } from './node-parser/enum-parser';
 import { parseExport } from './node-parser/export-parser';
@@ -48,6 +49,7 @@ export class TypescriptParser {
      * Mainly used to parse source code of a document.
      *
      * @param {string} source
+     * @param {ScriptKind} [scriptKind=ScriptKind.TS]
      * @returns {Promise<File>}
      *
      * @memberof TsResourceParser
@@ -91,9 +93,9 @@ export class TypescriptParser {
         rootPath: string): Promise<File[]> {
         return filePathes
             .map((o) => {
-                let scriptKind: ScriptKind = ScriptKind.TS;
-                const fileType: string = o.split('.').length ? <string>o.split('.').pop() : 'unknown';
-                switch (fileType.toLowerCase()) {
+                let scriptKind: ScriptKind = ScriptKind.Unknown;
+                const parsed = parse(o);
+                switch (parsed.ext.toLowerCase()) {
                     case 'js':
                         scriptKind = ScriptKind.JS;
                         break;
@@ -105,9 +107,6 @@ export class TypescriptParser {
                         break;
                     case 'tsx':
                         scriptKind = ScriptKind.TSX;
-                        break;
-                    case 'unknown':
-                        scriptKind = ScriptKind.Unknown;
                         break;
                 }
                 return createSourceFile(o,

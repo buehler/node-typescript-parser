@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { ScriptKind } from 'typescript';
 
 import { ClassDeclaration } from '../src/declarations/ClassDeclaration';
 import { DeclarationVisibility } from '../src/declarations/DeclarationVisibility';
@@ -21,7 +22,6 @@ import { Namespace } from '../src/resources/Namespace';
 import { Resource } from '../src/resources/Resource';
 import { TypescriptParser } from '../src/TypescriptParser';
 import { getWorkspaceFile, rootPath } from './testUtilities';
-import { ScriptKind } from 'typescript';
 
 describe('TypescriptParser', () => {
 
