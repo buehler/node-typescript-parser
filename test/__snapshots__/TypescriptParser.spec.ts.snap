@@ -1492,7 +1492,7 @@ File {
       "isExported": true,
       "methods": Array [
         MethodDeclaration {
-          "end": 144,
+          "end": 130,
           "isAbstract": false,
           "name": "test",
           "parameters": Array [],
@@ -1500,11 +1500,19 @@ File {
           "type": undefined,
           "variables": Array [
             VariableDeclaration {
-              "end": 144,
+              "end": 112,
               "isConst": false,
               "isExported": false,
               "name": "a",
               "start": 77,
+              "type": undefined,
+            },
+            VariableDeclaration {
+              "end": 109,
+              "isConst": false,
+              "isExported": false,
+              "name": "b",
+              "start": 96,
               "type": undefined,
             },
           ],
@@ -1526,9 +1534,7 @@ File {
   "usages": Array [
     "a",
     "T",
-    "let",
-    undefined,
-    "",
+    "b",
   ],
 }
 `;
