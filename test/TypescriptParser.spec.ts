@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import { ScriptKind } from 'typescript';
 
 import { ClassDeclaration } from '../src/declarations/ClassDeclaration';
 import { DeclarationVisibility } from '../src/declarations/DeclarationVisibility';
@@ -617,7 +618,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parseSource correctly', async () => {
-            const parsedSource = await parser.parseSource(readFileSync(file).toString());
+            const parsedSource = await parser.parseSource(readFileSync(file).toString(), ScriptKind.TSX);
 
             expect(parsedSource.usages).toMatchSnapshot();
         });
@@ -679,7 +680,7 @@ describe('TypescriptParser', () => {
             it('should parse the correct usages with "parseSource"', async () => {
                 const file = getWorkspaceFile(`typescript-parser/specific-cases/${testFile.filename}`);
                 const fileSource = readFileSync(file).toString();
-                const parsed = await parser.parseSource(fileSource);
+                const parsed = await parser.parseSource(fileSource, ScriptKind.TSX);
 
                 for (const usage of testFile.requiredUsages) {
                     expect(parsed.usages).toContain(usage);
@@ -714,7 +715,7 @@ describe('TypescriptParser', () => {
 
         it('should parse a simple javascript file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
-            const parsed = await parser.parseSource(content);
+            const parsed = await parser.parseSource(content, ScriptKind.JS);
 
             expect(parsed).toMatchSnapshot();
         });
@@ -743,7 +744,7 @@ describe('TypescriptParser', () => {
 
         it('should parse a simple javascript react file correctly with "parseSource"', async () => {
             const content = readFileSync(file).toString();
-            const parsed = await parser.parseSource(content);
+            const parsed = await parser.parseSource(content, ScriptKind.JSX);
 
             expect(parsed).toMatchSnapshot();
         });
@@ -757,7 +758,7 @@ describe('TypescriptParser', () => {
                 public test() {
                     let a = <T>() => { let b = null; };
                 }
-            }`);
+            }`, ScriptKind.TS);
             expect(parsed).toMatchSnapshot();
         });
 
