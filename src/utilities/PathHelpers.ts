@@ -25,5 +25,16 @@ export function normalizePathUri(uri: string): string {
  * @returns {string} 
  */
 export function normalizeFilename(filepath: string): string {
-    return filepath.replace(/([.]d)?[.](t|j)sx?$/g, '');
+    return toPosix(filepath.replace(/([.]d)?[.](t|j)sx?$/g, ''));
+}
+
+/**
+ * On Windows, replaces all backslash delimeters with forward slashes.
+ * On other OSes, returns the path unmodified.
+ */
+export function toPosix(path: string): string {
+    if (platform() === 'win32') {
+        return path.replace(/\\/g, '/');
+    }
+    return path;
 }
