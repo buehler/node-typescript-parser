@@ -51,7 +51,7 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse imports', () => {
-            expect(parsed.imports).toHaveLength(9);
+            expect(parsed.imports).toHaveLength(12);
             expect(parsed.imports).toMatchSnapshot();
         });
 
