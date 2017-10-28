@@ -1,4 +1,4 @@
-import { join, resolve } from 'path';
+import { join, resolve } from '../../../testUtilities';
 
 import { DeclarationIndex } from '../../../../src/DeclarationIndex';
 import { TypescriptParser } from '../../../../src/TypescriptParser';
