@@ -10,3 +10,6 @@ import {
 import Foobar from 'aFile';
 import { default as DefaultAlias, Specifier1 } from 'namedImport';
 import DefaultAlias, { Specifier1 } from 'namedImport';
+import { default as __DefaultAlias, Specifier1 as __Specifier1 } from 'namedImport';
+import __DefaultAlias, { Specifier1 as __Specifier1 } from 'namedImport';
+import * as __namespaceImport from 'namespace';

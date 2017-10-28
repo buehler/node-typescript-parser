@@ -1012,6 +1012,36 @@ Array [
     ],
     "start": 400,
   },
+  NamedImport {
+    "defaultAlias": "__DefaultAlias",
+    "end": 540,
+    "libraryName": "namedImport",
+    "specifiers": Array [
+      SymbolSpecifier {
+        "alias": "__Specifier1",
+        "specifier": "Specifier1",
+      },
+    ],
+    "start": 456,
+  },
+  NamedImport {
+    "defaultAlias": "__DefaultAlias",
+    "end": 614,
+    "libraryName": "namedImport",
+    "specifiers": Array [
+      SymbolSpecifier {
+        "alias": "__Specifier1",
+        "specifier": "Specifier1",
+      },
+    ],
+    "start": 541,
+  },
+  NamespaceImport {
+    "alias": "__namespaceImport",
+    "end": 662,
+    "libraryName": "namespace",
+    "start": 615,
+  },
 ]
 `;
 

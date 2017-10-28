@@ -118,7 +118,7 @@ export class DeclarationIndex {
      */
     public get declarationInfos(): DeclarationInfo[] {
         return Object
-            .keys(this.index)
+            .keys(this.index!)
             .sort()
             .reduce((all, key) => all.concat(this.index![key]), <DeclarationInfo[]>[]);
     }
