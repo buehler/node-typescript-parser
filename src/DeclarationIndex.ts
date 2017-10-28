@@ -12,7 +12,7 @@ import { Namespace } from './resources/Namespace';
 import { Resource } from './resources/Resource';
 import { isExportableDeclaration } from './type-guards/TypescriptHeroGuards';
 import { TypescriptParser } from './TypescriptParser';
-import { normalizeFilename, normalizePathUri } from './utilities/PathHelpers';
+import { normalizeFilename, normalizePathUri, toPosix } from './utilities/PathHelpers';
 
 /**
  * Returns the name of the node folder. Is used as the library name for indexing.
@@ -308,7 +308,7 @@ export class DeclarationIndex {
                 break;
             }
             if (ex instanceof AllExport || ex instanceof NamedExport) {
-                const exported = '/' + relative(this.rootPath, normalize(join(resource.parsedPath.dir, ex.from)));
+                const exported = '/' + toPosix(relative(this.rootPath, normalize(join(resource.parsedPath.dir, ex.from))));
                 exportsResource = exported === resourcePath;
             }
         }
