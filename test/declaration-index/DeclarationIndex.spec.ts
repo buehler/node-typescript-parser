@@ -1,5 +1,5 @@
 import mockFs = require('mock-fs');
-import { join, resolve } from 'path';
+import { join, resolve } from '../testUtilities';
 
 import { DeclarationIndex } from '../../src/DeclarationIndex';
 import { ClassDeclaration } from '../../src/declarations';
