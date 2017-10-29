@@ -37,7 +37,7 @@
     "del-cli": "^1.1.0",
     "jest": "^21.2.0",
     "mock-fs": "^4.4.1",
-    "semantic-release": "^8.0.4",
+    "semantic-release": "^9.0.0",
     "ts-jest": "^21.0.0",
     "tslint": "^5.5.0",
     "tslint-config-airbnb": "^5.2.1",
