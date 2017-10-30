@@ -573,6 +573,24 @@ describe('TypescriptParser', () => {
             expect(usages).toContain('GenericType');
         });
 
+        it('should parse a default exported element', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('defaultExportUsage');
+        });
+
+        it('should parse an indexer property', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('indexedUsage');
+        });
+
+        it('should parse an indexer property access', () => {
+            const usages = parsed.usages;
+
+            expect(usages).toContain('indexingUsage');
+        });
+
     });
 
     describe('TSX Usage parsing', () => {
@@ -754,11 +772,14 @@ describe('TypescriptParser', () => {
     describe('Specific sources', () => {
 
         it('should parse generics in functions in classes correctly', async () => {
-            const parsed = await parser.parseSource(`export class TestClass {
-                public test() {
-                    let a = <T>() => { let b = null; };
-                }
-            }`, ScriptKind.TS);
+            const parsed = await parser.parseSource(
+                `export class TestClass {
+                    public test() {
+                        let a = <T>() => { let b = null; };
+                    }
+                }`,
+                ScriptKind.TS,
+            );
             expect(parsed).toMatchSnapshot();
         });
 

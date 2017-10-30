@@ -56,13 +56,13 @@ export class TypescriptParser {
      */
     public async parseSource(source: string, scriptKind: ScriptKind = ScriptKind.TS): Promise<File> {
         return await this.parseTypescript(
-          createSourceFile(
-              'inline.tsx',
-              source,
-              ScriptTarget.ES2015,
-              true,
-              scriptKind),
-          '/');
+            createSourceFile(
+                'inline.tsx',
+                source,
+                ScriptTarget.ES2015,
+                true,
+                scriptKind),
+            '/');
     }
 
     /**
@@ -109,11 +109,13 @@ export class TypescriptParser {
                         scriptKind = ScriptKind.TSX;
                         break;
                 }
-                return createSourceFile(o,
-                                        readFileSync(o).toString(),
-                                        ScriptTarget.ES2015,
-                                        true,
-                                        scriptKind);
+                return createSourceFile(
+                    o,
+                    readFileSync(o).toString(),
+                    ScriptTarget.ES2015,
+                    true,
+                    scriptKind,
+                );
             })
             .map(o => this.parseTypescript(o, rootPath));
     }

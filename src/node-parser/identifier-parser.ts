@@ -24,7 +24,6 @@ const usageAllowedIfLast = [
     SyntaxKind.Parameter,
     SyntaxKind.PropertyDeclaration,
     SyntaxKind.VariableDeclaration,
-    SyntaxKind.ElementAccessExpression,
     SyntaxKind.BinaryExpression,
 ];
 
@@ -37,7 +36,7 @@ const usagePredicates: any = [
 /**
  * Predicate function to determine if the node is possible as a "usage".
  * Checks for the node identifier to be the last of the identifier list.
- * 
+ *
  * @param {Node} node
  * @returns {boolean}
  */
@@ -57,7 +56,7 @@ function allowedIfLastIdentifier(node: Node): boolean {
 /**
  * Predicate function to determine if the node is possible as a "usage".
  * Checks if the identifier is on the lefthand side of a property access.
- * 
+ *
  * @param {Node} node
  * @returns {boolean}
  */
@@ -76,7 +75,7 @@ function allowedIfPropertyAccessFirst(node: Node): boolean {
 
 /**
  * Parses an identifier into a usage of a resource if the predicates are true.
- * 
+ *
  * @export
  * @param {Resource} resource
  * @param {Identifier} node
