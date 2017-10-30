@@ -1518,31 +1518,31 @@ File {
   "declarations": Array [
     ClassDeclaration {
       "accessors": Array [],
-      "end": 144,
+      "end": 160,
       "isExported": true,
       "methods": Array [
         MethodDeclaration {
-          "end": 130,
+          "end": 142,
           "isAbstract": false,
           "name": "test",
           "parameters": Array [],
-          "start": 41,
+          "start": 45,
           "type": undefined,
           "variables": Array [
             VariableDeclaration {
-              "end": 112,
+              "end": 120,
               "isConst": false,
               "isExported": false,
               "name": "a",
-              "start": 77,
+              "start": 85,
               "type": undefined,
             },
             VariableDeclaration {
-              "end": 109,
+              "end": 117,
               "isConst": false,
               "isExported": false,
               "name": "b",
-              "start": 96,
+              "start": 104,
               "type": undefined,
             },
           ],
@@ -1554,7 +1554,7 @@ File {
       "start": 0,
     },
   ],
-  "end": 144,
+  "end": 160,
   "exports": Array [],
   "filePath": "inline.tsx",
   "imports": Array [],

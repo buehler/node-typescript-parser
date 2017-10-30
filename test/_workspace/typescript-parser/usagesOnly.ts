@@ -8,7 +8,7 @@ class Class {
     public assignedProperty = AssignedProperty;
 
     @FunctionDecorator()
-    public func(@ParamDecorator() param: TypedParam, defaultParam = DefaultParam) {
+    public func( @ParamDecorator() param: TypedParam, defaultParam = DefaultParam) {
     }
 
     private prv(param): ReturnValue {
@@ -39,3 +39,7 @@ class Class extends DefaultClass {
 class Class extends GenericClass<GenericType> {
 
 }
+
+indexedUsage[indexingUsage];
+
+export default defaultExportUsage;
