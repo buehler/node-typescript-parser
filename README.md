@@ -25,7 +25,7 @@ const parser = new TypescriptParser();
 const parsed = await parser.parseSource(/* typescript source code as string */);
 
 // or a filepath
-const parsed = await parser.parseSource('/user/myfile.ts', 'workspace root');
+const parsed = await parser.parseFile('/user/myfile.ts', 'workspace root');
 ```
 
 You can also parse multiple files at ones.
