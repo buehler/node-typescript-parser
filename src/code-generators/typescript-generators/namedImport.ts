@@ -23,7 +23,8 @@ function specifierSort(i1: SymbolSpecifier, i2: SymbolSpecifier): number {
 
     if (strA < strB) {
         return -1;
-    } else if (strA > strB) {
+    }
+    if (strA > strB) {
         return 1;
     }
     return 0;
