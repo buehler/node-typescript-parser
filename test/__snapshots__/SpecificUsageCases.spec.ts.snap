@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Specific usage cases i18next with and without destructure should contain i18next reference in not destructured way 1`] = `
+Array [
+  "MyComponent",
+  "p",
+  "i18next",
+]
+`;
+
+exports[`Specific usage cases i18next with and without destructure should contain t reference in destructured way 1`] = `
+Array [
+  "MyComponent",
+  "p",
+  "t",
+]
+`;
