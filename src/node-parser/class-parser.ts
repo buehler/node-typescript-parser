@@ -119,6 +119,8 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
     const name = node.name ? node.name.text : getDefaultResourceIdentifier(tsResource);
     const classDeclaration = new TshClass(name, isNodeExported(node), node.getStart(), node.getEnd());
 
+    classDeclaration.tsNode = node;
+
     if (isNodeDefaultExported(node)) {
         classDeclaration.isExported = false;
         tsResource.declarations.push(new TshDefault(classDeclaration.name, tsResource));
@@ -197,6 +199,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     o.getStart(),
                     o.getEnd(),
                 );
+                method.tsNode = o;
                 method.parameters = parseMethodParams(o);
                 classDeclaration.methods.push(method);
                 parseFunctionParts(tsResource, method, o);

@@ -2,6 +2,7 @@ import { AbstractDeclaration, CallableDeclaration, ScopedDeclaration, TypedDecla
 import { DeclarationVisibility } from './DeclarationVisibility';
 import { ParameterDeclaration } from './ParameterDeclaration';
 import { VariableDeclaration } from './VariableDeclaration';
+import { Node } from 'typescript';
 
 /**
  * Method declaration. A method is contained in an interface or a class.
@@ -24,5 +25,6 @@ export class MethodDeclaration implements AbstractDeclaration, CallableDeclarati
         public type: string | undefined,
         public start?: number,
         public end?: number,
+        public tsNode?: Node,
     ) { }
 }
