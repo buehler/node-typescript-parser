@@ -7,7 +7,7 @@ import { Resource } from './Resource';
 
 /**
  * TypeScript resource. Declaration of a typescript module (i.e. declare module "foobar").
- * 
+ *
  * @export
  * @class Module
  * @implements {Resource}
@@ -39,9 +39,9 @@ export class Module implements Resource, Node {
     /**
      * Function that calculates the alias name of a namespace.
      * Removes all underlines and dashes and camelcases the name.
-     * 
+     *
      * @returns {string}
-     * 
+     *
      * @memberof Module
      */
     public getNamespaceAlias(): string {
