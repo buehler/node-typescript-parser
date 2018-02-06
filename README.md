@@ -9,6 +9,7 @@ a more or less human readable AST out of .js or .ts files.
 [![Coverage status](https://img.shields.io/coveralls/buehler/node-typescript-parser.svg?maxAge=3600)](https://coveralls.io/github/buehler/node-typescript-parser)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Greenkeeper badge](https://badges.greenkeeper.io/buehler/node-typescript-parser.svg)](https://greenkeeper.io/)
+[![Gitter](https://img.shields.io/gitter/room/node-typescript-parser/Lobby.svg)](https://gitter.im/node-typescript-parser/Lobby)
 
 ## How to use
 
