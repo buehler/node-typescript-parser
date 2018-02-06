@@ -37,6 +37,9 @@ multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec13'),
     new SymbolSpecifier('spec14'),
     new SymbolSpecifier('spec15'),
+    new SymbolSpecifier('spec16'),
+    new SymbolSpecifier('spec17'),
+    new SymbolSpecifier('spec18'),
 ];
 
 const defaultImport = new NamedImport('defaultImport');
@@ -54,6 +57,7 @@ describe('TypescriptCodeGenerator', () => {
     const defaultOptions: TypescriptGenerationOptions = {
         eol: ';',
         multiLineTrailingComma: true,
+        multiLineWrapMethod: 'ONE_IMPORT_PER_LINE',
         multiLineWrapThreshold: 125,
         spaceBraces: true,
         stringQuoteStyle: `'`,
@@ -62,6 +66,16 @@ describe('TypescriptCodeGenerator', () => {
     const impOptions: TypescriptGenerationOptions = {
         eol: ';',
         multiLineTrailingComma: true,
+        multiLineWrapMethod: 'ONE_IMPORT_PER_LINE',
+        multiLineWrapThreshold: 125,
+        spaceBraces: true,
+        stringQuoteStyle: `"`,
+        tabSize: 2,
+    };
+    const impOptions_multipleImportsPerLine: TypescriptGenerationOptions = {
+        eol: ';',
+        multiLineTrailingComma: true,
+        multiLineWrapMethod: 'MULTIPLE_IMPORTS_PER_LINE',
         multiLineWrapThreshold: 125,
         spaceBraces: true,
         stringQuoteStyle: `"`,
@@ -135,6 +149,18 @@ describe('TypescriptCodeGenerator', () => {
 
         it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
             const generator = new TypescriptCodeGenerator(impOptions);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate multiple imports per line for ${imp.constructor.name} with single quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions_multipleImportsPerLine);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate multiple imports per line for ${imp.constructor.name} with double quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions_multipleImportsPerLine);
 
             expect(generator.generate(imp)).toMatchSnapshot();
         });

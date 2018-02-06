@@ -57,6 +57,7 @@ export function generateNamedImport(
     const lib = `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
 
     const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
+    let retVal:string = '';
 
     if (specifiers.length > multiLineWrapThreshold) {
         const spacings = Array(tabSize + 1).join(' ');
@@ -64,41 +65,46 @@ export function generateNamedImport(
         let importSpecifierStrings: string = '';
 
         if (multiLineWrapMethod === 'MULTIPLE_IMPORTS_PER_LINE') {
-          importSpecifierStrings = sortedImportSpecifiers.reduce((acc, curr) => {
-            const symbolSpecifier: string = generateSymbolSpecifier(curr);
-            const dist: number = acc.out.length - acc.lastWrapOffset + symbolSpecifier.length;
-            const needsWrap: boolean = dist >= multiLineWrapThreshold;
-            return {
-                out: acc.out + (needsWrap ? `,\n${spacings}` : (acc.out.length ? `, ` : `${spacings}`)) + symbolSpecifier,
-                lastWrapOffset: acc.lastWrapOffset + (needsWrap ? dist : 0)
-            };
-        }, {
-            out: '',
-            lastWrapOffset: 0,
-        }).out
+            importSpecifierStrings = sortedImportSpecifiers.reduce(
+                (acc, curr) => {
+                    const symbolSpecifier: string = generateSymbolSpecifier(curr);
+                    const dist: number = acc.out.length - acc.lastWrapOffset + symbolSpecifier.length;
+                    const needsWrap: boolean = dist >= multiLineWrapThreshold;
+                    return {
+                        out: acc.out + (needsWrap ? `,\n${spacings}` : (acc.out.length ? `, ` : `${spacings}`)) +
+                        symbolSpecifier,
+                        lastWrapOffset: acc.lastWrapOffset + (needsWrap ? dist : 0),
+                    };
+                },
+                {
+                    out: '',
+                    lastWrapOffset: 0,
+                },
+            ).out;
         } else {
-          // For 'ONE_IMPORT_PER_LINE' which also happens to be the default case.
-          importSpecifierStrings = sortedImportSpecifiers.map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n');
+            // For 'ONE_IMPORT_PER_LINE' which also happens to be the default case.
+            importSpecifierStrings = sortedImportSpecifiers.map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n');
         }
         if (imp.specifiers.length > 0) {
-          return multiLineImport(
-            importSpecifierStrings,
-            multiLineTrailingComma ? ',' : '',
-            `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
-            imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
-          );
+            retVal = multiLineImport(
+                importSpecifierStrings,
+                multiLineTrailingComma ? ',' : '',
+                `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+                imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
+            );
         } else {
-          return aliasOnlyMultiLineImport(
-            imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
-            `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
-          );
+            retVal = aliasOnlyMultiLineImport(
+                imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
+                `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+            );
         }
     } else {
-      return importTemplate(
-          getImportSpecifiers(imp, spaceBraces),
-          lib,
-      );
+        retVal = importTemplate(
+            getImportSpecifiers(imp, spaceBraces),
+            lib,
+        );
     }
+    return retVal;
 }
 
 function getImportSpecifiers(namedImport: NamedImport, spaceBraces: boolean): string {
