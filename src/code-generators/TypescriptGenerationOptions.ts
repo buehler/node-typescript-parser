@@ -30,6 +30,14 @@ export interface TypescriptGenerationOptions {
     spaceBraces: boolean;
 
     /**
+     * The wrapping method to be used in multiline imports.
+     *
+     * @type {'MULTIPLE_IMPORTS_PER_LINE' | 'ONE_IMPORT_PER_LINE'}
+     * @memberof TypescriptGenerationOptions
+     */
+    multiLineWrapMethod: 'ONE_IMPORT_PER_LINE' | 'MULTIPLE_IMPORTS_PER_LINE';
+
+    /**
      * The threshold where an import is written as multiline.
      *
      * @type {number}

@@ -7,7 +7,7 @@
         "outDir": "../build",
         "rootDir": "../src",
         "declaration": true,
-        "sourceMap": false,
+        "sourceMap": true,
         "importHelpers": true,
         "strictNullChecks": true,
         "experimentalDecorators": true,

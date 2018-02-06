@@ -10,6 +10,9 @@ const multiLineImport = stringTemplate`import ${3}{
 ${0}${1}
 } from ${2}`;
 
+const aliasOnlyMultiLineImport = stringTemplate`import ${0}
+  from ${1}`;
+
 /**
  * Sort function for symbol specifiers. Does sort after the specifiers name (to lowercase).
  *
@@ -45,6 +48,7 @@ export function generateNamedImport(
         stringQuoteStyle,
         spaceBraces,
         tabSize,
+        multiLineWrapMethod,
         multiLineWrapThreshold,
         multiLineTrailingComma,
     }: TypescriptGenerationOptions,
@@ -53,26 +57,48 @@ export function generateNamedImport(
     const lib = `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
 
     const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
-    let importSpecifiers = `${space}${specifiers}${space}`;
-    if (importSpecifiers.trim().length === 0) {
-        importSpecifiers = ' ';
-    }
 
-    const importString = importTemplate(
-        getImportSpecifiers(imp, spaceBraces),
-        lib,
-    );
-
-    if (importString.length > multiLineWrapThreshold) {
+    if (specifiers.length > multiLineWrapThreshold) {
         const spacings = Array(tabSize + 1).join(' ');
-        return multiLineImport(
-            imp.specifiers.sort(specifierSort).map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n'),
+        const sortedImportSpecifiers: SymbolSpecifier[] = imp.specifiers.sort(specifierSort);
+        let importSpecifierStrings: string = '';
+
+        if (multiLineWrapMethod === 'MULTIPLE_IMPORTS_PER_LINE') {
+          importSpecifierStrings = sortedImportSpecifiers.reduce((acc, curr) => {
+            const symbolSpecifier: string = generateSymbolSpecifier(curr);
+            const dist: number = acc.out.length - acc.lastWrapOffset + symbolSpecifier.length;
+            const needsWrap: boolean = dist >= multiLineWrapThreshold;
+            return {
+                out: acc.out + (needsWrap ? `,\n${spacings}` : (acc.out.length ? `, ` : `${spacings}`)) + symbolSpecifier,
+                lastWrapOffset: acc.lastWrapOffset + (needsWrap ? dist : 0)
+            };
+        }, {
+            out: '',
+            lastWrapOffset: 0,
+        }).out
+        } else {
+          // For 'ONE_IMPORT_PER_LINE' which also happens to be the default case.
+          importSpecifierStrings = sortedImportSpecifiers.map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n');
+        }
+        if (imp.specifiers.length > 0) {
+          return multiLineImport(
+            importSpecifierStrings,
             multiLineTrailingComma ? ',' : '',
             `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
             imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
-        );
+          );
+        } else {
+          return aliasOnlyMultiLineImport(
+            imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
+            `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+          );
+        }
+    } else {
+      return importTemplate(
+          getImportSpecifiers(imp, spaceBraces),
+          lib,
+      );
     }
-    return importString;
 }
 
 function getImportSpecifiers(namedImport: NamedImport, spaceBraces: boolean): string {
