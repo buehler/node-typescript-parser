@@ -1,3 +1,9 @@
+export enum MultiLineImportRule {
+    strictlyOneImportPerLine = 'strictlyOneImportPerLine',
+    oneImportPerLineOnlyAfterThreshold = 'oneImportPerLineOnlyAfterThreshold',
+    multipleImportsPerLine = 'multipleImportsPerLine',
+}
+
 /**
  * Typescript generation options type. Contains all information needed to stringify some objects to typescript.
  *
@@ -30,12 +36,12 @@ export interface TypescriptGenerationOptions {
     spaceBraces: boolean;
 
     /**
-     * The wrapping method to be used in multiline imports.
+     * The wrapping methodology to be used for imports.
      *
-     * @type {'MULTIPLE_IMPORTS_PER_LINE' | 'ONE_IMPORT_PER_LINE'}
+     * @type {MultiLineImportRule}
      * @memberof TypescriptGenerationOptions
      */
-    multiLineWrapMethod: 'ONE_IMPORT_PER_LINE' | 'MULTIPLE_IMPORTS_PER_LINE';
+    wrapMethod: MultiLineImportRule;
 
     /**
      * The threshold where an import is written as multiline.
@@ -60,4 +66,12 @@ export interface TypescriptGenerationOptions {
      * @memberof TypescriptGenerationOptions
      */
     tabSize: number;
+
+    /**
+     * Insert spaces instead of tabs (default: true)
+     *
+     * @type {boolean}
+     * @memberof TypescriptGenerationOptions
+     */
+    insertSpaces: boolean;
 }

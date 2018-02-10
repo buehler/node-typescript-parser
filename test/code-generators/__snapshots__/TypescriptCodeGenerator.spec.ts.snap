@@ -8,8 +8,7 @@ exports[`TypescriptCodeGenerator should generate multiple imports per line for N
 
 exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with double quote 2`] = `
 "import {
-  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
-  spec8, spec9,
+,
 } from \\"multiLineNamedLib\\";"
 `;
 
@@ -21,8 +20,7 @@ exports[`TypescriptCodeGenerator should generate multiple imports per line for N
 
 exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with double quote 6`] = `
 "import Default, {
-  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
-  spec8, spec9,
+,
 } from \\"defaultWithNamedMultilineImport\\";"
 `;
 
@@ -30,8 +28,7 @@ exports[`TypescriptCodeGenerator should generate multiple imports per line for N
 
 exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 2`] = `
 "import {
-  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
-  spec8, spec9,
+,
 } from \\"multiLineNamedLib\\";"
 `;
 
@@ -43,8 +40,7 @@ exports[`TypescriptCodeGenerator should generate multiple imports per line for N
 
 exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 6`] = `
 "import Default, {
-  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
-  spec8, spec9,
+,
 } from \\"defaultWithNamedMultilineImport\\";"
 `;
 
@@ -156,24 +152,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport 2`] = `
 "import {
-    spec1,
-    spec10,
-    spec11,
-    spec12,
-    spec13,
-    spec14,
-    spec15,
-    spec16,
-    spec17,
-    spec18,
-    spec2,
-    spec3,
-    spec4,
-    spec5,
-    spec6,
-    spec7,
-    spec8,
-    spec9,
+,
 } from 'multiLineNamedLib';"
 `;
 
@@ -185,24 +164,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport 6`] = `
 "import Default, {
-    spec1,
-    spec10,
-    spec11,
-    spec12,
-    spec13,
-    spec14,
-    spec15,
-    spec16,
-    spec17,
-    spec18,
-    spec2,
-    spec3,
-    spec4,
-    spec5,
-    spec6,
-    spec7,
-    spec8,
-    spec9,
+,
 } from 'defaultWithNamedMultilineImport';"
 `;
 
@@ -210,24 +172,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 2`] = `
 "import {
-  spec1,
-  spec10,
-  spec11,
-  spec12,
-  spec13,
-  spec14,
-  spec15,
-  spec16,
-  spec17,
-  spec18,
-  spec2,
-  spec3,
-  spec4,
-  spec5,
-  spec6,
-  spec7,
-  spec8,
-  spec9,
+,
 } from \\"multiLineNamedLib\\";"
 `;
 
@@ -239,24 +184,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 6`] = `
 "import Default, {
-  spec1,
-  spec10,
-  spec11,
-  spec12,
-  spec13,
-  spec14,
-  spec15,
-  spec16,
-  spec17,
-  spec18,
-  spec2,
-  spec3,
-  spec4,
-  spec5,
-  spec6,
-  spec7,
-  spec8,
-  spec9,
+,
 } from \\"defaultWithNamedMultilineImport\\";"
 `;
 
@@ -264,24 +192,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with single quote 2`] = `
 "import {
-    spec1,
-    spec10,
-    spec11,
-    spec12,
-    spec13,
-    spec14,
-    spec15,
-    spec16,
-    spec17,
-    spec18,
-    spec2,
-    spec3,
-    spec4,
-    spec5,
-    spec6,
-    spec7,
-    spec8,
-    spec9,
+,
 } from 'multiLineNamedLib';"
 `;
 
@@ -293,24 +204,7 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with single quote 6`] = `
 "import Default, {
-    spec1,
-    spec10,
-    spec11,
-    spec12,
-    spec13,
-    spec14,
-    spec15,
-    spec16,
-    spec17,
-    spec18,
-    spec2,
-    spec3,
-    spec4,
-    spec5,
-    spec6,
-    spec7,
-    spec8,
-    spec9,
+,
 } from 'defaultWithNamedMultilineImport';"
 `;
 
