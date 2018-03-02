@@ -1,7 +1,7 @@
 import { NamedImport } from '../../imports/NamedImport';
 import { SymbolSpecifier } from '../../SymbolSpecifier';
 import { stringTemplate } from '../../utilities/StringTemplate';
-import { TypescriptGenerationOptions, MultiLineImportRule } from '../TypescriptGenerationOptions';
+import { MultiLineImportRule, TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 import { generateSymbolSpecifier } from './symbolSpecifier';
 
 const oneLinerImportTemplate = stringTemplate`import ${0} from ${1}`;
