@@ -1,5 +1,4 @@
 language: node_js
-node_js: '9'
 
 stages:
   - name: test
@@ -16,6 +15,7 @@ notifications:
 jobs:
   include:
     - stage: test
+      node_js: '9'
       after_success:
         - npm i -g codecov
         - codecov

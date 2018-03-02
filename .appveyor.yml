@@ -2,11 +2,13 @@ version: "{build} - {branch}"
 skip_tags: true
 skip_branch_with_pr: true
 
+matrix:
+  fast_finish: true
+
 environment:
   matrix:
+    - nodejs_version: "9"
     - nodejs_version: "8"
-    - nodejs_version: "7"
-    - nodejs_version: "6"
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -14,5 +16,7 @@ install:
 
 test_script:
   - npm test
+  - npm install -g codecov
+  - codecov
 
 build: off
