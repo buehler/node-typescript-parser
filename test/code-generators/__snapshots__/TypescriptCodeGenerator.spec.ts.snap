@@ -1,8 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TypescriptCodeGenerator should generate multiple imports per line for ExternalModuleImport with single quote 1`] = `"import externalAlias = require(\\"externalModuleLib\\");"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 1`] = `"import { spec1, spec2 as alias2 } from \\"namedLib\\";"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 2`] = `
+"import {
+  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
+  spec8, spec9,
+} from \\"multiLineNamedLib\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 3`] = `"import { } from \\"emptyImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 4`] = `"import Default from \\"defaultImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 5`] = `"import Default, { spec1, spec2 as alias2 } from \\"defaultWithNamedImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamedImport with single quote 6`] = `
+"import Default, {
+  spec1, spec10, spec11, spec12, spec13, spec14, spec15, spec16, spec17, spec18, spec2, spec3, spec4, spec5, spec6, spec7,
+  spec8, spec9,
+} from \\"defaultWithNamedMultilineImport\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for NamespaceImport with single quote 1`] = `"import * as namespaceAlias from \\"namespaceLib\\";"`;
+
+exports[`TypescriptCodeGenerator should generate multiple imports per line for StringImport with single quote 1`] = `"import \\"stringLib\\";"`;
+
 exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport 1`] = `"import externalAlias = require('externalModuleLib');"`;
 
-exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport with double quote 1`] = `"import externalAlias = require(\\"externalModuleLib\\");"`;
+exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport with double quote 1`] = `"import externalAlias = require('externalModuleLib');"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport with double quote 2`] = `"import externalAlias = require(\\"externalModuleLib\\");"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport with double quote 3`] = `"import externalAlias = require(\\"externalModuleLib\\");"`;
 
 exports[`TypescriptCodeGenerator should generate the correct code for ExternalModuleImport with single quote 1`] = `"import externalAlias = require('externalModuleLib');"`;
 
@@ -107,6 +139,9 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
     spec13,
     spec14,
     spec15,
+    spec16,
+    spec17,
+    spec18,
     spec2,
     spec3,
     spec4,
@@ -133,6 +168,9 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
     spec13,
     spec14,
     spec15,
+    spec16,
+    spec17,
+    spec18,
     spec2,
     spec3,
     spec4,
@@ -144,9 +182,41 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 } from 'defaultWithNamedMultilineImport';"
 `;
 
-exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 1`] = `"import { spec1, spec2 as alias2 } from \\"namedLib\\";"`;
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 1`] = `"import { spec1, spec2 as alias2 } from 'namedLib';"`;
 
-exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 2`] = `
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 2`] = `"import { spec1, spec2 as alias2 } from \\"namedLib\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 3`] = `
+"import {
+  spec1,
+  spec2 as alias2,
+} from \\"namedLib\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 4`] = `
+"import {
+    spec1,
+    spec10,
+    spec11,
+    spec12,
+    spec13,
+    spec14,
+    spec15,
+    spec16,
+    spec17,
+    spec18,
+    spec2,
+    spec3,
+    spec4,
+    spec5,
+    spec6,
+    spec7,
+    spec8,
+    spec9,
+} from 'multiLineNamedLib';"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 5`] = `
 "import {
   spec1,
   spec10,
@@ -155,6 +225,9 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
   spec13,
   spec14,
   spec15,
+  spec16,
+  spec17,
+  spec18,
   spec2,
   spec3,
   spec4,
@@ -166,13 +239,76 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 } from \\"multiLineNamedLib\\";"
 `;
 
-exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 3`] = `"import { } from \\"emptyImport\\";"`;
-
-exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 4`] = `"import Default from \\"defaultImport\\";"`;
-
-exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 5`] = `"import Default, { spec1, spec2 as alias2 } from \\"defaultWithNamedImport\\";"`;
-
 exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 6`] = `
+"import {
+  spec1,
+  spec10,
+  spec11,
+  spec12,
+  spec13,
+  spec14,
+  spec15,
+  spec16,
+  spec17,
+  spec18,
+  spec2,
+  spec3,
+  spec4,
+  spec5,
+  spec6,
+  spec7,
+  spec8,
+  spec9,
+} from \\"multiLineNamedLib\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 7`] = `"import { } from 'emptyImport';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 8`] = `"import { } from \\"emptyImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 9`] = `"import { } from \\"emptyImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 10`] = `"import Default from 'defaultImport';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 11`] = `"import Default from \\"defaultImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 12`] = `"import Default from \\"defaultImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 13`] = `"import Default, { spec1, spec2 as alias2 } from 'defaultWithNamedImport';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 14`] = `"import Default, { spec1, spec2 as alias2 } from \\"defaultWithNamedImport\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 15`] = `
+"import Default, {
+  spec1,
+  spec2 as alias2,
+} from \\"defaultWithNamedImport\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 16`] = `
+"import Default, {
+    spec1,
+    spec10,
+    spec11,
+    spec12,
+    spec13,
+    spec14,
+    spec15,
+    spec16,
+    spec17,
+    spec18,
+    spec2,
+    spec3,
+    spec4,
+    spec5,
+    spec6,
+    spec7,
+    spec8,
+    spec9,
+} from 'defaultWithNamedMultilineImport';"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 17`] = `
 "import Default, {
   spec1,
   spec10,
@@ -181,6 +317,32 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
   spec13,
   spec14,
   spec15,
+  spec16,
+  spec17,
+  spec18,
+  spec2,
+  spec3,
+  spec4,
+  spec5,
+  spec6,
+  spec7,
+  spec8,
+  spec9,
+} from \\"defaultWithNamedMultilineImport\\";"
+`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamedImport with double quote 18`] = `
+"import Default, {
+  spec1,
+  spec10,
+  spec11,
+  spec12,
+  spec13,
+  spec14,
+  spec15,
+  spec16,
+  spec17,
+  spec18,
   spec2,
   spec3,
   spec4,
@@ -203,6 +365,9 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
     spec13,
     spec14,
     spec15,
+    spec16,
+    spec17,
+    spec18,
     spec2,
     spec3,
     spec4,
@@ -229,6 +394,9 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
     spec13,
     spec14,
     spec15,
+    spec16,
+    spec17,
+    spec18,
     spec2,
     spec3,
     spec4,
@@ -242,7 +410,11 @@ exports[`TypescriptCodeGenerator should generate the correct code for NamedImpor
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport 1`] = `"import * as namespaceAlias from 'namespaceLib';"`;
 
-exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport with double quote 1`] = `"import * as namespaceAlias from \\"namespaceLib\\";"`;
+exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport with double quote 1`] = `"import * as namespaceAlias from 'namespaceLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport with double quote 2`] = `"import * as namespaceAlias from \\"namespaceLib\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport with double quote 3`] = `"import * as namespaceAlias from \\"namespaceLib\\";"`;
 
 exports[`TypescriptCodeGenerator should generate the correct code for NamespaceImport with single quote 1`] = `"import * as namespaceAlias from 'namespaceLib';"`;
 
@@ -315,7 +487,11 @@ exports[`TypescriptCodeGenerator should generate the correct code for SetterDecl
 
 exports[`TypescriptCodeGenerator should generate the correct code for StringImport 1`] = `"import 'stringLib';"`;
 
-exports[`TypescriptCodeGenerator should generate the correct code for StringImport with double quote 1`] = `"import \\"stringLib\\";"`;
+exports[`TypescriptCodeGenerator should generate the correct code for StringImport with double quote 1`] = `"import 'stringLib';"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for StringImport with double quote 2`] = `"import \\"stringLib\\";"`;
+
+exports[`TypescriptCodeGenerator should generate the correct code for StringImport with double quote 3`] = `"import \\"stringLib\\";"`;
 
 exports[`TypescriptCodeGenerator should generate the correct code for StringImport with single quote 1`] = `"import 'stringLib';"`;
 

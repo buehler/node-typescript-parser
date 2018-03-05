@@ -1,14 +1,17 @@
 import { NamedImport } from '../../imports/NamedImport';
 import { SymbolSpecifier } from '../../SymbolSpecifier';
 import { stringTemplate } from '../../utilities/StringTemplate';
-import { TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
+import { MultiLineImportRule, TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 import { generateSymbolSpecifier } from './symbolSpecifier';
 
-const importTemplate = stringTemplate`import ${0} from ${1}`;
+const oneLinerImportTemplate = stringTemplate`import ${0} from ${1}`;
 
-const multiLineImport = stringTemplate`import ${3}{
+const multiLineImportTemplate = stringTemplate`import ${3}{
 ${0}${1}
 } from ${2}`;
+
+const defaultAliasOnlyMultiLineImportTemplate = stringTemplate`import ${0}
+from ${1}`;
 
 /**
  * Sort function for symbol specifiers. Does sort after the specifiers name (to lowercase).
@@ -23,7 +26,8 @@ function specifierSort(i1: SymbolSpecifier, i2: SymbolSpecifier): number {
 
     if (strA < strB) {
         return -1;
-    } else if (strA > strB) {
+    }
+    if (strA > strB) {
         return 1;
     }
     return 0;
@@ -44,34 +48,61 @@ export function generateNamedImport(
         stringQuoteStyle,
         spaceBraces,
         tabSize,
+        wrapMethod,
         multiLineWrapThreshold,
         multiLineTrailingComma,
+        insertSpaces = true,
     }: TypescriptGenerationOptions,
 ): string {
-    const space = spaceBraces ? ' ' : '';
     const lib = `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
-
-    const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
-    let importSpecifiers = `${space}${specifiers}${space}`;
-    if (importSpecifiers.trim().length === 0) {
-        importSpecifiers = ' ';
+    // const specifiers = imp.specifiers.sort(specifierSort).map(o => generateSymbolSpecifier(o)).join(', ');
+    const oneLinerImportStatement = oneLinerImportTemplate(getImportSpecifiers(imp, spaceBraces), lib);
+    if (oneLinerImportStatement.length <= multiLineWrapThreshold &&
+        (wrapMethod !== MultiLineImportRule.strictlyOneImportPerLine ||
+            imp.specifiers.length <= 1)) {
+        return oneLinerImportStatement;
     }
-
-    const importString = importTemplate(
-        getImportSpecifiers(imp, spaceBraces),
-        lib,
-    );
-
-    if (importString.length > multiLineWrapThreshold) {
-        const spacings = Array(tabSize + 1).join(' ');
-        return multiLineImport(
-            imp.specifiers.sort(specifierSort).map(o => `${spacings}${generateSymbolSpecifier(o)}`).join(',\n'),
-            multiLineTrailingComma ? ',' : '',
-            `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+    const defaultAliasOnly: boolean = imp.specifiers.length === 0;
+    if (defaultAliasOnly) {
+        return defaultAliasOnlyMultiLineImportTemplate(
             imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
+            `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
         );
     }
-    return importString;
+
+    const sortedImportSpecifiers: SymbolSpecifier[] = imp.specifiers.sort(specifierSort);
+    let importSpecifierStrings: string = '';
+    const indent = insertSpaces ? Array(tabSize + 1).join(' ') : '\t';
+    if (wrapMethod === MultiLineImportRule.strictlyOneImportPerLine ||
+        wrapMethod === MultiLineImportRule.oneImportPerLineOnlyAfterThreshold) {
+        importSpecifierStrings = sortedImportSpecifiers.map(o => `${indent}${generateSymbolSpecifier(o)}`).join(',\n');
+    } else if (wrapMethod === MultiLineImportRule.multipleImportsPerLine) {
+        importSpecifierStrings = sortedImportSpecifiers.reduce(
+            (acc, curr) => {
+                const symbolSpecifier: string = generateSymbolSpecifier(curr);
+                // const dist: number = acc.out.length - acc.lastWrapOffset + symbolSpecifier.length;
+                const importLines = acc.out.split('\n');
+                const lastImportLine = importLines[importLines.length - 1];
+                const dist: number = lastImportLine.length + `, `.length + symbolSpecifier.length;
+                const needsWrap: boolean = dist >= multiLineWrapThreshold;
+                return {
+                    out: acc.out + (needsWrap ? `,\n${indent}` : (acc.out.length ? `, ` : `${indent}`)) +
+                        symbolSpecifier,
+                    lastWrapOffset: acc.lastWrapOffset + (needsWrap ? dist : 0),
+                };
+            },
+            {
+                out: '',
+                lastWrapOffset: 0,
+            },
+        ).out;
+    }
+    return multiLineImportTemplate(
+        importSpecifierStrings,
+        multiLineTrailingComma ? ',' : '',
+        `${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`,
+        imp.defaultAlias ? `${imp.defaultAlias}, ` : '',
+    );
 }
 
 function getImportSpecifiers(namedImport: NamedImport, spaceBraces: boolean): string {

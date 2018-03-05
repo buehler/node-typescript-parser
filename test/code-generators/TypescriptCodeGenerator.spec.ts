@@ -1,5 +1,5 @@
 import { TypescriptCodeGenerator } from '../../src/code-generators/TypescriptCodeGenerator';
-import { TypescriptGenerationOptions } from '../../src/code-generators/TypescriptGenerationOptions';
+import { TypescriptGenerationOptions, MultiLineImportRule } from '../../src/code-generators/TypescriptGenerationOptions';
 import { ClassDeclaration } from '../../src/declarations';
 import { GetterDeclaration, SetterDeclaration } from '../../src/declarations/AccessorDeclaration';
 import { DeclarationVisibility } from '../../src/declarations/DeclarationVisibility';
@@ -37,6 +37,9 @@ multiLineNamedImport.specifiers = [
     new SymbolSpecifier('spec13'),
     new SymbolSpecifier('spec14'),
     new SymbolSpecifier('spec15'),
+    new SymbolSpecifier('spec16'),
+    new SymbolSpecifier('spec17'),
+    new SymbolSpecifier('spec18'),
 ];
 
 const defaultImport = new NamedImport('defaultImport');
@@ -54,18 +57,42 @@ describe('TypescriptCodeGenerator', () => {
     const defaultOptions: TypescriptGenerationOptions = {
         eol: ';',
         multiLineTrailingComma: true,
+        wrapMethod: MultiLineImportRule.oneImportPerLineOnlyAfterThreshold,
         multiLineWrapThreshold: 125,
         spaceBraces: true,
         stringQuoteStyle: `'`,
         tabSize: 4,
+        insertSpaces: true,
     };
-    const impOptions: TypescriptGenerationOptions = {
+    const impOptions_oneImportPerLineOnlyAfterThreshold: TypescriptGenerationOptions = {
         eol: ';',
         multiLineTrailingComma: true,
+        wrapMethod: MultiLineImportRule.oneImportPerLineOnlyAfterThreshold,
         multiLineWrapThreshold: 125,
         spaceBraces: true,
         stringQuoteStyle: `"`,
         tabSize: 2,
+        insertSpaces: true,
+    };
+    const impOptions_strictlyOneImportPerLine: TypescriptGenerationOptions = {
+        eol: ';',
+        multiLineTrailingComma: true,
+        wrapMethod: MultiLineImportRule.strictlyOneImportPerLine,
+        multiLineWrapThreshold: 125,
+        spaceBraces: true,
+        stringQuoteStyle: `"`,
+        tabSize: 2,
+        insertSpaces: true,
+    };
+    const impOptions_multipleImportsPerLine: TypescriptGenerationOptions = {
+        eol: ';',
+        multiLineTrailingComma: true,
+        wrapMethod: MultiLineImportRule.multipleImportsPerLine,
+        multiLineWrapThreshold: 125,
+        spaceBraces: true,
+        stringQuoteStyle: `"`,
+        tabSize: 2,
+        insertSpaces: true,
     };
     const imports = [
         new ExternalModuleImport('externalModuleLib', 'externalAlias'),
@@ -134,11 +161,28 @@ describe('TypescriptCodeGenerator', () => {
         });
 
         it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
-            const generator = new TypescriptCodeGenerator(impOptions);
+            const generator = new TypescriptCodeGenerator(defaultOptions);
 
             expect(generator.generate(imp)).toMatchSnapshot();
         });
 
+        it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions_oneImportPerLineOnlyAfterThreshold);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate the correct code for ${imp.constructor.name} with double quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions_strictlyOneImportPerLine);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
+
+        it(`should generate multiple imports per line for ${imp.constructor.name} with single quote`, () => {
+            const generator = new TypescriptCodeGenerator(impOptions_multipleImportsPerLine);
+
+            expect(generator.generate(imp)).toMatchSnapshot();
+        });
     }
 
     it('should throw on non generatable element', () => {

@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Specific usage cases get usage for directly reexported elements should contain imported default elements in usages 1`] = `Array []`;
+
+exports[`Specific usage cases get usage for directly reexported elements should contain imported default elements in usages 2`] = `
+Array [
+  "Test",
+]
+`;
+
+exports[`Specific usage cases get usage for directly reexported elements should contain imported elements in usages 1`] = `
+Array [
+  NamedExport {
+    "end": 184,
+    "from": "reexport-import",
+    "specifiers": Array [
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "colors",
+      },
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "helpers",
+      },
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "theme",
+      },
+      SymbolSpecifier {
+        "alias": undefined,
+        "specifier": "icons",
+      },
+    ],
+    "start": 143,
+  },
+]
+`;
+
+exports[`Specific usage cases get usage for directly reexported elements should contain imported elements in usages 2`] = `
+Array [
+  "colors",
+  "helpers",
+  "theme",
+  "icons",
+]
+`;
+
+exports[`Specific usage cases i18next with and without destructure should contain i18next reference in not destructured way 1`] = `
+Array [
+  "MyComponent",
+  "p",
+  "i18next",
+]
+`;
+
+exports[`Specific usage cases i18next with and without destructure should contain t reference in destructured way 1`] = `
+Array [
+  "MyComponent",
+  "p",
+  "t",
+]
+`;
