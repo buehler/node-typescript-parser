@@ -32,10 +32,10 @@ export class File implements Resource, Node {
         return this.usages
             .filter(usage =>
                 !this.declarations.some(o => o.name === usage) &&
-                !this.resources.some(o => (o instanceof Module || o instanceof Namespace) && o.name === usage)
-            )
+                !this.resources.some(o => (o instanceof Module || o instanceof Namespace) && o.name === usage),
+        )
             .concat(
-            this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
+                this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
         );
     }
 
