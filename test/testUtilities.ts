@@ -1,4 +1,5 @@
 import * as Path from 'path';
+
 import { toPosix } from '../src/utilities/PathHelpers';
 
 export function getWorkspaceFile(pathFromWorkspace: string): string {

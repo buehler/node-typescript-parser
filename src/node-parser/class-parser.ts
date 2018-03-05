@@ -20,11 +20,11 @@ import { Resource } from '../resources/Resource';
 import {
     isArrayBindingPattern,
     isConstructorDeclaration,
+    isGetAccessorDeclaration,
     isIdentifier,
     isMethodDeclaration,
     isObjectBindingPattern,
     isPropertyDeclaration,
-    isGetAccessorDeclaration,
     isSetAccessorDeclaration,
 } from '../type-guards/TypescriptGuards';
 import { parseFunctionParts, parseMethodParams } from './function-parser';
