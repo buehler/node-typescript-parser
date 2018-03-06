@@ -151,54 +151,46 @@ export class TypescriptParser {
      *
      * @memberof TsResourceParser
      */
-    private parse(rootResource: Resource, rootNode: Node): void {
-        let [resource, ...resourceQueue]: Resource[] = Array(rootNode.getChildren().length).fill(rootResource);
-        let [node, ...nodeQueue]: Node[] = [...rootNode.getChildren()];
-        while (node) {
-            switch (node.kind) {
+    private parse(resource: Resource, node: Node): void {
+        for (const child of node.getChildren()) {
+            switch (child.kind) {
                 case SyntaxKind.ImportDeclaration:
                 case SyntaxKind.ImportEqualsDeclaration:
-                    parseImport(resource, <ImportDeclaration | ImportEqualsDeclaration>node);
+                    parseImport(resource, <ImportDeclaration | ImportEqualsDeclaration>child);
                     break;
                 case SyntaxKind.ExportDeclaration:
                 case SyntaxKind.ExportAssignment:
-                    parseExport(resource, <ExportAssignment | ExportDeclaration>node);
+                    parseExport(resource, <ExportAssignment | ExportDeclaration>child);
                     break;
                 case SyntaxKind.EnumDeclaration:
-                    parseEnum(resource, <EnumDeclaration>node);
+                    parseEnum(resource, <EnumDeclaration>child);
                     break;
                 case SyntaxKind.TypeAliasDeclaration:
-                    parseTypeAlias(resource, <TypeAliasDeclaration>node);
+                    parseTypeAlias(resource, <TypeAliasDeclaration>child);
                     break;
                 case SyntaxKind.FunctionDeclaration:
-                    parseFunction(resource, <FunctionDeclaration>node);
-                    [resource, ...resourceQueue] = resourceQueue;
-                    [node, ...nodeQueue] = nodeQueue;
+                    parseFunction(resource, <FunctionDeclaration>child);
                     continue;
                 case SyntaxKind.VariableStatement:
-                    parseVariable(resource, <VariableStatement>node);
+                    parseVariable(resource, <VariableStatement>child);
                     break;
                 case SyntaxKind.InterfaceDeclaration:
-                    parseInterface(resource, <InterfaceDeclaration>node);
+                    parseInterface(resource, <InterfaceDeclaration>child);
                     break;
                 case SyntaxKind.ClassDeclaration:
-                    parseClass(resource, <ClassDeclaration>node);
-                    [resource, ...resourceQueue] = resourceQueue;
-                    [node, ...nodeQueue] = nodeQueue;
+                    parseClass(resource, <ClassDeclaration>child);
                     continue;
                 case SyntaxKind.Identifier:
-                    parseIdentifier(resource, <Identifier>node);
+                    parseIdentifier(resource, <Identifier>child);
                     break;
                 case SyntaxKind.ModuleDeclaration:
-                    const newResource = parseModule(resource, <ModuleDeclaration>node);
-                    [resource, ...resourceQueue] = [...Array(node.getChildren().length).fill(newResource), ...resourceQueue];
-                    [node, ...nodeQueue] = [...node.getChildren(), ...nodeQueue];
+                    const newResource = parseModule(resource, <ModuleDeclaration>child);
+                    this.parse(newResource, child);
                     continue;
                 default:
                     break;
             }
-            [resource, ...resourceQueue] = [...Array(node.getChildren().length).fill(resource), ...resourceQueue];
-            [node, ...nodeQueue] = [...node.getChildren(), ...nodeQueue];
+            this.parse(resource, child);
         }
     }
 }
