@@ -47,7 +47,7 @@
     "ts-jest": "^22.4.0",
     "tslint": "^5.9.1",
     "tsutils": "^2.22.0",
-    "typedoc": "^0.10.0"
+    "typedoc": "^0.11.1"
   },
   "dependencies": {
     "lodash": "^4.17.5",
