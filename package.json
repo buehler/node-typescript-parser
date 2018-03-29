@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/TypeScript-Heroes/node-typescript-parser#readme",
   "devDependencies": {
-    "@smartive/tslint-config": "^2.0.0",
+    "@smartive/tslint-config": "^3.0.0",
     "@types/jest": "^22.1.4",
     "@types/lodash-es": "^4.17.0",
     "@types/mock-fs": "^3.6.30",
