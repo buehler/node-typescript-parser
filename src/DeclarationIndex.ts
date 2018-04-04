@@ -65,7 +65,7 @@ export interface FileChanges {
  * @class DeclarationIndex
  */
 export class DeclarationIndex {
-    private building: boolean;
+    private building: boolean = false;
 
     /**
      * Hash of parsed resources. Contains all parsed files / namespaces / declarations
