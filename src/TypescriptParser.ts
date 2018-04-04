@@ -5,6 +5,7 @@ import {
     EnumDeclaration,
     ExportAssignment,
     ExportDeclaration,
+    forEachChild,
     FunctionDeclaration,
     Identifier,
     ImportDeclaration,
@@ -29,6 +30,7 @@ import { parseIdentifier } from './node-parser/identifier-parser';
 import { parseImport } from './node-parser/import-parser';
 import { parseInterface } from './node-parser/interface-parser';
 import { parseModule } from './node-parser/module-parser';
+import { traverseAst } from './node-parser/traverse-ast';
 import { parseTypeAlias } from './node-parser/type-alias-parser';
 import { parseVariable } from './node-parser/variable-parser';
 import { File } from './resources/File';
@@ -140,6 +142,7 @@ export class TypescriptParser {
         return file;
     }
 
+
     /**
      * Recursive function that runs through the AST of a source and parses the nodes.
      * Creates the class / function / etc declarations and instanciates a new module / namespace
@@ -151,46 +154,66 @@ export class TypescriptParser {
      *
      * @memberof TsResourceParser
      */
-    private parse(resource: Resource, node: Node): void {
-        for (const child of node.getChildren()) {
-            switch (child.kind) {
-                case SyntaxKind.ImportDeclaration:
-                case SyntaxKind.ImportEqualsDeclaration:
-                    parseImport(resource, <ImportDeclaration | ImportEqualsDeclaration>child);
-                    break;
-                case SyntaxKind.ExportDeclaration:
-                case SyntaxKind.ExportAssignment:
-                    parseExport(resource, <ExportAssignment | ExportDeclaration>child);
-                    break;
-                case SyntaxKind.EnumDeclaration:
-                    parseEnum(resource, <EnumDeclaration>child);
-                    break;
-                case SyntaxKind.TypeAliasDeclaration:
-                    parseTypeAlias(resource, <TypeAliasDeclaration>child);
-                    break;
-                case SyntaxKind.FunctionDeclaration:
-                    parseFunction(resource, <FunctionDeclaration>child);
-                    continue;
-                case SyntaxKind.VariableStatement:
-                    parseVariable(resource, <VariableStatement>child);
-                    break;
-                case SyntaxKind.InterfaceDeclaration:
-                    parseInterface(resource, <InterfaceDeclaration>child);
-                    break;
-                case SyntaxKind.ClassDeclaration:
-                    parseClass(resource, <ClassDeclaration>child);
-                    continue;
-                case SyntaxKind.Identifier:
-                    parseIdentifier(resource, <Identifier>child);
-                    break;
-                case SyntaxKind.ModuleDeclaration:
-                    const newResource = parseModule(resource, <ModuleDeclaration>child);
-                    this.parse(newResource, child);
-                    continue;
-                default:
-                    break;
-            }
-            this.parse(resource, child);
+    private parse(resource: Resource, root: Node): void {
+        const modules = [{ moduleRoot: root, moduleResource: resource }];
+
+        for (let iter = modules.shift(); iter !== undefined; iter = modules.shift()) {
+            const { moduleRoot, moduleResource } = iter;
+
+            traverseAst(
+                moduleRoot,
+                (node) => {
+                    switch (node.kind) {
+                        case SyntaxKind.ImportDeclaration:
+                        case SyntaxKind.ImportEqualsDeclaration:
+                            parseImport(moduleResource, <ImportDeclaration | ImportEqualsDeclaration>node);
+                            break;
+                        case SyntaxKind.ExportDeclaration:
+                        case SyntaxKind.ExportAssignment:
+                            parseExport(moduleResource, <ExportAssignment | ExportDeclaration>node);
+                            break;
+                        case SyntaxKind.EnumDeclaration:
+                            parseEnum(moduleResource, <EnumDeclaration>node);
+                            break;
+                        case SyntaxKind.TypeAliasDeclaration:
+                            parseTypeAlias(moduleResource, <TypeAliasDeclaration>node);
+                            break;
+                        case SyntaxKind.FunctionDeclaration:
+                            parseFunction(moduleResource, <FunctionDeclaration>node);
+                            break;
+                        case SyntaxKind.VariableStatement:
+                            parseVariable(moduleResource, <VariableStatement>node);
+                            break;
+                        case SyntaxKind.InterfaceDeclaration:
+                            parseInterface(moduleResource, <InterfaceDeclaration>node);
+                            break;
+                        case SyntaxKind.ClassDeclaration:
+                            parseClass(moduleResource, <ClassDeclaration>node);
+                            break;
+                        case SyntaxKind.Identifier:
+                            parseIdentifier(moduleResource, <Identifier>node);
+                            break;
+                        case SyntaxKind.ModuleDeclaration:
+                            modules.push({
+                                moduleRoot: node,
+                                moduleResource: parseModule(moduleResource, <ModuleDeclaration>node),
+                            });
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                (node) => {
+                    switch (node.kind) {
+                        case SyntaxKind.ClassDeclaration:
+                        case SyntaxKind.ModuleDeclaration:
+                        case SyntaxKind.FunctionDeclaration:
+                            return true;
+                        default:
+                            return false;
+                    }
+                },
+            );
         }
     }
 }
