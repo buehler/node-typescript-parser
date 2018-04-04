@@ -17,6 +17,8 @@ After you install the package via:
 
 [![NPM](https://nodei.co/npm/typescript-parser.png?downloads=true&stars=true)](https://nodei.co/npm/typescript-parser/)
 
+### [View Source Docs](https://buehler.github.io/node-typescript-parser/)
+
 You can use the parser with:
 
 ```typescript
