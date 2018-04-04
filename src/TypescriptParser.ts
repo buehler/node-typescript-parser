@@ -1,11 +1,11 @@
 import { readFileSync } from 'fs';
+import { parse } from 'path';
 import {
     ClassDeclaration,
     createSourceFile,
     EnumDeclaration,
     ExportAssignment,
     ExportDeclaration,
-    forEachChild,
     FunctionDeclaration,
     Identifier,
     ImportDeclaration,
@@ -21,7 +21,6 @@ import {
     VariableStatement,
 } from 'typescript';
 
-import { parse } from 'path';
 import { parseClass } from './node-parser/class-parser';
 import { parseEnum } from './node-parser/enum-parser';
 import { parseExport } from './node-parser/export-parser';
@@ -161,8 +160,8 @@ export class TypescriptParser {
             const { moduleRoot, moduleResource } = iter;
 
             traverseAst(
-                moduleRoot,
-                (node) => {
+                moduleRoot as any,
+                (node: any) => {
                     switch (node.kind) {
                         case SyntaxKind.ImportDeclaration:
                         case SyntaxKind.ImportEqualsDeclaration:
@@ -203,7 +202,7 @@ export class TypescriptParser {
                             break;
                     }
                 },
-                (node) => {
+                (node: any) => {
                     switch (node.kind) {
                         case SyntaxKind.ClassDeclaration:
                         case SyntaxKind.ModuleDeclaration:
