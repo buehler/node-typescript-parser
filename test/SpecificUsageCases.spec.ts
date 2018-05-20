@@ -20,4 +20,22 @@ describe('Specific usage cases', () => {
 
     });
 
+    describe('get usage for directly reexported elements', () => {
+
+        it('should contain imported elements in usages', async () => {
+            const file = getWorkspaceFile('specific-usage-cases/reexport/reexport-import.ts');
+            const parsed = await parser.parseFile(file, rootPath);
+            expect(parsed.exports).toMatchSnapshot();
+            expect(parsed.usages).toMatchSnapshot();
+        });
+
+        it('should contain imported default elements in usages', async () => {
+            const file = getWorkspaceFile('specific-usage-cases/reexport/reexport-default.ts');
+            const parsed = await parser.parseFile(file, rootPath);
+            expect(parsed.exports).toMatchSnapshot();
+            expect(parsed.usages).toMatchSnapshot();
+        });
+
+    });
+
 });

@@ -796,4 +796,14 @@ describe('TypescriptParser', () => {
 
     });
 
+    describe('Parses Webpack Bundle', () => {
+
+        const file = getWorkspaceFile('typescript-parser/webpack-bundle.js');
+
+        it('should parse the whole webpack bundle', async () => {
+            await parser.parseFile(file, rootPath);
+        });
+
+    });
+
 });
