@@ -324,11 +324,11 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse the returntype of a method', () => {
-                const parsedInterface = parsed.declarations[0] as InterfaceDeclaration;
+              const parsedInterface = parsed.declarations[0] as InterfaceDeclaration;
 
-                expect(parsedInterface.methods[0].type).toBeUndefined();
-                expect(parsedInterface.methods[1].type).toBe('void');
-            });
+              expect(parsedInterface.methods[0].type).toBeUndefined();
+              expect(parsedInterface.methods[1].type).toBe('void');
+          });
 
             it('should parse the type of a property', () => {
                 const parsedInterface = parsed.declarations[1] as InterfaceDeclaration;
@@ -401,9 +401,9 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a methods visibility', () => {
-                const parsedClass = parsed.declarations[1] as ClassDeclaration;
+              const parsedClass = parsed.declarations[1] as ClassDeclaration;
 
-                expect(parsedClass.methods[0].visibility).toBe(DeclarationVisibility.Public);
+              expect(parsedClass.methods[0].visibility).toBe(DeclarationVisibility.Public);
             });
 
             it('should parse a generic class', () => {
@@ -432,6 +432,17 @@ describe('TypescriptParser', () => {
                 expect(parsedClass.accessors).toMatchSnapshot();
             });
 
+            it('should set the tsNode for a class', () => {
+              const parsedClass = parsed.declarations[0] as ClassDeclaration;
+              expect(parsedClass.tsNode).toBeDefined();
+              expect(parsedClass.tsNode.getChildren()).toBeTruthy();
+            });
+
+            it('should set the tsNode for a method', () => {
+              const parsedClass = parsed.declarations[1] as ClassDeclaration;
+              expect(parsedClass.methods[0].tsNode).toBeDefined();
+              expect(parsedClass.methods[0].tsNode.getChildren()).toBeTruthy();
+            });
         });
 
         describe('Modules', () => {

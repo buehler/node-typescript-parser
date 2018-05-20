@@ -3,6 +3,7 @@ import { ConstructorDeclaration } from './ConstructorDeclaration';
 import { ClassLikeDeclaration, ExportableDeclaration, GenericDeclaration } from './Declaration';
 import { MethodDeclaration } from './MethodDeclaration';
 import { PropertyDeclaration } from './PropertyDeclaration';
+import { Node } from 'typescript';
 
 /**
  * Class declaration that contains methods, properties and a constructor
@@ -25,5 +26,6 @@ export class ClassDeclaration implements ClassLikeDeclaration, ExportableDeclara
         public isExported: boolean,
         public start?: number,
         public end?: number,
+        public tsNode?: Node,
     ) { }
 }
