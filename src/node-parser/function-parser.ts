@@ -72,14 +72,11 @@ export function parseMethodParams(
             } else if (isObjectBindingPattern(cur.name) || isArrayBindingPattern(cur.name)) {
                 const identifiers = cur.name as ObjectBindingPattern | ArrayBindingPattern;
                 const elements = [...identifiers.elements];
-
-                params = params.concat(<TshParameter[]>elements.map((o: BindingElement) => {
-                    if (isIdentifier(o.name)) {
-                        return new TshParameter(
-                            (o.name as Identifier).text, undefined, o.getStart(), o.getEnd(),
-                        );
-                    }
-                }).filter(Boolean));
+                const closure = isObjectBindingPattern(cur.name) ? ['{', ' }'] : ['[', ' ]'];
+                const destructuredParam: string = closure[0] + elements.map((o: BindingElement) => {
+                    if (isIdentifier(o.name)) return ' ' + o.name.text;
+                }) + closure[1];
+                params.push(new TshParameter(destructuredParam, 'any'));
             }
             return params;
         },
