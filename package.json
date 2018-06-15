@@ -1,6 +1,6 @@
 {
-  "name": "typescript-parser",
-  "version": "0.0.0-development",
+  "name": "typescript-parser-deluxe",
+  "version": "1.0.0",
   "description": "Parser for typescript (and javascript) files, that compiles those files and generates a human understandable AST.",
   "main": "index.js",
   "typings": "index.d.ts",
