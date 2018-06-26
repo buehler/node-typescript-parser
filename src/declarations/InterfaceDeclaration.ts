@@ -12,7 +12,7 @@ import { PropertyDeclaration } from './PropertyDeclaration';
  * @implements {GenericDeclaration}
  */
 export class InterfaceDeclaration implements ClassLikeDeclaration, ExportableDeclaration, GenericDeclaration {
-    public accessors: AccessorDeclaration[];
+    public accessors: AccessorDeclaration[] = [];
     public typeParameters: string[] | undefined;
     public properties: PropertyDeclaration[] = [];
     public methods: MethodDeclaration[] = [];

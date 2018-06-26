@@ -490,6 +490,9 @@ export class DeclarationIndex {
     ): void {
         exportedLib.declarations
             .forEach((o) => {
+                if (!tsExport.specifiers) {
+                    return;
+                }
                 const ex = tsExport.specifiers.find(s => s.specifier === o.name);
                 if (!ex) {
                     return;

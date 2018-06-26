@@ -39,7 +39,7 @@ export type Generators = { [name: string]: (generatable: Generatable, options: T
  * Hash with all possible (yet implemented) generators.
  */
 export const GENERATORS: Generators = {
-    [SymbolSpecifier.name]: generateSymbolSpecifier,
+    [SymbolSpecifier.name]: generateSymbolSpecifier as any,
     [MethodDeclaration.name]: generateMethodDeclaration,
     [ParameterDeclaration.name]: generateParameterDeclaration,
     [PropertyDeclaration.name]: generatePropertyDeclaration,

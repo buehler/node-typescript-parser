@@ -413,6 +413,7 @@ Array [
 
 exports[`TypescriptParser Declaration parsing Interfaces should parse a non exported interface 1`] = `
 InterfaceDeclaration {
+  "accessors": Array [],
   "end": 130,
   "isExported": false,
   "methods": Array [
@@ -467,6 +468,7 @@ InterfaceDeclaration {
 
 exports[`TypescriptParser Declaration parsing Interfaces should parse an exported interface 1`] = `
 InterfaceDeclaration {
+  "accessors": Array [],
   "end": 286,
   "isExported": true,
   "methods": Array [

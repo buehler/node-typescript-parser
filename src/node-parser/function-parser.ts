@@ -1,6 +1,5 @@
 import {
     ArrayBindingPattern,
-    BindingElement,
     FunctionDeclaration,
     Identifier,
     MethodDeclaration,
@@ -26,7 +25,7 @@ import { parseVariable } from './variable-parser';
 /**
  * Parse the parts of a function. All functions / methods contain various information about used variables
  * and parameters.
- * 
+ *
  * @export
  * @param {Resource} resource
  * @param {(TshConstructor | TshMethod | TshFunction)} parent
@@ -53,8 +52,8 @@ export function parseFunctionParts(
 }
 
 /**
- * Parse method parameters. 
- * 
+ * Parse method parameters.
+ *
  * @export
  * @param {(FunctionDeclaration | MethodDeclaration | MethodSignature)} node
  * @returns {TshParameter[]}
@@ -72,8 +71,8 @@ export function parseMethodParams(
             } else if (isObjectBindingPattern(cur.name) || isArrayBindingPattern(cur.name)) {
                 const identifiers = cur.name as ObjectBindingPattern | ArrayBindingPattern;
                 const elements = [...identifiers.elements];
-
-                params = params.concat(<TshParameter[]>elements.map((o: BindingElement) => {
+                // TODO: BindingElement
+                params = params.concat(<TshParameter[]>elements.map((o: any) => {
                     if (isIdentifier(o.name)) {
                         return new TshParameter(
                             (o.name as Identifier).text, undefined, o.getStart(), o.getEnd(),
@@ -90,7 +89,7 @@ export function parseMethodParams(
 /**
  * Parses a function into its declaration.
  * Parses the functions sub information like parameters and variables.
- * 
+ *
  * @export
  * @param {Resource} resource
  * @param {FunctionDeclaration} node
