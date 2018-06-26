@@ -64,7 +64,7 @@ export function parseMethodParams(
 ): TshParameter[] {
     return node.parameters.reduce(
         (all: TshParameter[], cur: ParameterDeclaration) => {
-            let params = all;
+            const params = all;
             if (isIdentifier(cur.name)) {
                 params.push(new TshParameter(
                     (cur.name as Identifier).text, getNodeType(cur.type), cur.getStart(), cur.getEnd(),
