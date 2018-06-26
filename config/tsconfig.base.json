@@ -9,7 +9,7 @@
         "declaration": true,
         "sourceMap": false,
         "importHelpers": true,
-        "strictNullChecks": true,
+        "strict": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noUnusedLocals": true,
