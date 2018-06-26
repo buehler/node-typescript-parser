@@ -1,6 +1,5 @@
 import {
     ArrayBindingPattern,
-    BindingElement,
     ClassDeclaration,
     ConstructorDeclaration,
     Identifier,
@@ -96,8 +95,8 @@ export function parseCtorParams(
         } else if (isObjectBindingPattern(o.name) || isArrayBindingPattern(o.name)) {
             const identifiers = o.name as ObjectBindingPattern | ArrayBindingPattern;
             const elements = [...identifiers.elements];
-
-            ctor.parameters = ctor.parameters.concat(<TshParameter[]>elements.map((bind: BindingElement) => {
+            // TODO: BindingElement
+            ctor.parameters = ctor.parameters.concat(<TshParameter[]>elements.map((bind: any) => {
                 if (isIdentifier(bind.name)) {
                     return new TshParameter(
                         (bind.name as Identifier).text, undefined, bind.getStart(), bind.getEnd(),
