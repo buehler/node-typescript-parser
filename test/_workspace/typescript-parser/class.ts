@@ -56,6 +56,8 @@ abstract class AbstractPropertyAccessors {
 }
 
 class ObjAndArrDestruct {
+    constructor({ p1, p2 }: any, [p3, p4]: any) { }
+
     public objMethod({ p1, p2, p3 }: any): void { }
 
     public arrMethod([p1, p2, p3]: string[]): void { }
