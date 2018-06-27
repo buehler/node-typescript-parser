@@ -363,7 +363,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(7);
+                expect(parsed.declarations).toHaveLength(8);
             });
 
             it('should parse an abstract class', () => {
@@ -430,6 +430,18 @@ describe('TypescriptParser', () => {
                 const parsedClass = parsed.declarations[6] as ClassDeclaration;
 
                 expect(parsedClass.accessors).toMatchSnapshot();
+            });
+
+            it('should parse object and array destructure pattern in a class method', () => {
+                const parsedClass = parsed.declarations[7] as ClassDeclaration;
+
+                expect(parsedClass.methods).toMatchSnapshot();
+            });
+
+            it('should parse object and array destructure pattern in a class constructor', () => {
+                const parsedClass = parsed.declarations[7] as ClassDeclaration;
+
+                expect(parsedClass.ctor).toMatchSnapshot();
             });
 
         });

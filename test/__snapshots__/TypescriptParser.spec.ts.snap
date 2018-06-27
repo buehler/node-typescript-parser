@@ -195,6 +195,145 @@ ClassDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse object and array destructure pattern in a class constructor 1`] = `
+ConstructorDeclaration {
+  "end": 1198,
+  "name": "ObjAndArrDestruct",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 1167,
+      "name": "p1",
+      "start": 1165,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1171,
+      "name": "p2",
+      "start": 1169,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1183,
+      "name": "p3",
+      "start": 1181,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1187,
+      "name": "p4",
+      "start": 1185,
+      "type": undefined,
+    },
+  ],
+  "start": 1151,
+  "variables": Array [],
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse object and array destructure pattern in a class method 1`] = `
+Array [
+  MethodDeclaration {
+    "end": 1251,
+    "isAbstract": false,
+    "name": "objMethod",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 1225,
+        "name": "p1",
+        "start": 1223,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1229,
+        "name": "p2",
+        "start": 1227,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1233,
+        "name": "p3",
+        "start": 1231,
+        "type": undefined,
+      },
+    ],
+    "start": 1204,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+  MethodDeclaration {
+    "end": 1307,
+    "isAbstract": false,
+    "name": "arrMethod",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 1277,
+        "name": "p1",
+        "start": 1275,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1281,
+        "name": "p2",
+        "start": 1279,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1285,
+        "name": "p3",
+        "start": 1283,
+        "type": undefined,
+      },
+    ],
+    "start": 1257,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+  MethodDeclaration {
+    "end": 1386,
+    "isAbstract": false,
+    "name": "objAndArrMethod",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 1339,
+        "name": "p1",
+        "start": 1337,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1343,
+        "name": "p2",
+        "start": 1341,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1347,
+        "name": "p3",
+        "start": 1345,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1364,
+        "name": "p4",
+        "start": 1362,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 1368,
+        "name": "p5",
+        "start": 1366,
+        "type": undefined,
+      },
+    ],
+    "start": 1313,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Classes should parse property accessors 1`] = `
 Array [
   GetterDeclaration {
