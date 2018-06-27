@@ -432,10 +432,16 @@ describe('TypescriptParser', () => {
                 expect(parsedClass.accessors).toMatchSnapshot();
             });
 
-            it('should parse object destructure pattern in a class', () => {
+            it('should parse object and array destructure pattern in a class method', () => {
                 const parsedClass = parsed.declarations[7] as ClassDeclaration;
 
                 expect(parsedClass.methods).toMatchSnapshot();
+            });
+
+            it('should parse object and array destructure pattern in a class constructor', () => {
+                const parsedClass = parsed.declarations[7] as ClassDeclaration;
+
+                expect(parsedClass.ctor).toMatchSnapshot();
             });
 
         });
