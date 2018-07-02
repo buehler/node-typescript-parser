@@ -44,7 +44,7 @@
     "jest": "^23.2.0",
     "mock-fs": "^4.5.0",
     "semantic-release": "^15.6.0",
-    "ts-jest": "^22.4.6",
+    "ts-jest": "^23.0.0",
     "tslint": "^5.10.0",
     "tsutils": "^2.27.1",
     "typedoc": "^0.11.1"
