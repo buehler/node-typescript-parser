@@ -8,8 +8,6 @@ matrix:
 environment:
   matrix:
     - nodejs_version: "10"
-    - nodejs_version: "9"
-    - nodejs_version: "8"
 
 install:
   - ps: Install-Product node $env:nodejs_version
@@ -19,5 +17,6 @@ test_script:
   - npm test
   - npm install -g codecov
   - codecov
+  - npm run build
 
 build: off
