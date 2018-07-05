@@ -799,6 +799,260 @@ Namespace {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Parameters should parse a normal parameter 1`] = `
+ParameterDeclaration {
+  "end": 26,
+  "name": "p1",
+  "start": 16,
+  "type": "string",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple array binding pattern 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 66,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 61,
+      "name": "p1",
+      "start": 59,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 65,
+      "name": "p2",
+      "start": 63,
+      "type": undefined,
+    },
+  ],
+  "start": 58,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple object binding pattern  1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 281,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 275,
+      "name": "p1",
+      "start": 273,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 279,
+      "name": "p2",
+      "start": 277,
+      "type": undefined,
+    },
+  ],
+  "start": 271,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with overtyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 239,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 207,
+      "name": "p1",
+      "start": 205,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 211,
+      "name": "p2",
+      "start": 209,
+      "type": "number",
+    },
+  ],
+  "start": 204,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 122,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 101,
+      "name": "p1",
+      "start": 99,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 105,
+      "name": "p2",
+      "start": 103,
+      "type": "Type",
+    },
+  ],
+  "start": 98,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with undertyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 172,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 157,
+      "name": "p1",
+      "start": 155,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 161,
+      "name": "p2",
+      "start": 159,
+      "type": undefined,
+    },
+  ],
+  "start": 154,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with overtyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 538,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 491,
+      "name": "p1",
+      "start": 489,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 495,
+      "name": "p2",
+      "start": 493,
+      "type": "number",
+    },
+  ],
+  "start": 487,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 397,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 365,
+      "name": "p1",
+      "start": 363,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 369,
+      "name": "p2",
+      "start": 367,
+      "type": "Type",
+    },
+  ],
+  "start": 361,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type reference 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 329,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 317,
+      "name": "p1",
+      "start": 315,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 321,
+      "name": "p2",
+      "start": 319,
+      "type": undefined,
+    },
+  ],
+  "start": 313,
+  "typeReference": "Type",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with undertyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 455,
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 433,
+      "name": "p1",
+      "start": 431,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 437,
+      "name": "p2",
+      "start": 435,
+      "type": undefined,
+    },
+  ],
+  "start": 429,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse some mixed parameters (all above) 1`] = `
+FunctionDeclaration {
+  "end": 654,
+  "isExported": false,
+  "name": "mixed",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 576,
+      "name": "p1",
+      "start": 566,
+      "type": "string",
+    },
+    ObjectBoundParameterDeclaration {
+      "end": 616,
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 582,
+          "name": "p2",
+          "start": 580,
+          "type": "string",
+        },
+        ParameterDeclaration {
+          "end": 586,
+          "name": "p3",
+          "start": 584,
+          "type": "number",
+        },
+      ],
+      "start": 578,
+    },
+    ArrayBoundParameterDeclaration {
+      "end": 643,
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 621,
+          "name": "p4",
+          "start": 619,
+          "type": "Type",
+        },
+        ParameterDeclaration {
+          "end": 625,
+          "name": "p5",
+          "start": 623,
+          "type": "boolean",
+        },
+      ],
+      "start": 618,
+    },
+  ],
+  "start": 551,
+  "type": "void",
+  "variables": Array [],
+}
+`;
+
 exports[`TypescriptParser Declaration parsing Type aliases should parse a type alias correctly 1`] = `
 TypeAliasDeclaration {
   "end": 16,

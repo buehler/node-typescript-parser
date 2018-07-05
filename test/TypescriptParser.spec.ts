@@ -253,6 +253,71 @@ describe('TypescriptParser', () => {
 
         });
 
+        describe('Parameters', () => {
+
+            const file = getWorkspaceFile('typescript-parser/parameters.ts');
+            let parsed: Resource;
+
+            beforeEach(async () => {
+                parsed = await parser.parseFile(file, rootPath);
+            });
+
+            it('should parse a normal parameter', () => {
+                const func = parsed.declarations[0] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse a simple array binding pattern', () => {
+                const func = parsed.declarations[1] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with tuple type', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with undertyped tuple type', () => {
+                const func = parsed.declarations[3] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with overtyped tuple type', () => {
+                const func = parsed.declarations[4] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse a simple object binding pattern ', () => {
+                const func = parsed.declarations[5] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with type reference', () => {
+                const func = parsed.declarations[6] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with type literal', () => {
+                const func = parsed.declarations[7] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with undertyped type literal', () => {
+                const func = parsed.declarations[8] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with overtyped type literal', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse some mixed parameters (all above)', () => {
+                expect(parsed.declarations[10]).toMatchSnapshot();
+            });
+
+        });
+
         describe('Variables', () => {
 
             const file = getWorkspaceFile('typescript-parser/variable.ts');
