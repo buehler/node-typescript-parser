@@ -3,7 +3,7 @@ import { AliasedImport } from './Import';
 /**
  * Alternative to the namespace import. Can be used by various libraries.
  * (i.e. import foobar = require('foobar')).
- * 
+ *
  * @export
  * @class ExternalModuleImport
  * @implements {AliasedImport}
@@ -17,9 +17,9 @@ export class ExternalModuleImport implements AliasedImport {
 
     /**
      * Clone the current import object.
-     * 
+     *
      * @returns {ExternalModuleImport}
-     * 
+     *
      * @memberof ExternalModuleImport
      */
     public clone(): ExternalModuleImport {

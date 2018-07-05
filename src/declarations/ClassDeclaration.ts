@@ -14,7 +14,7 @@ import { PropertyDeclaration } from './PropertyDeclaration';
  * @implements {GenericDeclaration}
  */
 export class ClassDeclaration implements ClassLikeDeclaration, ExportableDeclaration, GenericDeclaration {
-    public ctor: ConstructorDeclaration;
+    public ctor: ConstructorDeclaration | undefined;
     public accessors: AccessorDeclaration[] = [];
     public properties: PropertyDeclaration[] = [];
     public methods: MethodDeclaration[] = [];

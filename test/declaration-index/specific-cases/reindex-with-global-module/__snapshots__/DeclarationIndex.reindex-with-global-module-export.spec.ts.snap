@@ -17,6 +17,7 @@ exports[`DeclarationIndex - specific case "reindex-with-global-module" should pa
 Array [
   DeclarationInfo {
     "declaration": InterfaceDeclaration {
+      "accessors": Array [],
       "end": 70,
       "isExported": true,
       "methods": Array [],

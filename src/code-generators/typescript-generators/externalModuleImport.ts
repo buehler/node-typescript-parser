@@ -3,11 +3,11 @@ import { TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 
 /**
  * Generates typescript code for an external module import.
- * 
+ *
  * @export
- * @param {ExternalModuleImport} imp 
- * @param {TypescriptGenerationOptions} { stringQuoteStyle, eol } 
- * @returns {string} 
+ * @param {ExternalModuleImport} imp
+ * @param {TypescriptGenerationOptions} { stringQuoteStyle, eol }
+ * @returns {string}
  */
 export function generateExternalModuleImport(
     imp: ExternalModuleImport,

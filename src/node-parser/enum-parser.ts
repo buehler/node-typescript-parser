@@ -6,7 +6,7 @@ import { isNodeExported } from './parse-utilities';
 
 /**
  * Parses an enum node into the declaration.
- * 
+ *
  * @export
  * @param {resource} resource
  * @param {EnumDeclaration} node

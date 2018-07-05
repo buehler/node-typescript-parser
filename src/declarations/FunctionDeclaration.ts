@@ -5,7 +5,7 @@ import { VariableDeclaration } from './VariableDeclaration';
 /**
  * Function declaration. Like the MethodDeclaration it contains the base info about the function
  * and additional stuff.
- * 
+ *
  * @export
  * @class FunctionDeclaration
  * @implements {CallableDeclaration}
