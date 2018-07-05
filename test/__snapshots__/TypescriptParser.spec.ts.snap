@@ -239,6 +239,7 @@ Array [
     "parameters": Array [
       ObjectBoundParameterDeclaration {
         "end": 1240,
+        "endCharacter": "}",
         "parameters": Array [
           ParameterDeclaration {
             "end": 1225,
@@ -260,6 +261,7 @@ Array [
           },
         ],
         "start": 1221,
+        "startCharacter": "{",
       },
     ],
     "start": 1204,
@@ -274,6 +276,7 @@ Array [
     "parameters": Array [
       ArrayBoundParameterDeclaration {
         "end": 1296,
+        "endCharacter": "]",
         "parameters": Array [
           ParameterDeclaration {
             "end": 1277,
@@ -295,6 +298,7 @@ Array [
           },
         ],
         "start": 1274,
+        "startCharacter": "[",
       },
     ],
     "start": 1257,
@@ -309,6 +313,7 @@ Array [
     "parameters": Array [
       ArrayBoundParameterDeclaration {
         "end": 1358,
+        "endCharacter": "]",
         "parameters": Array [
           ParameterDeclaration {
             "end": 1339,
@@ -330,9 +335,11 @@ Array [
           },
         ],
         "start": 1336,
+        "startCharacter": "[",
       },
       ObjectBoundParameterDeclaration {
         "end": 1375,
+        "endCharacter": "}",
         "parameters": Array [
           ParameterDeclaration {
             "end": 1364,
@@ -348,6 +355,7 @@ Array [
           },
         ],
         "start": 1360,
+        "startCharacter": "{",
       },
     ],
     "start": 1313,
@@ -464,6 +472,7 @@ FunctionDeclaration {
     },
     ObjectBoundParameterDeclaration {
       "end": 152,
+      "endCharacter": "}",
       "parameters": Array [
         ParameterDeclaration {
           "end": 139,
@@ -479,9 +488,11 @@ FunctionDeclaration {
         },
       ],
       "start": 128,
+      "startCharacter": "{",
     },
     ArrayBoundParameterDeclaration {
       "end": 176,
+      "endCharacter": "]",
       "parameters": Array [
         ParameterDeclaration {
           "end": 164,
@@ -497,6 +508,7 @@ FunctionDeclaration {
         },
       ],
       "start": 154,
+      "startCharacter": "[",
     },
   ],
   "start": 86,
@@ -535,6 +547,7 @@ Array [
   },
   ObjectBoundParameterDeclaration {
     "end": 152,
+    "endCharacter": "}",
     "parameters": Array [
       ParameterDeclaration {
         "end": 139,
@@ -550,9 +563,11 @@ Array [
       },
     ],
     "start": 128,
+    "startCharacter": "{",
   },
   ArrayBoundParameterDeclaration {
     "end": 176,
+    "endCharacter": "]",
     "parameters": Array [
       ParameterDeclaration {
         "end": 164,
@@ -568,6 +583,7 @@ Array [
       },
     ],
     "start": 154,
+    "startCharacter": "[",
   },
 ]
 `;
@@ -666,6 +682,7 @@ InterfaceDeclaration {
       "parameters": Array [
         ObjectBoundParameterDeclaration {
           "end": 245,
+          "endCharacter": "}",
           "parameters": Array [
             ParameterDeclaration {
               "end": 235,
@@ -681,6 +698,7 @@ InterfaceDeclaration {
             },
           ],
           "start": 227,
+          "startCharacter": "{",
         },
       ],
       "start": 219,
@@ -695,6 +713,7 @@ InterfaceDeclaration {
       "parameters": Array [
         ArrayBoundParameterDeclaration {
           "end": 276,
+          "endCharacter": "]",
           "parameters": Array [
             ParameterDeclaration {
               "end": 267,
@@ -710,6 +729,7 @@ InterfaceDeclaration {
             },
           ],
           "start": 260,
+          "startCharacter": "[",
         },
       ],
       "start": 252,
@@ -799,6 +819,14 @@ Namespace {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an array 1`] = `"[ p1, p2 ]"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an object 1`] = `"{ p1, p2 }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an array 1`] = `"{ string, Type }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an object 1`] = `"{ string, number }"`;
+
 exports[`TypescriptParser Declaration parsing Parameters should parse a normal parameter 1`] = `
 ParameterDeclaration {
   "end": 26,
@@ -811,6 +839,7 @@ ParameterDeclaration {
 exports[`TypescriptParser Declaration parsing Parameters should parse a simple array binding pattern 1`] = `
 ArrayBoundParameterDeclaration {
   "end": 66,
+  "endCharacter": "]",
   "parameters": Array [
     ParameterDeclaration {
       "end": 61,
@@ -826,12 +855,14 @@ ArrayBoundParameterDeclaration {
     },
   ],
   "start": 58,
+  "startCharacter": "[",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse a simple object binding pattern  1`] = `
 ObjectBoundParameterDeclaration {
   "end": 281,
+  "endCharacter": "}",
   "parameters": Array [
     ParameterDeclaration {
       "end": 275,
@@ -847,12 +878,14 @@ ObjectBoundParameterDeclaration {
     },
   ],
   "start": 271,
+  "startCharacter": "{",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an array with overtyped tuple type 1`] = `
 ArrayBoundParameterDeclaration {
   "end": 239,
+  "endCharacter": "]",
   "parameters": Array [
     ParameterDeclaration {
       "end": 207,
@@ -868,12 +901,14 @@ ArrayBoundParameterDeclaration {
     },
   ],
   "start": 204,
+  "startCharacter": "[",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an array with tuple type 1`] = `
 ArrayBoundParameterDeclaration {
   "end": 122,
+  "endCharacter": "]",
   "parameters": Array [
     ParameterDeclaration {
       "end": 101,
@@ -889,12 +924,14 @@ ArrayBoundParameterDeclaration {
     },
   ],
   "start": 98,
+  "startCharacter": "[",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an array with undertyped tuple type 1`] = `
 ArrayBoundParameterDeclaration {
   "end": 172,
+  "endCharacter": "]",
   "parameters": Array [
     ParameterDeclaration {
       "end": 157,
@@ -910,12 +947,14 @@ ArrayBoundParameterDeclaration {
     },
   ],
   "start": 154,
+  "startCharacter": "[",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an object with overtyped type literal 1`] = `
 ObjectBoundParameterDeclaration {
   "end": 538,
+  "endCharacter": "}",
   "parameters": Array [
     ParameterDeclaration {
       "end": 491,
@@ -931,12 +970,14 @@ ObjectBoundParameterDeclaration {
     },
   ],
   "start": 487,
+  "startCharacter": "{",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an object with type literal 1`] = `
 ObjectBoundParameterDeclaration {
   "end": 397,
+  "endCharacter": "}",
   "parameters": Array [
     ParameterDeclaration {
       "end": 365,
@@ -952,12 +993,14 @@ ObjectBoundParameterDeclaration {
     },
   ],
   "start": 361,
+  "startCharacter": "{",
 }
 `;
 
 exports[`TypescriptParser Declaration parsing Parameters should parse an object with type reference 1`] = `
 ObjectBoundParameterDeclaration {
   "end": 329,
+  "endCharacter": "}",
   "parameters": Array [
     ParameterDeclaration {
       "end": 317,
@@ -973,6 +1016,7 @@ ObjectBoundParameterDeclaration {
     },
   ],
   "start": 313,
+  "startCharacter": "{",
   "typeReference": "Type",
 }
 `;
@@ -980,6 +1024,7 @@ ObjectBoundParameterDeclaration {
 exports[`TypescriptParser Declaration parsing Parameters should parse an object with undertyped type literal 1`] = `
 ObjectBoundParameterDeclaration {
   "end": 455,
+  "endCharacter": "}",
   "parameters": Array [
     ParameterDeclaration {
       "end": 433,
@@ -995,6 +1040,7 @@ ObjectBoundParameterDeclaration {
     },
   ],
   "start": 429,
+  "startCharacter": "{",
 }
 `;
 
@@ -1012,6 +1058,7 @@ FunctionDeclaration {
     },
     ObjectBoundParameterDeclaration {
       "end": 616,
+      "endCharacter": "}",
       "parameters": Array [
         ParameterDeclaration {
           "end": 582,
@@ -1027,9 +1074,11 @@ FunctionDeclaration {
         },
       ],
       "start": 578,
+      "startCharacter": "{",
     },
     ArrayBoundParameterDeclaration {
       "end": 643,
+      "endCharacter": "]",
       "parameters": Array [
         ParameterDeclaration {
           "end": 621,
@@ -1045,6 +1094,7 @@ FunctionDeclaration {
         },
       ],
       "start": 618,
+      "startCharacter": "[",
     },
   ],
   "start": 551,

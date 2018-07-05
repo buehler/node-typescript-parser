@@ -316,6 +316,26 @@ describe('TypescriptParser', () => {
                 expect(parsed.declarations[10]).toMatchSnapshot();
             });
 
+            it('should generate the correct name for an object', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0].name).toMatchSnapshot();
+            });
+
+            it('should generate the correct name for an array', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0].name).toMatchSnapshot();
+            });
+
+            it('should generate the correct type for an object', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0].type).toMatchSnapshot();
+            });
+
+            it('should generate the correct type for an array', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0].type).toMatchSnapshot();
+            });
+
         });
 
         describe('Variables', () => {
