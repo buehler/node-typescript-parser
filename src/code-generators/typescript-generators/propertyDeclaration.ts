@@ -4,11 +4,11 @@ import { TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 
 /**
  * Generates typescript code for a class property.
- * 
+ *
  * @export
- * @param {PropertyDeclaration} property 
- * @param {TypescriptGenerationOptions} { tabSize } 
- * @returns {string} 
+ * @param {PropertyDeclaration} property
+ * @param {TypescriptGenerationOptions} { tabSize }
+ * @returns {string}
  */
 export function generatePropertyDeclaration(
     property: PropertyDeclaration,

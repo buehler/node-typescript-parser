@@ -6,7 +6,7 @@ import { VariableDeclaration } from './VariableDeclaration';
 /**
  * Method declaration. A method is contained in an interface or a class.
  * Contains information abount the method itself.
- * 
+ *
  * @export
  * @class MethodDeclaration
  * @implements {CallableDeclaration}

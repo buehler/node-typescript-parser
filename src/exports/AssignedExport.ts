@@ -7,7 +7,7 @@ import { Export } from './Export';
 
 /**
  * Declares an all export (i.e. export * from ...).
- * 
+ *
  * @export
  * @class AssignedExport
  * @implements {Export}
@@ -16,7 +16,7 @@ export class AssignedExport implements Export {
     /**
      * Returns a list of exported objects of this export.
      * This returns a list of possible exportable declarations or further exported resources.
-     * 
+     *
      * @readonly
      * @type {((ExportableDeclaration | Resource)[])}
      * @memberof AssignedExport

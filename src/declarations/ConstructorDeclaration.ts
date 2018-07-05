@@ -4,7 +4,7 @@ import { VariableDeclaration } from './VariableDeclaration';
 
 /**
  * Constructor declaration that is contained in a class.
- * 
+ *
  * @export
  * @class ConstructorDeclaration
  * @implements {CallableDeclaration}

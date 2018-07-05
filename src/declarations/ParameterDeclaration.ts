@@ -3,7 +3,7 @@ import { TypedDeclaration } from './Declaration';
 /**
  * Parameter declaration. Is contained in a method or function delaration since a parameter can not be exported
  * by itself.
- * 
+ *
  * @export
  * @class ParameterDeclaration
  * @implements {TypedDeclaration}

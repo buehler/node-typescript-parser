@@ -6,7 +6,7 @@ import { isNodeExported } from './parse-utilities';
 
 /**
  * Parses a type alias into the declaration.
- * 
+ *
  * @export
  * @param {Resource} resource
  * @param {TypeAliasDeclaration} node
