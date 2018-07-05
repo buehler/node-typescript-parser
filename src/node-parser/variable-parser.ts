@@ -8,7 +8,7 @@ import { getNodeType, isNodeExported } from './parse-utilities';
 
 /**
  * Parse a variable. Information such as "is the variable const" are calculated here.
- * 
+ *
  * @export
  * @param {(Resource | CallableDeclaration)} parent
  * @param {VariableStatement} node

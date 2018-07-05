@@ -2,7 +2,7 @@ import { ExportableDeclaration } from './Declaration';
 
 /**
  * Enum declaration.
- * 
+ *
  * @export
  * @class EnumDeclaration
  * @implements {ExportableDeclaration}

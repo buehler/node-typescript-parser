@@ -13,7 +13,7 @@ import { getDefaultResourceIdentifier, getNodeType, isNodeDefaultExported, isNod
 /**
  * Parses an interface node into its declaration.
  * Calculates the property and method defintions of the interface as well.
- * 
+ *
  * @export
  * @param {Resource} resource
  * @param {InterfaceDeclaration} node

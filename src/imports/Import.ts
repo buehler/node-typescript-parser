@@ -4,14 +4,14 @@ import { Node } from '../Node';
 /**
  * Basic import interface. Defines an import in a document.
  * If no start and end points are given, the import is considered "new".
- * 
+ *
  * @export
  * @interface Import
  */
 export interface Import extends Clonable<Import>, Node {
     /**
      * Indicates if the given import is "new" or a parsed one.
-     * 
+     *
      * @type {boolean}
      * @memberof Import
      */
@@ -30,7 +30,7 @@ export interface Import extends Clonable<Import>, Node {
 
 /**
  * Basic interface for aliased imports. Defines an alias for namespace imports and other aliased imports.
- * 
+ *
  * @export
  * @interface AliasedImport
  * @extends {Import}
@@ -38,7 +38,7 @@ export interface Import extends Clonable<Import>, Node {
 export interface AliasedImport extends Import {
     /**
      * Alias for the given import. E.g. for a "* as ..." import.
-     * 
+     *
      * @type {string}
      * @memberof AliasedImport
      */

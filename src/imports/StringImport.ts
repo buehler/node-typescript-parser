@@ -2,7 +2,7 @@ import { Import } from './Import';
 
 /**
  * Simple string import (i.e. import "reflect-metadata";).
- * 
+ *
  * @export
  * @class StringImport
  * @implements {Import}
@@ -16,9 +16,9 @@ export class StringImport implements Import {
 
     /**
      * Clone the current import object.
-     * 
+     *
      * @returns {StringImport}
-     * 
+     *
      * @memberof StringImport
      */
     public clone(): StringImport {

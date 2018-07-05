@@ -7,7 +7,7 @@ import { Resource } from '../resources/Resource';
 /**
  * Checks if the given typescript node has the exported flag.
  * (e.g. export class Foobar).
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {boolean}
@@ -20,7 +20,7 @@ export function isNodeExported(node: Node): boolean {
 /**
  * Checks if the given typescript node has the default flag.
  * (e.g. export default class Foobar).
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {boolean}
@@ -43,7 +43,7 @@ export function getNodeType(node: TypeNode | undefined): string | undefined {
 
 /**
  * Returns the enum value (visibility) of a node.
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {(DeclarationVisibility | undefined)}

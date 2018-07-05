@@ -2,7 +2,7 @@ import { AliasedImport } from './Import';
 
 /**
  * Import that imports a whole namespace (i.e. import * as foobar from 'foobar';).
- * 
+ *
  * @export
  * @class TsNamespaceImport
  * @implements {AliasedImport}
@@ -16,9 +16,9 @@ export class NamespaceImport implements AliasedImport {
 
     /**
      * Clone the current import object.
-     * 
+     *
      * @returns {NamespaceImport}
-     * 
+     *
      * @memberof NamespaceImport
      */
     public clone(): NamespaceImport {
