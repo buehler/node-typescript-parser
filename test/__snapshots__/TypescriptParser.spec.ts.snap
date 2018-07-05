@@ -237,23 +237,29 @@ Array [
     "isAbstract": false,
     "name": "objMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1225,
-        "name": "p1",
-        "start": 1223,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1229,
-        "name": "p2",
-        "start": 1227,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1233,
-        "name": "p3",
-        "start": 1231,
-        "type": undefined,
+      ObjectBoundParameterDeclaration {
+        "end": 1240,
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1225,
+            "name": "p1",
+            "start": 1223,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1229,
+            "name": "p2",
+            "start": 1227,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1233,
+            "name": "p3",
+            "start": 1231,
+            "type": undefined,
+          },
+        ],
+        "start": 1221,
       },
     ],
     "start": 1204,
@@ -266,23 +272,29 @@ Array [
     "isAbstract": false,
     "name": "arrMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1277,
-        "name": "p1",
-        "start": 1275,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1281,
-        "name": "p2",
-        "start": 1279,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1285,
-        "name": "p3",
-        "start": 1283,
-        "type": undefined,
+      ArrayBoundParameterDeclaration {
+        "end": 1296,
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1277,
+            "name": "p1",
+            "start": 1275,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1281,
+            "name": "p2",
+            "start": 1279,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1285,
+            "name": "p3",
+            "start": 1283,
+            "type": undefined,
+          },
+        ],
+        "start": 1274,
       },
     ],
     "start": 1257,
@@ -295,35 +307,47 @@ Array [
     "isAbstract": false,
     "name": "objAndArrMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1339,
-        "name": "p1",
-        "start": 1337,
-        "type": undefined,
+      ArrayBoundParameterDeclaration {
+        "end": 1358,
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1339,
+            "name": "p1",
+            "start": 1337,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1343,
+            "name": "p2",
+            "start": 1341,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1347,
+            "name": "p3",
+            "start": 1345,
+            "type": undefined,
+          },
+        ],
+        "start": 1336,
       },
-      ParameterDeclaration {
-        "end": 1343,
-        "name": "p2",
-        "start": 1341,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1347,
-        "name": "p3",
-        "start": 1345,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1364,
-        "name": "p4",
-        "start": 1362,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1368,
-        "name": "p5",
-        "start": 1366,
-        "type": undefined,
+      ObjectBoundParameterDeclaration {
+        "end": 1375,
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1364,
+            "name": "p4",
+            "start": 1362,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1368,
+            "name": "p5",
+            "start": 1366,
+            "type": undefined,
+          },
+        ],
+        "start": 1360,
       },
     ],
     "start": 1313,
@@ -438,29 +462,41 @@ FunctionDeclaration {
       "start": 112,
       "type": "string",
     },
-    ParameterDeclaration {
-      "end": 139,
-      "name": "objParam1",
-      "start": 130,
-      "type": undefined,
+    ObjectBoundParameterDeclaration {
+      "end": 152,
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 139,
+          "name": "objParam1",
+          "start": 130,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 150,
+          "name": "objParam2",
+          "start": 141,
+          "type": undefined,
+        },
+      ],
+      "start": 128,
     },
-    ParameterDeclaration {
-      "end": 150,
-      "name": "objParam2",
-      "start": 141,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 164,
-      "name": "arrParam1",
-      "start": 155,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 175,
-      "name": "arrParam2",
-      "start": 166,
-      "type": undefined,
+    ArrayBoundParameterDeclaration {
+      "end": 176,
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 164,
+          "name": "arrParam1",
+          "start": 155,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 175,
+          "name": "arrParam2",
+          "start": 166,
+          "type": undefined,
+        },
+      ],
+      "start": 154,
     },
   ],
   "start": 86,
@@ -497,29 +533,41 @@ Array [
     "start": 112,
     "type": "string",
   },
-  ParameterDeclaration {
-    "end": 139,
-    "name": "objParam1",
-    "start": 130,
-    "type": undefined,
+  ObjectBoundParameterDeclaration {
+    "end": 152,
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 139,
+        "name": "objParam1",
+        "start": 130,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 150,
+        "name": "objParam2",
+        "start": 141,
+        "type": undefined,
+      },
+    ],
+    "start": 128,
   },
-  ParameterDeclaration {
-    "end": 150,
-    "name": "objParam2",
-    "start": 141,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 164,
-    "name": "arrParam1",
-    "start": 155,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 175,
-    "name": "arrParam2",
-    "start": 166,
-    "type": undefined,
+  ArrayBoundParameterDeclaration {
+    "end": 176,
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 164,
+        "name": "arrParam1",
+        "start": 155,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 175,
+        "name": "arrParam2",
+        "start": 166,
+        "type": undefined,
+      },
+    ],
+    "start": 154,
   },
 ]
 `;
@@ -616,17 +664,23 @@ InterfaceDeclaration {
       "isAbstract": true,
       "name": "method1",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 235,
-          "name": "param1",
-          "start": 229,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 243,
-          "name": "param2",
-          "start": 237,
-          "type": undefined,
+        ObjectBoundParameterDeclaration {
+          "end": 245,
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 235,
+              "name": "param1",
+              "start": 229,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 243,
+              "name": "param2",
+              "start": 237,
+              "type": undefined,
+            },
+          ],
+          "start": 227,
         },
       ],
       "start": 219,
@@ -639,17 +693,23 @@ InterfaceDeclaration {
       "isAbstract": true,
       "name": "method2",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 267,
-          "name": "param1",
-          "start": 261,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 275,
-          "name": "param2",
-          "start": 269,
-          "type": undefined,
+        ArrayBoundParameterDeclaration {
+          "end": 276,
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 267,
+              "name": "param1",
+              "start": 261,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 275,
+              "name": "param2",
+              "start": 269,
+              "type": undefined,
+            },
+          ],
+          "start": 260,
         },
       ],
       "start": 252,
