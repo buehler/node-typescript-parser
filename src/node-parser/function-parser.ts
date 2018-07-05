@@ -1,12 +1,14 @@
 import {
-    ArrayBindingPattern,
     FunctionDeclaration,
     Identifier,
+    isTupleTypeNode,
+    isTypeLiteralNode,
+    isTypeReferenceNode,
     MethodDeclaration,
     MethodSignature,
     Node,
-    ObjectBindingPattern,
     ParameterDeclaration,
+    PropertySignature,
     SyntaxKind,
     VariableStatement,
 } from 'typescript';
@@ -15,9 +17,18 @@ import { ConstructorDeclaration as TshConstructor } from '../declarations/Constr
 import { DefaultDeclaration as TshDefault } from '../declarations/DefaultDeclaration';
 import { FunctionDeclaration as TshFunction } from '../declarations/FunctionDeclaration';
 import { MethodDeclaration as TshMethod } from '../declarations/MethodDeclaration';
-import { ParameterDeclaration as TshParameter } from '../declarations/ParameterDeclaration';
+import {
+    ArrayBoundParameterDeclaration,
+    ObjectBoundParameterDeclaration,
+    ParameterDeclaration as TshParameter,
+} from '../declarations/ParameterDeclaration';
 import { Resource } from '../resources/Resource';
-import { isArrayBindingPattern, isIdentifier, isObjectBindingPattern } from '../type-guards/TypescriptGuards';
+import {
+    isArrayBindingPattern,
+    isIdentifier,
+    isObjectBindingPattern,
+    isPropertySignature,
+} from '../type-guards/TypescriptGuards';
 import { parseIdentifier } from './identifier-parser';
 import { getDefaultResourceIdentifier, getNodeType, isNodeDefaultExported, isNodeExported } from './parse-utilities';
 import { parseVariable } from './variable-parser';
@@ -63,22 +74,51 @@ export function parseMethodParams(
 ): TshParameter[] {
     return node.parameters.reduce(
         (all: TshParameter[], cur: ParameterDeclaration) => {
-            let params = all;
+            const params = all;
             if (isIdentifier(cur.name)) {
                 params.push(new TshParameter(
                     (cur.name as Identifier).text, getNodeType(cur.type), cur.getStart(), cur.getEnd(),
                 ));
-            } else if (isObjectBindingPattern(cur.name) || isArrayBindingPattern(cur.name)) {
-                const identifiers = cur.name as ObjectBindingPattern | ArrayBindingPattern;
-                const elements = [...identifiers.elements];
-                // TODO: BindingElement
-                params = params.concat(<TshParameter[]>elements.map((o: any) => {
-                    if (isIdentifier(o.name)) {
-                        return new TshParameter(
-                            (o.name as Identifier).text, undefined, o.getStart(), o.getEnd(),
-                        );
-                    }
-                }).filter(Boolean));
+            } else if (isObjectBindingPattern(cur.name)) {
+                const elements = cur.name.elements;
+                let types: (string | undefined)[] = [];
+                const boundParam = new ObjectBoundParameterDeclaration(cur.getStart(), cur.getEnd());
+
+                if (cur.type && isTypeReferenceNode(cur.type)) {
+                    boundParam.typeReference = getNodeType(cur.type);
+                } else if (cur.type && isTypeLiteralNode(cur.type)) {
+                    types = cur.type.members
+                        .filter(member => isPropertySignature(member))
+                        .map((signature: any) => getNodeType((signature as PropertySignature).type));
+                }
+
+                boundParam.parameters = elements.map((bindingElement, index) => new TshParameter(
+                    bindingElement.name.getText(),
+                    types[index],
+                    bindingElement.getStart(),
+                    bindingElement.getEnd(),
+                ));
+
+                params.push(boundParam);
+            } else if (isArrayBindingPattern(cur.name)) {
+                const elements = cur.name.elements;
+                let types: (string | undefined)[] = [];
+                const boundParam = new ArrayBoundParameterDeclaration(cur.getStart(), cur.getEnd());
+
+                if (cur.type && isTypeReferenceNode(cur.type)) {
+                    boundParam.typeReference = getNodeType(cur.type);
+                } else if (cur.type && isTupleTypeNode(cur.type)) {
+                    types = cur.type.elementTypes.map(type => getNodeType(type));
+                }
+
+                boundParam.parameters = elements.map((bindingElement, index) => new TshParameter(
+                    bindingElement.getText(),
+                    types[index],
+                    bindingElement.getStart(),
+                    bindingElement.getEnd(),
+                ));
+
+                params.push(boundParam);
             }
             return params;
         },

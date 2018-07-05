@@ -237,23 +237,31 @@ Array [
     "isAbstract": false,
     "name": "objMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1225,
-        "name": "p1",
-        "start": 1223,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1229,
-        "name": "p2",
-        "start": 1227,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1233,
-        "name": "p3",
-        "start": 1231,
-        "type": undefined,
+      ObjectBoundParameterDeclaration {
+        "end": 1240,
+        "endCharacter": "}",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1225,
+            "name": "p1",
+            "start": 1223,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1229,
+            "name": "p2",
+            "start": 1227,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1233,
+            "name": "p3",
+            "start": 1231,
+            "type": undefined,
+          },
+        ],
+        "start": 1221,
+        "startCharacter": "{",
       },
     ],
     "start": 1204,
@@ -266,23 +274,31 @@ Array [
     "isAbstract": false,
     "name": "arrMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1277,
-        "name": "p1",
-        "start": 1275,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1281,
-        "name": "p2",
-        "start": 1279,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1285,
-        "name": "p3",
-        "start": 1283,
-        "type": undefined,
+      ArrayBoundParameterDeclaration {
+        "end": 1296,
+        "endCharacter": "]",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1277,
+            "name": "p1",
+            "start": 1275,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1281,
+            "name": "p2",
+            "start": 1279,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1285,
+            "name": "p3",
+            "start": 1283,
+            "type": undefined,
+          },
+        ],
+        "start": 1274,
+        "startCharacter": "[",
       },
     ],
     "start": 1257,
@@ -295,35 +311,51 @@ Array [
     "isAbstract": false,
     "name": "objAndArrMethod",
     "parameters": Array [
-      ParameterDeclaration {
-        "end": 1339,
-        "name": "p1",
-        "start": 1337,
-        "type": undefined,
+      ArrayBoundParameterDeclaration {
+        "end": 1358,
+        "endCharacter": "]",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1339,
+            "name": "p1",
+            "start": 1337,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1343,
+            "name": "p2",
+            "start": 1341,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1347,
+            "name": "p3",
+            "start": 1345,
+            "type": undefined,
+          },
+        ],
+        "start": 1336,
+        "startCharacter": "[",
       },
-      ParameterDeclaration {
-        "end": 1343,
-        "name": "p2",
-        "start": 1341,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1347,
-        "name": "p3",
-        "start": 1345,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1364,
-        "name": "p4",
-        "start": 1362,
-        "type": undefined,
-      },
-      ParameterDeclaration {
-        "end": 1368,
-        "name": "p5",
-        "start": 1366,
-        "type": undefined,
+      ObjectBoundParameterDeclaration {
+        "end": 1375,
+        "endCharacter": "}",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1364,
+            "name": "p4",
+            "start": 1362,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1368,
+            "name": "p5",
+            "start": 1366,
+            "type": undefined,
+          },
+        ],
+        "start": 1360,
+        "startCharacter": "{",
       },
     ],
     "start": 1313,
@@ -438,29 +470,45 @@ FunctionDeclaration {
       "start": 112,
       "type": "string",
     },
-    ParameterDeclaration {
-      "end": 139,
-      "name": "objParam1",
-      "start": 130,
-      "type": undefined,
+    ObjectBoundParameterDeclaration {
+      "end": 152,
+      "endCharacter": "}",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 139,
+          "name": "objParam1",
+          "start": 130,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 150,
+          "name": "objParam2",
+          "start": 141,
+          "type": undefined,
+        },
+      ],
+      "start": 128,
+      "startCharacter": "{",
     },
-    ParameterDeclaration {
-      "end": 150,
-      "name": "objParam2",
-      "start": 141,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 164,
-      "name": "arrParam1",
-      "start": 155,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 175,
-      "name": "arrParam2",
-      "start": 166,
-      "type": undefined,
+    ArrayBoundParameterDeclaration {
+      "end": 176,
+      "endCharacter": "]",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 164,
+          "name": "arrParam1",
+          "start": 155,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 175,
+          "name": "arrParam2",
+          "start": 166,
+          "type": undefined,
+        },
+      ],
+      "start": 154,
+      "startCharacter": "[",
     },
   ],
   "start": 86,
@@ -497,29 +545,45 @@ Array [
     "start": 112,
     "type": "string",
   },
-  ParameterDeclaration {
-    "end": 139,
-    "name": "objParam1",
-    "start": 130,
-    "type": undefined,
+  ObjectBoundParameterDeclaration {
+    "end": 152,
+    "endCharacter": "}",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 139,
+        "name": "objParam1",
+        "start": 130,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 150,
+        "name": "objParam2",
+        "start": 141,
+        "type": undefined,
+      },
+    ],
+    "start": 128,
+    "startCharacter": "{",
   },
-  ParameterDeclaration {
-    "end": 150,
-    "name": "objParam2",
-    "start": 141,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 164,
-    "name": "arrParam1",
-    "start": 155,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 175,
-    "name": "arrParam2",
-    "start": 166,
-    "type": undefined,
+  ArrayBoundParameterDeclaration {
+    "end": 176,
+    "endCharacter": "]",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 164,
+        "name": "arrParam1",
+        "start": 155,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 175,
+        "name": "arrParam2",
+        "start": 166,
+        "type": undefined,
+      },
+    ],
+    "start": 154,
+    "startCharacter": "[",
   },
 ]
 `;
@@ -616,17 +680,25 @@ InterfaceDeclaration {
       "isAbstract": true,
       "name": "method1",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 235,
-          "name": "param1",
-          "start": 229,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 243,
-          "name": "param2",
-          "start": 237,
-          "type": undefined,
+        ObjectBoundParameterDeclaration {
+          "end": 245,
+          "endCharacter": "}",
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 235,
+              "name": "param1",
+              "start": 229,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 243,
+              "name": "param2",
+              "start": 237,
+              "type": undefined,
+            },
+          ],
+          "start": 227,
+          "startCharacter": "{",
         },
       ],
       "start": 219,
@@ -639,17 +711,25 @@ InterfaceDeclaration {
       "isAbstract": true,
       "name": "method2",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 267,
-          "name": "param1",
-          "start": 261,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 275,
-          "name": "param2",
-          "start": 269,
-          "type": undefined,
+        ArrayBoundParameterDeclaration {
+          "end": 276,
+          "endCharacter": "]",
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 267,
+              "name": "param1",
+              "start": 261,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 275,
+              "name": "param2",
+              "start": 269,
+              "type": undefined,
+            },
+          ],
+          "start": 260,
+          "startCharacter": "[",
         },
       ],
       "start": 252,
@@ -736,6 +816,290 @@ Namespace {
     "MemberA",
     "MemberB",
   ],
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an array 1`] = `"[ p1, p2 ]"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an object 1`] = `"{ p1, p2 }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an array 1`] = `"{ string, Type }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an object 1`] = `"{ string, number }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a normal parameter 1`] = `
+ParameterDeclaration {
+  "end": 26,
+  "name": "p1",
+  "start": 16,
+  "type": "string",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple array binding pattern 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 66,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 61,
+      "name": "p1",
+      "start": 59,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 65,
+      "name": "p2",
+      "start": 63,
+      "type": undefined,
+    },
+  ],
+  "start": 58,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple object binding pattern  1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 281,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 275,
+      "name": "p1",
+      "start": 273,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 279,
+      "name": "p2",
+      "start": 277,
+      "type": undefined,
+    },
+  ],
+  "start": 271,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with overtyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 239,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 207,
+      "name": "p1",
+      "start": 205,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 211,
+      "name": "p2",
+      "start": 209,
+      "type": "number",
+    },
+  ],
+  "start": 204,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 122,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 101,
+      "name": "p1",
+      "start": 99,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 105,
+      "name": "p2",
+      "start": 103,
+      "type": "Type",
+    },
+  ],
+  "start": 98,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with undertyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 172,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 157,
+      "name": "p1",
+      "start": 155,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 161,
+      "name": "p2",
+      "start": 159,
+      "type": undefined,
+    },
+  ],
+  "start": 154,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with overtyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 538,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 491,
+      "name": "p1",
+      "start": 489,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 495,
+      "name": "p2",
+      "start": 493,
+      "type": "number",
+    },
+  ],
+  "start": 487,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 397,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 365,
+      "name": "p1",
+      "start": 363,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 369,
+      "name": "p2",
+      "start": 367,
+      "type": "Type",
+    },
+  ],
+  "start": 361,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type reference 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 329,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 317,
+      "name": "p1",
+      "start": 315,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 321,
+      "name": "p2",
+      "start": 319,
+      "type": undefined,
+    },
+  ],
+  "start": 313,
+  "startCharacter": "{",
+  "typeReference": "Type",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with undertyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 455,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 433,
+      "name": "p1",
+      "start": 431,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 437,
+      "name": "p2",
+      "start": 435,
+      "type": undefined,
+    },
+  ],
+  "start": 429,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse some mixed parameters (all above) 1`] = `
+FunctionDeclaration {
+  "end": 654,
+  "isExported": false,
+  "name": "mixed",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 576,
+      "name": "p1",
+      "start": 566,
+      "type": "string",
+    },
+    ObjectBoundParameterDeclaration {
+      "end": 616,
+      "endCharacter": "}",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 582,
+          "name": "p2",
+          "start": 580,
+          "type": "string",
+        },
+        ParameterDeclaration {
+          "end": 586,
+          "name": "p3",
+          "start": 584,
+          "type": "number",
+        },
+      ],
+      "start": 578,
+      "startCharacter": "{",
+    },
+    ArrayBoundParameterDeclaration {
+      "end": 643,
+      "endCharacter": "]",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 621,
+          "name": "p4",
+          "start": 619,
+          "type": "Type",
+        },
+        ParameterDeclaration {
+          "end": 625,
+          "name": "p5",
+          "start": 623,
+          "type": "boolean",
+        },
+      ],
+      "start": 618,
+      "startCharacter": "[",
+    },
+  ],
+  "start": 551,
+  "type": "void",
+  "variables": Array [],
 }
 `;
 
