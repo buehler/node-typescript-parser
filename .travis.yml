@@ -3,8 +3,14 @@ language: node_js
 stages:
   - name: test
     if: tag IS blank
+  - name: build
+    if: tag IS blank
   - name: deploy
     if: branch = master AND type != pull_request
+
+cache:
+  directories:
+    - node_modules
 
 matrix:
   fast_finish: true
@@ -19,16 +25,10 @@ jobs:
       after_success:
         - npm i -g codecov
         - codecov
-    - stage: test
-      node_js: '9'
-      after_success:
-        - npm i -g codecov
-        - codecov
-    - stage: test
-      node_js: '8'
-      after_success:
-        - npm i -g codecov
-        - codecov
+    - stage: build
+      node_js: '10'
+      script:
+        - npm run build
     - stage: deploy
       node_js: '10'
       script: npm run typedoc
