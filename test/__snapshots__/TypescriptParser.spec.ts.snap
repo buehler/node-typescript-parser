@@ -65,6 +65,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 166,
       "name": "param1",
+      "optional": false,
       "start": 145,
       "type": "string",
       "visibility": 2,
@@ -653,6 +654,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 55,
       "name": "property1",
+      "optional": false,
       "start": 37,
       "type": "string",
       "visibility": 2,
@@ -660,6 +662,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 78,
       "name": "property2",
+      "optional": false,
       "start": 60,
       "type": "number",
       "visibility": 2,
@@ -743,6 +746,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 191,
       "name": "property1",
+      "optional": false,
       "start": 173,
       "type": "string",
       "visibility": 2,
@@ -750,6 +754,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 214,
       "name": "property2",
+      "optional": false,
       "start": 196,
       "type": "number",
       "visibility": 2,

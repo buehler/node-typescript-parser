@@ -88,6 +88,7 @@ export function parseCtorParams(
                     (o.name as Identifier).text,
                     getNodeVisibility(o),
                     getNodeType(o.type),
+                    !!o.questionToken,
                     o.getStart(),
                     o.getEnd(),
                 ),
