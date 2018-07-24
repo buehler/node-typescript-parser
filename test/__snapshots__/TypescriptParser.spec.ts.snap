@@ -173,6 +173,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 363,
       "name": "_property",
+      "optional": false,
       "start": 337,
       "type": "string",
       "visibility": 0,
@@ -180,6 +181,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 394,
       "name": "protect",
+      "optional": false,
       "start": 368,
       "type": "string",
       "visibility": 1,
@@ -187,6 +189,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 418,
       "name": "pub",
+      "optional": false,
       "start": 399,
       "type": "string",
       "visibility": 2,
