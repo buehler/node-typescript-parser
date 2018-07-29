@@ -46,7 +46,7 @@
     "semantic-release": "^15.6.3",
     "ts-jest": "^23.0.0",
     "tslint": "^5.10.0",
-    "tsutils": "^2.27.2",
+    "tsutils": "^3.0.0",
     "typedoc": "^0.11.1"
   },
   "dependencies": {
