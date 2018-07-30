@@ -448,7 +448,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(8);
+                expect(parsed.declarations).toHaveLength(9);
             });
 
             it('should parse an abstract class', () => {
@@ -527,6 +527,12 @@ describe('TypescriptParser', () => {
                 const parsedClass = parsed.declarations[7] as ClassDeclaration;
 
                 expect(parsedClass.ctor).toMatchSnapshot();
+            });
+
+            it('should parse optional class properties', () => {
+                const parsedClass = parsed.declarations[8] as ClassDeclaration;
+
+                expect(parsedClass.properties).toMatchSnapshot();
             });
 
         });

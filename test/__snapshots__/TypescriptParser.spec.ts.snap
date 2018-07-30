@@ -370,6 +370,35 @@ Array [
 ]
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse optional class properties 1`] = `
+Array [
+  PropertyDeclaration {
+    "end": 1448,
+    "isOptional": false,
+    "name": "nonOptional",
+    "start": 1421,
+    "type": "string",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 1498,
+    "isOptional": false,
+    "name": "nonOptionalAsWell",
+    "start": 1453,
+    "type": "string | undefined",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 1528,
+    "isOptional": true,
+    "name": "optional",
+    "start": 1503,
+    "type": "string",
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Classes should parse property accessors 1`] = `
 Array [
   GetterDeclaration {
