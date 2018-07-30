@@ -796,6 +796,35 @@ InterfaceDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Interfaces should parse optional properties 1`] = `
+Array [
+  PropertyDeclaration {
+    "end": 422,
+    "isOptional": false,
+    "name": "nonOptional",
+    "start": 402,
+    "type": "string",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 470,
+    "isOptional": false,
+    "name": "alsoNonOptional",
+    "start": 427,
+    "type": "string | null | undefined",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 493,
+    "isOptional": true,
+    "name": "optional",
+    "start": 475,
+    "type": "string",
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Modules should parse a module 1`] = `
 Module {
   "declarations": Array [

@@ -14,3 +14,16 @@ export interface ExportedInterface {
 
 interface Generic<T> { }
 interface MultiGeneric<TIn, TOut, TError> { }
+
+interface OptionalPropertyInterface {
+    nonOptional: string;
+    alsoNonOptional: string | null | undefined;
+    optional?: string;
+}
+
+interface OptionalFunctionInterface {
+    nonOptionalFunction: () => void;
+    optionalFunction1?: { (): void };
+    optionalFunction2?: () => void;
+    optionalFunction3?(): void;
+}

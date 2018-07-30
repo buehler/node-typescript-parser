@@ -395,7 +395,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(4);
+                expect(parsed.declarations).toHaveLength(6);
             });
 
             it('should parse a non exported interface', () => {
@@ -434,6 +434,18 @@ describe('TypescriptParser', () => {
                 expect(parsedInterface.typeParameters).toContain('TIn');
                 expect(parsedInterface.typeParameters).toContain('TOut');
                 expect(parsedInterface.typeParameters).toContain('TError');
+            });
+
+            it('should parse optional properties', () => {
+                const parsedInterface = parsed.declarations[4] as InterfaceDeclaration;
+
+                expect(parsedInterface.properties).toMatchSnapshot();
+            });
+
+            it('should parse optional functions', () => {
+                const parsedInterface = parsed.declarations[5] as InterfaceDeclaration;
+
+
             });
 
         });
