@@ -1,4 +1,4 @@
-import { ScopedDeclaration, TypedDeclaration } from './Declaration';
+import { OptionalDeclaration, ScopedDeclaration, TypedDeclaration } from './Declaration';
 import { DeclarationVisibility } from './DeclarationVisibility';
 
 /**
@@ -9,12 +9,12 @@ import { DeclarationVisibility } from './DeclarationVisibility';
  * @implements {ScopedDeclaration}
  * @implements {TypedDeclaration}
  */
-export class PropertyDeclaration implements ScopedDeclaration, TypedDeclaration {
+export class PropertyDeclaration implements OptionalDeclaration, ScopedDeclaration, TypedDeclaration {
     constructor(
         public name: string,
         public visibility: DeclarationVisibility | undefined,
         public type: string | undefined,
-        public optional: boolean,
+        public isOptional: boolean,
         public start?: number,
         public end?: number,
     ) { }
