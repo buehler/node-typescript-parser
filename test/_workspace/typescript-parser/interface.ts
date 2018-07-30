@@ -22,8 +22,9 @@ interface OptionalPropertyInterface {
 }
 
 interface OptionalFunctionInterface {
-    nonOptionalFunction: () => void;
+    nonOptionalFunction1: () => void;
     optionalFunction1?: { (): void };
     optionalFunction2?: () => void;
+    nonOptionalFunction2(): void;
     optionalFunction3?(): void;
 }

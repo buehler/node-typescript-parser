@@ -808,6 +808,66 @@ InterfaceDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Interfaces should parse optional functions 1`] = `
+InterfaceDeclaration {
+  "accessors": Array [],
+  "end": 714,
+  "isExported": false,
+  "methods": Array [
+    MethodDeclaration {
+      "end": 680,
+      "isAbstract": true,
+      "isOptional": false,
+      "name": "nonOptionalFunction2",
+      "parameters": Array [],
+      "start": 651,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+    MethodDeclaration {
+      "end": 712,
+      "isAbstract": true,
+      "isOptional": true,
+      "name": "optionalFunction3",
+      "parameters": Array [],
+      "start": 685,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+  ],
+  "name": "OptionalFunctionInterface",
+  "properties": Array [
+    PropertyDeclaration {
+      "end": 572,
+      "isOptional": false,
+      "name": "nonOptionalFunction1",
+      "start": 539,
+      "type": "() => void",
+      "visibility": 2,
+    },
+    PropertyDeclaration {
+      "end": 610,
+      "isOptional": true,
+      "name": "optionalFunction1",
+      "start": 577,
+      "type": "{ (): void }",
+      "visibility": 2,
+    },
+    PropertyDeclaration {
+      "end": 646,
+      "isOptional": true,
+      "name": "optionalFunction2",
+      "start": 615,
+      "type": "() => void",
+      "visibility": 2,
+    },
+  ],
+  "start": 497,
+}
+`;
+
 exports[`TypescriptParser Declaration parsing Interfaces should parse optional properties 1`] = `
 Array [
   PropertyDeclaration {

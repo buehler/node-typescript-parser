@@ -445,7 +445,7 @@ describe('TypescriptParser', () => {
             it('should parse optional functions', () => {
                 const parsedInterface = parsed.declarations[5] as InterfaceDeclaration;
 
-
+                expect(parsedInterface).toMatchSnapshot();
             });
 
         });
