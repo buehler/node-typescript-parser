@@ -16,5 +16,5 @@ export function generatePropertyDeclaration(
 ): string {
     return `${Array(tabSize + 1).join(' ')}` +
             `${property.visibility !== undefined ? getVisibilityText(property.visibility) + ' ' : ''}` +
-            `${property.name}${property.type ? `: ${property.type}` : ''};\n`;
+            `${property.name}${property.optional ? '?' : ''}${property.type ? `: ${property.type}` : ''};\n`;
 }

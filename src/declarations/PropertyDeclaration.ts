@@ -14,6 +14,7 @@ export class PropertyDeclaration implements ScopedDeclaration, TypedDeclaration 
         public name: string,
         public visibility: DeclarationVisibility | undefined,
         public type: string | undefined,
+        public optional: boolean,
         public start?: number,
         public end?: number,
     ) { }
