@@ -23,6 +23,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 203,
       "isAbstract": false,
+      "isOptional": false,
       "name": "method1",
       "parameters": Array [],
       "start": 177,
@@ -33,6 +34,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 237,
       "isAbstract": false,
+      "isOptional": false,
       "name": "method2",
       "parameters": Array [],
       "start": 208,
@@ -43,6 +45,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 300,
       "isAbstract": false,
+      "isOptional": false,
       "name": "method3",
       "parameters": Array [],
       "start": 242,
@@ -121,6 +124,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 55,
       "isAbstract": false,
+      "isOptional": false,
       "name": "method1",
       "parameters": Array [],
       "start": 35,
@@ -131,6 +135,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 100,
       "isAbstract": true,
+      "isOptional": false,
       "name": "abstractMethod",
       "parameters": Array [],
       "start": 61,
@@ -239,6 +244,7 @@ Array [
   MethodDeclaration {
     "end": 1251,
     "isAbstract": false,
+    "isOptional": false,
     "name": "objMethod",
     "parameters": Array [
       ObjectBoundParameterDeclaration {
@@ -276,6 +282,7 @@ Array [
   MethodDeclaration {
     "end": 1307,
     "isAbstract": false,
+    "isOptional": false,
     "name": "arrMethod",
     "parameters": Array [
       ArrayBoundParameterDeclaration {
@@ -313,6 +320,7 @@ Array [
   MethodDeclaration {
     "end": 1386,
     "isAbstract": false,
+    "isOptional": false,
     "name": "objAndArrMethod",
     "parameters": Array [
       ArrayBoundParameterDeclaration {
@@ -656,6 +664,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 93,
       "isAbstract": true,
+      "isOptional": false,
       "name": "method1",
       "parameters": Array [],
       "start": 83,
@@ -666,6 +675,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 128,
       "isAbstract": true,
+      "isOptional": false,
       "name": "method2",
       "parameters": Array [
         ParameterDeclaration {
@@ -713,6 +723,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 247,
       "isAbstract": true,
+      "isOptional": false,
       "name": "method1",
       "parameters": Array [
         ObjectBoundParameterDeclaration {
@@ -744,6 +755,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 284,
       "isAbstract": true,
+      "isOptional": false,
       "name": "method2",
       "parameters": Array [
         ArrayBoundParameterDeclaration {
@@ -1686,6 +1698,7 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isOptional": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1750,6 +1763,7 @@ Array [
           MethodDeclaration {
             "end": 304,
             "isAbstract": false,
+            "isOptional": false,
             "name": "render",
             "parameters": Array [],
             "start": 80,
@@ -1814,6 +1828,7 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isOptional": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1886,6 +1901,7 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isOptional": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -1944,6 +1960,7 @@ Array [
           MethodDeclaration {
             "end": 93,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 76,
@@ -2002,6 +2019,7 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isOptional": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -2101,6 +2119,7 @@ File {
         MethodDeclaration {
           "end": 142,
           "isAbstract": false,
+          "isOptional": false,
           "name": "test",
           "parameters": Array [],
           "start": 45,

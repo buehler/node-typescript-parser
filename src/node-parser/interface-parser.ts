@@ -48,6 +48,7 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                     true,
                     DeclarationVisibility.Public,
                     getNodeType(o.type),
+                    !!o.questionToken,
                     o.getStart(),
                     o.getEnd(),
                 );

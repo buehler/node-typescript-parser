@@ -196,6 +196,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
                     getNodeVisibility(o),
                     getNodeType(o.type),
+                    !!o.questionToken,
                     o.getStart(),
                     o.getEnd(),
                 );

@@ -41,6 +41,7 @@ Array [
         MethodDeclaration {
           "end": 59,
           "isAbstract": false,
+          "isOptional": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 29,
