@@ -175,3 +175,20 @@ export interface AbstractDeclaration extends Declaration {
      */
     isAbstract: boolean;
 }
+
+/**
+ * Interface for possible optional declarations. Contains information if the element is optional or not.
+ *
+ * @export
+ * @interface OptionalDeclaration
+ * @extends {Declaration}
+ */
+export interface OptionalDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is optional or not.
+     *
+     * @type {boolean}
+     * @memberof OptionalDeclaration
+     */
+    isOptional: boolean;
+}
