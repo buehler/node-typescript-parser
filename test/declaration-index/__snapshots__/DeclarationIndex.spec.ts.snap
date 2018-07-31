@@ -964,6 +964,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -989,6 +990,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1019,6 +1021,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1058,6 +1061,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1214,6 +1218,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 100,
@@ -1239,6 +1244,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 27,
@@ -1395,6 +1401,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 100,
@@ -1420,6 +1427,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 27,
@@ -1492,6 +1500,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1517,6 +1526,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1547,6 +1557,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1572,6 +1583,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1728,6 +1740,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 100,
@@ -1753,6 +1766,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 27,
@@ -1785,6 +1799,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1824,6 +1839,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1854,6 +1870,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1879,6 +1896,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1909,6 +1927,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -1948,6 +1967,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -1992,6 +2012,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -2031,6 +2052,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,
@@ -2187,6 +2209,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 100,
@@ -2212,6 +2235,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 27,
@@ -2242,6 +2266,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomethingAwesome",
             "parameters": Array [],
             "start": 292,
@@ -2267,6 +2292,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isOptional": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 75,

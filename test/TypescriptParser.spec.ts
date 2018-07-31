@@ -395,7 +395,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(4);
+                expect(parsed.declarations).toHaveLength(6);
             });
 
             it('should parse a non exported interface', () => {
@@ -436,6 +436,18 @@ describe('TypescriptParser', () => {
                 expect(parsedInterface.typeParameters).toContain('TError');
             });
 
+            it('should parse optional properties', () => {
+                const parsedInterface = parsed.declarations[4] as InterfaceDeclaration;
+
+                expect(parsedInterface.properties).toMatchSnapshot();
+            });
+
+            it('should parse optional functions', () => {
+                const parsedInterface = parsed.declarations[5] as InterfaceDeclaration;
+
+                expect(parsedInterface).toMatchSnapshot();
+            });
+
         });
 
         describe('Classes', () => {
@@ -448,7 +460,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(8);
+                expect(parsed.declarations).toHaveLength(9);
             });
 
             it('should parse an abstract class', () => {
@@ -527,6 +539,12 @@ describe('TypescriptParser', () => {
                 const parsedClass = parsed.declarations[7] as ClassDeclaration;
 
                 expect(parsedClass.ctor).toMatchSnapshot();
+            });
+
+            it('should parse optional class properties', () => {
+                const parsedClass = parsed.declarations[8] as ClassDeclaration;
+
+                expect(parsedClass.properties).toMatchSnapshot();
             });
 
         });
