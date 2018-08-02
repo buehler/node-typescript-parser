@@ -550,7 +550,7 @@ describe('TypescriptParser', () => {
             it('should parse static class properties and methods', () => {
                 const parsedClass = parsed.declarations[9] as ClassDeclaration;
 
-                console.log(parsedClass);
+                expect(parsedClass).toMatchSnapshot();
             });
 
         });

@@ -469,6 +469,53 @@ Array [
 ]
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse static class properties and methods 1`] = `
+ClassDeclaration {
+  "accessors": Array [],
+  "end": 1662,
+  "isExported": false,
+  "methods": Array [
+    MethodDeclaration {
+      "end": 1621,
+      "isAbstract": false,
+      "isOptional": false,
+      "isStatic": true,
+      "name": "method",
+      "parameters": Array [],
+      "start": 1589,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+    MethodDeclaration {
+      "end": 1660,
+      "isAbstract": false,
+      "isOptional": false,
+      "isStatic": false,
+      "name": "methodNonStatic",
+      "parameters": Array [],
+      "start": 1626,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+  ],
+  "name": "StaticThings",
+  "properties": Array [
+    PropertyDeclaration {
+      "end": 1584,
+      "isOptional": false,
+      "isStatic": true,
+      "name": "prop",
+      "start": 1557,
+      "type": "string",
+      "visibility": 2,
+    },
+  ],
+  "start": 1532,
+}
+`;
+
 exports[`TypescriptParser Declaration parsing Enums should parse an enum correctly 1`] = `
 EnumDeclaration {
   "end": 58,
