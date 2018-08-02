@@ -24,6 +24,7 @@ ClassDeclaration {
       "end": 203,
       "isAbstract": false,
       "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 177,
@@ -35,6 +36,7 @@ ClassDeclaration {
       "end": 237,
       "isAbstract": false,
       "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [],
       "start": 208,
@@ -46,6 +48,7 @@ ClassDeclaration {
       "end": 300,
       "isAbstract": false,
       "isOptional": false,
+      "isStatic": false,
       "name": "method3",
       "parameters": Array [],
       "start": 242,
@@ -68,6 +71,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 166,
       "isOptional": false,
+      "isStatic": false,
       "name": "param1",
       "start": 145,
       "type": "string",
@@ -83,6 +87,7 @@ Array [
   GetterDeclaration {
     "end": 977,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getOnly",
     "start": 939,
     "type": "string",
@@ -91,6 +96,7 @@ Array [
   SetterDeclaration {
     "end": 1022,
     "isAbstract": true,
+    "isStatic": false,
     "name": "setOnly",
     "start": 982,
     "type": undefined,
@@ -99,6 +105,7 @@ Array [
   GetterDeclaration {
     "end": 1067,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 1027,
     "type": "string",
@@ -107,6 +114,7 @@ Array [
   SetterDeclaration {
     "end": 1117,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 1072,
     "type": undefined,
@@ -125,6 +133,7 @@ ClassDeclaration {
       "end": 55,
       "isAbstract": false,
       "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 35,
@@ -136,6 +145,7 @@ ClassDeclaration {
       "end": 100,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "abstractMethod",
       "parameters": Array [],
       "start": 61,
@@ -156,6 +166,7 @@ ClassDeclaration {
     GetterDeclaration {
       "end": 492,
       "isAbstract": false,
+      "isStatic": false,
       "name": "property",
       "start": 424,
       "type": "string",
@@ -164,6 +175,7 @@ ClassDeclaration {
     SetterDeclaration {
       "end": 572,
       "isAbstract": false,
+      "isStatic": false,
       "name": "property",
       "start": 498,
       "type": undefined,
@@ -178,6 +190,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 363,
       "isOptional": false,
+      "isStatic": false,
       "name": "_property",
       "start": 337,
       "type": "string",
@@ -186,6 +199,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 394,
       "isOptional": false,
+      "isStatic": false,
       "name": "protect",
       "start": 368,
       "type": "string",
@@ -194,6 +208,7 @@ ClassDeclaration {
     PropertyDeclaration {
       "end": 418,
       "isOptional": false,
+      "isStatic": false,
       "name": "pub",
       "start": 399,
       "type": "string",
@@ -245,6 +260,7 @@ Array [
     "end": 1251,
     "isAbstract": false,
     "isOptional": false,
+    "isStatic": false,
     "name": "objMethod",
     "parameters": Array [
       ObjectBoundParameterDeclaration {
@@ -283,6 +299,7 @@ Array [
     "end": 1307,
     "isAbstract": false,
     "isOptional": false,
+    "isStatic": false,
     "name": "arrMethod",
     "parameters": Array [
       ArrayBoundParameterDeclaration {
@@ -321,6 +338,7 @@ Array [
     "end": 1386,
     "isAbstract": false,
     "isOptional": false,
+    "isStatic": false,
     "name": "objAndArrMethod",
     "parameters": Array [
       ArrayBoundParameterDeclaration {
@@ -383,6 +401,7 @@ Array [
   PropertyDeclaration {
     "end": 1448,
     "isOptional": false,
+    "isStatic": false,
     "name": "nonOptional",
     "start": 1421,
     "type": "string",
@@ -391,6 +410,7 @@ Array [
   PropertyDeclaration {
     "end": 1498,
     "isOptional": false,
+    "isStatic": false,
     "name": "nonOptionalAsWell",
     "start": 1453,
     "type": "string | undefined",
@@ -399,6 +419,7 @@ Array [
   PropertyDeclaration {
     "end": 1528,
     "isOptional": true,
+    "isStatic": false,
     "name": "optional",
     "start": 1503,
     "type": "string",
@@ -412,6 +433,7 @@ Array [
   GetterDeclaration {
     "end": 731,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getOnly",
     "start": 670,
     "type": "string",
@@ -420,6 +442,7 @@ Array [
   SetterDeclaration {
     "end": 775,
     "isAbstract": false,
+    "isStatic": false,
     "name": "setOnly",
     "start": 737,
     "type": undefined,
@@ -428,6 +451,7 @@ Array [
   GetterDeclaration {
     "end": 838,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 781,
     "type": "string",
@@ -436,6 +460,7 @@ Array [
   SetterDeclaration {
     "end": 888,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 844,
     "type": undefined,
@@ -665,6 +690,7 @@ InterfaceDeclaration {
       "end": 93,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 83,
@@ -676,6 +702,7 @@ InterfaceDeclaration {
       "end": 128,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [
         ParameterDeclaration {
@@ -696,6 +723,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 55,
       "isOptional": false,
+      "isStatic": false,
       "name": "property1",
       "start": 37,
       "type": "string",
@@ -704,6 +732,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 78,
       "isOptional": false,
+      "isStatic": false,
       "name": "property2",
       "start": 60,
       "type": "number",
@@ -724,6 +753,7 @@ InterfaceDeclaration {
       "end": 247,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [
         ObjectBoundParameterDeclaration {
@@ -756,6 +786,7 @@ InterfaceDeclaration {
       "end": 284,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [
         ArrayBoundParameterDeclaration {
@@ -790,6 +821,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 191,
       "isOptional": false,
+      "isStatic": false,
       "name": "property1",
       "start": 173,
       "type": "string",
@@ -798,6 +830,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 214,
       "isOptional": false,
+      "isStatic": false,
       "name": "property2",
       "start": 196,
       "type": "number",
@@ -818,6 +851,7 @@ InterfaceDeclaration {
       "end": 680,
       "isAbstract": true,
       "isOptional": false,
+      "isStatic": false,
       "name": "nonOptionalFunction2",
       "parameters": Array [],
       "start": 651,
@@ -829,6 +863,7 @@ InterfaceDeclaration {
       "end": 712,
       "isAbstract": true,
       "isOptional": true,
+      "isStatic": false,
       "name": "optionalFunction3",
       "parameters": Array [],
       "start": 685,
@@ -842,6 +877,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 572,
       "isOptional": false,
+      "isStatic": false,
       "name": "nonOptionalFunction1",
       "start": 539,
       "type": "() => void",
@@ -850,6 +886,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 610,
       "isOptional": true,
+      "isStatic": false,
       "name": "optionalFunction1",
       "start": 577,
       "type": "{ (): void }",
@@ -858,6 +895,7 @@ InterfaceDeclaration {
     PropertyDeclaration {
       "end": 646,
       "isOptional": true,
+      "isStatic": false,
       "name": "optionalFunction2",
       "start": 615,
       "type": "() => void",
@@ -873,6 +911,7 @@ Array [
   PropertyDeclaration {
     "end": 422,
     "isOptional": false,
+    "isStatic": false,
     "name": "nonOptional",
     "start": 402,
     "type": "string",
@@ -881,6 +920,7 @@ Array [
   PropertyDeclaration {
     "end": 470,
     "isOptional": false,
+    "isStatic": false,
     "name": "alsoNonOptional",
     "start": 427,
     "type": "string | null | undefined",
@@ -889,6 +929,7 @@ Array [
   PropertyDeclaration {
     "end": 493,
     "isOptional": true,
+    "isStatic": false,
     "name": "optional",
     "start": 475,
     "type": "string",
@@ -1759,6 +1800,7 @@ File {
           "end": 304,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1824,6 +1866,7 @@ Array [
             "end": 304,
             "isAbstract": false,
             "isOptional": false,
+            "isStatic": false,
             "name": "render",
             "parameters": Array [],
             "start": 80,
@@ -1889,6 +1932,7 @@ File {
           "end": 304,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1962,6 +2006,7 @@ File {
           "end": 93,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -2021,6 +2066,7 @@ Array [
             "end": 93,
             "isAbstract": false,
             "isOptional": false,
+            "isStatic": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 76,
@@ -2080,6 +2126,7 @@ File {
           "end": 93,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -2180,6 +2227,7 @@ File {
           "end": 142,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "test",
           "parameters": Array [],
           "start": 45,
