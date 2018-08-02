@@ -29,6 +29,7 @@ import {
 import { parseFunctionParts, parseMethodParams } from './function-parser';
 import { parseIdentifier } from './identifier-parser';
 import {
+    containsModifier,
     getDefaultResourceIdentifier,
     getNodeType,
     getNodeVisibility,
@@ -89,6 +90,7 @@ export function parseCtorParams(
                     getNodeVisibility(o),
                     getNodeType(o.type),
                     !!o.questionToken,
+                    containsModifier(o, SyntaxKind.StaticKeyword),
                     o.getStart(),
                     o.getEnd(),
                 ),
@@ -139,6 +141,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                             getNodeVisibility(o),
                             getNodeType(o.type),
                             !!o.questionToken,
+                            containsModifier(o, SyntaxKind.StaticKeyword),
                             o.getStart(),
                             o.getEnd(),
                         ),
@@ -151,6 +154,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                             getNodeVisibility(o),
                             getNodeType(o.type),
                             !!o.questionToken,
+                            containsModifier(o, SyntaxKind.StaticKeyword),
                             o.getStart(),
                             o.getEnd(),
                         ),
@@ -166,6 +170,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                         getNodeVisibility(o),
                         getNodeType(o.type),
                         o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
                         o.getEnd(),
                     ),
@@ -179,6 +184,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                         getNodeVisibility(o),
                         getNodeType(o.type),
                         o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
                         o.getEnd(),
                     ),
@@ -197,6 +203,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     getNodeVisibility(o),
                     getNodeType(o.type),
                     !!o.questionToken,
+                    containsModifier(o, SyntaxKind.StaticKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );
