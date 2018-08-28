@@ -209,3 +209,20 @@ export interface StaticDeclaration extends Declaration {
      */
     isStatic: boolean;
 }
+
+/**
+ * Interface for possible async declarations.
+ *
+ * @export
+ * @interface AsyncDeclaration
+ * @extends {Declaration}
+ */
+export interface AsyncDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is async or not.
+     *
+     * @type {boolean}
+     * @memberof AsyncDeclaration
+     */
+    isAsync: boolean;
+}
