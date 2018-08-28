@@ -192,3 +192,20 @@ export interface OptionalDeclaration extends Declaration {
      */
     isOptional: boolean;
 }
+
+/**
+ * Interface for possible static declarations.
+ *
+ * @export
+ * @interface StaticDeclaration
+ * @extends {Declaration}
+ */
+export interface StaticDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is static or not.
+     *
+     * @type {boolean}
+     * @memberof StaticDeclaration
+     */
+    isStatic: boolean;
+}

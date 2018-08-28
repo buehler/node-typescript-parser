@@ -70,3 +70,9 @@ class OptionalProperties {
     public nonOptionalAsWell: string | undefined;
     public optional?: string;
 }
+
+class StaticThings {
+    public static prop: string;
+    public static method(): void { }
+    public methodNonStatic(): void { }
+}

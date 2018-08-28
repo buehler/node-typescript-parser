@@ -3,6 +3,7 @@ import {
     CallableDeclaration,
     OptionalDeclaration,
     ScopedDeclaration,
+    StaticDeclaration,
     TypedDeclaration,
 } from './Declaration';
 import { DeclarationVisibility } from './DeclarationVisibility';
@@ -24,6 +25,7 @@ export class MethodDeclaration implements
     CallableDeclaration,
     OptionalDeclaration,
     ScopedDeclaration,
+    StaticDeclaration,
     TypedDeclaration {
 
     public parameters: ParameterDeclaration[] = [];
@@ -35,6 +37,7 @@ export class MethodDeclaration implements
         public visibility: DeclarationVisibility | undefined,
         public type: string | undefined,
         public isOptional: boolean,
+        public isStatic: boolean,
         public start?: number,
         public end?: number,
     ) { }

@@ -42,6 +42,7 @@ Array [
           "end": 59,
           "isAbstract": false,
           "isOptional": false,
+          "isStatic": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 29,
