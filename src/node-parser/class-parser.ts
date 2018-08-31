@@ -204,6 +204,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     getNodeType(o.type),
                     !!o.questionToken,
                     containsModifier(o, SyntaxKind.StaticKeyword),
+                    containsModifier(o, SyntaxKind.AsyncKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );

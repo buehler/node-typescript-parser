@@ -57,6 +57,7 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                     getNodeType(o.type),
                     !!o.questionToken,
                     containsModifier(o, SyntaxKind.StaticKeyword),
+                    containsModifier(o, SyntaxKind.AsyncKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );

@@ -23,6 +23,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 203,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method1",
@@ -35,6 +36,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 237,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method2",
@@ -47,6 +49,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 300,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method3",
@@ -132,6 +135,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 55,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method1",
@@ -144,6 +148,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 100,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "abstractMethod",
@@ -259,6 +264,7 @@ Array [
   MethodDeclaration {
     "end": 1251,
     "isAbstract": false,
+    "isAsync": false,
     "isOptional": false,
     "isStatic": false,
     "name": "objMethod",
@@ -298,6 +304,7 @@ Array [
   MethodDeclaration {
     "end": 1307,
     "isAbstract": false,
+    "isAsync": false,
     "isOptional": false,
     "isStatic": false,
     "name": "arrMethod",
@@ -337,6 +344,7 @@ Array [
   MethodDeclaration {
     "end": 1386,
     "isAbstract": false,
+    "isAsync": false,
     "isOptional": false,
     "isStatic": false,
     "name": "objAndArrMethod",
@@ -478,6 +486,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 1621,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": true,
       "name": "method",
@@ -490,6 +499,7 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 1660,
       "isAbstract": false,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "methodNonStatic",
@@ -546,6 +556,7 @@ EnumDeclaration {
 exports[`TypescriptParser Declaration parsing Functions should parse a function correctly 1`] = `
 FunctionDeclaration {
   "end": 84,
+  "isAsync": false,
   "isExported": false,
   "name": "function1",
   "parameters": Array [
@@ -574,6 +585,7 @@ FunctionDeclaration {
 exports[`TypescriptParser Declaration parsing Functions should parse an exported function correctly 1`] = `
 FunctionDeclaration {
   "end": 219,
+  "isAsync": false,
   "isExported": true,
   "name": "function2",
   "parameters": Array [
@@ -736,6 +748,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 93,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method1",
@@ -748,6 +761,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 128,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method2",
@@ -799,6 +813,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 247,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method1",
@@ -832,6 +847,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 284,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "method2",
@@ -897,6 +913,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 680,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": false,
       "isStatic": false,
       "name": "nonOptionalFunction2",
@@ -909,6 +926,7 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 712,
       "isAbstract": true,
+      "isAsync": false,
       "isOptional": true,
       "isStatic": false,
       "name": "optionalFunction3",
@@ -990,6 +1008,7 @@ Module {
   "declarations": Array [
     FunctionDeclaration {
       "end": 62,
+      "isAsync": false,
       "isExported": true,
       "name": "modFunc",
       "parameters": Array [],
@@ -1273,6 +1292,7 @@ ObjectBoundParameterDeclaration {
 exports[`TypescriptParser Declaration parsing Parameters should parse some mixed parameters (all above) 1`] = `
 FunctionDeclaration {
   "end": 654,
+  "isAsync": false,
   "isExported": false,
   "name": "mixed",
   "parameters": Array [
@@ -1846,6 +1866,7 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isAsync": false,
           "isOptional": false,
           "isStatic": false,
           "name": "render",
@@ -1912,6 +1933,7 @@ Array [
           MethodDeclaration {
             "end": 304,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "render",
@@ -1978,6 +2000,7 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isAsync": false,
           "isOptional": false,
           "isStatic": false,
           "name": "render",
@@ -2052,6 +2075,7 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isAsync": false,
           "isOptional": false,
           "isStatic": false,
           "name": "doSomething",
@@ -2112,6 +2136,7 @@ Array [
           MethodDeclaration {
             "end": 93,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -2172,6 +2197,7 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isAsync": false,
           "isOptional": false,
           "isStatic": false,
           "name": "doSomething",
@@ -2273,6 +2299,7 @@ File {
         MethodDeclaration {
           "end": 142,
           "isAbstract": false,
+          "isAsync": false,
           "isOptional": false,
           "isStatic": false,
           "name": "test",
