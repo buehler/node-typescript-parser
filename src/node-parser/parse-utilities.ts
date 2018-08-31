@@ -1,4 +1,4 @@
-import { getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode } from 'typescript';
+import { Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode } from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
@@ -13,7 +13,7 @@ import { Resource } from '../resources/Resource';
  * @returns {boolean}
  */
 export function isNodeExported(node: Node): boolean {
-    const flags = getCombinedModifierFlags(node);
+    const flags = getCombinedModifierFlags(node as Declaration);
     return (flags & ModifierFlags.Export) === ModifierFlags.Export;
 }
 
@@ -26,7 +26,7 @@ export function isNodeExported(node: Node): boolean {
  * @returns {boolean}
  */
 export function isNodeDefaultExported(node: Node): boolean {
-    const flags = getCombinedModifierFlags(node);
+    const flags = getCombinedModifierFlags(node as Declaration);
     return (flags & ModifierFlags.Default) === ModifierFlags.Default;
 }
 
