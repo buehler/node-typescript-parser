@@ -78,6 +78,7 @@ Array [
   DeclarationInfo {
     "declaration": FunctionDeclaration {
       "end": 92,
+      "isAsync": false,
       "isExported": true,
       "name": "isString",
       "parameters": Array [
@@ -102,6 +103,7 @@ Array [
   DeclarationInfo {
     "declaration": FunctionDeclaration {
       "end": 53,
+      "isAsync": false,
       "isExported": true,
       "name": "toString",
       "parameters": Array [],
@@ -119,6 +121,7 @@ Array [
   DeclarationInfo {
     "declaration": FunctionDeclaration {
       "end": 53,
+      "isAsync": false,
       "isExported": true,
       "name": "toString",
       "parameters": Array [],
@@ -964,6 +967,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -991,6 +995,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1023,6 +1028,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1064,6 +1070,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1222,6 +1229,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1249,6 +1257,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1407,6 +1416,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1434,6 +1444,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1455,6 +1466,7 @@ Object {
     DeclarationInfo {
       "declaration": FunctionDeclaration {
         "end": 186,
+        "isAsync": false,
         "isExported": true,
         "name": "isNumber",
         "parameters": Array [
@@ -1476,6 +1488,7 @@ Object {
     DeclarationInfo {
       "declaration": FunctionDeclaration {
         "end": 92,
+        "isAsync": false,
         "isExported": true,
         "name": "isString",
         "parameters": Array [
@@ -1508,6 +1521,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1535,6 +1549,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1567,6 +1582,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1594,6 +1610,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1752,6 +1769,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1779,6 +1797,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1813,6 +1832,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1854,6 +1874,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1886,6 +1907,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1913,6 +1935,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -1945,6 +1968,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -1986,6 +2010,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -2032,6 +2057,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -2073,6 +2099,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -2231,6 +2258,7 @@ Object {
           MethodDeclaration {
             "end": 137,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -2258,6 +2286,7 @@ Object {
           MethodDeclaration {
             "end": 57,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
@@ -2290,6 +2319,7 @@ Object {
           MethodDeclaration {
             "end": 329,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomethingAwesome",
@@ -2317,6 +2347,7 @@ Object {
           MethodDeclaration {
             "end": 105,
             "isAbstract": false,
+            "isAsync": false,
             "isOptional": false,
             "isStatic": false,
             "name": "doSomething",
