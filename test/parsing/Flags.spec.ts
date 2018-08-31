@@ -1,4 +1,4 @@
-import { TypescriptParser } from '../../src';
+import { FunctionDeclaration, TypescriptParser } from '../../src';
 import { Resource } from '../../src/resources';
 import { getWorkspaceFile, rootPath } from '../testUtilities';
 
@@ -20,12 +20,12 @@ describe('TypescriptParser', () => {
         });
 
         it('should parse the given async elements in a class', () => {
-            console.log(parsed.declarations[0]);
+            expect(parsed.declarations[0]).toMatchSnapshot();
         });
 
-        it.skip('should parse async functions correctly', () => {});
-
-        it.skip('should not parse promise return type as async', () => {});
+        it('should parse async functions correctly', () => {
+            expect(parsed.declarations.filter(d => d instanceof FunctionDeclaration)).toMatchSnapshot();
+        });
 
     });
 
