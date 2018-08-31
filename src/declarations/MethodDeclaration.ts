@@ -1,4 +1,12 @@
-import { AbstractDeclaration, CallableDeclaration, ScopedDeclaration, TypedDeclaration } from './Declaration';
+import {
+    AbstractDeclaration,
+    AsyncDeclaration,
+    CallableDeclaration,
+    OptionalDeclaration,
+    ScopedDeclaration,
+    StaticDeclaration,
+    TypedDeclaration,
+} from './Declaration';
 import { DeclarationVisibility } from './DeclarationVisibility';
 import { ParameterDeclaration } from './ParameterDeclaration';
 import { VariableDeclaration } from './VariableDeclaration';
@@ -13,7 +21,15 @@ import { VariableDeclaration } from './VariableDeclaration';
  * @implements {ScopedDeclaration}
  * @implements {TypedDeclaration}
  */
-export class MethodDeclaration implements AbstractDeclaration, CallableDeclaration, ScopedDeclaration, TypedDeclaration {
+export class MethodDeclaration implements
+    AbstractDeclaration,
+    AsyncDeclaration,
+    CallableDeclaration,
+    OptionalDeclaration,
+    ScopedDeclaration,
+    StaticDeclaration,
+    TypedDeclaration {
+
     public parameters: ParameterDeclaration[] = [];
     public variables: VariableDeclaration[] = [];
 
@@ -22,6 +38,9 @@ export class MethodDeclaration implements AbstractDeclaration, CallableDeclarati
         public isAbstract: boolean,
         public visibility: DeclarationVisibility | undefined,
         public type: string | undefined,
+        public isOptional: boolean,
+        public isStatic: boolean,
+        public isAsync: boolean,
         public start?: number,
         public end?: number,
     ) { }

@@ -1,4 +1,4 @@
-import { Identifier, InterfaceDeclaration } from 'typescript';
+import { Identifier, InterfaceDeclaration, SyntaxKind } from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { DefaultDeclaration } from '../declarations/DefaultDeclaration';
@@ -8,7 +8,13 @@ import { PropertyDeclaration } from '../declarations/PropertyDeclaration';
 import { Resource } from '../resources/Resource';
 import { isMethodSignature, isPropertySignature } from '../type-guards/TypescriptGuards';
 import { parseMethodParams } from './function-parser';
-import { getDefaultResourceIdentifier, getNodeType, isNodeDefaultExported, isNodeExported } from './parse-utilities';
+import {
+    containsModifier,
+    getDefaultResourceIdentifier,
+    getNodeType,
+    isNodeDefaultExported,
+    isNodeExported,
+} from './parse-utilities';
 
 /**
  * Parses an interface node into its declaration.
@@ -37,6 +43,8 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                         (o.name as Identifier).text,
                         DeclarationVisibility.Public,
                         getNodeType(o.type),
+                        !!o.questionToken,
+                        containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
                         o.getEnd(),
                     ),
@@ -47,6 +55,9 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                     true,
                     DeclarationVisibility.Public,
                     getNodeType(o.type),
+                    !!o.questionToken,
+                    containsModifier(o, SyntaxKind.StaticKeyword),
+                    containsModifier(o, SyntaxKind.AsyncKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );

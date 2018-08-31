@@ -64,3 +64,15 @@ class ObjAndArrDestruct {
 
     public objAndArrMethod([p1, p2, p3]: string[], { p4, p5 }: any): void { }
 }
+
+class OptionalProperties {
+    public nonOptional: string;
+    public nonOptionalAsWell: string | undefined;
+    public optional?: string;
+}
+
+class StaticThings {
+    public static prop: string;
+    public static method(): void { }
+    public methodNonStatic(): void { }
+}

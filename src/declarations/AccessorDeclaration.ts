@@ -1,4 +1,4 @@
-import { AbstractDeclaration, ScopedDeclaration, TypedDeclaration } from './Declaration';
+import { AbstractDeclaration, ScopedDeclaration, StaticDeclaration, TypedDeclaration } from './Declaration';
 import { DeclarationVisibility } from './DeclarationVisibility';
 
 /**
@@ -11,12 +11,17 @@ import { DeclarationVisibility } from './DeclarationVisibility';
  * @implements {TypedDeclaration}
  * @implements {AbstractDeclaration}
  */
-export abstract class AccessorDeclaration implements ScopedDeclaration, TypedDeclaration, AbstractDeclaration {
+export abstract class AccessorDeclaration implements
+    ScopedDeclaration,
+    StaticDeclaration,
+    TypedDeclaration,
+    AbstractDeclaration {
     constructor(
         public name: string,
         public visibility: DeclarationVisibility | undefined,
         public type: string | undefined,
         public isAbstract: boolean,
+        public isStatic: boolean,
         public start?: number,
         public end?: number,
     ) { }

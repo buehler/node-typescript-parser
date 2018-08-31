@@ -36,23 +36,23 @@
   "homepage": "https://github.com/TypeScript-Heroes/node-typescript-parser#readme",
   "devDependencies": {
     "@smartive/tslint-config": "^4.0.0",
-    "@types/jest": "^23.1.4",
-    "@types/lodash-es": "^4.17.0",
+    "@types/jest": "^23.3.1",
+    "@types/lodash-es": "^4.17.1",
     "@types/mock-fs": "^3.6.30",
-    "@types/node": "^10.5.1",
+    "@types/node": "^10.9.4",
     "del-cli": "^1.1.0",
-    "jest": "^23.3.0",
-    "mock-fs": "^4.5.0",
-    "semantic-release": "^15.6.3",
-    "ts-jest": "^23.0.0",
-    "tslint": "^5.10.0",
-    "tsutils": "^2.27.2",
-    "typedoc": "^0.11.1"
+    "jest": "^23.5.0",
+    "mock-fs": "^4.6.0",
+    "semantic-release": "^15.9.12",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tsutils": "^3.0.0",
+    "typedoc": "^0.12.0"
   },
   "dependencies": {
     "lodash": "^4.17.10",
     "lodash-es": "^4.17.10",
     "tslib": "^1.9.3",
-    "typescript": "^2.9.2"
+    "typescript": "^3.0.3"
   }
 }
