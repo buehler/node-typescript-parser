@@ -24,10 +24,6 @@
     "AST",
     "parsing"
   ],
-  "release": {
-    "success": false,
-    "fail": false
-  },
   "author": "Christoph Bühler <christoph.buehler@bluewin.ch>",
   "license": "MIT",
   "bugs": {
