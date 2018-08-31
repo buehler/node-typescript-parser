@@ -30,7 +30,13 @@ import {
     isPropertySignature,
 } from '../type-guards/TypescriptGuards';
 import { parseIdentifier } from './identifier-parser';
-import { getDefaultResourceIdentifier, getNodeType, isNodeDefaultExported, isNodeExported } from './parse-utilities';
+import {
+    containsModifier,
+    getDefaultResourceIdentifier,
+    getNodeType,
+    isNodeDefaultExported,
+    isNodeExported,
+} from './parse-utilities';
 import { parseVariable } from './variable-parser';
 
 /**
@@ -137,7 +143,12 @@ export function parseMethodParams(
 export function parseFunction(resource: Resource, node: FunctionDeclaration): void {
     const name = node.name ? node.name.text : getDefaultResourceIdentifier(resource);
     const func = new TshFunction(
-        name, isNodeExported(node), getNodeType(node.type), node.getStart(), node.getEnd(),
+        name,
+        isNodeExported(node),
+        containsModifier(node, SyntaxKind.AsyncKeyword),
+        getNodeType(node.type),
+        node.getStart(),
+        node.getEnd(),
     );
     if (isNodeDefaultExported(node)) {
         func.isExported = false;

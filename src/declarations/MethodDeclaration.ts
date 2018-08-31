@@ -1,5 +1,6 @@
 import {
     AbstractDeclaration,
+    AsyncDeclaration,
     CallableDeclaration,
     OptionalDeclaration,
     ScopedDeclaration,
@@ -22,6 +23,7 @@ import { VariableDeclaration } from './VariableDeclaration';
  */
 export class MethodDeclaration implements
     AbstractDeclaration,
+    AsyncDeclaration,
     CallableDeclaration,
     OptionalDeclaration,
     ScopedDeclaration,
@@ -38,6 +40,7 @@ export class MethodDeclaration implements
         public type: string | undefined,
         public isOptional: boolean,
         public isStatic: boolean,
+        public isAsync: boolean,
         public start?: number,
         public end?: number,
     ) { }
