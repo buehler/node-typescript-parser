@@ -42,7 +42,7 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                     new PropertyDeclaration(
                         (o.name as Identifier).text,
                         DeclarationVisibility.Public,
-                        getNodeType(o.type),
+                        getNodeType(o.type, o),
                         !!o.questionToken,
                         containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
@@ -54,7 +54,7 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
                     (o.name as Identifier).text,
                     true,
                     DeclarationVisibility.Public,
-                    getNodeType(o.type),
+                    getNodeType(o.type, o),
                     !!o.questionToken,
                     containsModifier(o, SyntaxKind.StaticKeyword),
                     containsModifier(o, SyntaxKind.AsyncKeyword),

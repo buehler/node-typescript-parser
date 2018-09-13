@@ -1,8 +1,20 @@
-import { Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode } from 'typescript';
+import {
+    Declaration,
+    getCombinedModifierFlags,
+    isArrayLiteralExpression,
+    isNumericLiteral,
+    isObjectLiteralExpression,
+    isStringLiteral,
+    ModifierFlags,
+    Node,
+    SyntaxKind,
+    TypeNode,
+} from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
 import { Resource } from '../resources/Resource';
+import { isPropertySignature } from '../type-guards/TypescriptGuards';
 
 /**
  * Checks if the given typescript node has the exported flag.
@@ -34,11 +46,60 @@ export function isNodeDefaultExported(node: Node): boolean {
  * Returns the type text (type information) for a given node.
  *
  * @export
- * @param {(TypeNode | undefined)} node
+ * @param {(any)} node
  * @returns {(string | undefined)}
  */
-export function getNodeType(node: TypeNode | undefined): string | undefined {
-    return node ? node.getText() : undefined;
+export function getNodeType(type: TypeNode | undefined, node:any): string | undefined {
+    let output = undefined;
+    if (node === undefined) {
+        output = node;
+    }
+    output = type ? type.getText() : undefined;
+    if (isPropertySignature(node)) {
+        const type = node.type;
+        output = type ? type.getText() : undefined;
+    } else if (node.initializer) {
+        const initializer = node.initializer;
+        if (initializer !== undefined) {
+            if (['true', 'false'].indexOf(initializer.getText()) !== -1) {
+                output = 'boolean';
+            }
+            output = getNodeType(undefined, initializer);
+        }
+    } else if (isStringLiteral(node) && output === undefined) {
+        output =  'string';
+    } else if (isNumericLiteral(node) && output === undefined) {
+        output =  'number';
+    } else if (isArrayLiteralExpression(node) && output === undefined) {
+        const type:string[]  = [];
+        for (let i = 0; node.elements.length > i; i++) {
+            const curType:string | undefined = getNodeType(undefined, node.elements[i]);
+            if (type.length === 0 && curType !== undefined) {
+                type.push(curType);
+            } else if (curType !== undefined && type.indexOf(curType) === -1) {
+                type.push(curType);
+            }
+        }
+        if (type.length === 1) {
+            output =  'Array<' + type[0] + '>';
+        } else {
+            output = 'Array<any>'; 'Array<any>';
+        }
+    } else if (isObjectLiteralExpression(node)) {
+        let count = 0;
+        let out = '{ ';
+        for (const prop of node.properties) {
+            const identif = prop.getText();
+            out += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(undefined, prop);
+            if (count !== node.properties.length - 1) {
+                out += ', ';
+            }
+            count += 1;
+        }
+        out += ' }';
+        output = out;
+    }
+    return output;
 }
 
 /**
