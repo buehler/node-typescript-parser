@@ -14,7 +14,6 @@ import {
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
 import { Resource } from '../resources/Resource';
-import { isPropertySignature } from '../type-guards/TypescriptGuards';
 
 /**
  * Checks if the given typescript node has the exported flag.
