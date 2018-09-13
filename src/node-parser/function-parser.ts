@@ -84,7 +84,7 @@ export function parseMethodParams(
             const params = all;
             if (isIdentifier(cur.name)) {
                 params.push(new TshParameter(
-                    (cur.name as Identifier).text, getNodeType(cur), cur.getStart(), cur.getEnd(),
+                    (cur.name as Identifier).text, getNodeType(cur.type, cur), cur.getStart(), cur.getEnd(),
                 ));
             } else if (isObjectBindingPattern(cur.name)) {
                 const elements = cur.name.elements;
@@ -92,11 +92,13 @@ export function parseMethodParams(
                 const boundParam = new ObjectBoundParameterDeclaration(cur.getStart(), cur.getEnd());
 
                 if (cur.type && isTypeReferenceNode(cur.type)) {
-                    boundParam.typeReference = getNodeType(cur);
+                    boundParam.typeReference = getNodeType(cur.type, cur);
                 } else if (cur.type && isTypeLiteralNode(cur.type)) {
                     types = cur.type.members
                         .filter(member => isPropertySignature(member))
-                        .map((signature: any) => getNodeType((signature as PropertySignature)));
+                        .map((signature: any) => getNodeType(
+                        (signature as PropertySignature).type,
+                        (signature as PropertySignature)));
                 }
 
                 boundParam.parameters = elements.map((bindingElement, index) => new TshParameter(
@@ -113,7 +115,7 @@ export function parseMethodParams(
                 const boundParam = new ArrayBoundParameterDeclaration(cur.getStart(), cur.getEnd());
 
                 if (cur.type && isTypeReferenceNode(cur.type)) {
-                    boundParam.typeReference = getNodeType(cur);
+                    boundParam.typeReference = getNodeType(cur.type, cur);
                 } else if (cur.type && isTupleTypeNode(cur.type)) {
                     types = cur.type.elementTypes.map((type:TypeNode) => { return type ? type.getText() :undefined; });
                 }
@@ -147,7 +149,7 @@ export function parseFunction(resource: Resource, node: FunctionDeclaration): vo
         name,
         isNodeExported(node),
         containsModifier(node, SyntaxKind.AsyncKeyword),
-        getNodeType(node),
+        getNodeType(node.type, node),
         node.getStart(),
         node.getEnd(),
     );

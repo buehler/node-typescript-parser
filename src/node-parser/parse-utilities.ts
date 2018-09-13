@@ -8,16 +8,8 @@ import {
     ModifierFlags,
     Node,
     SyntaxKind,
+    TypeNode,
 } from 'typescript';
-
-import {
-    FunctionDeclaration,
-    GetterDeclaration,
-    MethodDeclaration,
-    ParameterDeclaration,
-    PropertyDeclaration,
-    SetterDeclaration,
-} from '../declarations';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
@@ -57,18 +49,13 @@ export function isNodeDefaultExported(node: Node): boolean {
  * @param {(any)} node
  * @returns {(string | undefined)}
  */
-export function getNodeType(node:any): string | undefined {
+export function getNodeType(type: TypeNode | undefined, node:any): string | undefined {
     let output = undefined;
     if (node === undefined) {
         output = node;
-    } else if (node instanceof FunctionDeclaration
-        || node instanceof PropertyDeclaration
-        || node instanceof GetterDeclaration
-        || node instanceof SetterDeclaration
-        || node instanceof MethodDeclaration
-        || node instanceof ParameterDeclaration) {
-        output = node.type ? node.type : undefined;
-    } else if (isPropertySignature(node)) {
+    }
+    output = type ? type.getText() : undefined;
+    if (isPropertySignature(node)) {
         const type = node.type;
         output = type ? type.getText() : undefined;
     } else if (node.initializer) {
@@ -77,7 +64,7 @@ export function getNodeType(node:any): string | undefined {
             if (['true', 'false'].indexOf(initializer.getText()) !== -1) {
                 output = 'boolean';
             }
-            output = getNodeType(initializer);
+            output = getNodeType(undefined, initializer);
         }
     } else if (isStringLiteral(node) && output === undefined) {
         output =  'string';
@@ -86,7 +73,7 @@ export function getNodeType(node:any): string | undefined {
     } else if (isArrayLiteralExpression(node) && output === undefined) {
         const type:string[]  = [];
         for (let i = 0; node.elements.length > i; i++) {
-            const curType:string | undefined = getNodeType(node.elements[i]);
+            const curType:string | undefined = getNodeType(undefined, node.elements[i]);
             if (type.length === 0 && curType !== undefined) {
                 type.push(curType);
             } else if (curType !== undefined && type.indexOf(curType) === -1) {
@@ -103,7 +90,7 @@ export function getNodeType(node:any): string | undefined {
         let out = '{ ';
         for (const prop of node.properties) {
             const identif = prop.getText();
-            out += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(prop);
+            out += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(undefined, prop);
             if (count !== node.properties.length - 1) {
                 out += ', ';
             }
