@@ -10,8 +10,8 @@ import {
     ParameterDeclaration,
     PropertySignature,
     SyntaxKind,
-    VariableStatement,
     TypeNode,
+    VariableStatement,
 } from 'typescript';
 
 import { ConstructorDeclaration as TshConstructor } from '../declarations/ConstructorDeclaration';
@@ -115,7 +115,7 @@ export function parseMethodParams(
                 if (cur.type && isTypeReferenceNode(cur.type)) {
                     boundParam.typeReference = getNodeType(cur);
                 } else if (cur.type && isTupleTypeNode(cur.type)) {
-                    types = cur.type.elementTypes.map((type:TypeNode) => { return type ? type.getText() :undefined});
+                    types = cur.type.elementTypes.map((type:TypeNode) => { return type ? type.getText() :undefined; });
                 }
 
                 boundParam.parameters = elements.map((bindingElement, index) => new TshParameter(

@@ -1,4 +1,14 @@
-import { Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, isStringLiteral, isNumericLiteral, isArrayLiteralExpression, isObjectLiteralExpression } from 'typescript';
+import { 
+    Declaration,
+    getCombinedModifierFlags,
+    isArrayLiteralExpression,
+    isNumericLiteral,
+    isObjectLiteralExpression,
+    isStringLiteral, 
+    ModifierFlags,
+    Node,
+    SyntaxKind,
+} from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
@@ -38,58 +48,56 @@ export function isNodeDefaultExported(node: Node): boolean {
  * @returns {(string | undefined)}
  */
 export function getNodeType(node:any): string | undefined {
-    if( node == undefined ){
+    if( node == undefined ) {
         return node;
     }
-    else if(node.type){
+    else if(node.type) {
         return node.type.getText();
     }
     else if(node.initializer){
-        let initializer = node.initializer;
-        if(initializer != undefined){
-            if(["true","false"].indexOf(initializer.getText()) != -1){
-                return "boolean"
+        const initializer = node.initializer;
+        if(initializer !== undefined) {
+            if(['true','false'].indexOf(initializer.getText()) !== -1){
+                return 'boolean';
             }
             return getNodeType(initializer);
         }
         
     }
-    else if(isStringLiteral(node)){
-        return "string"
+    else if(isStringLiteral(node)) {
+        return 'string';
     }
-    else if(isNumericLiteral(node)){
-        return "number";
+    else if(isNumericLiteral(node)) {
+        return 'number';
     }
-    else if(isArrayLiteralExpression(node)){
-        var type:Array<string> = [];
-        for(var i = 0;node.elements.length>i;i++){
-           var curType:string | undefined = getNodeType(node.elements[i]);
-           if(type.length == 0 && curType != undefined ){
+    else if(isArrayLiteralExpression(node)) {
+        const type:Array<string> = [];
+        for(let i = 0;node.elements.length>i;i++) {
+           let curType:string | undefined = getNodeType(node.elements[i]);
+           if(type.length == 0 && curType !== undefined ) {
                 type.push(curType);
            }
-           else if(curType != undefined && type.indexOf(curType) == -1){
+           else if(curType !== undefined && type.indexOf(curType) === -1) {
                type.push(curType);
            }
         }
-        if(type.length ==1){
-            return 'Array<'+type[0]+'>'
+        if(type.length ===1) {
+            return 'Array<' + type[0] + '>';
         }
-        else {
-            return 'Array<any>'
-        }
+        return 'Array<any>';
     }
-    else if(isObjectLiteralExpression(node)){
-        var count = 0;
-        let output = "{ ";
-        for(let prop of node.properties){
-            let identif = prop.getText();
-            output+= identif.slice(0,identif.indexOf(":")+1)+" "+getNodeType(prop);
-            if(count != node.properties.length-1){
-                output+=", "
+    else if(isObjectLiteralExpression(node)) {
+        let count = 0;
+        let output = '{ ';
+        for(const prop of node.properties) {
+            const identif = prop.getText();
+            output+= identif.slice(0,identif.indexOf(':') + 1) + ' '+ getNodeType(prop);
+            if(count !== node.properties.length-1) {
+                output+= ', ';
             }
             count+=1;
         }
-        output+=" }"
+        output+= ' }';
         return output;
     }
 }
