@@ -55,10 +55,7 @@ export function getNodeType(type: TypeNode | undefined, node:any): string | unde
         output = node;
     }
     output = type ? type.getText() : undefined;
-    if (isPropertySignature(node)) {
-        const type = node.type;
-        output = type ? type.getText() : undefined;
-    } else if (node.initializer) {
+    if (node.initializer && output === undefined) {
         const initializer = node.initializer;
         if (initializer !== undefined) {
             if (['true', 'false'].indexOf(initializer.getText()) !== -1) {
