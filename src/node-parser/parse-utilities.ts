@@ -58,31 +58,32 @@ export function isNodeDefaultExported(node: Node): boolean {
  * @returns {(string | undefined)}
  */
 export function getNodeType(node:any): string | undefined {
+    let output = undefined;
     if (node === undefined) {
-        return node;
+        output = node;
     } else if (node instanceof FunctionDeclaration
         || node instanceof PropertyDeclaration
         || node instanceof GetterDeclaration
         || node instanceof SetterDeclaration
         || node instanceof MethodDeclaration
         || node instanceof ParameterDeclaration) {
-        return node.type ? node.type : undefined;
+        output = node.type ? node.type : undefined;
     } else if (isPropertySignature(node)) {
         const type = node.type;
-        return type ? type.getText() : undefined;
+        output = type ? type.getText() : undefined;
     } else if (node.initializer) {
         const initializer = node.initializer;
         if (initializer !== undefined) {
             if (['true', 'false'].indexOf(initializer.getText()) !== -1) {
-                return 'boolean';
+                output = 'boolean';
             }
-            return getNodeType(initializer);
+            output = getNodeType(initializer);
         }
-    } else if (isStringLiteral(node)) {
-        return 'string';
-    } else if (isNumericLiteral(node)) {
-        return 'number';
-    } else if (isArrayLiteralExpression(node)) {
+    } else if (isStringLiteral(node) && output === undefined) {
+        output =  'string';
+    } else if (isNumericLiteral(node) && output === undefined) {
+        output =  'number';
+    } else if (isArrayLiteralExpression(node) && output === undefined) {
         const type:string[]  = [];
         for (let i = 0; node.elements.length > i; i++) {
             const curType:string | undefined = getNodeType(node.elements[i]);
@@ -93,23 +94,25 @@ export function getNodeType(node:any): string | undefined {
             }
         }
         if (type.length === 1) {
-            return 'Array<' + type[0] + '>';
+            output =  'Array<' + type[0] + '>';
+        } else {
+            output = 'Array<any>'; 'Array<any>';
         }
-        return 'Array<any>';
     } else if (isObjectLiteralExpression(node)) {
         let count = 0;
-        let output = '{ ';
+        let out = '{ ';
         for (const prop of node.properties) {
             const identif = prop.getText();
-            output += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(prop);
+            out += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(prop);
             if (count !== node.properties.length - 1) {
-                output += ', ';
+                out += ', ';
             }
             count += 1;
         }
-        output += ' }';
-        return output;
+        out += ' }';
+        output = out;
     }
+    return output;
 }
 
 /**
