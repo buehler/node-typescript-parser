@@ -201,7 +201,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     (o.name as Identifier).text,
                     o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
                     getNodeVisibility(o),
-                    getNodeType(o.type),
+                    getNodeType(o),
                     !!o.questionToken,
                     containsModifier(o, SyntaxKind.StaticKeyword),
                     containsModifier(o, SyntaxKind.AsyncKeyword),

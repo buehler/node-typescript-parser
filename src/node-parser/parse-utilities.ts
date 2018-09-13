@@ -10,9 +10,19 @@ import {
     SyntaxKind,
 } from 'typescript';
 
+import {
+    FunctionDeclaration,
+    GetterDeclaration,
+    MethodDeclaration,
+    ParameterDeclaration,
+    PropertyDeclaration,
+    SetterDeclaration,
+} from '../declarations';
+
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
 import { Resource } from '../resources/Resource';
+import { isPropertySignature } from '../type-guards/TypescriptGuards';
 
 /**
  * Checks if the given typescript node has the exported flag.
@@ -50,8 +60,16 @@ export function isNodeDefaultExported(node: Node): boolean {
 export function getNodeType(node:any): string | undefined {
     if (node === undefined) {
         return node;
-    } else if (node.type) {
-        return node.type.getText();
+    } else if (node instanceof FunctionDeclaration
+        || node instanceof PropertyDeclaration
+        || node instanceof GetterDeclaration
+        || node instanceof SetterDeclaration
+        || node instanceof MethodDeclaration
+        || node instanceof ParameterDeclaration) {
+        return node.type ? node.type : undefined;
+    } else if (isPropertySignature(node)) {
+        const type = node.type;
+        return type ? type.getText() : undefined;
     } else if (node.initializer) {
         const initializer = node.initializer;
         if (initializer !== undefined) {

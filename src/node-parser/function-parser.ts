@@ -92,7 +92,7 @@ export function parseMethodParams(
                 const boundParam = new ObjectBoundParameterDeclaration(cur.getStart(), cur.getEnd());
 
                 if (cur.type && isTypeReferenceNode(cur.type)) {
-                    boundParam.typeReference = getNodeType(cur.type);
+                    boundParam.typeReference = getNodeType(cur);
                 } else if (cur.type && isTypeLiteralNode(cur.type)) {
                     types = cur.type.members
                         .filter(member => isPropertySignature(member))
