@@ -1,10 +1,10 @@
-import { 
+import {
     Declaration,
     getCombinedModifierFlags,
     isArrayLiteralExpression,
     isNumericLiteral,
     isObjectLiteralExpression,
-    isStringLiteral, 
+    isStringLiteral,
     ModifierFlags,
     Node,
     SyntaxKind,
@@ -48,56 +48,48 @@ export function isNodeDefaultExported(node: Node): boolean {
  * @returns {(string | undefined)}
  */
 export function getNodeType(node:any): string | undefined {
-    if( node == undefined ) {
+    if (node === undefined) {
         return node;
-    }
-    else if(node.type) {
+    } else if (node.type) {
         return node.type.getText();
-    }
-    else if(node.initializer){
+    } else if (node.initializer) {
         const initializer = node.initializer;
-        if(initializer !== undefined) {
-            if(['true','false'].indexOf(initializer.getText()) !== -1){
+        if (initializer !== undefined) {
+            if (['true', 'false'].indexOf(initializer.getText()) !== -1) {
                 return 'boolean';
             }
             return getNodeType(initializer);
         }
-        
-    }
-    else if(isStringLiteral(node)) {
+    } else if (isStringLiteral(node)) {
         return 'string';
-    }
-    else if(isNumericLiteral(node)) {
+    } else if (isNumericLiteral(node)) {
         return 'number';
-    }
-    else if(isArrayLiteralExpression(node)) {
-        const type:Array<string> = [];
-        for(let i = 0;node.elements.length>i;i++) {
-           let curType:string | undefined = getNodeType(node.elements[i]);
-           if(type.length == 0 && curType !== undefined ) {
+    } else if (isArrayLiteralExpression(node)) {
+        const type:string[]  = [];
+        for (let i = 0; node.elements.length > i; i++) {
+            const curType:string | undefined = getNodeType(node.elements[i]);
+            if (type.length === 0 && curType !== undefined) {
                 type.push(curType);
-           }
-           else if(curType !== undefined && type.indexOf(curType) === -1) {
-               type.push(curType);
-           }
+            } else if (curType !== undefined && type.indexOf(curType) === -1) {
+                type.push(curType);
+            }
         }
-        if(type.length ===1) {
+        if (type.length === 1) {
             return 'Array<' + type[0] + '>';
         }
         return 'Array<any>';
-    }
-    else if(isObjectLiteralExpression(node)) {
+    } else if (isObjectLiteralExpression(node)) {
         let count = 0;
         let output = '{ ';
-        for(const prop of node.properties) {
+        for (const prop of node.properties) {
             const identif = prop.getText();
-            output+= identif.slice(0,identif.indexOf(':') + 1) + ' '+ getNodeType(prop);
-            if(count !== node.properties.length-1) {
-                output+= ', ';
+            output += identif.slice(0, identif.indexOf(':') + 1) + ' ' + getNodeType(prop);
+            if (count !== node.properties.length - 1) {
+                output += ', ';
             }
-            count+=1;
+            count += 1;
         }
-        output+= ' }';
+        output += ' }';
         return output;
     }
 }
