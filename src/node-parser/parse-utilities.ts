@@ -79,7 +79,18 @@ export function getNodeType(node:any): string | undefined {
         }
     }
     else if(isObjectLiteralExpression(node)){
-        console.log("was object");
+        var count = 0;
+        let output = "{ ";
+        for(let prop of node.properties){
+            let identif = prop.getText();
+            output+= identif.slice(0,identif.indexOf(":")+1)+" "+getNodeType(prop);
+            if(count != node.properties.length-1){
+                output+=", "
+            }
+            count+=1;
+        }
+        output+=" }"
+        return output;
     }
 }
 
