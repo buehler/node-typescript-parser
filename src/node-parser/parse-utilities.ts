@@ -1,4 +1,4 @@
-import { getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode, Declaration } from 'typescript';
+import { Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode } from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
@@ -7,26 +7,26 @@ import { Resource } from '../resources/Resource';
 /**
  * Checks if the given typescript node has the exported flag.
  * (e.g. export class Foobar).
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {boolean}
  */
 export function isNodeExported(node: Node): boolean {
-    const flags = getCombinedModifierFlags(<Declaration>node);
+    const flags = getCombinedModifierFlags(node as Declaration);
     return (flags & ModifierFlags.Export) === ModifierFlags.Export;
 }
 
 /**
  * Checks if the given typescript node has the default flag.
  * (e.g. export default class Foobar).
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {boolean}
  */
 export function isNodeDefaultExported(node: Node): boolean {
-    const flags = getCombinedModifierFlags(<Declaration>node);
+    const flags = getCombinedModifierFlags(node as Declaration);
     return (flags & ModifierFlags.Default) === ModifierFlags.Default;
 }
 
@@ -42,8 +42,21 @@ export function getNodeType(node: TypeNode | undefined): string | undefined {
 }
 
 /**
+ * Checks if a node contains a certain modifier (of a given kind)
+ *
+ * @export
+ * @param {Node} node
+ * @param {SyntaxKind} modifierKind
+ * @returns {boolean}
+ */
+export function containsModifier(node: Node, modifierKind: SyntaxKind): boolean {
+    if (!node.modifiers) return false;
+    return node.modifiers.some(mod => mod.kind === modifierKind);
+}
+
+/**
  * Returns the enum value (visibility) of a node.
- * 
+ *
  * @export
  * @param {Node} node
  * @returns {(DeclarationVisibility | undefined)}

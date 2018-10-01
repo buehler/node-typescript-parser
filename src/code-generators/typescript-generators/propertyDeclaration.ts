@@ -4,11 +4,11 @@ import { TypescriptGenerationOptions } from '../TypescriptGenerationOptions';
 
 /**
  * Generates typescript code for a class property.
- * 
+ *
  * @export
- * @param {PropertyDeclaration} property 
- * @param {TypescriptGenerationOptions} { tabSize } 
- * @returns {string} 
+ * @param {PropertyDeclaration} property
+ * @param {TypescriptGenerationOptions} { tabSize }
+ * @returns {string}
  */
 export function generatePropertyDeclaration(
     property: PropertyDeclaration,
@@ -16,5 +16,5 @@ export function generatePropertyDeclaration(
 ): string {
     return `${Array(tabSize + 1).join(' ')}` +
             `${property.visibility !== undefined ? getVisibilityText(property.visibility) + ' ' : ''}` +
-            `${property.name}${property.type ? `: ${property.type}` : ''};\n`;
+            `${property.name}${property.isOptional ? '?' : ''}${property.type ? `: ${property.type}` : ''};\n`;
 }

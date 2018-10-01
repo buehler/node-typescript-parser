@@ -3,8 +3,14 @@ language: node_js
 stages:
   - name: test
     if: tag IS blank
+  - name: build
+    if: tag IS blank
   - name: deploy
     if: branch = master AND type != pull_request
+
+cache:
+  directories:
+    - node_modules
 
 matrix:
   fast_finish: true
@@ -15,17 +21,16 @@ notifications:
 jobs:
   include:
     - stage: test
-      node_js: '9'
+      node_js: '10'
       after_success:
         - npm i -g codecov
         - codecov
-    - stage: test
-      node_js: '8'
-      after_success:
-        - npm i -g codecov
-        - codecov
+    - stage: build
+      node_js: '10'
+      script:
+        - npm run build
     - stage: deploy
-      node_js: '9'
+      node_js: '10'
       script: npm run typedoc
       deploy:
         provider: pages
@@ -33,6 +38,6 @@ jobs:
         github_token: $GH_TOKEN
         local_dir: ./docs
     - stage: deploy
-      node_js: '9'
+      node_js: '10'
       before_script: npm run build
       script: npm run semantic-release

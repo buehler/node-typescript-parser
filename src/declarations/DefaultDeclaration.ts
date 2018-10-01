@@ -5,7 +5,7 @@ import { Declaration, ExportableDeclaration } from './Declaration';
  * Default declaration. Is used when a file exports something as its default.
  * Primary use is to ask the user about a name for the default export.
  * Is kind of an abstract declaration since there is no real declaration.
- * 
+ *
  * @export
  * @class DefaultDeclaration
  * @implements {ExportableDeclaration}
@@ -13,11 +13,11 @@ import { Declaration, ExportableDeclaration } from './Declaration';
 export class DefaultDeclaration implements ExportableDeclaration {
     public readonly isExported: boolean = true;
 
-    private exported: Declaration;
+    private exported: Declaration | undefined;
 
     public get exportedDeclaration(): Declaration {
         if (!this.exported) {
-            this.exported = this.resource.declarations.find(o => o.name === this.name) !;
+            this.exported = this.resource.declarations.find(o => o.name === this.name)!;
         }
 
         return this.exported;

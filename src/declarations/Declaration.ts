@@ -175,3 +175,54 @@ export interface AbstractDeclaration extends Declaration {
      */
     isAbstract: boolean;
 }
+
+/**
+ * Interface for possible optional declarations. Contains information if the element is optional or not.
+ *
+ * @export
+ * @interface OptionalDeclaration
+ * @extends {Declaration}
+ */
+export interface OptionalDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is optional or not.
+     *
+     * @type {boolean}
+     * @memberof OptionalDeclaration
+     */
+    isOptional: boolean;
+}
+
+/**
+ * Interface for possible static declarations.
+ *
+ * @export
+ * @interface StaticDeclaration
+ * @extends {Declaration}
+ */
+export interface StaticDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is static or not.
+     *
+     * @type {boolean}
+     * @memberof StaticDeclaration
+     */
+    isStatic: boolean;
+}
+
+/**
+ * Interface for possible async declarations.
+ *
+ * @export
+ * @interface AsyncDeclaration
+ * @extends {Declaration}
+ */
+export interface AsyncDeclaration extends Declaration {
+    /**
+     * Defines if the declaration is async or not.
+     *
+     * @type {boolean}
+     * @memberof AsyncDeclaration
+     */
+    isAsync: boolean;
+}

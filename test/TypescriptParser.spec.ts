@@ -253,6 +253,91 @@ describe('TypescriptParser', () => {
 
         });
 
+        describe('Parameters', () => {
+
+            const file = getWorkspaceFile('typescript-parser/parameters.ts');
+            let parsed: Resource;
+
+            beforeEach(async () => {
+                parsed = await parser.parseFile(file, rootPath);
+            });
+
+            it('should parse a normal parameter', () => {
+                const func = parsed.declarations[0] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse a simple array binding pattern', () => {
+                const func = parsed.declarations[1] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with tuple type', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with undertyped tuple type', () => {
+                const func = parsed.declarations[3] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an array with overtyped tuple type', () => {
+                const func = parsed.declarations[4] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse a simple object binding pattern ', () => {
+                const func = parsed.declarations[5] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with type reference', () => {
+                const func = parsed.declarations[6] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with type literal', () => {
+                const func = parsed.declarations[7] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with undertyped type literal', () => {
+                const func = parsed.declarations[8] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse an object with overtyped type literal', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0]).toMatchSnapshot();
+            });
+
+            it('should parse some mixed parameters (all above)', () => {
+                expect(parsed.declarations[10]).toMatchSnapshot();
+            });
+
+            it('should generate the correct name for an object', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0].name).toMatchSnapshot();
+            });
+
+            it('should generate the correct name for an array', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0].name).toMatchSnapshot();
+            });
+
+            it('should generate the correct type for an object', () => {
+                const func = parsed.declarations[9] as FunctionDeclaration;
+                expect(func.parameters[0].type).toMatchSnapshot();
+            });
+
+            it('should generate the correct type for an array', () => {
+                const func = parsed.declarations[2] as FunctionDeclaration;
+                expect(func.parameters[0].type).toMatchSnapshot();
+            });
+
+        });
+
         describe('Variables', () => {
 
             const file = getWorkspaceFile('typescript-parser/variable.ts');
@@ -310,7 +395,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(4);
+                expect(parsed.declarations).toHaveLength(6);
             });
 
             it('should parse a non exported interface', () => {
@@ -351,6 +436,18 @@ describe('TypescriptParser', () => {
                 expect(parsedInterface.typeParameters).toContain('TError');
             });
 
+            it('should parse optional properties', () => {
+                const parsedInterface = parsed.declarations[4] as InterfaceDeclaration;
+
+                expect(parsedInterface.properties).toMatchSnapshot();
+            });
+
+            it('should parse optional functions', () => {
+                const parsedInterface = parsed.declarations[5] as InterfaceDeclaration;
+
+                expect(parsedInterface).toMatchSnapshot();
+            });
+
         });
 
         describe('Classes', () => {
@@ -363,7 +460,7 @@ describe('TypescriptParser', () => {
             });
 
             it('should parse a file', () => {
-                expect(parsed.declarations).toHaveLength(7);
+                expect(parsed.declarations).toHaveLength(10);
             });
 
             it('should parse an abstract class', () => {
@@ -430,6 +527,30 @@ describe('TypescriptParser', () => {
                 const parsedClass = parsed.declarations[6] as ClassDeclaration;
 
                 expect(parsedClass.accessors).toMatchSnapshot();
+            });
+
+            it('should parse object and array destructure pattern in a class method', () => {
+                const parsedClass = parsed.declarations[7] as ClassDeclaration;
+
+                expect(parsedClass.methods).toMatchSnapshot();
+            });
+
+            it('should parse object and array destructure pattern in a class constructor', () => {
+                const parsedClass = parsed.declarations[7] as ClassDeclaration;
+
+                expect(parsedClass.ctor).toMatchSnapshot();
+            });
+
+            it('should parse optional class properties', () => {
+                const parsedClass = parsed.declarations[8] as ClassDeclaration;
+
+                expect(parsedClass.properties).toMatchSnapshot();
+            });
+
+            it('should parse static class properties and methods', () => {
+                const parsedClass = parsed.declarations[9] as ClassDeclaration;
+
+                expect(parsedClass).toMatchSnapshot();
             });
 
         });

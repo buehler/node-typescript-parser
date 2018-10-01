@@ -27,8 +27,8 @@ const usageAllowedIfLast = [
     SyntaxKind.BinaryExpression,
 ];
 
-const usagePredicates: any = [
-    (o: Node) => o.parent && usageNotAllowedParents.indexOf(o.parent.kind) === -1,
+const usagePredicates: ((node: Node) => boolean)[] = [
+    (o: Node) => o.parent !== undefined && usageNotAllowedParents.indexOf(o.parent.kind) === -1,
     allowedIfLastIdentifier,
     allowedIfPropertyAccessFirst,
 ];

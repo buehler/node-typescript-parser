@@ -23,6 +23,9 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 203,
       "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 177,
@@ -33,6 +36,9 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 237,
       "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [],
       "start": 208,
@@ -43,6 +49,9 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 300,
       "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method3",
       "parameters": Array [],
       "start": 242,
@@ -64,6 +73,8 @@ ClassDeclaration {
   "properties": Array [
     PropertyDeclaration {
       "end": 166,
+      "isOptional": false,
+      "isStatic": false,
       "name": "param1",
       "start": 145,
       "type": "string",
@@ -79,6 +90,7 @@ Array [
   GetterDeclaration {
     "end": 977,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getOnly",
     "start": 939,
     "type": "string",
@@ -87,6 +99,7 @@ Array [
   SetterDeclaration {
     "end": 1022,
     "isAbstract": true,
+    "isStatic": false,
     "name": "setOnly",
     "start": 982,
     "type": undefined,
@@ -95,6 +108,7 @@ Array [
   GetterDeclaration {
     "end": 1067,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 1027,
     "type": "string",
@@ -103,6 +117,7 @@ Array [
   SetterDeclaration {
     "end": 1117,
     "isAbstract": true,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 1072,
     "type": undefined,
@@ -120,6 +135,9 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 55,
       "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 35,
@@ -130,6 +148,9 @@ ClassDeclaration {
     MethodDeclaration {
       "end": 100,
       "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "abstractMethod",
       "parameters": Array [],
       "start": 61,
@@ -150,6 +171,7 @@ ClassDeclaration {
     GetterDeclaration {
       "end": 492,
       "isAbstract": false,
+      "isStatic": false,
       "name": "property",
       "start": 424,
       "type": "string",
@@ -158,6 +180,7 @@ ClassDeclaration {
     SetterDeclaration {
       "end": 572,
       "isAbstract": false,
+      "isStatic": false,
       "name": "property",
       "start": 498,
       "type": undefined,
@@ -171,6 +194,8 @@ ClassDeclaration {
   "properties": Array [
     PropertyDeclaration {
       "end": 363,
+      "isOptional": false,
+      "isStatic": false,
       "name": "_property",
       "start": 337,
       "type": "string",
@@ -178,6 +203,8 @@ ClassDeclaration {
     },
     PropertyDeclaration {
       "end": 394,
+      "isOptional": false,
+      "isStatic": false,
       "name": "protect",
       "start": 368,
       "type": "string",
@@ -185,6 +212,8 @@ ClassDeclaration {
     },
     PropertyDeclaration {
       "end": 418,
+      "isOptional": false,
+      "isStatic": false,
       "name": "pub",
       "start": 399,
       "type": "string",
@@ -195,11 +224,224 @@ ClassDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Classes should parse object and array destructure pattern in a class constructor 1`] = `
+ConstructorDeclaration {
+  "end": 1198,
+  "name": "ObjAndArrDestruct",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 1167,
+      "name": "p1",
+      "start": 1165,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1171,
+      "name": "p2",
+      "start": 1169,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1183,
+      "name": "p3",
+      "start": 1181,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 1187,
+      "name": "p4",
+      "start": 1185,
+      "type": undefined,
+    },
+  ],
+  "start": 1151,
+  "variables": Array [],
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse object and array destructure pattern in a class method 1`] = `
+Array [
+  MethodDeclaration {
+    "end": 1251,
+    "isAbstract": false,
+    "isAsync": false,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "objMethod",
+    "parameters": Array [
+      ObjectBoundParameterDeclaration {
+        "end": 1240,
+        "endCharacter": "}",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1225,
+            "name": "p1",
+            "start": 1223,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1229,
+            "name": "p2",
+            "start": 1227,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1233,
+            "name": "p3",
+            "start": 1231,
+            "type": undefined,
+          },
+        ],
+        "start": 1221,
+        "startCharacter": "{",
+      },
+    ],
+    "start": 1204,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+  MethodDeclaration {
+    "end": 1307,
+    "isAbstract": false,
+    "isAsync": false,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "arrMethod",
+    "parameters": Array [
+      ArrayBoundParameterDeclaration {
+        "end": 1296,
+        "endCharacter": "]",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1277,
+            "name": "p1",
+            "start": 1275,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1281,
+            "name": "p2",
+            "start": 1279,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1285,
+            "name": "p3",
+            "start": 1283,
+            "type": undefined,
+          },
+        ],
+        "start": 1274,
+        "startCharacter": "[",
+      },
+    ],
+    "start": 1257,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+  MethodDeclaration {
+    "end": 1386,
+    "isAbstract": false,
+    "isAsync": false,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "objAndArrMethod",
+    "parameters": Array [
+      ArrayBoundParameterDeclaration {
+        "end": 1358,
+        "endCharacter": "]",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1339,
+            "name": "p1",
+            "start": 1337,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1343,
+            "name": "p2",
+            "start": 1341,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1347,
+            "name": "p3",
+            "start": 1345,
+            "type": undefined,
+          },
+        ],
+        "start": 1336,
+        "startCharacter": "[",
+      },
+      ObjectBoundParameterDeclaration {
+        "end": 1375,
+        "endCharacter": "}",
+        "parameters": Array [
+          ParameterDeclaration {
+            "end": 1364,
+            "name": "p4",
+            "start": 1362,
+            "type": undefined,
+          },
+          ParameterDeclaration {
+            "end": 1368,
+            "name": "p5",
+            "start": 1366,
+            "type": undefined,
+          },
+        ],
+        "start": 1360,
+        "startCharacter": "{",
+      },
+    ],
+    "start": 1313,
+    "type": "void",
+    "variables": Array [],
+    "visibility": 2,
+  },
+]
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse optional class properties 1`] = `
+Array [
+  PropertyDeclaration {
+    "end": 1448,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "nonOptional",
+    "start": 1421,
+    "type": "string",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 1498,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "nonOptionalAsWell",
+    "start": 1453,
+    "type": "string | undefined",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 1528,
+    "isOptional": true,
+    "isStatic": false,
+    "name": "optional",
+    "start": 1503,
+    "type": "string",
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Classes should parse property accessors 1`] = `
 Array [
   GetterDeclaration {
     "end": 731,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getOnly",
     "start": 670,
     "type": "string",
@@ -208,6 +450,7 @@ Array [
   SetterDeclaration {
     "end": 775,
     "isAbstract": false,
+    "isStatic": false,
     "name": "setOnly",
     "start": 737,
     "type": undefined,
@@ -216,6 +459,7 @@ Array [
   GetterDeclaration {
     "end": 838,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 781,
     "type": "string",
@@ -224,12 +468,62 @@ Array [
   SetterDeclaration {
     "end": 888,
     "isAbstract": false,
+    "isStatic": false,
     "name": "getAndSet",
     "start": 844,
     "type": undefined,
     "visibility": 2,
   },
 ]
+`;
+
+exports[`TypescriptParser Declaration parsing Classes should parse static class properties and methods 1`] = `
+ClassDeclaration {
+  "accessors": Array [],
+  "end": 1662,
+  "isExported": false,
+  "methods": Array [
+    MethodDeclaration {
+      "end": 1621,
+      "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": true,
+      "name": "method",
+      "parameters": Array [],
+      "start": 1589,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+    MethodDeclaration {
+      "end": 1660,
+      "isAbstract": false,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
+      "name": "methodNonStatic",
+      "parameters": Array [],
+      "start": 1626,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+  ],
+  "name": "StaticThings",
+  "properties": Array [
+    PropertyDeclaration {
+      "end": 1584,
+      "isOptional": false,
+      "isStatic": true,
+      "name": "prop",
+      "start": 1557,
+      "type": "string",
+      "visibility": 2,
+    },
+  ],
+  "start": 1532,
+}
 `;
 
 exports[`TypescriptParser Declaration parsing Enums should parse an enum correctly 1`] = `
@@ -262,6 +556,7 @@ EnumDeclaration {
 exports[`TypescriptParser Declaration parsing Functions should parse a function correctly 1`] = `
 FunctionDeclaration {
   "end": 84,
+  "isAsync": false,
   "isExported": false,
   "name": "function1",
   "parameters": Array [
@@ -290,6 +585,7 @@ FunctionDeclaration {
 exports[`TypescriptParser Declaration parsing Functions should parse an exported function correctly 1`] = `
 FunctionDeclaration {
   "end": 219,
+  "isAsync": false,
   "isExported": true,
   "name": "function2",
   "parameters": Array [
@@ -299,29 +595,45 @@ FunctionDeclaration {
       "start": 112,
       "type": "string",
     },
-    ParameterDeclaration {
-      "end": 139,
-      "name": "objParam1",
-      "start": 130,
-      "type": undefined,
+    ObjectBoundParameterDeclaration {
+      "end": 152,
+      "endCharacter": "}",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 139,
+          "name": "objParam1",
+          "start": 130,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 150,
+          "name": "objParam2",
+          "start": 141,
+          "type": undefined,
+        },
+      ],
+      "start": 128,
+      "startCharacter": "{",
     },
-    ParameterDeclaration {
-      "end": 150,
-      "name": "objParam2",
-      "start": 141,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 164,
-      "name": "arrParam1",
-      "start": 155,
-      "type": undefined,
-    },
-    ParameterDeclaration {
-      "end": 175,
-      "name": "arrParam2",
-      "start": 166,
-      "type": undefined,
+    ArrayBoundParameterDeclaration {
+      "end": 176,
+      "endCharacter": "]",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 164,
+          "name": "arrParam1",
+          "start": 155,
+          "type": undefined,
+        },
+        ParameterDeclaration {
+          "end": 175,
+          "name": "arrParam2",
+          "start": 166,
+          "type": undefined,
+        },
+      ],
+      "start": 154,
+      "startCharacter": "[",
     },
   ],
   "start": 86,
@@ -358,29 +670,45 @@ Array [
     "start": 112,
     "type": "string",
   },
-  ParameterDeclaration {
-    "end": 139,
-    "name": "objParam1",
-    "start": 130,
-    "type": undefined,
+  ObjectBoundParameterDeclaration {
+    "end": 152,
+    "endCharacter": "}",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 139,
+        "name": "objParam1",
+        "start": 130,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 150,
+        "name": "objParam2",
+        "start": 141,
+        "type": undefined,
+      },
+    ],
+    "start": 128,
+    "startCharacter": "{",
   },
-  ParameterDeclaration {
-    "end": 150,
-    "name": "objParam2",
-    "start": 141,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 164,
-    "name": "arrParam1",
-    "start": 155,
-    "type": undefined,
-  },
-  ParameterDeclaration {
-    "end": 175,
-    "name": "arrParam2",
-    "start": 166,
-    "type": undefined,
+  ArrayBoundParameterDeclaration {
+    "end": 176,
+    "endCharacter": "]",
+    "parameters": Array [
+      ParameterDeclaration {
+        "end": 164,
+        "name": "arrParam1",
+        "start": 155,
+        "type": undefined,
+      },
+      ParameterDeclaration {
+        "end": 175,
+        "name": "arrParam2",
+        "start": 166,
+        "type": undefined,
+      },
+    ],
+    "start": 154,
+    "startCharacter": "[",
   },
 ]
 `;
@@ -413,12 +741,16 @@ Array [
 
 exports[`TypescriptParser Declaration parsing Interfaces should parse a non exported interface 1`] = `
 InterfaceDeclaration {
+  "accessors": Array [],
   "end": 130,
   "isExported": false,
   "methods": Array [
     MethodDeclaration {
       "end": 93,
       "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [],
       "start": 83,
@@ -429,6 +761,9 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 128,
       "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [
         ParameterDeclaration {
@@ -448,6 +783,8 @@ InterfaceDeclaration {
   "properties": Array [
     PropertyDeclaration {
       "end": 55,
+      "isOptional": false,
+      "isStatic": false,
       "name": "property1",
       "start": 37,
       "type": "string",
@@ -455,6 +792,8 @@ InterfaceDeclaration {
     },
     PropertyDeclaration {
       "end": 78,
+      "isOptional": false,
+      "isStatic": false,
       "name": "property2",
       "start": 60,
       "type": "number",
@@ -467,25 +806,37 @@ InterfaceDeclaration {
 
 exports[`TypescriptParser Declaration parsing Interfaces should parse an exported interface 1`] = `
 InterfaceDeclaration {
+  "accessors": Array [],
   "end": 286,
   "isExported": true,
   "methods": Array [
     MethodDeclaration {
       "end": 247,
       "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method1",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 235,
-          "name": "param1",
-          "start": 229,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 243,
-          "name": "param2",
-          "start": 237,
-          "type": undefined,
+        ObjectBoundParameterDeclaration {
+          "end": 245,
+          "endCharacter": "}",
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 235,
+              "name": "param1",
+              "start": 229,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 243,
+              "name": "param2",
+              "start": 237,
+              "type": undefined,
+            },
+          ],
+          "start": 227,
+          "startCharacter": "{",
         },
       ],
       "start": 219,
@@ -496,19 +847,30 @@ InterfaceDeclaration {
     MethodDeclaration {
       "end": 284,
       "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
       "name": "method2",
       "parameters": Array [
-        ParameterDeclaration {
-          "end": 267,
-          "name": "param1",
-          "start": 261,
-          "type": undefined,
-        },
-        ParameterDeclaration {
-          "end": 275,
-          "name": "param2",
-          "start": 269,
-          "type": undefined,
+        ArrayBoundParameterDeclaration {
+          "end": 276,
+          "endCharacter": "]",
+          "parameters": Array [
+            ParameterDeclaration {
+              "end": 267,
+              "name": "param1",
+              "start": 261,
+              "type": undefined,
+            },
+            ParameterDeclaration {
+              "end": 275,
+              "name": "param2",
+              "start": 269,
+              "type": undefined,
+            },
+          ],
+          "start": 260,
+          "startCharacter": "[",
         },
       ],
       "start": 252,
@@ -521,6 +883,8 @@ InterfaceDeclaration {
   "properties": Array [
     PropertyDeclaration {
       "end": 191,
+      "isOptional": false,
+      "isStatic": false,
       "name": "property1",
       "start": 173,
       "type": "string",
@@ -528,6 +892,8 @@ InterfaceDeclaration {
     },
     PropertyDeclaration {
       "end": 214,
+      "isOptional": false,
+      "isStatic": false,
       "name": "property2",
       "start": 196,
       "type": "number",
@@ -538,11 +904,111 @@ InterfaceDeclaration {
 }
 `;
 
+exports[`TypescriptParser Declaration parsing Interfaces should parse optional functions 1`] = `
+InterfaceDeclaration {
+  "accessors": Array [],
+  "end": 714,
+  "isExported": false,
+  "methods": Array [
+    MethodDeclaration {
+      "end": 680,
+      "isAbstract": true,
+      "isAsync": false,
+      "isOptional": false,
+      "isStatic": false,
+      "name": "nonOptionalFunction2",
+      "parameters": Array [],
+      "start": 651,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+    MethodDeclaration {
+      "end": 712,
+      "isAbstract": true,
+      "isAsync": false,
+      "isOptional": true,
+      "isStatic": false,
+      "name": "optionalFunction3",
+      "parameters": Array [],
+      "start": 685,
+      "type": "void",
+      "variables": Array [],
+      "visibility": 2,
+    },
+  ],
+  "name": "OptionalFunctionInterface",
+  "properties": Array [
+    PropertyDeclaration {
+      "end": 572,
+      "isOptional": false,
+      "isStatic": false,
+      "name": "nonOptionalFunction1",
+      "start": 539,
+      "type": "() => void",
+      "visibility": 2,
+    },
+    PropertyDeclaration {
+      "end": 610,
+      "isOptional": true,
+      "isStatic": false,
+      "name": "optionalFunction1",
+      "start": 577,
+      "type": "{ (): void }",
+      "visibility": 2,
+    },
+    PropertyDeclaration {
+      "end": 646,
+      "isOptional": true,
+      "isStatic": false,
+      "name": "optionalFunction2",
+      "start": 615,
+      "type": "() => void",
+      "visibility": 2,
+    },
+  ],
+  "start": 497,
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Interfaces should parse optional properties 1`] = `
+Array [
+  PropertyDeclaration {
+    "end": 422,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "nonOptional",
+    "start": 402,
+    "type": "string",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 470,
+    "isOptional": false,
+    "isStatic": false,
+    "name": "alsoNonOptional",
+    "start": 427,
+    "type": "string | null | undefined",
+    "visibility": 2,
+  },
+  PropertyDeclaration {
+    "end": 493,
+    "isOptional": true,
+    "isStatic": false,
+    "name": "optional",
+    "start": 475,
+    "type": "string",
+    "visibility": 2,
+  },
+]
+`;
+
 exports[`TypescriptParser Declaration parsing Modules should parse a module 1`] = `
 Module {
   "declarations": Array [
     FunctionDeclaration {
       "end": 62,
+      "isAsync": false,
       "isExported": true,
       "name": "modFunc",
       "parameters": Array [],
@@ -595,6 +1061,291 @@ Namespace {
     "MemberA",
     "MemberB",
   ],
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an array 1`] = `"[ p1, p2 ]"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct name for an object 1`] = `"{ p1, p2 }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an array 1`] = `"{ string, Type }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should generate the correct type for an object 1`] = `"{ string, number }"`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a normal parameter 1`] = `
+ParameterDeclaration {
+  "end": 26,
+  "name": "p1",
+  "start": 16,
+  "type": "string",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple array binding pattern 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 66,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 61,
+      "name": "p1",
+      "start": 59,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 65,
+      "name": "p2",
+      "start": 63,
+      "type": undefined,
+    },
+  ],
+  "start": 58,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse a simple object binding pattern  1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 281,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 275,
+      "name": "p1",
+      "start": 273,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 279,
+      "name": "p2",
+      "start": 277,
+      "type": undefined,
+    },
+  ],
+  "start": 271,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with overtyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 239,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 207,
+      "name": "p1",
+      "start": 205,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 211,
+      "name": "p2",
+      "start": 209,
+      "type": "number",
+    },
+  ],
+  "start": 204,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 122,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 101,
+      "name": "p1",
+      "start": 99,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 105,
+      "name": "p2",
+      "start": 103,
+      "type": "Type",
+    },
+  ],
+  "start": 98,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an array with undertyped tuple type 1`] = `
+ArrayBoundParameterDeclaration {
+  "end": 172,
+  "endCharacter": "]",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 157,
+      "name": "p1",
+      "start": 155,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 161,
+      "name": "p2",
+      "start": 159,
+      "type": undefined,
+    },
+  ],
+  "start": 154,
+  "startCharacter": "[",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with overtyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 538,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 491,
+      "name": "p1",
+      "start": 489,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 495,
+      "name": "p2",
+      "start": 493,
+      "type": "number",
+    },
+  ],
+  "start": 487,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 397,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 365,
+      "name": "p1",
+      "start": 363,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 369,
+      "name": "p2",
+      "start": 367,
+      "type": "Type",
+    },
+  ],
+  "start": 361,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with type reference 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 329,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 317,
+      "name": "p1",
+      "start": 315,
+      "type": undefined,
+    },
+    ParameterDeclaration {
+      "end": 321,
+      "name": "p2",
+      "start": 319,
+      "type": undefined,
+    },
+  ],
+  "start": 313,
+  "startCharacter": "{",
+  "typeReference": "Type",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse an object with undertyped type literal 1`] = `
+ObjectBoundParameterDeclaration {
+  "end": 455,
+  "endCharacter": "}",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 433,
+      "name": "p1",
+      "start": 431,
+      "type": "string",
+    },
+    ParameterDeclaration {
+      "end": 437,
+      "name": "p2",
+      "start": 435,
+      "type": undefined,
+    },
+  ],
+  "start": 429,
+  "startCharacter": "{",
+}
+`;
+
+exports[`TypescriptParser Declaration parsing Parameters should parse some mixed parameters (all above) 1`] = `
+FunctionDeclaration {
+  "end": 654,
+  "isAsync": false,
+  "isExported": false,
+  "name": "mixed",
+  "parameters": Array [
+    ParameterDeclaration {
+      "end": 576,
+      "name": "p1",
+      "start": 566,
+      "type": "string",
+    },
+    ObjectBoundParameterDeclaration {
+      "end": 616,
+      "endCharacter": "}",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 582,
+          "name": "p2",
+          "start": 580,
+          "type": "string",
+        },
+        ParameterDeclaration {
+          "end": 586,
+          "name": "p3",
+          "start": 584,
+          "type": "number",
+        },
+      ],
+      "start": 578,
+      "startCharacter": "{",
+    },
+    ArrayBoundParameterDeclaration {
+      "end": 643,
+      "endCharacter": "]",
+      "parameters": Array [
+        ParameterDeclaration {
+          "end": 621,
+          "name": "p4",
+          "start": 619,
+          "type": "Type",
+        },
+        ParameterDeclaration {
+          "end": 625,
+          "name": "p5",
+          "start": 623,
+          "type": "boolean",
+        },
+      ],
+      "start": 618,
+      "startCharacter": "[",
+    },
+  ],
+  "start": 551,
+  "type": "void",
+  "variables": Array [],
 }
 `;
 
@@ -1115,6 +1866,9 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isAsync": false,
+          "isOptional": false,
+          "isStatic": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1179,6 +1933,9 @@ Array [
           MethodDeclaration {
             "end": 304,
             "isAbstract": false,
+            "isAsync": false,
+            "isOptional": false,
+            "isStatic": false,
             "name": "render",
             "parameters": Array [],
             "start": 80,
@@ -1243,6 +2000,9 @@ File {
         MethodDeclaration {
           "end": 304,
           "isAbstract": false,
+          "isAsync": false,
+          "isOptional": false,
+          "isStatic": false,
           "name": "render",
           "parameters": Array [],
           "start": 80,
@@ -1315,6 +2075,9 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isAsync": false,
+          "isOptional": false,
+          "isStatic": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -1373,6 +2136,9 @@ Array [
           MethodDeclaration {
             "end": 93,
             "isAbstract": false,
+            "isAsync": false,
+            "isOptional": false,
+            "isStatic": false,
             "name": "doSomething",
             "parameters": Array [],
             "start": 76,
@@ -1431,6 +2197,9 @@ File {
         MethodDeclaration {
           "end": 93,
           "isAbstract": false,
+          "isAsync": false,
+          "isOptional": false,
+          "isStatic": false,
           "name": "doSomething",
           "parameters": Array [],
           "start": 76,
@@ -1530,6 +2299,9 @@ File {
         MethodDeclaration {
           "end": 142,
           "isAbstract": false,
+          "isAsync": false,
+          "isOptional": false,
+          "isStatic": false,
           "name": "test",
           "parameters": Array [],
           "start": 45,

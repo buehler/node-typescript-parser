@@ -1,6 +1,6 @@
 /**
  * Creates a template from an expression string. The template can then be used to infuse stuff into the template.
- * 
+ *
  * @export
  * @param {string[]} strings
  * @param {...number[]} keys

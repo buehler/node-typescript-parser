@@ -141,7 +141,6 @@ export class TypescriptParser {
         return file;
     }
 
-
     /**
      * Recursive function that runs through the AST of a source and parses the nodes.
      * Creates the class / function / etc declarations and instanciates a new module / namespace

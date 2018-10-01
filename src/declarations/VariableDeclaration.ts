@@ -2,7 +2,7 @@ import { ExportableDeclaration, TypedDeclaration } from './Declaration';
 
 /**
  * Variable declaration. Is contained in a method or function, or can be exported.
- * 
+ *
  * @export
  * @class VariableDeclaration
  * @implements {ExportableDeclaration}
