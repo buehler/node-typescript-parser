@@ -59,12 +59,61 @@ export function parseFunctionParts(
  * @param {(FunctionDeclaration | MethodDeclaration | MethodSignature)} node
  * @returns {TshParameter[]}
  */
+export function parseTypeArguments(
+    node: FunctionDeclaration | MethodDeclaration | MethodSignature,
+): TshParameter[] {
+
+    if (!node.type) return [];
+    if ((!(<any>node.type).typeArguments || !(<any>node.type).typeArguments.length)
+        && !(<any>node.type).members) return [];
+
+    let target;
+
+    if ((<any>node.type).typeArguments && (<any>node.type).typeArguments.length) {
+        if ((<any>node.type).typeArguments[0].constructor.name === 'TokenObject') {
+            return [];
+        }
+        if (!(<any>node.type).typeArguments[0].members) {
+            return [];
+        }
+        target = (<any>node.type).typeArguments[0].members;
+    } else if ((<any>node.type).members) {
+        target = (<any>node.type).members;
+    } else {
+        return [];
+    }
+    return target.reduce(
+        (all: TshParameter[], cur: ParameterDeclaration) => {
+            const params = all;
+            if (cur.type && (<any>cur.type).members) {
+                params.push(new TshParameter(
+                    <string>(cur.name as Identifier).escapedText, parseTypeArguments((<any>cur.type).members),
+                    cur.getStart(), cur.getEnd(),
+                ));
+            } else {
+                params.push(new TshParameter(
+                    <string>(cur.name as Identifier).escapedText, getNodeType(cur.type), cur.getStart(), cur.getEnd(),
+                ));
+            }
+            return params;
+        },
+        []);
+
+}
+
+/**
+ * Parse method parameters. 
+ * 
+ * @export
+ * @param {(FunctionDeclaration | MethodDeclaration | MethodSignature)} node
+ * @returns {TshParameter[]}
+ */
 export function parseMethodParams(
     node: FunctionDeclaration | MethodDeclaration | MethodSignature,
 ): TshParameter[] {
     return node.parameters.reduce(
         (all: TshParameter[], cur: ParameterDeclaration) => {
-            let params = all;
+            const params = all;
             if (isIdentifier(cur.name)) {
                 params.push(new TshParameter(
                     (cur.name as Identifier).text, getNodeType(cur.type), cur.getStart(), cur.getEnd(),
@@ -72,14 +121,11 @@ export function parseMethodParams(
             } else if (isObjectBindingPattern(cur.name) || isArrayBindingPattern(cur.name)) {
                 const identifiers = cur.name as ObjectBindingPattern | ArrayBindingPattern;
                 const elements = [...identifiers.elements];
-
-                params = params.concat(<TshParameter[]>elements.map((o: BindingElement) => {
-                    if (isIdentifier(o.name)) {
-                        return new TshParameter(
-                            (o.name as Identifier).text, undefined, o.getStart(), o.getEnd(),
-                        );
-                    }
-                }).filter(Boolean));
+                const closure = isObjectBindingPattern(cur.name) ? ['{', ' }'] : ['[', ' ]'];
+                const destructuredParam: string = closure[0] + elements.map((o: BindingElement) => {
+                    if (isIdentifier(o.name)) return ' ' + o.name.text;
+                }) + closure[1];
+                params.push(new TshParameter(destructuredParam, 'any'));
             }
             return params;
         },
@@ -105,6 +151,7 @@ export function parseFunction(resource: Resource, node: FunctionDeclaration): vo
         resource.declarations.push(new TshDefault(func.name, resource));
     }
     func.parameters = parseMethodParams(node);
+    func.typeArguments = parseTypeArguments(node);
     resource.declarations.push(func);
     parseFunctionParts(resource, func, node);
 }
