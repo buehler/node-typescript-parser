@@ -9,5 +9,5 @@ import { TypedDeclaration } from './Declaration';
  * @implements {TypedDeclaration}
  */
 export class ParameterDeclaration implements TypedDeclaration {
-    constructor(public name: string, public type: string | undefined, public start?: number, public end?: number) { }
+    constructor(public name: string, public type: any | undefined, public start?: number, public end?: number) { }
 }

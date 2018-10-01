@@ -14,6 +14,7 @@ import { VariableDeclaration } from './VariableDeclaration';
 export class FunctionDeclaration implements CallableDeclaration, ExportableDeclaration {
     public parameters: ParameterDeclaration[] = [];
     public variables: VariableDeclaration[] = [];
+    public typeArguments: ParameterDeclaration[] = [];
 
     constructor(
         public name: string,

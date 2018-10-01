@@ -53,6 +53,6 @@
     "lodash": "^4.17.5",
     "lodash-es": "^4.17.8",
     "tslib": "^1.9.0",
-    "typescript": "^2.8.1"
+    "typescript": "^3.1.1"
   }
 }
