@@ -81,6 +81,20 @@ export class TypescriptParser {
     }
 
     /**
+     * Parses a single file into a parsed file synchronously.
+     *
+     * @param {string} filePath
+     * @param {string} rootPath
+     * @returns {File}
+     *
+     * @memberof TsResourceParser
+     */
+    public parseFileSync(filePath: string, rootPath: string): File {
+        const parse = this.parseFilesSync([filePath], rootPath);
+        return parse[0];
+    }
+
+    /**
      * Parses multiple files into parsed files.
      *
      * @param {string[]} filePathes
@@ -92,6 +106,21 @@ export class TypescriptParser {
     public async parseFiles(
         filePathes: string[],
         rootPath: string): Promise<File[]> {
+        return this.parseFilesSync(filePathes, rootPath);
+    }
+
+    /**
+     * Parses multiple files into parsed files Synchronously.
+     *
+     * @param {string[]} filePathes
+     * @param {string} rootPath
+     * @returns {File[]}
+     *
+     * @memberof TsResourceParser
+     */
+    public parseFilesSync(
+        filePathes: string[],
+        rootPath: string): File[] {
         return filePathes
             .map((o) => {
                 let scriptKind: ScriptKind = ScriptKind.Unknown;
