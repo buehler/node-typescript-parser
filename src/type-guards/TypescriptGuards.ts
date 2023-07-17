@@ -5,6 +5,7 @@ import {
     ExternalModuleReference,
     FunctionDeclaration,
     GetAccessorDeclaration,
+    HeritageClause,
     Identifier,
     ImportDeclaration,
     ImportEqualsDeclaration,
@@ -229,4 +230,15 @@ export function isGetAccessorDeclaration(node?: Node): node is GetAccessorDeclar
  */
 export function isSetAccessorDeclaration(node?: Node): node is SetAccessorDeclaration {
     return node !== undefined && node.kind === SyntaxKind.SetAccessor;
+}
+
+/**
+ * Determines if the given node is a HeritageClause.
+ *
+ * @export
+ * @param {Node} [node]
+ * @returns {node is SetAccessorDeclaration}
+ */
+export function isHeritageClause(node?: Node): node is HeritageClause {
+    return node !== undefined && node.kind === SyntaxKind.HeritageClause;
 }

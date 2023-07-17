@@ -1,6 +1,8 @@
 import { Node } from '../Node';
 import { AccessorDeclaration } from './AccessorDeclaration';
+import { ClassDeclaration } from './ClassDeclaration';
 import { DeclarationVisibility } from './DeclarationVisibility';
+import { InterfaceDeclaration } from './InterfaceDeclaration';
 import { MethodDeclaration } from './MethodDeclaration';
 import { ParameterDeclaration } from './ParameterDeclaration';
 import { PropertyDeclaration } from './PropertyDeclaration';
@@ -131,6 +133,22 @@ export interface ClassLikeDeclaration extends Declaration {
      * @memberof ClassLikeDeclaration
      */
     methods: MethodDeclaration[];
+
+    /**
+     * The methods of the declaration.
+     *
+     * @type {InterfaceDeclaration[]}
+     * @memberof ClassLikeDeclaration
+     */
+    implements: InterfaceDeclaration[];
+
+    /**
+     * The methods of the declaration.
+     *
+     * @type {ClassDeclaration[]}
+     * @memberof ClassLikeDeclaration
+     */
+    extends: ClassDeclaration[];
 }
 
 /**
